@@ -21,7 +21,7 @@
 
   <%= f.label :duration, t('challenges.attr.duration') %>
   <br>
-  <%= f.number_field :duration, in: 10..1000 %>
+  <%= f.number_field :duration, in: 10..1000, step: 10 %>
   <br>
   <br>
 
