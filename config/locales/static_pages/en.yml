@@ -1,0 +1,8 @@
+en:
+  static_pages:
+    welcome: 'Welcome to our Ruby hard mode App'
+    catch-phrase-1: 'You will be able to properly train here with our Rubyist commnunity'
+    catch-phrase-2: "You'll also find many contacts to develop your network"
+    challenge-link: 'Feel free to find a Challenge here: '
+    contact-link: 'Feel free to find Contacts here: '
+    click: 'click'

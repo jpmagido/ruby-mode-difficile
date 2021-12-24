@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_12_24_152823) do
     t.string "title"
     t.text "description"
     t.integer "difficulty"
-    t.integer "time"
+    t.integer "duration"
     t.integer "status", default: 0
     t.string "url"
     t.string "signature"

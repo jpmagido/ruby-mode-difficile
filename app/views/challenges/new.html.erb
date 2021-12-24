@@ -1,0 +1,46 @@
+<h4> <%= t('challenges.custom-text') %> </h4>
+
+<%= form_with model: @new_challenge do |f| %>
+  <%= f.label :title, t('challenges.attr.title') %>
+  <br>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+
+  <%= f.label :description, t('challenges.attr.description') %>
+  <br>
+  <%= f.text_area :description, size: "70x5" %>
+  <br>
+  <br>
+
+  <%= f.label :url, t('challenges.attr.url') %>
+  <br>
+  <%= f.text_field :url %>
+  <br>
+  <br>
+
+  <%= f.label :duration, t('challenges.attr.duration') %>
+  <br>
+  <%= f.number_field :duration, in: 10..1000 %>
+  <br>
+  <br>
+
+  <%= f.label :difficulty, t('challenges.attr.difficulty') %>
+  <br>
+  <%= f.number_field :difficulty, in: 1..10 %>
+  <br>
+  <br>
+  <%= f.label :files, t('challenges.attr.files') %>
+  <br>
+  <%= f.file_field :files, multiple: true %>
+  <br>
+  <br>
+
+  <%= f.label :signature, t('challenges.attr.signature') %>
+  <br>
+  <%= f.text_field :signature %>
+  <br>
+  <br>
+
+  <%= f.submit t('shared.submit_form') %>
+<% end %>

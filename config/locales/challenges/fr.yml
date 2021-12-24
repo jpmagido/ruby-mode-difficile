@@ -1,0 +1,15 @@
+fr:
+  challenges:
+    attr:
+      title: 'Titre'
+      description: 'Description :'
+      signature: 'Signature :'
+      duration: 'Durée (minutes):'
+      difficulty: 'Difficulté (/10) :'
+      files: 'Fichiers :'
+      url: 'Url (ex: Github):'
+    flashes:
+      new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"
+      new-challenge-error: "Quelque chose s'est mal passé: %{error}"
+    custom-text: 'Vous pouvez créer vos challenges Ruby ici'
+    new-challenge: 'Créez un nouveau Challenge !'

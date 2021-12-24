@@ -1,0 +1,8 @@
+fr:
+  static_pages:
+    welcome: 'Bienvenue sur notre application Ruby mode difficile'
+    catch-phrase-1: 'Vous pourrez vous entrainer efficacement grâce à notre petite communauté de rubyist'
+    catch-phrase-2: 'Vous trouverez également des contacts pour développer votre réseau'
+    challenge-link: "N'hésitez pas à chercher un Challenge ici: "
+    contact-link: 'Vous trouverez de nouveaux Contacts ici: '
+    click: 'Clique'
