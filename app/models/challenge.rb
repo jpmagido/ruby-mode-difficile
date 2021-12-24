@@ -11,6 +11,7 @@ class Challenge < ApplicationRecord
   enum status: %i[pending ready]
 
   has_many_attached :files
+  has_rich_text :description
 
   scope :all_valid, -> { where('status = 1') }
 end
