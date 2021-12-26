@@ -21,7 +21,6 @@ gem 'image_processing', '>= 1.2'
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 
 # SUPPORT
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem "sassc-rails"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -43,6 +42,7 @@ group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
   gem 'database_cleaner-active_record', '~> 2.0'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
   gem 'factory_bot_rails', '~> 6.1', '>= 6.2'
   gem 'ffaker', '~> 2.18', '>= 2.20'
   gem 'rails-controller-testing'

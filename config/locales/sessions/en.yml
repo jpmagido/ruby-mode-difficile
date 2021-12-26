@@ -1,0 +1,9 @@
+en:
+  session:
+    temp-oauth:
+      wait-phrase: 'Please wait, you gonna be redirected in 5 sec'
+    success:
+      oauth: 'You just logged in, congratulations :)'
+    errors:
+      unsafe-redirect: "RAILS_ENV = %{rails_env}. Your environment is not setup for redirection"
+      safe-state: 'State validity could not be proven, operation aborted'
