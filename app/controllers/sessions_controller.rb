@@ -59,7 +59,8 @@ class SessionsController < ApplicationController
       login: 'ruby-master',
       scope: nil,
       state: secure_random,
-      allow_signup: 'true'
+      allow_signup: 'true',
+      allow_other_host: true
     }
   end
 
