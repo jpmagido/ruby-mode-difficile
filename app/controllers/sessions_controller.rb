@@ -2,18 +2,18 @@
 
 # TODO: rspec
 class SessionsController < ApplicationController
-  rescue_from UnsafeRedirectError, GithubApi::RequestError, HttpService::RequestError, with: :oauth_error
+  rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :oauth_error
 
   def create
     case Rails.env
     when 'development'
-      res = Oauth::Github.new(username: ENV['GITHUB_PERSONAL_TOKEN']).oauth_development
+      res = Github::Oauth.new(username: ENV['GITHUB_PERSONAL_TOKEN']).oauth_development
       parsed_response = JSON.parse res.body
       # TODO: update session + find / create User
       flash[:success] = t('session.success.oauth')
       redirect_to session_path
     when 'production'
-      redirect_to Oauth::Github::GITHUB_OAUTH_AUTHORIZE_URL, authorize_params
+      redirect_to Github::Oauth::GITHUB_OAUTH_AUTHORIZE_URL, authorize_params
     else
       raise UnsafeRedirectError, t('session.errors.unsafe-redirect', rails_env: Rails.env)
     end
@@ -21,12 +21,19 @@ class SessionsController < ApplicationController
 
   def temp_oauth
     sleep(5)
-
+    p '*' * 50
+    p 'inside temp github'
+    p params
+    p '*' * 50
     # to debug params
     code = { code: params[:code] }
     check_validity!(params[:state])
-    response = Oauth::Github.new(access_token_params.merge(code)).oauth_production
+    response = Github::Oauth.new(access_token_params.merge(code)).oauth_production
 
+    p '*' * 50
+    p 'github token response'
+    p response
+    p '*' * 50
     # TODO: update session + create / find User
     # token = response.split('=')[1]
     # github_user = GithubApi.new(token).find_user
@@ -57,6 +64,10 @@ class SessionsController < ApplicationController
   end
 
   def check_validity!(state)
+    p '*' * 50
+    p 'state inside check_validity'
+    p state
+    p '*' * 50
     raise UnsafeRedirectError, t('session.errors.safe-state') if state != secure_random
   end
 

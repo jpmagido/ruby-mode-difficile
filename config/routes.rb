@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'static_pages/contact'
-  get 'oauth-redirect', to: 'static_pages#oauth'
 
+  resources :users, only: %i[show]
   resources :challenges, only: %i[index show new create]
 end

@@ -33,6 +33,7 @@ module RubyModeDifficile
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.generators do |g|
+      g.orm :active_record, primary_key_type: :uuid
       g.test_framework :rspec,
                        view_specs: false,
                        request_specs: true

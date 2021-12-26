@@ -22,7 +22,7 @@ class HttpService
 
     raise RequestError, response unless response.is_a?(Net::HTTPSuccess)
 
-    response
+    response # TODO: parse ?
   end
 
   def post
@@ -35,7 +35,7 @@ class HttpService
 
     raise RequestError, response.value unless response.is_a?(Net::HTTPSuccess) || response.is_a?(Net::HTTPRedirection)
 
-    response
+    response # TODO: parse ?
   end
 
   private

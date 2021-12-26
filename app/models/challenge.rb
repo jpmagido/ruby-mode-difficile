@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Challenge < ApplicationRecord
+  belongs_to :user
+
   validates_length_of :description, in: 2..2000
   validates_length_of :title, in: 2..100
   validates :url, format: URI.regexp(%w[http https])

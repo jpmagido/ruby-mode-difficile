@@ -8,7 +8,7 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    @new_challenge = Challenge.new(challenge_params)
+    @new_challenge = Challenge.new(challenge_params.merge(user_id: current_user.id))
 
     if @new_challenge.save
       flash[:success] = t('challenges.flashes.new-challenge-success')
