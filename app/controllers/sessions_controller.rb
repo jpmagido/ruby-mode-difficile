@@ -21,17 +21,6 @@ class SessionsController < ApplicationController
   end
 
   def temp_oauth
-    p '*' * 50
-    p 'params'
-    p params
-
-    p 'secure_random'
-    p secure_random
-    p 'params[:state]'
-    p params[:state]
-    p "params['state']"
-    p params['state']
-    p '*' * 50
     raise UnsafeRedirectError, t('session.errors.safe-state') unless params[:state] == secure_random
 
     code = { code: params[:code] }
@@ -40,6 +29,8 @@ class SessionsController < ApplicationController
     p '*' * 50
     p 'github token response'
     p response
+    parsed_response = JSON.parse response.body
+    p parsed_response
     p '*' * 50
 
     # TODO: update session + create / find User
