@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :oauth_error
 
   def new
-    if Rails.env == 'production'
+    if Rails.env == 'development'
       @github_oauth_url = HttpService.new(Github::Oauth::GITHUB_OAUTH_AUTHORIZE_URL, authorize_params).build_url
     end
   end
@@ -21,6 +21,12 @@ class SessionsController < ApplicationController
   end
 
   def temp_oauth
+    p '*' * 50
+    p 'secure_random'
+    p secure_random
+    p 'params[:state]'
+    p params[:state]
+    p '*' * 50
     raise UnsafeRedirectError, t('session.errors.safe-state') unless params[:state] == secure_random
 
     code = { code: params[:code] }
