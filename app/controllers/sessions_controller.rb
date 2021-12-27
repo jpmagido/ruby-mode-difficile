@@ -2,7 +2,7 @@
 
 # TODO: rspec
 class SessionsController < ApplicationController
-  rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :oauth_error
+  rescue_from rescued_klasses, with: :standard_errors
 
   def new
     if Rails.env == 'production'
@@ -13,9 +13,8 @@ class SessionsController < ApplicationController
   def create
     raise UnsafeRedirectError, t('session.errors.unsafe-redirect', rails_env: Rails.env) if Rails.env != 'development'
 
-    res = Github::Oauth.new(username: ENV['GITHUB_PERSONAL_TOKEN']).oauth_development
-    parsed_response = JSON.parse res.body
-    # TODO: update session + find / create User
+    sync_user_session(ENV['GITHUB_PERSONAL_TOKEN'])
+
     flash[:success] = t('session.success.oauth')
     redirect_to session_path
   end
@@ -26,22 +25,26 @@ class SessionsController < ApplicationController
     code = { code: params[:code] }
     response = Github::Oauth.new(access_token_params.merge(code)).oauth_production
 
-    p '*' * 50
-    p 'github token response'
-    p response
-    parsed_response = JSON.parse response.body
-    p parsed_response
-    p '*' * 50
-
-    # TODO: update session + create / find User
-    # token = response.split('=')[1]
-    # github_user = GithubApi.new(token).find_user
+    response_data = Rack::Utils.parse_nested_query(response.body)
+    sync_user_session(response_data['access_token'])
 
     flash[:success] = t('session.success.oauth')
     redirect_to session_path
   end
 
   private
+
+  def sync_user_session(access_token)
+    github_user = Github::Api.new(access_token).find_user
+
+    user = Github::Sync::User.new(github_user).synced_user
+    session = Github::Sync::Session.new(response_body, request, access_token).build
+
+    ActiveRecord::Base.transaction do
+      user.save!
+      session.save!
+    end
+  end
 
   def access_token_params
     {
@@ -66,8 +69,7 @@ class SessionsController < ApplicationController
     @secure_random ||= ENV['GITHUB_REDIRECT_TOKEN']
   end
 
-  def oauth_error(err)
-    flash[:error] = err
-    redirect_to new_session_path
+  def rescued_klasses
+    [UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError]
   end
 end

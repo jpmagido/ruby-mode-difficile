@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_152823) do
+ActiveRecord::Schema.define(version: 2021_12_27_160107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -68,15 +68,26 @@ ActiveRecord::Schema.define(version: 2021_12_24_152823) do
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
+  create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "ip_address", null: false
+    t.string "token", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "github_id"
-    t.string "name"
-    t.text "biography"
-    t.text "github_url"
+    t.integer "github_id", null: false
+    t.string "login"
+    t.string "email"
+    t.text "bio"
+    t.text "repos_url"
     t.text "avatar_url"
-    t.text "personal_url"
+    t.text "blog"
     t.integer "repos_count"
     t.integer "followers"
+    t.integer "language", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -84,4 +95,5 @@ ActiveRecord::Schema.define(version: 2021_12_24_152823) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "challenges", "users"
+  add_foreign_key "sessions", "users"
 end
