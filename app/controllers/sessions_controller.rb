@@ -22,10 +22,15 @@ class SessionsController < ApplicationController
 
   def temp_oauth
     p '*' * 50
+    p 'params'
+    p params
+
     p 'secure_random'
     p secure_random
     p 'params[:state]'
     p params[:state]
+    p "params['state']"
+    p params['state']
     p '*' * 50
     raise UnsafeRedirectError, t('session.errors.safe-state') unless params[:state] == secure_random
 
