@@ -23,7 +23,7 @@ module Github
       end
 
       def user
-        @user ||= User.find_by(github_id: github_user[:id])
+        @user ||= ::User.find_by(github_id: github_user[:id])
       end
 
       def ip_address

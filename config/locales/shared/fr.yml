@@ -2,3 +2,4 @@ fr:
   shared:
     submit_form: 'Valider'
     link_show: 'Page des Détails'
+    back: 'Retour à la page précédente'

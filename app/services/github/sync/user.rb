@@ -12,7 +12,7 @@ module Github
       end
 
       def synced_user
-        user = User.find_or_initialize_by(github_id: github_id)
+        user = ::User.find_or_initialize_by(github_id: github_id)
         user.assign_attributes(user_attributes)
         user
       end
@@ -24,7 +24,7 @@ module Github
       end
 
       def user_attributes
-        github_user.slice(:login, :bio, :email, :repos_url, :avatar_url, :blog, :public_repos, :followers)
+        github_user.slice(:login, :bio, :email, :repos_url, :avatar_url, :blog, :followers)
       end
 
       class Error < StandardError; end

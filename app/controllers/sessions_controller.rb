@@ -2,16 +2,16 @@
 
 # TODO: rspec
 class SessionsController < ApplicationController
-  rescue_from rescued_klasses, with: :standard_errors
+  #rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :standard_errors
 
   def new
-    if Rails.env == 'production'
-      @github_oauth_url = HttpService.new(Github::Oauth::GITHUB_OAUTH_AUTHORIZE_URL, authorize_params).build_url
+    if Rails.env.production?
+      @github_oauth_url = HttpService.new(Github::Oauth::AUTHORIZE_URL, authorize_params).build_url
     end
   end
 
   def create
-    raise UnsafeRedirectError, t('session.errors.unsafe-redirect', rails_env: Rails.env) if Rails.env != 'development'
+    raise UnsafeRedirectError, t('session.errors.unsafe-redirect', rails_env: Rails.env) if Rails.env.development?
 
     sync_user_session(ENV['GITHUB_PERSONAL_TOKEN'])
 
@@ -36,14 +36,14 @@ class SessionsController < ApplicationController
 
   def sync_user_session(access_token)
     github_user = Github::Api.new(access_token).find_user
-
     user = Github::Sync::User.new(github_user).synced_user
-    session = Github::Sync::Session.new(response_body, request, access_token).build
 
     ActiveRecord::Base.transaction do
       user.save!
-      session.save!
+      user_session = Github::Sync::Session.new(github_user, request, access_token).build
+      user_session.save!
     end
+    # TODO: UPDATE Rails session with user.session.id
   end
 
   def access_token_params
@@ -67,9 +67,5 @@ class SessionsController < ApplicationController
 
   def secure_random
     @secure_random ||= ENV['GITHUB_REDIRECT_TOKEN']
-  end
-
-  def rescued_klasses
-    [UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError]
   end
 end

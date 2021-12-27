@@ -3,3 +3,4 @@ en:
     submit_form: 'Validate'
     link_show: 'Details Page'
     oauth: 'You just signed-in, congratulations :)'
+    back: 'Back to previous page'

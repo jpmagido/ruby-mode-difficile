@@ -15,7 +15,8 @@ module Github
     end
 
     def find_user
-      HttpService.new(GET_USER_URL, {}, 'Authorization': "token #{token}").get
+      response = HttpService.new(GET_USER_URL, {}, 'Authorization': "token #{token}").get
+      JSON.parse response.body
     end
 
     class RequestError < StandardError; end
