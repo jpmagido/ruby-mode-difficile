@@ -1,10 +1,20 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-
-<div>
-  <% if Rails.env.production? %>
-    <%= link_to 'Github OAuth', @github_oauth_url, target: '_blank' %>
-  <% else %>
-    <%= button_to 'Github OAuth', session_path %>
-  <% end %>
+<div class="justify-content-center">
+  <div class="border-thin">
+    <div>
+      <h2> <%= t('session.new.connect') %></h2>
+      <br>
+    </div>
+    <br>
+    <div class="github-btn ">
+      <% if Rails.env.production? %>
+        <div class="border-thin">
+          <%= link_to image_tag('github-logo'), @github_oauth_url, target: '_blank', class: 'github-btn' %>
+        </div>
+      <% else %>
+        <div class="border-thin">
+          <%= button_to image_tag('github-logo'), session_path, class: 'github-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

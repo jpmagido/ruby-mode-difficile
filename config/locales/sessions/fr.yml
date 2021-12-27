@@ -1,5 +1,7 @@
 fr:
   session:
+    new:
+      connect: 'Connect your Github Account'
     temp-oauth:
       wait-phrase: 'Merci de patienter, vous allez être redirigé dans 5 sec'
     success:
