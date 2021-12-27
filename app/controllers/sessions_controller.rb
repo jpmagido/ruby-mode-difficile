@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :oauth_error
 
   def new
-    if Rails.env == 'development'
+    if Rails.env == 'production'
       @github_oauth_url = HttpService.new(Github::Oauth::GITHUB_OAUTH_AUTHORIZE_URL, authorize_params).build_url
     end
   end
