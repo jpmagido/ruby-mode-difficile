@@ -4,8 +4,8 @@
 module Github
   class Oauth
     LOG_USER_URL = 'https://api.github.com/user'
-    GITHUB_OAUTH_AUTHORIZE_URL = 'https://github.com/login/github/authorize'
-    GITHUB_OAUTH_TOKEN_URL = 'https://github.com/login/github/access_token'
+    GITHUB_OAUTH_AUTHORIZE_URL = 'https://github.com/login/oauth/authorize'
+    GITHUB_OAUTH_TOKEN_URL = 'https://github.com/login/oauth/access_token'
 
     attr_reader :params
 

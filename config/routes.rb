@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resource :session, only: %i[new create show] do
+  resource :session, only: :create if Rails.env == 'development'
+
+  resource :session, only: %i[new show] do
     get 'temp_oauth'
   end
 

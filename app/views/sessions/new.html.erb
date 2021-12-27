@@ -1,4 +1,10 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
 
-<%= button_to 'Github OAuth', session_path, target: '_blank' %>
+<div>
+  <% if Rails.env == 'production' %>
+    <%= link_to 'Github OAuth', @github_oauth_url, target: '_blank' %>
+  <% else %>
+    <%= button_to 'Github OAuth', session_path %>
+  <% end %>
+</div>

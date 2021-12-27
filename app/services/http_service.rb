@@ -38,6 +38,11 @@ class HttpService
     response # TODO: parse ?
   end
 
+  def build_url
+    uri.query = params.to_query
+    uri.to_s
+  end
+
   private
 
   def uri
