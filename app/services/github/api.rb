@@ -12,6 +12,8 @@ module Github
 
     def initialize(token)
       @token = token
+
+      raise ArgumentError, 'token must be present' unless token
     end
 
     def find_user

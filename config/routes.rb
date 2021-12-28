@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resource :session, only: :create if Rails.env.development?
-
-  resource :session, only: %i[new show] do
-    get 'temp_oauth'
-  end
+  resource :session, only: %i[new edit create show]
 
   root 'static_pages#home'
   get 'static_pages/contact'

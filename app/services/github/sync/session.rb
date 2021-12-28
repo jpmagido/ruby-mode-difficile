@@ -9,6 +9,10 @@ module Github
         @github_user = github_user.symbolize_keys
         @request = request
         @token = token
+
+        raise ArgumentError, 'token must be present' unless token
+        raise ArgumentError, 'request must be present' unless request
+        raise ArgumentError, 'github_user[:id] must be present' unless github_user[:id]
       end
 
       def build

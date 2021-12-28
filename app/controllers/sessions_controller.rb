@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     redirect_to session_path
   end
 
-  def temp_oauth
+  def edit
     raise UnsafeRedirectError, t('session.errors.safe-state') unless params[:state] == secure_random
 
     code = { code: params[:code] }
@@ -35,15 +35,7 @@ class SessionsController < ApplicationController
   private
 
   def sync_user_session(access_token)
-    github_user = Github::Api.new(access_token).find_user
-    user = Github::Sync::User.new(github_user).synced_user
-
-    ActiveRecord::Base.transaction do
-      user.save!
-      user_session = Github::Sync::Session.new(github_user, request, access_token).build
-      user_session.save!
-    end
-    # TODO: UPDATE Rails session with user.session.id
+    session[:user_session_id] = Github::Sync::UserSession.new(access_token, request).save_session!
   end
 
   def access_token_params

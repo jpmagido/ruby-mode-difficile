@@ -11,6 +11,8 @@ class HttpService
     @url = url
     @params = params
     @headers = headers
+
+    raise ArgumentError, 'must provide a url:string' unless url.is_a? String
   end
 
   def get
