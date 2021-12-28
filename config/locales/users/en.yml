@@ -1,0 +1,13 @@
+en:
+  users:
+    attr:
+      name: 'Name: '
+      email: 'Email: '
+      bio: 'Biography: '
+      repos_url: 'Your Github repositories: '
+      repos_count: 'Repos Github count: '
+      avatar_url: 'Your Github avatar url: '
+      blog: 'Your personal website url: '
+      followers: 'Your Github followers: '
+      language: 'Your default language: '
+    welcome: 'Welcome on your dashboard'
