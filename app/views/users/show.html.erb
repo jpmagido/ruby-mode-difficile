@@ -3,5 +3,5 @@
 <h1> <%= t('users.welcome') %> </h1>
 <br>
 <div>
-  <%= render partial 'users/list', locals: { user: current_user } %>
+  <%= render partial: 'users/list', locals: { user: current_user } %>
 </div>
