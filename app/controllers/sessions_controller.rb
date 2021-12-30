@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     sync_user_session(ENV['GITHUB_PERSONAL_TOKEN'])
 
     flash[:success] = t('session.success.oauth')
-    redirect_to user_path current_user
+    redirect_to user_path
   end
 
   def edit
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     sync_user_session(response_data['access_token'])
 
     flash[:success] = t('session.success.oauth')
-    redirect_to user_path current_user
+    redirect_to user_path
   end
 
   private

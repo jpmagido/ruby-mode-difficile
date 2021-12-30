@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= Session.find(session[:user_session_id]).user
+    @current_user ||= Session.find_by(id: session[:user_session_id])&.user
   end
 
   def standard_errors(err)
