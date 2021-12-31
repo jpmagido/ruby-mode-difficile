@@ -13,6 +13,7 @@ gem "redis", "~> 4.0"
 gem "sprockets-rails"
 gem "stimulus-rails" # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "turbo-rails" # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem 'jwt' # encoding
 
 # ACTIVE STORAGE
 gem 'image_processing', '>= 1.2'
