@@ -11,6 +11,6 @@ class Session < ApplicationRecord
   private
 
   def encode_token
-    Security::EncoderService.new(token: self[:token]).encode
+    self[:token] = Security::EncoderService.new(token: self[:token]).encode
   end
 end
