@@ -1,6 +1,6 @@
 <h4> <%= t('challenges.custom-text') %> </h4>
 
-<%= form_with model: @new_challenge do |f| %>
+<%= form_with model: [:login, @new_challenge], local: true do |f| %>
   <%= f.label :title, t('challenges.attr.title') %>
   <br>
   <%= f.text_field :title %>

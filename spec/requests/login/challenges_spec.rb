@@ -7,21 +7,21 @@ RSpec.describe 'Login::ChallengesController', type: :request do
 
   describe 'GET /index' do
     it 'returns http success' do
-      get challenges_path
+      get login_challenges_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /show' do
     it 'returns http success' do
-      get challenge_path(challenge)
+      get login_challenge_path(challenge)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /new' do
     it 'returns http success' do
-      get new_challenge_path
+      get new_login_challenge_path
       expect(response).to have_http_status(:success)
     end
   end
@@ -40,14 +40,14 @@ RSpec.describe 'Login::ChallengesController', type: :request do
 
     context 'when success' do
       it 'redirects to show' do
-        post challenges_path, params: { challenge: challenge_params }
-        expect(response).to redirect_to challenge_path(Challenge.last)
+        post login_challenges_path, params: { challenge: challenge_params }
+        expect(response).to redirect_to login_challenge_path(Challenge.last)
       end
     end
 
     context 'when error' do
       it 'renders new' do
-        post challenges_path, params: { challenge: { title: '' } }
+        post login_challenges_path, params: { challenge: { title: '' } }
         expect(response).to render_template :new
       end
     end
