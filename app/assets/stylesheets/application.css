@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "./actiontext.css";
 
 .container {
     margin: 30px;

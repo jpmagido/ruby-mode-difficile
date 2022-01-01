@@ -1,6 +1,6 @@
 <h1>Challenges#index</h1>
 
-<div> <%= link_to t('challenges.new-challenge'), new_challenge_path %> </div>
+<div> <%= link_to t('challenges.new-challenge'), new_login_challenge_path %> </div>
 
 <br>
 <hr>
@@ -11,7 +11,7 @@
       <li><%= t('challenges.attr.title') %> <%= challenge.title %> </li>
       <li><%= t('challenges.attr.difficulty') %> <%= challenge.difficulty %> </li>
       <li><%= t('challenges.attr.duration') %> <%= challenge.duration %> </li>
-      <li><%= link_to t('shared.link_show'), challenge_path(challenge) %> </li>
+      <li><%= link_to t('shared.link_show'), login_challenge_path(challenge) %> </li>
     </ul>
   <% end %>
 </div>

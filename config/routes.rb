@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/contact'
 
-  resource :user, only: :show
-  resource :session, only: %i[new edit create]
+  namespace :login do
+    resource :user, only: :show
+    resources :challenges, only: %i[index show new create]
+  end
 
-  resources :challenges, only: %i[index show new create]
+  resource :session, only: %i[new edit create]
 
   get 'errors/500'
 end
