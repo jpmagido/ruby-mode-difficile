@@ -15,9 +15,4 @@ module ApplicationHelper
       'alert alert-info alert-dismissible fade show'
     end
   end
-
-  def current_user
-    # session find user_id
-    User.last
-  end
 end

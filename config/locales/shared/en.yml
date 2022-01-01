@@ -4,3 +4,6 @@ en:
     link_show: 'Details Page'
     oauth: 'You just signed-in, congratulations :)'
     back: 'Back to previous page'
+    delete-confirmation: 'Are you sure ?'
+    session-disconnect: 'Disconnect'
+    session-connect: 'Connect'
