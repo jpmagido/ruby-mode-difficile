@@ -3,7 +3,7 @@
 require 'jwt'
 
 module Security
-  class EncoderService
+  class JwtService
     attr_reader :token
 
     def initialize(token:)

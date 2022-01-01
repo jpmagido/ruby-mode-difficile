@@ -5,12 +5,12 @@ class Session < ApplicationRecord
   before_save :encode_token
 
   def token
-    Security::EncoderService.new(token: super).decode
+    Security::JwtService.new(token: super).decode
   end
 
   private
 
   def encode_token
-    self[:token] = Security::EncoderService.new(token: self[:token]).encode
+    self[:token] = Security::JwtService.new(token: self[:token]).encode
   end
 end

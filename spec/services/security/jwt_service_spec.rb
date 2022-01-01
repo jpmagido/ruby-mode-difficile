@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Security::EncoderService do
+RSpec.describe Security::JwtService do
   let(:encoder) { described_class.new(token: token) }
   let(:token) { SecureRandom.hex(10) }
   let(:wrong_input) { [[], :foobar, {}, 10, true] }

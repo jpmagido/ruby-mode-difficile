@@ -7,15 +7,15 @@ RSpec.describe Session, type: :model do
   describe '#save' do
     it 'encodes token attr' do
       session.save!
-      expect { Security::EncoderService }.to have_received(:new).with(session[:token])
-      expect { Security::EncoderService.new(token: session[:token]) }.to have_received(:encode)
+      expect { Security::JwtService }.to have_received(:new).with(session[:token])
+      expect { Security::JwtService.new(token: session[:token]) }.to have_received(:encode)
     end
   end
 
   describe '#token' do
     it 'decodes token attr' do
       saved_session.token
-      expect { Security::EncoderService.new(token: session[:token]) }.to have_received(:decode)
+      expect { Security::JwtService.new(token: session[:token]) }.to have_received(:decode)
     end
   end
 end
