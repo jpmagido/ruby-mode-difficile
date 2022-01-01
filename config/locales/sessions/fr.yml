@@ -2,6 +2,9 @@ fr:
   session:
     new:
       connect: 'Connect your Github Account'
+    destroy:
+      disconnect: 'Vous venez de vous déconnecter'
+      session-not-found: "Impossible de trouver votre session, vous n'êtes pas connecté"
     temp-oauth:
       wait-phrase: 'Merci de patienter, vous allez être redirigé dans 5 sec'
     success:

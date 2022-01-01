@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  helper_method :current_user
+
   if Rails.env.production?
     rescue_from StandardError, with: :standard_errors
   end

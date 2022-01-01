@@ -32,6 +32,13 @@ class SessionsController < ApplicationController
     redirect_to login_user_path
   end
 
+  def destroy
+    flash[:notice] = t('session.destroy.disconnect') if current_user.session.destroy
+
+    reset_session
+    redirect_to root_path
+  end
+
   private
 
   def sync_user_session(access_token)

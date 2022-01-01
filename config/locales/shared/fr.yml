@@ -3,3 +3,6 @@ fr:
     submit_form: 'Valider'
     link_show: 'Page des Détails'
     back: 'Retour à la page précédente'
+    delete-confirmation: 'Êtes-vous certain ?'
+    session-disconnect: 'Se déconnecter'
+    session-connect: 'Se connecter'

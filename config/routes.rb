@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :challenges, only: %i[index show new create]
   end
 
-  resource :session, only: %i[new edit create]
+  resource :session, only: %i[new edit create destroy]
 
   get 'errors/500'
 end
