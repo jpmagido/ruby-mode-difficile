@@ -9,3 +9,5 @@ fr:
     errors:
       unsafe-redirect: "RAILS_ENV = %{rails_env}. Votre environnement n'est pas configuré pour l'OAuth redirection"
       safe-state: 'La validité du state est compromise, opération annulée'
+    redirect:
+      login: 'Vous devez vous authentifier au préalable'

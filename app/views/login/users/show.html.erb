@@ -1,0 +1,7 @@
+<h1>User#show</h1>
+
+<h1> <%= t('users.welcome') %> </h1>
+<br>
+<div>
+  <%= render partial: 'login/users/list', locals: { user: current_user } %>
+</div>

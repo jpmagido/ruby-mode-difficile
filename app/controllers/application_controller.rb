@@ -5,11 +5,13 @@ class ApplicationController < ActionController::Base
     rescue_from StandardError, with: :standard_errors
   end
 
-  private
+  protected
 
   def current_user
     @current_user ||= Session.find_by(id: session[:user_session_id])&.user
   end
+
+  private
 
   def standard_errors(err)
     Rails.logger.fatal(err.exception)
