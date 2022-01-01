@@ -13,6 +13,7 @@ gem "redis", "~> 4.0"
 gem "sprockets-rails"
 gem "stimulus-rails" # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "turbo-rails" # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem 'jwt' # encoding
 
 # ACTIVE STORAGE
 gem 'image_processing', '>= 1.2'
@@ -71,5 +72,6 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'pundit-matchers', '~> 1.6'
   gem 'selenium-webdriver'
+  gem 'vcr', '~> 6.0'
   gem 'webdrivers'
 end

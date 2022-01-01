@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'ChallengesController', type: :request do
+RSpec.describe 'Login::ChallengesController', type: :request do
   let(:challenge) { create(:challenge) }
 
   describe 'GET /index' do
