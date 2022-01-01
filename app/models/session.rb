@@ -2,13 +2,15 @@
 
 class Session < ApplicationRecord
   belongs_to :user
-  before_save :encode
+  before_save :encode_token
 
-  def encode
-    Security::EncoderService.new(token: token).encode
+  def token
+    Security::EncoderService.new(token: super).decode
   end
 
-  #def token
-  #  Security::EncoderService.new(token: token).decode
-  #end
+  private
+
+  def encode_token
+    Security::EncoderService.new(token: self[:token]).encode
+  end
 end
