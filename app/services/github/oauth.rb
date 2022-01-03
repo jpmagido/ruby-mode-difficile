@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: rspec
 module Github
   class Oauth
     LOG_USER_URL = 'https://api.github.com/user'
@@ -11,10 +10,8 @@ module Github
 
     def initialize(params = {})
       @params = params
-    end
 
-    def oauth_development
-      HttpService.new(LOG_USER_URL, {}, headers).get
+      raise ArgumentError, 'Username is required in params' unless params[:username]
     end
 
     def oauth_production

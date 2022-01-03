@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: rspec
 module Github
   module Sync
     class UserSession
