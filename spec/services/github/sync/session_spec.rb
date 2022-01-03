@@ -12,19 +12,12 @@ RSpec.describe Github::Sync::Session, type: :service do
   let!(:session) { create(:session, user: user) }
 
   describe '#new' do
-    it 'initializes properly' do
-      expect { sync_session }.not_to raise_error
-    end
+    it { expect { sync_session }.not_to raise_error }
   end
 
   describe '#build' do
-    it 'builds proper session' do
-      expect(subject.build).to be_an_instance_of Session
-    end
-
-    it 'destroys user_session' do
-      expect { subject.build }.to change(Session, :count).by -1
-    end
+    it { expect(subject.build).to be_an_instance_of Session }
+    it { expect { subject.build }.to change(Session, :count).by -1 }
   end
 
   context 'errors' do

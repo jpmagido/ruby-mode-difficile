@@ -15,7 +15,6 @@ RSpec.describe Github::Sync::User, type: :service do
       blog: 'https://www.my_blog_url.com',
       followers: 10
     }
-
   end
 
   describe '#new' do
