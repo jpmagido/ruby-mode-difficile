@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2022_01_03_171329) do
     t.string "login"
     t.string "email"
     t.text "bio"
-    t.text "repos_url"
+    t.text "html_url"
     t.text "avatar_url"
     t.text "blog"
     t.integer "repos_count"

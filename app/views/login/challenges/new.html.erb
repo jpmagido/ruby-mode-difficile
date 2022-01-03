@@ -19,20 +19,20 @@
   <br>
   <br>
 
-  <%= f.label :duration, t('challenges.attr.duration') %>
+  <%= f.label :duration, t('challenges.attr.duration.label') %>
   <br>
   <%= f.number_field :duration, in: 10..1000, step: 10 %>
   <br>
   <br>
 
-  <%= f.label :difficulty, t('challenges.attr.difficulty') %>
+  <%= f.label :difficulty, t('challenges.attr.difficulty.label') %>
   <br>
   <%= f.number_field :difficulty, in: 1..10 %>
   <br>
   <br>
   <%= f.label :files, t('challenges.attr.files') %>
   <br>
-  <%= f.file_field :files, multiple: true %>
+  <%= f.file_field :files, multiple: true, accept: 'application/zip' %>
   <br>
   <br>
 

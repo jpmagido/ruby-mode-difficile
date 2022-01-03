@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    raise UnsafeRedirectError, t('session.errors.unsafe-redirect', rails_env: Rails.env) unless Rails.env.development?
+    raise UnsafeRedirectError, t('session.errors.unsafe-redirect', rails_env: Rails.env) if Rails.env.production?
 
     sync_user_session(ENV['GITHUB_PERSONAL_TOKEN'])
 

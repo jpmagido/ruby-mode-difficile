@@ -2,7 +2,10 @@ fr:
   shared:
     submit_form: 'Valider'
     link_show: 'Page des Détails'
+    oauth: 'Vous venez de vous authentifier, félicitations :)'
     back: 'Retour à la page précédente'
     delete-confirmation: 'Êtes-vous certain ?'
     session-disconnect: 'Se déconnecter'
     session-connect: 'Se connecter'
+    navbar:
+      user-dashboard: 'Votre Page Utilisateur'

@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+module Login
+  class AnswersController < Login::BaseController
+    helper_method :answers, :answer, :challenge
+
+    def new
+      @new_answer = Answer.new
+    end
+
+    def create
+      @new_answer = current_user.answers.new(answer_params.merge(challenge_id: challenge.id))
+
+      if @new_answer.save
+        flash[:success] = t('answers.flashes.create-success')
+        redirect_to login_challenge_answer_path(challenge, @new_answer)
+      else
+        flash[:error] = t('answers.flashes.create-error', err: @new_answer.errors.messages)
+        render 'login/answers/new'
+      end
+    end
+
+    private
+
+    def answers
+      @answers ||= current_user.answers
+    end
+
+    def challenge
+      @challenge ||= Challenge.find(params[:challenge_id])
+    end
+
+    def answer
+      challenge.answers.find(params[:id])
+    end
+
+    def answer_params
+      params.require(:answer).permit(:github_url, :signature, :comments)
+    end
+  end
+end

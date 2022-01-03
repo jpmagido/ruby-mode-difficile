@@ -9,4 +9,6 @@ class Answer < ApplicationRecord
   validates_presence_of :comments
 
   enum status: %i[pending ready]
+
+  has_one_attached :file
 end
