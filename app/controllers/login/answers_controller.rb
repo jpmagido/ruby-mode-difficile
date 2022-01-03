@@ -35,7 +35,7 @@ module Login
     end
 
     def answer_params
-      params.require(:answer).permit(:github_url, :signature, :comments)
+      params.require(:answer).permit(:github_url, :youtube_url, :signature, :comments)
     end
   end
 end

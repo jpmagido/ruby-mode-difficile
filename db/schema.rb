@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_01_03_171329) do
 
   create_table "answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "github_url"
+    t.string "youtube_url"
     t.string "signature"
     t.integer "status", default: 0
     t.text "comments"
@@ -98,7 +99,6 @@ ActiveRecord::Schema.define(version: 2022_01_03_171329) do
     t.text "html_url"
     t.text "avatar_url"
     t.text "blog"
-    t.integer "repos_count"
     t.integer "followers"
     t.integer "language", default: 0
     t.datetime "created_at", precision: 6, null: false

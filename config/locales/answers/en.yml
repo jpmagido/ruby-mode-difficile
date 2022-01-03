@@ -14,6 +14,7 @@ en:
     attr:
       comments: 'Comments : '
       github-url: 'Github Link : '
+      youtube-url: 'Youtube Link : '
       file: 'Attached document : '
       status:
         pending: 'Waiting for approval'
