@@ -9,4 +9,6 @@ en:
       blog: 'Your personal website url: '
       followers: 'Your Github followers: '
       language: 'Your default language: '
-    welcome: 'Welcome on your dashboard'
+    welcome: 'Welcome to your dashboard'
+    my-answers: 'Here is your Answers list'
+    my-challenges: 'Here is your Challenges list'

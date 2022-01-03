@@ -2,7 +2,7 @@
 
 module Login
   class AnswersController < Login::BaseController
-    helper_method :answers, :answer, :challenge
+    helper_method :answer, :challenge
 
     def new
       @new_answer = Answer.new
@@ -21,10 +21,6 @@ module Login
     end
 
     private
-
-    def answers
-      @answers ||= current_user.answers
-    end
 
     def challenge
       @challenge ||= Challenge.find(params[:challenge_id])

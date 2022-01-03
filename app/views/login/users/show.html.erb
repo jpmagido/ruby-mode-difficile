@@ -1,7 +1,29 @@
-<h1>User#show</h1>
-
-<h1> <%= t('users.welcome') %> </h1>
+<h3> <%= t('users.welcome') %> </h3>
 <br>
 <div>
   <%= render partial: 'login/users/list', locals: { user: current_user } %>
+</div>
+
+<hr>
+
+<div>
+  <%= t('users.my-challenges') %>
+
+  <% current_user.challenges.each do |challenge| %>
+    <ul>
+      <li> <%= link_to challenge.title, login_challenge_path(challenge) %> </li>
+    </ul>
+  <% end %>
+</div>
+
+<hr>
+
+<div>
+  <%= t('users.my-answers') %>
+
+  <% current_user.answers.each do |answer| %>
+    <ul>
+      <li> <%= link_to answer.challenge.title, login_challenge_answer_path(answer.challenge, answer) %> </li>
+    </ul>
+  <% end %>
 </div>
