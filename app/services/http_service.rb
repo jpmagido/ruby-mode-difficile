@@ -3,7 +3,6 @@
 require 'net/http'
 require 'uri'
 
-# TODO: rspec
 class HttpService
   attr_reader :url, :params, :headers
 
