@@ -23,7 +23,7 @@ module Github
       private
 
       def destroy_all_user_sessions!
-        ::Session.where(user_id: user.id).destroy_all
+        ::Session.where(user_id: user&.id).destroy_all
       end
 
       def user
