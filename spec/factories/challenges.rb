@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :challenge do
     title { FFaker::Book.title }
-    description { FFaker::Book.description }
+    # description { FFaker::Book.description }
     difficulty { rand 1..10 }
     duration { rand 1..500 }
     url { FFaker::Internet.http_url }
