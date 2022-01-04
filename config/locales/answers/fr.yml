@@ -1,0 +1,23 @@
+fr:
+  answers:
+    flashes:
+      create-success: 'Vous avez soumis une Solution, un Administrateur va la modérer sous peu'
+      create-error: "Votre réponse n'est pas valide, merci d'ajouter les informations manquantes: %{err}"
+
+    show:
+      title: 'Page de la solution au challenge: %{name}'
+      link-challenge: 'Lien du Challenge'
+      link-user-github: "Lien du Github de l'auteur"
+      link-user-personal: "Lien du site personnel de l'auteur"
+    new:
+      phrase-1: 'Vous pouvez ajouter votre réponse au Challenge'
+    attr:
+      comments: 'Commentaires : '
+      github-url: 'Lien Github : '
+      youtube-url: 'Lien Youtube : '
+      file: 'Pièce jointe : '
+      status:
+        pending: 'En attente de validation'
+        ready: 'Validé'
+    links:
+      show: 'Proposer une solution'

@@ -4,12 +4,20 @@ fr:
       title: 'Titre'
       description: 'Description :'
       signature: 'Signature :'
-      duration: 'Durée (minutes):'
-      difficulty: 'Difficulté (/10) :'
+      duration:
+        label: 'Durée :'
+        value: '%{value} minutes'
+      difficulty:
+        label: 'Difficulté :'
+        value: '%{value}/10'
       files: 'Fichiers :'
-      url: 'Url (ex: Github):'
+      url: 'Url Github :'
     flashes:
       new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"
       new-challenge-error: "Quelque chose s'est mal passé: %{error}"
     custom-text: 'Vous pouvez créer vos challenges Ruby ici'
     new-challenge: 'Créez un nouveau Challenge !'
+    show:
+      title: 'Titre : %{title}'
+      answer-link: 'Auteur: %{author}'
+      solution-count: '%{counter} réponse(s) disponibles'

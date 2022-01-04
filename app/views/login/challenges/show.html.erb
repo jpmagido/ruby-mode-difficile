@@ -1,13 +1,31 @@
-<h1>Challenges#show</h1>
+<h3> <%= t('challenges.show.title', title: challenge.title) %> </h3>
 
 <div>
   <ul>
-    <li><%= t('challenges.attr.title') %> <%= challenge.title %> </li>
-    <li><%= t('challenges.attr.description') %> <%= challenge.description %> </li>
-    <li><%= t('challenges.attr.url') %> <%= challenge.url %> </li>
-    <li><%= t('challenges.attr.signature') %> <%= challenge.signature %> </li>
-    <li><%= t('challenges.attr.difficulty') %> <%= challenge.difficulty %> </li>
-    <li><%= t('challenges.attr.duration') %> <%= challenge.duration %> </li>
-    <li><%= t('challenges.attr.files') %> <%= challenge.files %> </li>
+    <li> <%= t('challenges.attr.description') %> <%= challenge.description %> </li>
+    <li> <%= t('challenges.attr.url') %> <%= link_to challenge.url, challenge.url %> </li>
+    <li> <%= t('challenges.attr.signature') %> <%= challenge.signature %> </li>
+    <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
+    <li> <%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
+    <% if challenge.files.attached? %>
+      <li><%= t('challenges.attr.files') %> <%= challenge.files %> </li>
+    <% end %>
   </ul>
+</div>
+
+<hr>
+
+<%= link_to t('answers.links.show'), new_login_challenge_answer_path(challenge) %>
+<br><br>
+
+<div>
+  <%= t('challenges.show.solution-count', counter: challenge.answers.count) %>
+</div>
+
+<div>
+  <% challenge.answers.each do |answer| %>
+    <p>
+      <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer) %>
+    </p>
+  <% end %>
 </div>

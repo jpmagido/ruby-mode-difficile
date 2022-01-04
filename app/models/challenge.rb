@@ -3,7 +3,11 @@
 class Challenge < ApplicationRecord
   belongs_to :user
 
-  # validates_length_of :description, in: 2..2000
+  has_many :answers
+  has_many_attached :files
+  has_rich_text :description
+
+  validates_length_of :description, in: 2..2000
   validates_length_of :title, in: 2..100
   validates :url, format: URI.regexp(%w[http https])
   validates_presence_of :duration
@@ -11,9 +15,6 @@ class Challenge < ApplicationRecord
   validates_length_of :signature, in: 2..100
 
   enum status: %i[pending ready]
-
-  has_many_attached :files
-  has_rich_text :description
 
   scope :all_valid, -> { where('status = 1') }
 end

@@ -9,8 +9,8 @@
   <% challenges.each do |challenge| %>
     <ul>
       <li><%= t('challenges.attr.title') %> <%= challenge.title %> </li>
-      <li><%= t('challenges.attr.difficulty') %> <%= challenge.difficulty %> </li>
-      <li><%= t('challenges.attr.duration') %> <%= challenge.duration %> </li>
+      <li><%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
+      <li><%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
       <li><%= link_to t('shared.link_show'), login_challenge_path(challenge) %> </li>
     </ul>
   <% end %>

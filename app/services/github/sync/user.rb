@@ -24,7 +24,7 @@ module Github
       end
 
       def user_attributes
-        github_user.slice(:login, :bio, :email, :repos_url, :avatar_url, :blog, :followers)
+        github_user.slice(:login, :bio, :email, :html_url, :avatar_url, :blog, :followers)
       end
 
       class Error < StandardError; end

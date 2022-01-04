@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_160107) do
+ActiveRecord::Schema.define(version: 2022_01_03_171329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -54,7 +54,21 @@ ActiveRecord::Schema.define(version: 2021_12_27_160107) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "challenges", force: :cascade do |t|
+  create_table "answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "github_url"
+    t.string "youtube_url"
+    t.string "signature"
+    t.integer "status", default: 0
+    t.text "comments"
+    t.uuid "challenge_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_answers_on_challenge_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "challenges", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "difficulty"
@@ -82,10 +96,9 @@ ActiveRecord::Schema.define(version: 2021_12_27_160107) do
     t.string "login"
     t.string "email"
     t.text "bio"
-    t.text "repos_url"
+    t.text "html_url"
     t.text "avatar_url"
     t.text "blog"
-    t.integer "repos_count"
     t.integer "followers"
     t.integer "language", default: 0
     t.datetime "created_at", precision: 6, null: false
@@ -94,6 +107,8 @@ ActiveRecord::Schema.define(version: 2021_12_27_160107) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "challenges"
+  add_foreign_key "answers", "users"
   add_foreign_key "challenges", "users"
   add_foreign_key "sessions", "users"
 end

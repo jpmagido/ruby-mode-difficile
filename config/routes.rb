@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   namespace :login do
     resource :user, only: :show
-    resources :challenges, only: %i[index show new create]
+    resources :challenges, only: %i[index show new create] do
+      resources :answers, only: %i[show new create]
+    end
   end
 
   resource :session, only: %i[new edit create destroy]

@@ -5,10 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Login::ChallengesController', type: :request do
   let(:challenge) { create(:challenge) }
 
-  before do
-    Rails.env = 'development'
-    post session_path
-  end
+  before { post session_path }
 
   describe 'GET /index' do
     it 'returns http success' do
@@ -39,7 +36,7 @@ RSpec.describe 'Login::ChallengesController', type: :request do
         difficulty: 3,
         signature: 'jpm',
         url: 'https://www.google.fr',
-        #description: 'test description',
+        description: 'test description',
       }
     end
 
