@@ -36,7 +36,7 @@ RSpec.describe 'Login::ChallengesController', type: :request do
         difficulty: 3,
         signature: 'jpm',
         url: 'https://www.google.fr',
-        #description: 'test description',
+        description: 'test description',
       }
     end
 
