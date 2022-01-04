@@ -8,13 +8,6 @@ RSpec.describe 'Login::AnswersController', type: :request do
 
   before { post session_path }
 
-  describe 'GET /index' do
-    it 'returns http success' do
-      get login_challenge_answers_path(challenge)
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe 'GET /show' do
     it 'returns http success' do
       get login_challenge_answer_path(challenge, answers.first)
@@ -26,6 +19,23 @@ RSpec.describe 'Login::AnswersController', type: :request do
     it 'returns http success' do
       get new_login_challenge_answer_path(challenge)
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'POST /create' do
+    let(:post_params) do
+      {
+        answer: {
+          github_url: 'https://github.com',
+          youtube_url: 'https://youtube.com',
+          signature: 'user rspec',
+          comments: 'this is an rspec test'
+        }
+      }
+    end
+
+    it 'creates an Answer' do
+      expect { post login_challenge_answers_path(challenge), params: post_params }.to change(Answer, :count).by 1
     end
   end
 end
