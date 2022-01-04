@@ -16,8 +16,8 @@ RSpec.describe Github::Oauth, type: :service do
   end
 
   context 'when errors' do
-    it { expect { described_class.new({}) }.to raise_error ArgumentError }
-    it { expect { described_class.new(id: 123) }.to raise_error ArgumentError }
-    it { expect { described_class.new(username: nil) }.to raise_error ArgumentError }
+    let(:wrong_inputs) { [true, '', [], nil, 0, 0.1, :foobar, Struct.new(:foo)] }
+
+    it { expect { described_class.new(wrong_inputs.sample) }.to raise_error ArgumentError }
   end
 end
