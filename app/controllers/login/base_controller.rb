@@ -14,8 +14,10 @@ module Login
     private
 
     def authenticate_user!
-      flash[:error] = t('session.redirect.login')
-      redirect_to new_session_path unless current_user
+      unless current_user
+        flash[:error] = t('session.redirect.login')
+        redirect_to new_session_path
+      end
     end
   end
 end
