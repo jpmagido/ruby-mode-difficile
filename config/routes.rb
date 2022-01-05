@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :staff do
+    resource :admin, only: :show
+  end
+
   resource :session, only: %i[new edit create destroy]
 
   get 'errors/500'

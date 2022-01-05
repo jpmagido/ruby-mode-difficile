@@ -9,3 +9,4 @@ en:
     session-connect: 'Connect'
     navbar:
       user-dashboard: 'Your User page'
+      admin-dashboard: 'Admin Dashboard'

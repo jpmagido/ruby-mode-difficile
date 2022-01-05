@@ -1,0 +1,6 @@
+en:
+  admins:
+    show:
+      title: 'Welcome on your Admin Dashboard'
+    flashes:
+      admin-status: 'You must be Admin to be here'
