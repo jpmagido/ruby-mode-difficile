@@ -10,11 +10,15 @@ en:
       difficulty:
         label: 'Difficulty : '
         value: '%{value}/10'
+      status:
+        label: 'Status :'
       files: 'Files :'
       url: 'Github Url : '
     flashes:
       new-challenge-success: 'You created a Challenge, an Admin will moderate it soon'
-      new-challenge-error: 'Something went wrong: %{error}'
+      challenge-error: 'Something went wrong: %{error}'
+      update-challenge-success: 'You successfully updated a Challenge'
+      destroy-challenge-success: 'You successfully deleted a Challenge'
     custom-text: 'You can create your Ruby challenges here'
     new-challenge: 'Create a new Challenge !'
     show:

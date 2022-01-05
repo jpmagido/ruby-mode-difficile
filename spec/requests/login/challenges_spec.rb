@@ -41,9 +41,9 @@ RSpec.describe 'Login::ChallengesController', type: :request do
     end
 
     context 'when success' do
-      it 'redirects to show' do
-        post login_challenges_path, params: { challenge: challenge_params }
-        expect(response).to redirect_to login_challenge_path(Challenge.last)
+      it 'creates a Challenge' do
+        expect { post login_challenges_path, params: { challenge: challenge_params } }
+          .to change(Challenge, :count).by 1
       end
     end
 

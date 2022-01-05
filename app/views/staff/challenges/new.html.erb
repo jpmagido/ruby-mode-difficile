@@ -1,6 +1,8 @@
+<h3>Staff::Challenges#new</h3>
+
 <h4> <%= t('challenges.custom-text') %> </h4>
 
-<%= form_with model: [:login, @new_challenge] do |f| %>
+<%= form_with model: [:staff, @new_challenge] do |f| %>
   <%= f.label :title, t('challenges.attr.title') %>
   <br>
   <%= f.text_field :title %>
@@ -22,6 +24,12 @@
   <%= f.label :duration, t('challenges.attr.duration.label') %>
   <br>
   <%= f.number_field :duration, in: 10..1000, step: 10 %>
+  <br>
+  <br>
+
+  <%= f.label :status, t('challenges.attr.status.label') %>
+  <br>
+  <%= f.select :status, Challenge.statuses.to_a %>
   <br>
   <br>
 

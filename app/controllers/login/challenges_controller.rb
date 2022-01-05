@@ -15,7 +15,7 @@ module Login
         flash[:success] = t('challenges.flashes.new-challenge-success')
         redirect_to login_challenge_path(@new_challenge)
       else
-        # flash.now[:notice] = t('challenges.flashes.new-challenge-error', error: @new_challenge.errors.messages)
+        flash.now[:notice] = t('challenges.flashes.challenge-error', error: @new_challenge.errors.messages)
         render action: :new
       end
     end
