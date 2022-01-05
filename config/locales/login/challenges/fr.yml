@@ -12,6 +12,9 @@ fr:
         value: '%{value}/10'
       status:
         label: 'Statut :'
+        values:
+          pending: 'En attente de validation'
+          ready: 'Validé'
       files: 'Fichiers :'
       url: 'Url Github :'
     flashes:

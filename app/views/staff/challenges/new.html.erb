@@ -29,7 +29,7 @@
 
   <%= f.label :status, t('challenges.attr.status.label') %>
   <br>
-  <%= f.select :status, Challenge.statuses.to_a %>
+  <%= f.select :status, Challenge.statuses.keys %>
   <br>
   <br>
 
