@@ -20,7 +20,7 @@
 
 <hr>
 
-<%= link_to t('answers.links.show'), new_login_challenge_answer_path(challenge) %>
+<%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge) %>
 <br><br>
 
 <div>
@@ -30,7 +30,7 @@
 <div>
   <% challenge.answers.each do |answer| %>
     <p>
-      <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer) %>
+      <%= link_to t('challenges.show.answer-link', author: answer.user.login), staff_answer_path(answer) %>
     </p>
   <% end %>
 </div>

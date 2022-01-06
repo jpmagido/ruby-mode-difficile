@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :staff do
     resource :admin, only: :show
     resources :challenges
+    resources :answers
   end
 
   resource :session, only: %i[new edit create destroy]

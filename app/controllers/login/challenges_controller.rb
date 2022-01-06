@@ -31,7 +31,15 @@ module Login
     end
 
     def challenge_params
-      params.require(:challenge).permit(:title, :description, :url, :signature, :duration, :difficulty, files: [])
+      params.require(:challenge).permit(
+        :title,
+        :description,
+        :url,
+        :signature,
+        :duration,
+        :difficulty,
+        files: []
+      )
     end
   end
 end

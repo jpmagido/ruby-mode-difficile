@@ -1,0 +1,6 @@
+en:
+  staff:
+    answers:
+      flashes:
+        update-success: 'You successfully updated the Answer'
+        destroy-success: 'You successfully destroyed the Answer'

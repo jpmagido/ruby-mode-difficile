@@ -1,0 +1,6 @@
+fr:
+  staff:
+    answers:
+      flashes:
+        update-success: 'Vous avez modifié la Réponse'
+        destroy-success: 'Vous avez supprimé la Réponse'

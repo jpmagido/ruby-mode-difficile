@@ -2,7 +2,7 @@ fr:
   answers:
     flashes:
       create-success: 'Vous avez soumis une Solution, un Administrateur va la modérer sous peu'
-      create-error: "Votre réponse n'est pas valide, merci d'ajouter les informations manquantes: %{err}"
+      error: "Votre réponse n'est pas valide, merci d'ajouter les informations manquantes: %{err}"
 
     show:
       title: 'Page de la solution au challenge: %{name}'
@@ -20,4 +20,4 @@ fr:
         pending: 'En attente de validation'
         ready: 'Validé'
     links:
-      show: 'Proposer une solution'
+      new-answer: 'Proposer une solution'
