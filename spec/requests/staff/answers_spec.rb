@@ -65,7 +65,7 @@ RSpec.describe 'Staff::AnswersController', type: :request do
     end
   end
 
-  describe 'PATCH /edit' do
+  describe 'PATCH /update' do
     it 'updates answer' do
       patch staff_answer_path(answer), params: { answer: { signature: 'new signature' } }
 
@@ -78,7 +78,7 @@ RSpec.describe 'Staff::AnswersController', type: :request do
       expect { delete staff_answer_path(answer) }.to change(Answer, :count).by(-1)
     end
 
-    it 'redirects to' do
+    it 'redirects to answers index' do
       delete staff_answer_path(answer)
       expect(response).to redirect_to staff_answers_path
     end

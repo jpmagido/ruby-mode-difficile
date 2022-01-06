@@ -8,6 +8,6 @@ FactoryBot.define do
     avatar_url { FFaker::Internet.http_url }
     blog { FFaker::Internet.http_url }
     followers { rand(1..100) }
-    language { 0 }
+    language { :fr }
   end
 end

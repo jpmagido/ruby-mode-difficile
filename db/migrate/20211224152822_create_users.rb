@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.text :blog
       t.integer :followers
       t.integer :language, default: 0
+      t.boolean :active, default: true
 
       t.timestamps
     end

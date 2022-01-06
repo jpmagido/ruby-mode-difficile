@@ -12,3 +12,8 @@ en:
     navbar:
       user-dashboard: 'Your User page'
       admin-dashboard: 'Admin Dashboard'
+    errors:
+      500:
+        error-text: 'Error #500 / INTERNAL ERROR'
+      401:
+        error-text: 'Error #401 / UNAUTHORIZED ACCESS'

@@ -25,7 +25,7 @@ module Staff
         flash[:success] = t('staff.answers.flashes.update-success')
         redirect_to staff_answer_path(answer)
       else
-        flash.now[:error] = t('answers.flashes.error', error: answer.errors.messages)
+        flash.now[:error] = t('answers.flashes.error', err: answer.errors.messages)
         render 'staff/answers/edit'
       end
     end

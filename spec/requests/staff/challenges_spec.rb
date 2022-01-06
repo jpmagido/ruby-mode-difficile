@@ -66,7 +66,7 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
     end
   end
 
-  describe 'PATCH /edit' do
+  describe 'PATCH /update' do
     it 'updates challenge' do
       patch staff_challenge_path(challenge), params: { challenge: { title: 'new title' } }
 
@@ -79,7 +79,7 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
       expect { delete staff_challenge_path(challenge) }.to change(Challenge, :count).by(-1)
     end
 
-    it 'redirects to' do
+    it 'redirects to challenge index' do
       delete staff_challenge_path(challenge)
       expect(response).to redirect_to staff_challenges_path
     end

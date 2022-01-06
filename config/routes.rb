@@ -15,9 +15,12 @@ Rails.application.routes.draw do
     resource :admin, only: :show
     resources :challenges
     resources :answers
+    resources :users, except: %i[new create]
   end
 
   resource :session, only: %i[new edit create destroy]
 
-  get 'errors/500'
+  %w[500 401].each do |status|
+    get "errors/#{status}"
+  end
 end
