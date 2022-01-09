@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Staff::AdminsController', type: :request do
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   context 'when current_user is Admin' do
     before { create(:admin, user: User.last) }

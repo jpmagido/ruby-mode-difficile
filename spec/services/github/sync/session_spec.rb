@@ -16,8 +16,17 @@ RSpec.describe Github::Sync::Session, type: :service do
   end
 
   describe '#build' do
-    it { expect(subject.build).to be_an_instance_of Session }
-    it { expect { subject.build }.to change(Session, :count).by -1 }
+    it 'returns a session' do
+      VCR.use_cassette('ip-check') do
+        expect(subject.build).to be_an_instance_of Session
+      end
+    end
+
+    it 'deletes user sessions' do
+      VCR.use_cassette('ip-check') do
+        expect { subject.build }.to change(Session, :count).by -1
+      end
+    end
   end
 
   context 'errors' do

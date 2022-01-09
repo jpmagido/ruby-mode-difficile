@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Staff::UsersController', type: :request do
   let!(:user) { create(:user) }
 
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   describe 'GET /index' do
     it 'returns http success' do

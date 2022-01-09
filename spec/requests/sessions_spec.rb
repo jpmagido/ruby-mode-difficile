@@ -20,12 +20,21 @@ RSpec.describe 'SessionsController', type: :request do
   end
 
   describe 'POST /create' do
-    it { expect(post(session_path)).to redirect_to login_user_path }
-    it { expect { post(session_path) }.to change(Session, :count).by 1 }
+    it 'redirects to login user show' do
+      VCR.use_cassette('login') do
+        expect(post(session_path)).to redirect_to login_user_path
+      end
+    end
+
+    it 'creates a User' do
+      VCR.use_cassette('login') do
+        expect { post(session_path) }.to change(Session, :count).by 1
+      end
+    end
   end
 
   describe 'DELETE /destroy' do
-    before { post session_path }
+    before { VCR.use_cassette('login') { post session_path } }
 
     it { expect(delete(session_path)).to redirect_to root_path }
     it { expect { delete(session_path) }.to change(Session, :count).by(-1) }

@@ -6,7 +6,7 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
   let!(:challenge) { create(:challenge) }
 
   before do
-    post session_path
+    VCR.use_cassette('login') { post session_path }
     create(:admin, user: User.last)
   end
 

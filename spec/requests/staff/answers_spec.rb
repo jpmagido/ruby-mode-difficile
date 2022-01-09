@@ -7,7 +7,7 @@ RSpec.describe 'Staff::AnswersController', type: :request do
   let!(:challenge) { create(:challenge) }
   let!(:user) { create(:user) }
 
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   describe 'GET /index' do
     it 'returns http success' do

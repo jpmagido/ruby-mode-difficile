@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Login::ChallengesController', type: :request do
   let(:challenge) { create(:challenge) }
 
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   describe 'GET /index' do
     it 'returns http success' do

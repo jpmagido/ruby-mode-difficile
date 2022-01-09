@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resource :admin, only: :show
     resources :challenges
     resources :answers
-    resources :users, except: %i[new create]
+    resources :users, only: %i[index show edit update destroy]
   end
 
   resource :session, only: %i[new edit create destroy]

@@ -16,11 +16,19 @@ RSpec.describe HttpService, type: :service do
   end
 
   describe '#get' do
-    it { expect { http_service_get.get }.not_to raise_error }
+    it 'returns http success' do
+      VCR.use_cassette('simple-get') do
+        expect { http_service_get.get }.not_to raise_error
+      end
+    end
   end
 
   describe '#post' do
-    it { expect { http_service_post.post }.not_to raise_error }
+    it 'returns http success' do
+      VCR.use_cassette('simple-post') do
+        expect { http_service_post.post }.not_to raise_error
+      end
+    end
   end
 
   describe '#build_url' do

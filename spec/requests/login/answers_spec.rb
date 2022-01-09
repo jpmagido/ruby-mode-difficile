@@ -6,7 +6,7 @@ RSpec.describe 'Login::AnswersController', type: :request do
   let!(:challenge) { create(:challenge) }
   let!(:answers) { create_list(:answer, 3, challenge: challenge) }
 
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   describe 'GET /show' do
     it 'returns http success' do
