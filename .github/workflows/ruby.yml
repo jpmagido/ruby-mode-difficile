@@ -32,7 +32,7 @@ jobs:
       run: bundle exec rails db:setup
       env:
         RAILS_ENV: test
-        USERNAME: postgres
-        PASSWORD: postgres
+        USERNAME: jpmagido
+        PASSWORD: grenade
     - name: Run tests
       run: bundle exec rspec
