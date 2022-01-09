@@ -33,6 +33,6 @@ jobs:
       env:
         RAILS_ENV: test
         USERNAME: jpmagido
-        PASSWORD: grenade
+        DATABASE: ruby_mode_difficile_test
     - name: Run tests
       run: bundle exec rspec
