@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_one :admin, dependent: :destroy
 
   enum language: %i[fr en]
+
+  scope :admins, -> { joins(:admin) }
 end

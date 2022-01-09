@@ -23,7 +23,7 @@ module Staff
     private
 
     def users
-      @users ||= User.all
+      @users ||= User.all - User.admins
     end
 
     def user
