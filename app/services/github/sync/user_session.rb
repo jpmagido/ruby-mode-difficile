@@ -32,7 +32,7 @@ module Github
       end
 
       def github_user
-        @github_user ||= Github::Api.new(token).find_user
+        @github_user ||= Github::Api::User.new(token).find_user
       end
     end
   end
