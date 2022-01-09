@@ -15,7 +15,7 @@ module Login
         flash[:success] = t('answers.flashes.create-success')
         redirect_to login_challenge_answer_path(challenge, @new_answer)
       else
-        flash[:error] = t('answers.flashes.create-error', err: @new_answer.errors.messages)
+        flash[:error] = t('answers.flashes.error', err: @new_answer.errors.messages)
         render 'login/answers/new'
       end
     end
@@ -27,7 +27,7 @@ module Login
     end
 
     def answer
-      challenge.answers.find(params[:id])
+      @answer ||= challenge.answers.find(params[:id])
     end
 
     def answer_params

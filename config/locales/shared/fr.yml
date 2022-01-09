@@ -2,6 +2,8 @@ fr:
   shared:
     submit_form: 'Valider'
     link_show: 'Page des Détails'
+    link_edit: 'Modifier'
+    link_destroy: 'Supprimer'
     oauth: 'Vous venez de vous authentifier, félicitations :)'
     back: 'Retour à la page précédente'
     delete-confirmation: 'Êtes-vous certain ?'
@@ -9,3 +11,9 @@ fr:
     session-connect: 'Se connecter'
     navbar:
       user-dashboard: 'Votre Page Utilisateur'
+      admin-dashboard: 'Admin Dashboard'
+    errors:
+      500:
+        error-text: 'Erreur #500 / ERREUR INTERNE'
+      401:
+        error-text: 'Erreur #401 / ACCES NON AUTHORISE'

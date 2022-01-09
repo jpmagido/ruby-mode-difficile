@@ -2,7 +2,7 @@ en:
   answers:
     flashes:
       create-success: 'You posted an answer, thank you, an Admin will moderate it soon'
-      create-error: 'Your answer is not complete, please add all information before posting it: %{err}'
+      error: 'Your answer is not complete, please add all information before posting it: %{err}'
 
     show:
       title: 'Challenge solution : %{name}'
@@ -20,4 +20,4 @@ en:
         pending: 'Waiting for approval'
         ready: 'Validated'
     links:
-      show: 'Add my solution'
+      new-answer: 'Add my solution'

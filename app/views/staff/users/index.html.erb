@@ -1,0 +1,11 @@
+<h1>Staff::Users#index</h1>
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<% users.each do |user| %>
+  <%= t('users.attr.name') %> <%= user.login %>
+  <%= link_to t('shared.link_show'), staff_user_path(user) %>
+  <%= link_to t('shared.link_edit'), edit_staff_user_path(user) %>
+  <%= button_to t('shared.link_destroy'), staff_user_path(user), method: :delete %>
+<% end %>

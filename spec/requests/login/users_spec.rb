@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Login::UsersController', type: :request do
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   describe 'GET /show' do
     it 'returns http success' do

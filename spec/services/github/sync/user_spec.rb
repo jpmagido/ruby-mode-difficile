@@ -6,7 +6,8 @@ RSpec.describe Github::Sync::User, type: :service do
   subject(:sync_user) { described_class.new(github_user) }
 
   let(:github_user) do
-    { id: 123,
+    {
+      id: 123,
       login: 'my custom name',
       bio: 'I am tall',
       email: 'rspec@rspec.com',
@@ -31,6 +32,14 @@ RSpec.describe Github::Sync::User, type: :service do
     it { expect(sync_user.synced_user.avatar_url).to eq 'https://www.my_avatar_url.com' }
     it { expect(sync_user.synced_user.blog).to eq 'https://www.my_blog_url.com' }
     it { expect(sync_user.synced_user.followers).to eq 10 }
+
+    context 'when User is banned' do
+      let!(:banned_user) { create(:user, active: false, github_id: 123) }
+
+      it 'raises unauthorized' do
+        expect { sync_user.synced_user }.to raise_error described_class::Unauthorized
+      end
+    end
   end
 
   context 'when wrong inputs' do

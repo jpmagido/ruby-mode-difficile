@@ -10,11 +10,18 @@ fr:
       difficulty:
         label: 'Difficulté :'
         value: '%{value}/10'
+      status:
+        label: 'Statut :'
+        values:
+          pending: 'En attente de validation'
+          ready: 'Validé'
       files: 'Fichiers :'
       url: 'Url Github :'
     flashes:
       new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"
-      new-challenge-error: "Quelque chose s'est mal passé: %{error}"
+      challenge-error: "Quelque chose s'est mal passé: %{error}"
+      update-challenge-success: 'Vous avez modifié un Challenge avec succès'
+      destroy-challenge-success: 'Vous avez supprimé un Challenge avec succès'
     custom-text: 'Vous pouvez créer vos challenges Ruby ici'
     new-challenge: 'Créez un nouveau Challenge !'
     show:

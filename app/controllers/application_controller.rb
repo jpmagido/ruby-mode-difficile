@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   if Rails.env.production?
+    rescue_from Github::Sync::User::Unauthorized, with: :unauthorized
     rescue_from StandardError, with: :standard_errors
   end
 
@@ -14,6 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def unauthorized(err)
+    Rails.logger.error(err.exception)
+    render template: 'errors/401', status: 401, locals: { errors: err }
+  end
 
   def standard_errors(err)
     Rails.logger.fatal(err.exception)

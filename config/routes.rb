@@ -11,7 +11,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :staff do
+    resource :admin, only: :show
+    resources :challenges
+    resources :answers
+    resources :users, only: %i[index show edit update destroy]
+  end
+
   resource :session, only: %i[new edit create destroy]
 
-  get 'errors/500'
+  %w[500 401].each do |status|
+    get "errors/#{status}"
+  end
 end

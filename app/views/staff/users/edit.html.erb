@@ -1,0 +1,51 @@
+<h1>Staff::Users#edit</h1>
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<%= form_with model: [:staff, user] do |f| %>
+  <%= f.label :github_id, 'Github_id' %>
+  <%= f.text_field :github_id, disabled: true %>
+  <br>
+
+  <%= f.label :login, t('users.attr.name') %>
+  <%= f.text_field :login, disabled: true %>
+  <br>
+
+  <%= f.label :email, t('users.attr.email') %>
+  <%= f.text_field :email, disabled: true %>
+  <br>
+
+  <%= f.label :bio, t('users.attr.bio') %>
+  <%= f.text_field :bio, disabled: true %>
+  <br>
+
+  <%= f.label :html_url, t('users.attr.html_url') %>
+  <%= f.text_area :html_url, size: '45x1', disabled: true %>
+  <br>
+
+  <%= f.label :avatar_url, t('users.attr.avatar_url') %>
+  <%= f.text_area :avatar_url, size: '55x1', disabled: true %>
+  <br>
+
+  <%= f.label :blog, t('users.attr.blog') %>
+  <%= f.text_area :blog, size: '55x1', disabled: true %>
+  <br>
+
+  <%= f.label :followers, t('users.attr.followers') %>
+  <%= f.text_field :followers, disabled: true %>
+  <br>
+  <hr>
+  <br>
+
+  <%= f.label :language, t('users.attr.language') %>
+  <%= f.select :language, collection: User.languages.keys.to_a %>
+  <br>
+
+  <%= f.label :active, t('users.attr.active') %>
+  <%= f.check_box :active %>
+  <br>
+  <br>
+
+  <%= f.submit t('shared.submit_form') %>
+<% end %>

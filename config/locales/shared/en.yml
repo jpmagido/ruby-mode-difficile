@@ -2,6 +2,8 @@ en:
   shared:
     submit_form: 'Validate'
     link_show: 'Details Page'
+    link_edit: 'Update'
+    link_destroy: 'Delete'
     oauth: 'You just signed-in, congratulations :)'
     back: 'Back to previous page'
     delete-confirmation: 'Are you sure ?'
@@ -9,3 +11,9 @@ en:
     session-connect: 'Connect'
     navbar:
       user-dashboard: 'Your User page'
+      admin-dashboard: 'Admin Dashboard'
+    errors:
+      500:
+        error-text: 'Error #500 / INTERNAL ERROR'
+      401:
+        error-text: 'Error #401 / UNAUTHORIZED ACCESS'

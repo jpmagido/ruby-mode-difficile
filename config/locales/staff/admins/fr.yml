@@ -1,0 +1,6 @@
+fr:
+  admins:
+    show:
+      title: 'Bienvenue sur le Dashboard ADMIN'
+    flashes:
+      admin-status: 'You must be Admin to be here'

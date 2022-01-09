@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://httpbin.org/post
+    body:
+      encoding: US-ASCII
+      string: name=test
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - httpbin.org
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 09 Jan 2022 12:04:13 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '488'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/19.9.0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+    body:
+      encoding: UTF-8
+      string: "{\n  \"args\": {}, \n  \"data\": \"\", \n  \"files\": {}, \n  \"form\":
+        {\n    \"name\": \"test\"\n  }, \n  \"headers\": {\n    \"Accept\": \"*/*\",
+        \n    \"Accept-Encoding\": \"gzip;q=1.0,deflate;q=0.6,identity;q=0.3\", \n
+        \   \"Content-Length\": \"9\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\",
+        \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"Ruby\", \n    \"X-Amzn-Trace-Id\":
+        \"Root=1-61dacf3d-3ac67fae64807b8c45b7629c\"\n  }, \n  \"json\": null, \n
+        \ \"origin\": \"91.172.235.156\", \n  \"url\": \"https://httpbin.org/post\"\n}\n"
+  recorded_at: Sun, 09 Jan 2022 12:04:13 GMT
+recorded_with: VCR 6.0.0

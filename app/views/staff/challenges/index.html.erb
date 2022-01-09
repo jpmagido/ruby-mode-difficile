@@ -1,0 +1,22 @@
+<h3>Staff::Challenges#index</h3>
+
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
+
+<br><br>
+<hr>
+<div>
+  <% challenges.each do |challenge| %>
+    <ul>
+      <li><%= t('challenges.attr.title') %> <%= challenge.title %> </li>
+      <li><%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
+      <li><%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
+      <li><%= link_to t('shared.link_show'), staff_challenge_path(challenge) %> </li>
+      <li><%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %> </li>
+      <li><%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete %> </li>
+    </ul>
+  <% end %>
+</div>

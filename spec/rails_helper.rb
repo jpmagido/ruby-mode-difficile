@@ -51,7 +51,6 @@ RSpec.configure do |config|
 
   VCR.configure do |config|
     config.cassette_library_dir = Rails.root.join('spec', 'fixtures', 'vcr_cassettes')
-    # config.stub_with :fakeweb
-    # config.hook_into :webmock
+    config.hook_into :webmock
   end
 end

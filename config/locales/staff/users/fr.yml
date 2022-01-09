@@ -1,0 +1,7 @@
+fr:
+  staff:
+    users:
+      flashes:
+        update-success: 'Vous avez modifié un Utilisateur avec succès'
+        error: 'Une erreur est survenue: %{err}'
+        destroy-success: 'Vous avez désactivé le compte Utilisateur'

@@ -1,0 +1,7 @@
+en:
+  staff:
+    users:
+      flashes:
+        update-success: 'You successfully update an User'
+        error: 'Something went wrong : %{err}'
+        destroy-success: 'You successfully desactivated the User'

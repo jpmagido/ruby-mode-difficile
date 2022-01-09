@@ -13,6 +13,9 @@ module Github
 
       def synced_user
         user = ::User.find_or_initialize_by(github_id: github_id)
+
+        raise Unauthorized, 'Your account is desactivated, please contact an Admin' unless user.active
+
         user.assign_attributes(user_attributes)
         user
       end
@@ -28,6 +31,8 @@ module Github
       end
 
       class Error < StandardError; end
+
+      class Unauthorized < StandardError; end
     end
   end
 end

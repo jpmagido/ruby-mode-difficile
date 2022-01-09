@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Login::ChallengesController', type: :request do
   let(:challenge) { create(:challenge) }
 
-  before { post session_path }
+  before { VCR.use_cassette('login') { post session_path } }
 
   describe 'GET /index' do
     it 'returns http success' do
@@ -41,9 +41,9 @@ RSpec.describe 'Login::ChallengesController', type: :request do
     end
 
     context 'when success' do
-      it 'redirects to show' do
-        post login_challenges_path, params: { challenge: challenge_params }
-        expect(response).to redirect_to login_challenge_path(Challenge.last)
+      it 'creates a Challenge' do
+        expect { post login_challenges_path, params: { challenge: challenge_params } }
+          .to change(Challenge, :count).by 1
       end
     end
 

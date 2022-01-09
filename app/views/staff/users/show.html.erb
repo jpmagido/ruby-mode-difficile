@@ -1,0 +1,10 @@
+<h1>Staff::Users#show</h1>
+
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<%= t('users.attr.active') %> <%= user.active %>
+<hr>
+
+<%= render partial: 'login/users/list', locals: { user: user } %>
