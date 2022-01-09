@@ -12,6 +12,10 @@ module Login
       @new_challenge = Challenge.new(challenge_params.merge(user_id: current_user.id))
 
       if @new_challenge.save
+        @repository = @new_challenge.build_repository(url: @new_challenge.url, readme: 'Readme', cloud_storage_id: @new_challenge.id, cloud_storage_type: 'Challenge')
+        if @repository.save
+          flash[:success] = t('repositories.flashes.new-repository-success')
+        end
         flash[:success] = t('challenges.flashes.new-challenge-success')
         redirect_to login_challenge_path(@new_challenge)
       else

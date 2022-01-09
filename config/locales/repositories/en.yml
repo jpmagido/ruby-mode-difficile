@@ -1,0 +1,12 @@
+en:
+  repositories:
+    attr:
+    flashes:
+      new-repository-success: 'You created a repository'
+      new-repository-error: 'Something went wrong: %{error}'
+    custom-text: 'You can create your Ruby repository here'
+    new-repository: 'Create a new repository !'
+    show:
+      title: 'Title : %{title}'
+      answer-link: 'Author : %{author}'
+      solution-count: '%{counter} solutions available'

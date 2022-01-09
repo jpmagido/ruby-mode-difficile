@@ -99,16 +99,6 @@ ActiveRecord::Schema.define(version: 2022_01_09_150728) do
     t.index ["cloud_storage_type", "cloud_storage_id"], name: "index_repositories_on_cloud_storage"
   end
 
-  create_table "respositories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.text "url"
-    t.text "readme"
-    t.string "cloud_storage_type"
-    t.bigint "cloud_storage_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cloud_storage_type", "cloud_storage_id"], name: "index_respositories_on_cloud_storage"
-  end
-
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "ip_address", null: false
     t.string "token", null: false
