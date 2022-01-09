@@ -1,2 +1,14 @@
 <h3>Staff::Answers#index</h3>
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+<br>
+<%= link_to t('answers.links.new-answer'), new_staff_answer_path %>
+<hr>
+<br>
 
+<% answers.each do |answer| %>
+  <%= link_to answer.title, staff_answer_path(answer) %>
+  <%= link_to t('shared.link_edit'), edit_staff_answer_path(answer) %>
+  <%= button_to t('shared.link_destroy'), staff_answer_path(answer), method: :delete %>
+<% end %>

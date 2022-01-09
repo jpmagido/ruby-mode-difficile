@@ -1,7 +1,10 @@
 <h1>Staff::Answers#show</h1>
-<p>Find me in app/views/staff/answers/show.html.erb</p>
-
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
 
 <div>
   <%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge_id: challenge.id) %>
 </div>
+
+<%= render partial: 'login/answers/list', locals: { answer: answer } %>

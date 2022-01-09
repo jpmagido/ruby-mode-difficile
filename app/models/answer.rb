@@ -11,4 +11,6 @@ class Answer < ApplicationRecord
   enum status: %i[pending ready]
 
   has_one_attached :file
+
+  delegate :title, to: :challenge
 end

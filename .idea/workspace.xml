@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9df9df68-3558-4add-860e-deaee4ee65e1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ruby-mode-difficile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ruby-mode-difficile.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/login/answers/_list.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/staff/admins/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/admins/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/answer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/answer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/login/answers/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/login/answers/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/answers/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/answers/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/answers/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/answers/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/answers/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/answers/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/answers/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/answers/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/challenges/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/challenges/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/challenges/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/challenges/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/staff/challenges/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/challenges/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/staff/users/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/users/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/staff/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/users/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/staff/users/new.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/staff/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/staff/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/login/users/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/login/users/en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/login/users/fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/login/users/fr.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641177927806</updated>
       <workItem from="1641177933275" duration="44391000" />
-      <workItem from="1641678166596" duration="5290000" />
+      <workItem from="1641678166596" duration="6921000" />
     </task>
     <servers />
   </component>

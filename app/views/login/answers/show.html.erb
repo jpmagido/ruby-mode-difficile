@@ -1,13 +1,3 @@
 <h3> <%= t('answers.show.title', name: answer.challenge.title) %> </h3>
-<div>
-  <ul>
-    <li> <%= t('answers.attr.github-url') %> <%= link_to answer.github_url, answer.github_url, target: '_blank' %> </li>
-    <li> <%= t('answers.attr.youtube-url') %> <%= link_to answer.youtube_url, answer.youtube_url, target: '_blank' %> </li>
-    <li> Signature : <%= answer.signature %> </li>
-    <li> Status : <%= t("answers.attr.status.#{answer.status}") %> </li>
-    <li> <%= t('answers.attr.comments') %> <%= answer.comments %> </li>
-    <li> <%= link_to t('answers.show.link-challenge'), login_challenge_path(challenge) %> </li>
-    <li> <%= link_to t('answers.show.link-user-personal'), answer.user.blog, target: '_blank' %> </li>
-    <li> <%= link_to t('answers.show.link-user-github'), answer.user.html_url, target: '_blank' %> </li>
-  </ul>
-</div>
+
+<%= render partial: 'login/answers/list', locals: { answer: answer } %>
