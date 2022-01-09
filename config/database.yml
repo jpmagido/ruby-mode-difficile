@@ -8,7 +8,7 @@ default: &default
 development:
   <<: *default
   database: ruby_mode_difficile_development
-  username: 'jpmagido'
+  username: jpmagido
   password: <%= ENV["MY_APP_DATABASE_URL"] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -35,6 +35,7 @@ development:
 test:
   <<: *default
   database: ruby_mode_difficile_test
+  username: jpmagido
   password:
 
 # As with config/credentials.yml, you never want to store sensitive information,

@@ -32,7 +32,7 @@ jobs:
       run: bundle exec rails db:setup
       env:
         RAILS_ENV: test
-        USERNAME: jpmagido
-        DATABASE: ruby_mode_difficile_test
+        username: jpmagido
+        database: ruby_mode_difficile_test
     - name: Run tests
       run: bundle exec rspec
