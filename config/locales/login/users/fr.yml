@@ -9,6 +9,7 @@ fr:
       blog: 'Votre site personel: '
       followers: 'Vos abonnés Github: '
       language: 'Votre language par défault: '
+      active: 'Utilisateur Actif ? '
     welcome: 'Bienvenue sur votre dashboard'
     my-answers: 'Voici la liste complète de vos Réponses'
     my-challenges: 'Voici la liste complète des Challenges que vous avez crées'
