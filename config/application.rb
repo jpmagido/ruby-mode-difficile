@@ -39,7 +39,7 @@ module RubyModeDifficile
                        request_specs: true
     end
 
-    #config.i18n.default_locale = :fr
+    config.i18n.default_locale = :en
     config.time_zone = 'Paris'
     # Don't generate system test files.
     config.generators.system_tests = nil

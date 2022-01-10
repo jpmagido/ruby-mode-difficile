@@ -9,6 +9,7 @@ fr:
     delete-confirmation: 'Êtes-vous certain ?'
     session-disconnect: 'Se déconnecter'
     session-connect: 'Se connecter'
+    update-locale: 'Vous avez modifié vos préférences linguistique en Français'
     navbar:
       user-dashboard: 'Votre Page Utilisateur'
       admin-dashboard: 'Admin Dashboard'

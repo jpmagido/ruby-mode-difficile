@@ -9,6 +9,7 @@ en:
     delete-confirmation: 'Are you sure ?'
     session-disconnect: 'Disconnect'
     session-connect: 'Connect'
+    update-locale: 'You updated your language preferences to English'
     navbar:
       user-dashboard: 'Your User page'
       admin-dashboard: 'Admin Dashboard'

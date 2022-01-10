@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  before_action :set_locale
+
   helper_method :current_user
 
   if Rails.env.production?
@@ -15,6 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_locale
+    I18n.locale = current_user&.language || session[:locale]
+  end
 
   def unauthorized(err)
     Rails.logger.error(err.exception)
