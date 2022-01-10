@@ -10,9 +10,7 @@ RSpec.describe 'LocalesController', type: :request do
       end
 
       it 'updates app locale to en' do
-        expect(I18n.locale).to eq(:en)
-        patch locale_path(locale: :fr)
-        expect(I18n.locale).to eq(:fr)
+        expect { patch locale_path(locale: :fr) }.to change(I18n, :locale).from(:en).to(:fr)
       end
 
       it 'updates current_user language to fr' do
@@ -28,9 +26,7 @@ RSpec.describe 'LocalesController', type: :request do
       before { I18n.locale = :fr }
 
       it 'updates app locale to fr' do
-        expect(I18n.locale).to eq(:fr)
-        patch locale_path(locale: :en)
-        expect(I18n.locale).to eq(:en)
+        expect { patch locale_path(locale: :en) }.to change(I18n, :locale).from(:fr).to(:en)
       end
     end
   end
