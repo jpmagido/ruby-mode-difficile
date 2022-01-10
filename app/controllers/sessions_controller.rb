@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
   def destroy
     flash[:notice] = t('session.destroy.disconnect') if current_user.session.destroy
 
-    reset_session
+    session[:user_session_id] = nil
     redirect_to root_path
   end
 
