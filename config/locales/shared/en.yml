@@ -3,7 +3,7 @@ en:
     submit_form: 'Validate'
     link_show: 'Details Page'
     link_edit: 'Update'
-    link_destroy: 'Delete'
+    link_destroy: 'Blacklist'
     oauth: 'You just signed-in, congratulations :)'
     back: 'Back to previous page'
     delete-confirmation: 'Are you sure ?'
