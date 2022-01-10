@@ -27,7 +27,7 @@ module Staff
     end
 
     def user
-      @user ||= users.find(params[:id])
+      @user ||= User.find(params[:id])
     end
 
     def user_params

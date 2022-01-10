@@ -8,3 +8,4 @@
 <hr>
 
 <%= render partial: 'login/users/list', locals: { user: user } %>
+<%= button_to t('shared.link_destroy'), staff_user_path(user), method: :delete %>

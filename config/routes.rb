@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: %i[new edit create destroy]
+  resource :locale, only: :update
 
   %w[500 401].each do |status|
     get "errors/#{status}"
