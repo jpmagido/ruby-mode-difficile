@@ -1,3 +1,15 @@
 <h3> <%= t('answers.show.title', name: answer.challenge.title) %> </h3>
 
 <%= render partial: 'login/answers/list', locals: { answer: answer } %>
+
+<hr>
+<% if answer.repository %>
+  <p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(answer.repository), method: :patch %> </p>
+  <div>
+    <h6> README: </h6>
+    <div> <%= sanitize answer.repository.readme %> </div>
+  </div>
+<% end %>
+<br>
+
+<hr>

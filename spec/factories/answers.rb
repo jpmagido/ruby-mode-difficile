@@ -9,5 +9,9 @@ FactoryBot.define do
 
     association :user
     association :challenge
+
+    after(:create) do |answer|
+      create(:repository, cloud_storage: answer)
+    end
   end
 end
