@@ -1,27 +1,34 @@
 # frozen_string_literal: true
 
+require 'base64'
 require 'net/http'
 require 'uri'
 
 module Github
   module Api
     class Repository
-      attr_reader :token, :cloud_storage
+      attr_reader :owner_name, :repo_name
 
-      GET_README_URL = 'https://api.github.com/user/repo/readme/dir'
+      def initialize(owner_name:, repo_name:)
+        @owner_name = owner_name
+        @repo_name = repo_name
 
-      def initialize(token:, cloud_storage:)
-        @token = token
-        @cloud_storage = cloud_storage
-
-        raise ArgumentError, 'token must be present' unless token
-        raise ArgumentError, 'url github must be present' unless cloud_storage
+        raise ArgumentError, 'repo owner name must me provided: string' unless owner_name.is_a? String
+        raise ArgumentError, 'repo name must be provided: string' unless repo_name.is_a? String
       end
 
-      def get_readme
-        response = HttpService.new(GET_README_URL, {}, 'Authorization': "token #{token}").readme
-        p JSON.parse response.body
-        #JSON.parse response.body
+      def readme
+        Base64.decode64 JSON.parse(readme_json_response.body)['content']
+      end
+
+      private
+
+      def readme_json_response
+        @readme_json_response ||= HttpService.new(readme_url, {}, 'Accept': 'application/vnd.github.v3+json').get
+      end
+
+      def readme_url
+        "https://api.github.com/repos/#{owner_name}/#{repo_name}/readme"
       end
     end
   end

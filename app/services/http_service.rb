@@ -26,19 +26,6 @@ class HttpService
     response # TODO: parse ?
   end
 
-  def readme
-    response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
-      request = Net::HTTP::Get.new uri
-      headers.each { |key, value| request[key] = value }
-      http.request request
-      byebug
-    end
-
-    raise RequestError, response unless response.is_a?(Net::HTTPSuccess)
-
-    response # TODO: parse ?
-  end
-
   def post
     request = Net::HTTP::Post.new(uri)
     request.set_form_data(params)

@@ -3,8 +3,7 @@ fr:
     attr:
       github_url: 'Github Url : '
     flashes:
-      new-repository-success: "Vous avez crée un repository, l'administrateur va le mettre en ligne rapidement"
-      new-repository-error: "Quelque chose s'est mal passé: %{error}"
-    custom-text: 'Vous pouvez créer vos repository Ruby ici'
-    new-repository: 'Créez un nouveau repository !'
-    show:
+      update-success: "Vous avez modifié un repository"
+      update-error: "Quelque chose s'est mal passé: %{error}"
+    btn:
+      fetch-readme: 'Télécharger le Readme depuis Github'

@@ -8,5 +8,9 @@ FactoryBot.define do
     duration { rand 1..500 }
     signature { FFaker::Internet.user_name }
     association :user
+
+    after(:create) do |challenge|
+      create(:repository, cloud_storage: challenge)
+    end
   end
 end

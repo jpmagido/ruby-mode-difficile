@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :challenges, only: %i[index show new create] do
       resources :answers, only: %i[show new create]
     end
+    resources :repositories, only: :update
   end
 
   namespace :staff do

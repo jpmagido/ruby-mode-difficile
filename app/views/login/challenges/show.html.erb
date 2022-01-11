@@ -13,6 +13,8 @@
   </ul>
 </div>
 
+<p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(challenge.repository), method: :patch %> </p>
+
 <hr>
 
 <%= link_to t('answers.links.new-answer'), new_login_challenge_answer_path(challenge) %>
