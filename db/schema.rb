@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_233041) do
+ActiveRecord::Schema.define(version: 2022_01_09_150728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -87,6 +87,26 @@ ActiveRecord::Schema.define(version: 2022_01_04_233041) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
+
+  create_table "repositories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "url"
+    t.text "readme"
+    t.string "cloud_storage_type"
+    t.bigint "cloud_storage_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloud_storage_type", "cloud_storage_id"], name: "index_repositories_on_cloud_storage"
+  end
+
+  create_table "respositories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "url"
+    t.text "readme"
+    t.string "cloud_storage_type"
+    t.bigint "cloud_storage_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloud_storage_type", "cloud_storage_id"], name: "index_respositories_on_cloud_storage"
   end
 
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

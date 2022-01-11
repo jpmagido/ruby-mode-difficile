@@ -4,6 +4,8 @@ class Answer < ApplicationRecord
   belongs_to :challenge
   belongs_to :user
 
+  has_one :repository, as: :cloud_storage
+
   validates_presence_of :github_url
   validates_presence_of :signature
   validates_presence_of :comments

@@ -6,6 +6,7 @@ class Challenge < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many_attached :files
   has_rich_text :description
+  has_one :repository, as: :cloud_storage
 
   validates_length_of :description, in: 2..2000
   validates_length_of :title, in: 2..100
