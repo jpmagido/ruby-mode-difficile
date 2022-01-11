@@ -15,10 +15,7 @@ module Login
     private
 
     def readme
-      @readme ||= Github::Api::Repository.new(
-        owner_name: repository.owner_name,
-        repo_name: repository.repo_name
-      ).readme
+      @readme ||= Github::Api::Repository.new(github_url: repository.github_url).readme
     end
 
     def repository

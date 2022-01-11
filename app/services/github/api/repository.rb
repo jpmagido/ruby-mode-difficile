@@ -7,14 +7,12 @@ require 'uri'
 module Github
   module Api
     class Repository
-      attr_reader :owner_name, :repo_name
+      attr_reader :github_url
 
-      def initialize(owner_name:, repo_name:)
-        @owner_name = owner_name
-        @repo_name = repo_name
+      def initialize(github_url:)
+        @github_url = github_url
 
-        raise ArgumentError, 'repo owner name must me provided: string' unless owner_name.is_a? String
-        raise ArgumentError, 'repo name must be provided: string' unless repo_name.is_a? String
+        raise ArgumentError, 'repo owner name must me provided: string' unless github_url.is_a? String
       end
 
       def readme
@@ -29,6 +27,14 @@ module Github
 
       def readme_url
         "https://api.github.com/repos/#{owner_name}/#{repo_name}/readme"
+      end
+
+      def owner_name
+        github_url.split('/').last(2).first
+      end
+
+      def repo_name
+        github_url.split('/').last
       end
     end
   end

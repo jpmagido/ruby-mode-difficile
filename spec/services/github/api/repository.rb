@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Github::Api::Repository, type: :service do
-  subject(:github_api_readme) { described_class.new(owner_name: 'jpmagido', repo_name: 'movie_finder') }
+  let(:github_url) { 'https://github.com/jpmagido/movie_finder' }
+  subject(:github_api_readme) { described_class.new(github_url: github_url) }
 
   let(:token) { SecureRandom.hex 10 }
 

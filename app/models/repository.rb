@@ -5,11 +5,13 @@ class Repository < ApplicationRecord
 
   validates :github_url, format: URI.regexp(%w[https http])
 
-  def repo_name
-    github_url.split('/').last
+  def readme
+    markdown.render super
   end
 
-  def owner_name
-    cloud_storage.user.login
+  private
+
+  def markdown
+    ::Redcarpet::Markdown.new(::Redcarpet::Render::HTML)
   end
 end
