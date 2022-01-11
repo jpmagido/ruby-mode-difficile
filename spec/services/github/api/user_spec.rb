@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Github::Api, type: :service do
+RSpec.describe Github::Api::User, type: :service do
   subject(:github_api) { described_class.new(token) }
 
   let(:token) { SecureRandom.hex 10 }

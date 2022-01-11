@@ -6,7 +6,6 @@ FactoryBot.define do
     description { FFaker::Book.description }
     difficulty { rand 1..10 }
     duration { rand 1..500 }
-    url { FFaker::Internet.http_url }
     signature { FFaker::Internet.user_name }
     association :user
   end

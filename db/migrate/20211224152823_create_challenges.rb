@@ -8,7 +8,6 @@ class CreateChallenges < ActiveRecord::Migration[7.0]
       t.integer :difficulty
       t.integer :duration
       t.integer :status, default: 0
-      t.string :url
       t.string :signature
       t.belongs_to :user, null: false, foreign_key: true, type: :uuid
 

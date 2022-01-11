@@ -9,9 +9,10 @@ module Login
     end
 
     def create
-      @new_answer = current_user.answers.new(answer_params.merge(challenge_id: challenge.id))
+      @new_answer = current_user.answers.new(challenge_id: challenge.id)
+      syncer = Github::Sync::Repository.new(answer_params, klass: @new_answer)
 
-      if @new_answer.save
+      if syncer.save_polymorphic
         flash[:success] = t('answers.flashes.create-success')
         redirect_to login_challenge_answer_path(challenge, @new_answer)
       else

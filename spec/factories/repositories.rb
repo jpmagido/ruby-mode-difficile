@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :repository do
-    url { "MyText" }
-    readme { "MyText" }
+    github_url { FFaker::Internet.http_url }
+    readme { FFaker::Book.description }
   end
 end

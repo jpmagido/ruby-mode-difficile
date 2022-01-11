@@ -31,12 +31,14 @@ RSpec.describe 'Login::ChallengesController', type: :request do
   describe 'POST /create' do
     let(:challenge_params) do
       {
-        title: 'title test',
-        duration: 20,
-        difficulty: 3,
-        signature: 'jpm',
-        url: 'https://www.google.fr',
-        description: 'test description',
+        challenge: {
+          title: 'title test',
+          duration: 20,
+          difficulty: 3,
+          signature: 'jpm',
+          github_url: 'https://www.google.fr',
+          description: 'test description',
+        }
       }
     end
 
@@ -44,6 +46,19 @@ RSpec.describe 'Login::ChallengesController', type: :request do
       it 'creates a Challenge' do
         expect { post login_challenges_path, params: { challenge: challenge_params } }
           .to change(Challenge, :count).by 1
+      end
+
+      it 'redirects to show' do
+        post login_challenges_path, params: challenge_params
+        expect(response).to redirect_to login_challenge_path(Challenge.last)
+      end
+
+      it 'creates Challenge' do
+        expect { post login_challenges_path, params: challenge_params }.to change(Challenge, :count).by 1
+      end
+
+      it 'creates Repository' do
+        expect { post login_challenges_path, params: challenge_params }.to change(Repository, :count).by 1
       end
     end
 
