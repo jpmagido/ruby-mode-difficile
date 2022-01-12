@@ -6,7 +6,7 @@ class Repository < ApplicationRecord
   validates :github_url, format: URI.regexp(%w[https http])
 
   def readme
-    markdown.render super
+    markdown.render super if super
   end
 
   private
