@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AdminPolicy < RmdPolicy
+class AdminPolicy < AppPolicy
   def index?
     user.admin
   end

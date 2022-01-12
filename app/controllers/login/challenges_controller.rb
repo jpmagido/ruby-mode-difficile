@@ -6,10 +6,13 @@ module Login
 
     def new
       @new_challenge = Challenge.new
+      authorize @new_challenge
     end
 
     def create
       @new_challenge = Challenge.new(user_id: current_user.id)
+      authorize @new_challenge
+
       syncer = Github::Sync::Repository.new(challenge_params, klass: @new_challenge)
 
       if syncer.save_polymorphic
@@ -17,7 +20,7 @@ module Login
         redirect_to login_challenge_path(@new_challenge)
       else
         flash.now[:notice] = t(
-          'challenges.flashes.new-challenge-error',
+          'challenges.flashes.challenge-error',
           error: syncer.errors
         )
         render action: :new
