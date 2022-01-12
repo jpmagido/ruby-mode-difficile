@@ -9,13 +9,14 @@ module Staff
     end
 
     def create
-      @new_answer = Answer.new(create_answer_params)
+      @new_answer = Answer.new
+      syncer = Github::Sync::Repository.new(create_answer_params, klass: @new_answer)
 
-      if @new_answer.save
+      if syncer.save_polymorphic
         flash[:success] = t('answers.flashes.create-success')
         redirect_to staff_answer_path(@new_answer)
       else
-        flash[:error] = t('answers.flashes.error', err: @new_answer.errors.messages)
+        flash[:error] = t('answers.flashes.error', err: syncer.errors)
         render 'staff/answers/new'
       end
     end

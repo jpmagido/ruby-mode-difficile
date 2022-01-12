@@ -9,13 +9,17 @@ module Login
     end
 
     def create
-      @new_challenge = Challenge.new(challenge_params.merge(user_id: current_user.id))
+      @new_challenge = Challenge.new(user_id: current_user.id)
+      syncer = Github::Sync::Repository.new(challenge_params, klass: @new_challenge)
 
-      if @new_challenge.save
+      if syncer.save_polymorphic
         flash[:success] = t('challenges.flashes.new-challenge-success')
         redirect_to login_challenge_path(@new_challenge)
       else
-        flash.now[:notice] = t('challenges.flashes.challenge-error', error: @new_challenge.errors.messages)
+        flash.now[:notice] = t(
+          'challenges.flashes.new-challenge-error',
+          error: syncer.errors
+        )
         render action: :new
       end
     end
@@ -34,7 +38,7 @@ module Login
       params.require(:challenge).permit(
         :title,
         :description,
-        :url,
+        :github_url,
         :signature,
         :duration,
         :difficulty,

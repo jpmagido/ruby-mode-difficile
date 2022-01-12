@@ -3,7 +3,6 @@
 class CreateAnswers < ActiveRecord::Migration[7.0]
   def change
     create_table :answers, id: :uuid do |t|
-      t.string :github_url
       t.string :youtube_url
       t.string :signature
       t.integer :status, default: 0

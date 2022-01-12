@@ -22,6 +22,7 @@ gem 'image_processing', '>= 1.2'
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 
 # SUPPORT
+gem 'redcarpet', '~> 3.5', '>= 3.5.1'
 gem 'sassc-rails'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

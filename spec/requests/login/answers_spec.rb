@@ -37,5 +37,9 @@ RSpec.describe 'Login::AnswersController', type: :request do
     it 'creates an Answer' do
       expect { post login_challenge_answers_path(challenge), params: post_params }.to change(Answer, :count).by 1
     end
+
+    it 'creates a Repository' do
+      expect { post login_challenge_answers_path(challenge), params: post_params }.to change(Repository, :count).by 1
+    end
   end
 end

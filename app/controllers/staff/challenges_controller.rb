@@ -9,13 +9,14 @@ module Staff
     end
 
     def create
-      @new_challenge = Challenge.new(challenge_params.merge(user_id: current_user.id))
+      @new_challenge = Challenge.new(user_id: current_user.id)
+      syncer = Github::Sync::Repository.new(challenge_params, klass: @new_challenge)
 
-      if @new_challenge.save
+      if syncer.save_polymorphic
         flash[:success] = t('challenges.flashes.new-challenge-success')
         redirect_to staff_challenge_path(@new_challenge)
       else
-        flash.now[:error] = t('challenges.flashes.challenge-error', error: @new_challenge.errors.messages)
+        flash.now[:error] = t('challenges.flashes.challenge-error', error: syncer.errors)
         render 'staff/challenges/new'
       end
     end
@@ -53,6 +54,7 @@ module Staff
     def challenge_params
       params.require(:challenge).permit(
         :title,
+        :github_url,
         :description,
         :url,
         :signature,

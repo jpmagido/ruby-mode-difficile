@@ -1,0 +1,9 @@
+en:
+  repositories:
+    attr:
+      github_url: 'Url Github :'
+    flashes:
+      update-success: 'You updated a repository'
+      update-error: 'Something went wrong : %{error}'
+    btn:
+      fetch-readme: 'Upload Readme from Github'

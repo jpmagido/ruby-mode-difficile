@@ -13,7 +13,6 @@ en:
       phrase-1: 'You can add your own Answer to the Challenge'
     attr:
       comments: 'Comments : '
-      github-url: 'Github Link : '
       youtube-url: 'Youtube Link : '
       file: 'Attached document : '
       status:

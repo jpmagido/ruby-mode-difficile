@@ -11,12 +11,12 @@
 <div>
   <% challenges.each do |challenge| %>
     <ul>
-      <li><%= t('challenges.attr.title') %> <%= challenge.title %> </li>
-      <li><%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
-      <li><%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
-      <li><%= link_to t('shared.link_show'), staff_challenge_path(challenge) %> </li>
-      <li><%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %> </li>
-      <li><%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete %> </li>
+      <li> <%= t('challenges.attr.title') %> <%= challenge.title %> </li>
+      <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
+      <li> <%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
+      <li> <%= link_to t('shared.link_show'), staff_challenge_path(challenge) %> </li>
+      <li> <%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %> </li>
+      <li> <%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </li>
     </ul>
   <% end %>
 </div>

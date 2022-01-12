@@ -7,5 +7,5 @@
   <%= t('users.attr.name') %> <%= user.login %>
   <%= link_to t('shared.link_show'), staff_user_path(user) %>
   <%= link_to t('shared.link_edit'), edit_staff_user_path(user) %>
-  <%= button_to t('shared.link_destroy'), staff_user_path(user), method: :delete %>
+  <%= button_to t('shared.link_blacklist'), staff_user_path(user), method: :delete %>
 <% end %>

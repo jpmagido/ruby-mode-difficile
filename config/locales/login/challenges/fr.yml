@@ -16,7 +16,6 @@ fr:
           pending: 'En attente de validation'
           ready: 'Validé'
       files: 'Fichiers :'
-      url: 'Url Github :'
     flashes:
       new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"
       challenge-error: "Quelque chose s'est mal passé: %{error}"
