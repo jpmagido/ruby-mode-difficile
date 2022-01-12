@@ -1,5 +1,13 @@
-<h3> <%= t('challenges.show.title', title: challenge.title) %> </h3>
+<% if current_user.admin %>
+  <hr>
+  <div> <%= link_to t('shared.link_admin_version'), staff_challenge_path(challenge) %> </div>
+  <hr>
+<% end %>
 
+<div> <%= link_to t('answers.links.new-answer'), new_login_challenge_answer_path(challenge) %> </div>
+<hr>
+
+<h3> <%= t('challenges.show.title', title: challenge.title) %> </h3>
 <div>
   <ul>
     <li> <%= t('challenges.attr.description') %> <%= challenge.description %> </li>
@@ -15,7 +23,9 @@
 
 <hr>
 <% if challenge.repository %>
-  <p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(challenge.repository), method: :patch %> </p>
+  <% if policy(challenge.repository).update? %>
+    <p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(challenge.repository), method: :patch %> </p>
+  <% end %>
   <div>
     <h6> README: </h6>
     <div> <%= sanitize challenge.repository.readme %> </div>
@@ -24,9 +34,6 @@
 <br>
 
 <hr>
-
-<%= link_to t('answers.links.new-answer'), new_login_challenge_answer_path(challenge) %>
-<br><br>
 
 <div>
   <%= t('challenges.show.solution-count', counter: challenge.answers.count) %>

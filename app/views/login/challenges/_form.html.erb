@@ -15,9 +15,11 @@
       <br>
       <br>
 
-      <%= f.label :github_url, t('repositories.attr.github_url') %>
-      <br>
-      <%= f.text_field :github_url %>
+      <%= f.fields_for :repository do |repository| %>
+        <%= repository.label :github_url, t('repositories.attr.github_url') %>
+        <%= repository.text_field :github_url %>
+      <% end %>
+
       <br>
       <br>
 

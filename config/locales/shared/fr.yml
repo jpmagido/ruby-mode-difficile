@@ -3,6 +3,7 @@ fr:
     submit_form: 'Valider'
     link_show: 'Page des Détails'
     link_edit: 'Modifier'
+    link_admin_version: 'Version Admin'
     link_destroy: 'Supprimer'
     destroy-warning: 'Attention, vous allez supprimer toutes les informations associées'
     link_blacklist: 'Blacklister'

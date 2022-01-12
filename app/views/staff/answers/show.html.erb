@@ -3,8 +3,16 @@
 <br>
 <hr>
 
-<div>
-  <%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge_id: challenge.id) %>
-</div>
+<div> <%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge_id: answer.challenge.id) %> </div>
+<hr>
 
 <%= render partial: 'login/answers/list', locals: { answer: answer } %>
+
+
+<% if answer.repository %>
+  <p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(answer.repository), method: :patch %> </p>
+  <div>
+    <h6> README: </h6>
+    <div> <%= sanitize answer.repository.readme %> </div>
+  </div>
+<% end %>

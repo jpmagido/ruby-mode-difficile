@@ -3,13 +3,15 @@
 
   <div>
     <%= form_with model: array_model do |f| %>
-      <%= f.label :github_url, t('repositories.attr.github_url') %>
-      <br>
-      <%= f.text_field :github_url %>
+      <%= f.fields_for :repository do |repository| %>
+        <%= repository.label :github_url, t('repositories.attr.github_url') %>
+        <br>
+        <%= repository.text_area :github_url, size: '40x1' %>
+      <% end %>
       <br><br>
       <%= f.label :youtube_url, t('answers.attr.youtube-url') %>
       <br>
-      <%= f.text_field :youtube_url %>
+      <%= f.text_area :youtube_url, size: '40x1' %>
       <br><br>
       <%= f.label :signature, 'Signature: ' %>
       <br>

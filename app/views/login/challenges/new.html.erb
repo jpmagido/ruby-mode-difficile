@@ -1,3 +1,9 @@
+<% if current_user.admin %>
+  <hr>
+  <div> <%= link_to t('shared.link_admin_version'), new_staff_challenge_path %> </div>
+  <hr>
+<% end %>
+
 <h4> <%= t('challenges.custom-text') %> </h4>
 
 <%= render partial: 'login/challenges/form', locals: { array_model: [:login, @new_challenge] } %>

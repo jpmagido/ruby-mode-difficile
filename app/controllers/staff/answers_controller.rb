@@ -6,10 +6,13 @@ module Staff
 
     def new
       @new_answer = Answer.new
+      authorize @new_answer, policy_class: AdminPolicy
     end
 
     def create
       @new_answer = Answer.new
+      authorize @new_answer, policy_class: AdminPolicy
+
       syncer = Github::Sync::Repository.new(create_answer_params, klass: @new_answer)
 
       if syncer.save_polymorphic
@@ -22,6 +25,8 @@ module Staff
     end
 
     def update
+      authorize answer, policy_class: AdminPolicy
+
       if answer.update(answer_params)
         flash[:success] = t('staff.answers.flashes.update-success')
         redirect_to staff_answer_path(answer)
@@ -32,6 +37,8 @@ module Staff
     end
 
     def destroy
+      authorize answer, policy_class: AdminPolicy
+
       answer.destroy
       flash[:success] = t('staff.answers.flashes.destroy-success')
       redirect_to staff_answers_path
@@ -49,10 +56,10 @@ module Staff
 
     def answer_params
       params.require(:answer).permit(
-        :github_url,
         :youtube_url,
         :signature,
-        :comments
+        :comments,
+        repository: [:github_url],
       )
     end
 

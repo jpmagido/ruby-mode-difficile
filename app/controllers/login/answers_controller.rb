@@ -4,12 +4,19 @@ module Login
   class AnswersController < Login::BaseController
     helper_method :answer, :challenge
 
+    def show
+      authorize answer
+    end
+
     def new
       @new_answer = Answer.new
+      authorize @new_answer
     end
 
     def create
       @new_answer = current_user.answers.new(challenge_id: challenge.id)
+      authorize @new_answer
+
       syncer = Github::Sync::Repository.new(answer_params, klass: @new_answer)
 
       if syncer.save_polymorphic
@@ -32,7 +39,12 @@ module Login
     end
 
     def answer_params
-      params.require(:answer).permit(:github_url, :youtube_url, :signature, :comments)
+      params.require(:answer).permit(
+        :youtube_url,
+        :signature,
+        :comments,
+        repository: [:github_url]
+      )
     end
   end
 end

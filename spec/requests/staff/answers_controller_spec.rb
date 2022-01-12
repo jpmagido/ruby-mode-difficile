@@ -5,9 +5,11 @@ require 'rails_helper'
 RSpec.describe 'Staff::AnswersController', type: :request do
   let!(:answer) { create(:answer) }
   let!(:challenge) { create(:challenge) }
-  let!(:user) { create(:user) }
 
-  before { VCR.use_cassette('login') { post session_path } }
+  before do
+    VCR.use_cassette('login') { post session_path }
+    create(:admin, user: User.find_by_login('jpmagido'))
+  end
 
   describe 'GET /index' do
     it 'returns http success' do
@@ -34,13 +36,13 @@ RSpec.describe 'Staff::AnswersController', type: :request do
     let(:answer_params) do
       {
         answer: {
-          github_url: 'https://github.com',
           youtube_url: 'https://youtube.com',
           signature: 'foobar',
           status: :ready,
           comments: 'I am foobar',
+          repository: { github_url: 'https://github.com' }
         },
-        challenge_id: challenge.id,
+        challenge_id: challenge.id
       }
     end
 

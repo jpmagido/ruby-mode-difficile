@@ -11,12 +11,7 @@ RSpec.describe 'SessionsController', type: :request do
   end
 
   describe 'GET /edit' do
-    xit 'returns http success', :vcr do
-      VCR.use_cassette('session-edit') do
-        get edit_session_path, params: { state: ENV['GITHUB_REDIRECT_TOKEN'] }
-        expect(response).to have_http_status(:success)
-      end
-    end
+    # Use capybara
   end
 
   describe 'POST /create' do

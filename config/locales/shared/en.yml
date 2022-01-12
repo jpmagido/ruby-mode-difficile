@@ -3,6 +3,7 @@ en:
     submit_form: 'Validate'
     link_show: 'Details Page'
     link_edit: 'Update'
+    link_admin_version: 'Admin version'
     link_destroy: 'Delete record'
     destroy-warning: 'Warning, you are going to destroy all associated records'
     link_blacklist: 'Blacklist'

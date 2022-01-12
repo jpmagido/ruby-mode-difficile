@@ -3,9 +3,6 @@
 <br>
 <hr>
 <br>
-<%= link_to t('answers.links.new-answer'), new_staff_answer_path %>
-<hr>
-<br>
 
 <% answers.each do |answer| %>
   <%= link_to answer.title, staff_answer_path(answer) %>
