@@ -8,7 +8,7 @@
   <ul>
     <li> <%= t('challenges.attr.description') %> <%= challenge.description %> </li>
     <li> <%= t('challenges.attr.status.label') %> <%= t("challenges.attr.status.values.#{challenge.status}") %> </li>
-    <li> <%= t('challenges.attr.url') %> <%= link_to challenge.url, challenge.url %> </li>
+    <li> <%= t('repositories.attr.github_url') %> <%= link_to challenge.repository.github_url, challenge.repository.github_url %> </li>
     <li> <%= t('challenges.attr.signature') %> <%= challenge.signature %> </li>
     <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
     <li> <%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>

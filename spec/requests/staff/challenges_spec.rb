@@ -39,7 +39,7 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
         duration: 20,
         difficulty: 3,
         signature: 'jpm',
-        url: 'https://www.google.fr',
+        github_url: 'https://www.google.fr',
         description: 'test description',
       }
     end

@@ -13,7 +13,6 @@ fr:
       phrase-1: 'Vous pouvez ajouter votre réponse au Challenge'
     attr:
       comments: 'Commentaires : '
-      github-url: 'Lien Github : '
       youtube-url: 'Lien Youtube : '
       file: 'Pièce jointe : '
       status:

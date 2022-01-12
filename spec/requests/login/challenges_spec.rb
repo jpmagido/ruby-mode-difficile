@@ -44,7 +44,7 @@ RSpec.describe 'Login::ChallengesController', type: :request do
 
     context 'when success' do
       it 'creates a Challenge' do
-        expect { post login_challenges_path, params: { challenge: challenge_params } }
+        expect { post login_challenges_path, params: challenge_params }
           .to change(Challenge, :count).by 1
       end
 
