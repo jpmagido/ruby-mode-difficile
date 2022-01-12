@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/jpmagido/movie_finder/readme
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Ruby
+      Host:
+      - api.github.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 12 Jan 2022 18:05:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"ca697c33d4680814bae76056cac73a17e3d3c16a9e75d467a2fd98e0b8a64c8f"
+      Last-Modified:
+      - Sun, 21 Nov 2021 17:16:15 GMT
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Ratelimit-Reset:
+      - '1642014301'
+      X-Ratelimit-Resource:
+      - core
+      X-Ratelimit-Used:
+      - '1'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '881'
+      X-Github-Request-Id:
+      - 0BC7:48EF:198F8D6:1A057B2:61DF184D
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"README.md","path":"README.md","sha":"bc806043341a42610402687f9d9bc6b5e6efd058","size":613,"url":"https://api.github.com/repos/jpmagido/movie_finder/contents/README.md?ref=master","html_url":"https://github.com/jpmagido/movie_finder/blob/master/README.md","git_url":"https://api.github.com/repos/jpmagido/movie_finder/git/blobs/bc806043341a42610402687f9d9bc6b5e6efd058","download_url":"https://raw.githubusercontent.com/jpmagido/movie_finder/master/README.md","type":"file","content":"I1dlbGNvbWUgdG8gb3VyIGFwcAojV2UgYXJlIGdvaW5nIHRvIGRvIHN0dWZm\nIGFib3V0IG1vdmllcwoKIyBWRVJTSU9OUwoKCiMgSU5JVElBTElaRQpgYnVu\nZGxlIGluc3RhbGxgCgpGaXJzdCwgeW91IG5lZWQgdG8gZ2V0IHlvdXIgb3du\nIHRva2VucwpUaGV5IHByb3ZpZGUgMiB3YXlzIHRvIGF1dGhlbnRpY2F0ZSB0\nbyB0aGVpciBBUEksIHlvdSBjYW4gY2hvc2Ugb25lICAKCi0gR28gdG86IGh0\ndHBzOi8vd3d3LnRoZW1vdmllZGIub3JnL3NpZ251cAotIENvbXBsZXRlIHRo\nZWlyIHNpZ251cCBmb3JtcwotIENvbmZpcm0geW91ciBlbWFpbAotIEdvIHRv\nOiBodHRwczovL3d3dy50aGVtb3ZpZWRiLm9yZy9zZXR0aW5ncy9hcGkKLSBB\nc2sgZm9yIGEgbmV3IEFQSV9LRVkKLSBBZGQgeW91ciBrZXkgdG8gLmVudl9k\nZWZhdWx0IAotIFJlbmFtZSAuZW52X2RlZmF1bHQgdG8gLmVudgoKLSBgcnNw\nZWNgCi0gSWYgYWxsIHNwZWNzIGFyZSBncmVlbiwgeW91IGFyZSBnb29kIHRv\nIGdvCgojIFNQRUMKYHJzcGVjYAoKIyBTWU5UQVggRU5GT1JDRVIKYHJ1Ym9j\nb3BgCgojIENPTU1BTkRTCi0gRmV0Y2ggYWxsIGF2YWlsYWJsZSBsYW5ndWFn\nZXM6IGBydWJ5IGJpbi9sYW5ndWFnZXMucmJgCg==\n","encoding":"base64","_links":{"self":"https://api.github.com/repos/jpmagido/movie_finder/contents/README.md?ref=master","git":"https://api.github.com/repos/jpmagido/movie_finder/git/blobs/bc806043341a42610402687f9d9bc6b5e6efd058","html":"https://github.com/jpmagido/movie_finder/blob/master/README.md"}}'
+  recorded_at: Wed, 12 Jan 2022 18:05:02 GMT
+recorded_with: VCR 6.0.0

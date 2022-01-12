@@ -5,16 +5,19 @@ require 'rails_helper'
 RSpec.describe Github::Api::User, type: :service do
   subject(:github_api_user) { described_class.new(token) }
 
-  let(:token) { SecureRandom.hex 10 }
+  let(:token) { 'fake token' }
 
   describe '#new' do
     it { expect { github_api_user }.not_to raise_error }
   end
 
   describe '#find_user' do
-    xit do
+    it 'returns proper information' do
       VCR.use_cassette('github-api-user-find_user') do
-        expect(github_api_user.find_user).to eq 'lol'
+        response = github_api_user.find_user
+
+        expect(response['id']).to eq 48_461_607
+        expect(response['login']).to eq 'jpmagido'
       end
     end
   end
