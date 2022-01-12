@@ -28,6 +28,6 @@ class AdminPolicy < AppPolicy
   private
 
   def admin?
-    user.admin
+    user&.admin
   end
 end
