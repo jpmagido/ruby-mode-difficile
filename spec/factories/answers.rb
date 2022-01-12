@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :answer do
     youtube_url { FFaker::Internet.http_url }
     signature { FFaker::Book.author }
-    status { rand(0..1) }
+    status { :pending }
     comments { FFaker::Book.description }
 
     association :user

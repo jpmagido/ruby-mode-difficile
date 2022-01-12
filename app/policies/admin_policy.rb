@@ -2,26 +2,32 @@
 
 class AdminPolicy < AppPolicy
   def index?
-    user.admin
+    admin?
   end
 
   def show?
-    user.admin
+    admin?
   end
 
   def new?
-    user.admin
+    admin?
   end
 
   def create?
-    user.admin
+    admin?
   end
 
   def update?
-    user.admin
+    admin?
   end
 
   def destroy?
+    admin?
+  end
+
+  private
+
+  def admin?
     user.admin
   end
 end

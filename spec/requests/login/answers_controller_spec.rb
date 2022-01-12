@@ -3,14 +3,27 @@
 require 'rails_helper'
 
 RSpec.describe 'Login::AnswersController', type: :request do
-  let!(:challenge) { create(:challenge) }
-  let!(:answers) { create_list(:answer, 3, challenge: challenge) }
-
   before { VCR.use_cassette('login') { post session_path } }
 
+  let!(:challenge) { create(:challenge) }
+  let!(:random_answer) { create(:answer) }
+  let!(:answer) { create(:answer, challenge: challenge) }
+  let!(:verified_answer) { create(:answer, challenge: challenge, status: :ready, user: current_user) }
+  let!(:current_user_answer) { create(:answer, challenge: challenge, user: current_user) }
+  let(:current_user) { User.find_by_login('jpmagido') }
+
   describe 'GET /show' do
-    it 'returns http success' do
-      get login_challenge_answer_path(challenge, answers.first)
+    it 'raises error if current user is not author' do
+      expect { get login_challenge_answer_path(random_answer.challenge, random_answer) }.to raise_error Pundit::NotAuthorizedError
+    end
+
+    it 'returns http success if current user is author' do
+      get login_challenge_answer_path(challenge, current_user_answer)
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'returns http success if current user has already resolved the answers challenge' do
+      get login_challenge_answer_path(challenge, answer)
       expect(response).to have_http_status(:success)
     end
   end
