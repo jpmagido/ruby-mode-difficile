@@ -14,7 +14,7 @@ Initialization:
 
 Database:
 - `config/database.yml`
-- You need to create a user named `rmd-postgres` on your psql
+- You need to create a user named `rmd_postgres` on your psql
 - Create psql user: https://www.postgresql.org/docs/8.0/sql-createuser.html
 - Update psql user permissions: https://docs.postgresql.fr/10/sql-alteruser.html
 

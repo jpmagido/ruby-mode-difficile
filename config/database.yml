@@ -8,7 +8,7 @@ default: &default
 development:
   <<: *default
   database: ruby_mode_difficile_development
-  username: 'jpmagido'
+  username: 'rmd_postgres'
   password: <%= ENV["MY_APP_DATABASE_URL"] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
