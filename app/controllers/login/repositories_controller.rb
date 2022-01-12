@@ -3,6 +3,8 @@
 module Login
   class RepositoriesController < Login::BaseController
     def update
+      authorize repository
+
       if repository.update readme: readme
         flash[:success] = t('repositories.flashes.update-success')
       else

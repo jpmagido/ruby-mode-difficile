@@ -1,3 +1,9 @@
+<% if current_user.admin %>
+  <hr>
+  <div> <%= link_to t('shared.link_admin_version'), staff_challenges_path %> </div>
+  <hr>
+<% end %>
+
 <h1>Challenges#index</h1>
 
 <div> <%= link_to t('challenges.new-challenge'), new_login_challenge_path %> </div>

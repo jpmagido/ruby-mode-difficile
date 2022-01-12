@@ -1,3 +1,9 @@
+<% if current_user.admin %>
+  <hr>
+  <div> <%= link_to t('shared.link_admin_version'), new_staff_answer_path(challenge_id: challenge.id) %> </div>
+  <hr>
+<% end %>
+
 <h3> <%= t('answers.new.phrase-1') %> </h3>
 
 <div>

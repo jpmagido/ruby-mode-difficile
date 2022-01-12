@@ -24,6 +24,6 @@ class AnswerPolicy < AppPolicy
   private
 
   def author?
-    record.user_id == user.id
+    record.user_id == user.id || user.admin
   end
 end
