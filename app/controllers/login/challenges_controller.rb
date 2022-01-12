@@ -38,11 +38,11 @@ module Login
       params.require(:challenge).permit(
         :title,
         :description,
-        :github_url,
         :signature,
         :duration,
         :difficulty,
-        files: []
+        files: [],
+        repository: [:github_url]
       )
     end
   end

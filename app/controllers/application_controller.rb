@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include ::Pundit::Authorization
+  include Pundit
 
   before_action :set_locale
 
   helper_method :current_user
 
   if Rails.env.production?
-    rescue_from Github::Sync::User::Unauthorized, with: :unauthorized
+    rescue_from Github::Sync::User::Unauthorized, Pundit::NotAuthorizedError, with: :unauthorized
     rescue_from StandardError, with: :standard_errors
   end
 

@@ -7,7 +7,7 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
 
   before do
     VCR.use_cassette('login') { post session_path }
-    create(:admin, user: User.last)
+    create(:admin, user: User.find_by_login('jpmagido'))
   end
 
   describe 'GET /index' do
@@ -39,8 +39,8 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
         duration: 20,
         difficulty: 3,
         signature: 'jpm',
-        github_url: 'https://www.google.fr',
         description: 'test description',
+        repository: { github_url: 'https://www.google.fr' }
       }
     end
 
@@ -53,7 +53,7 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
 
     context 'when error' do
       it 'renders new' do
-        post staff_challenges_path, params: { challenge: { title: '' } }
+        post staff_challenges_path, params: { challenge: { title: 'foobar' } }
         expect(response).to render_template :new
       end
     end
@@ -67,8 +67,15 @@ RSpec.describe 'Staff::ChallengesController', type: :request do
   end
 
   describe 'PATCH /update' do
+    let(:update_params) do
+      {
+        title: 'new title',
+        repository: { github_url: 'https://www.google.fr' }
+      }
+    end
+
     it 'updates challenge' do
-      patch staff_challenge_path(challenge), params: { challenge: { title: 'new title' } }
+      patch staff_challenge_path(challenge), params: { challenge: update_params }
 
       expect(challenge.reload.title).to eq 'new title'
     end

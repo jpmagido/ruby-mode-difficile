@@ -1,7 +1,9 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.0"
+ruby '3.0.0'
 
 # CORE
 gem 'importmap-rails' # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -18,7 +20,7 @@ gem 'turbo-rails' # Hotwire's SPA-like page accelerator [https://turbo.hotwired.
 # ACTIVE STORAGE
 gem 'image_processing', '>= 1.2'
 
-# Auth
+# Policies
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 
 # SUPPORT

@@ -5,7 +5,10 @@ require 'rails_helper'
 RSpec.describe 'Staff::UsersController', type: :request do
   let!(:user) { create(:user) }
 
-  before { VCR.use_cassette('login') { post session_path } }
+  before do
+    VCR.use_cassette('login') { post session_path }
+    create(:admin, user: User.find_by_login('jpmagido'))
+  end
 
   describe 'GET /index' do
     it 'returns http success' do

@@ -36,7 +36,8 @@ module RubyModeDifficile
       g.orm :active_record, primary_key_type: :uuid
       g.test_framework :rspec,
                        view_specs: false,
-                       request_specs: true
+                       request_specs: true,
+                       controller_specs: false
     end
 
     config.i18n.default_locale = :en

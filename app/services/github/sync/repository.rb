@@ -30,11 +30,11 @@ module Github
       private
 
       def repository
-        @repository ||= klass.build_repository github_url: params[:github_url]
+        @repository ||= klass.build_repository github_url: params[:repository][:github_url]
       end
 
       def sanitize_params
-        params.except(:github_url)
+        params.except(:repository)
       end
     end
   end

@@ -6,10 +6,13 @@ module Staff
 
     def new
       @new_challenge = Challenge.new
+      authorize @new_challenge, policy_class: AdminPolicy
     end
 
     def create
       @new_challenge = Challenge.new(user_id: current_user.id)
+      authorize @new_challenge, policy_class: AdminPolicy
+
       syncer = Github::Sync::Repository.new(challenge_params, klass: @new_challenge)
 
       if syncer.save_polymorphic
@@ -22,7 +25,11 @@ module Staff
     end
 
     def update
-      if challenge.update(challenge_params)
+      authorize challenge, policy_class: AdminPolicy
+
+      syncer = Github::Sync::Repository.new(challenge_params, klass: challenge)
+
+      if syncer.save_polymorphic
         flash[:success] = t('challenges.flashes.update-challenge-success')
         redirect_to staff_challenge_path(challenge)
       else
@@ -32,6 +39,8 @@ module Staff
     end
 
     def destroy
+      authorize challenge, policy_class: AdminPolicy
+
       if challenge.destroy
         flash[:success] = t('challenges.flashes.destroy-challenge-success')
         redirect_to staff_challenges_path
@@ -54,14 +63,13 @@ module Staff
     def challenge_params
       params.require(:challenge).permit(
         :title,
-        :github_url,
         :description,
-        :url,
         :signature,
         :duration,
         :difficulty,
         :status,
-        files: []
+        files: [],
+        repository: [:github_url]
       )
     end
   end

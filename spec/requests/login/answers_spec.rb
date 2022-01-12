@@ -26,10 +26,10 @@ RSpec.describe 'Login::AnswersController', type: :request do
     let(:post_params) do
       {
         answer: {
-          github_url: 'https://github.com',
           youtube_url: 'https://youtube.com',
           signature: 'user rspec',
-          comments: 'this is an rspec test'
+          comments: 'this is an rspec test',
+          repository: { github_url: 'https://github.com' }
         }
       }
     end
