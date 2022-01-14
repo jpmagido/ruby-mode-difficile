@@ -30,6 +30,7 @@ module Staff
 
       if challenge_doc.destroy
         flash[:success] = t('staff.challenge_docs.flashes.destroy-success')
+        redirect_to staff_challenge_path(challenge_doc.challenge)
       else
         flash[:error] = t('staff.challenge_docs.flashes.error', error: challenge_doc.errors.messages)
         redirect_to staff_challenge_path(challenge_doc.challenge)
