@@ -2,8 +2,6 @@
 
 module Staff
   class DocLinksController < Staff::BaseController
-    helper_method :doc_link
-
     def new
       @new_doc_link = DocLink.new
       authorize @new_doc_link, policy_class: AdminPolicy
@@ -15,7 +13,6 @@ module Staff
 
     def create
       @new_doc_link = linkable.doc_links.new(doc_id: doc_link_params[:doc_id])
-
       authorize @new_doc_link, policy_class: AdminPolicy
 
       if @new_doc_link.save

@@ -24,3 +24,13 @@
 <br>
 
 <hr>
+
+<hr>
+
+<div>
+  <p> <%= t('answers.show.link-docs') %></p>
+  <br>
+  <% answer.doc_links.each do |doc_link| %>
+    <%= link_to doc_link.doc.title, login_doc_path(doc_link.doc) %>
+  <% end %>
+</div>

@@ -9,6 +9,7 @@ fr:
       link-challenge: 'Lien du Challenge'
       link-user-github: "Lien du Github de l'auteur"
       link-user-personal: "Lien du site personnel de l'auteur"
+      link-docs: 'Les Docs liés à cette Réponse'
     new:
       phrase-1: 'Vous pouvez ajouter votre réponse au Challenge'
     attr:

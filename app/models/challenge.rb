@@ -19,4 +19,5 @@ class Challenge < ApplicationRecord
   enum status: %i[pending ready]
 
   scope :all_valid, -> { where('status = 1') }
+  scope :by_owner, ->(user_id) { where('user_id = ?', user_id) }
 end

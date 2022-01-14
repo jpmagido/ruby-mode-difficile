@@ -15,4 +15,6 @@ class Answer < ApplicationRecord
   has_one_attached :file
 
   delegate :title, to: :challenge
+
+  scope :by_owner, ->(user_id) { where('user_id = ?', user_id) }
 end

@@ -44,7 +44,7 @@
   <p> <%= t('staff.doc_links.phrase-documents') %></p>
   <br>
   <% challenge.doc_links.each do |doc_links| %>
-    <%= link_to doc_link.doc.title, staff_doc_path(doc_links.linkable) %>
+    <%= link_to doc_link.doc.title, staff_doc_path(doc_links.doc) %>
     <%= button_to t('shared.link_destroy'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
   <% end %>
   <br>

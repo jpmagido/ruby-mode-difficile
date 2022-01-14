@@ -59,6 +59,6 @@
   <p> <%= t('staff.doc_links.phrase-documents') %></p>
   <br>
   <% challenge.doc_links.each do |doc_link| %>
-    <%= link_to doc_link.doc.title, staff_doc_path(doc_link.doc) %>
+    <%= link_to doc_link.doc.title, login_doc_path(doc_link.doc) %>
   <% end %>
 </div>

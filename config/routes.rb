@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
     resources :repositories, only: :update
     resources :docs, only: %i[index show]
+    resources :doc_links, only: %i[new create]
   end
 
   namespace :staff do
