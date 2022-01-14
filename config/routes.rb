@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :answers, only: %i[show new create]
     end
     resources :repositories, only: :update
+    resources :docs, only: %i[index show]
   end
 
   namespace :staff do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     resources :challenges
     resources :answers
     resources :users, only: %i[index show edit update destroy]
+    resources :docs
   end
 
   resource :session, only: %i[new edit create destroy]

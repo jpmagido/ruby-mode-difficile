@@ -2,6 +2,9 @@
 <%= link_to t('shared.back'), :back %>
 <br>
 <hr>
+<%= link_to t('shared.link_edit'), edit_staff_answer_path(answer) %>
+<%= button_to t('shared.link_destroy'), staff_answer_path(answer), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+<hr>
 
 <div> <%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge_id: answer.challenge.id) %> </div>
 <hr>

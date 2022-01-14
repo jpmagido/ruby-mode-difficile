@@ -1,0 +1,15 @@
+fr:
+  docs:
+    flashes:
+      update-success: 'Vous avez modifié un Doc'
+      create-success: 'Vous avez crée un Doc'
+      destroy-success: 'Vous avez supprimé un Doc'
+      error: "Une erreur s'est produite : %{error}"
+    attr:
+      title: 'Titre: '
+      tags: 'Tags: '
+      content: 'Contenu: '
+    index:
+      title-phrase-1: "Vous êtes sur l'Index de la bibliothèque qui répertorie la documentation"
+      title-phrase-2: "Vous trouverez certaines ressources dans les Challenges, elles vous aideront à les résoudre"
+      docs-count: "Vous pouvez consulter %{data} :"

@@ -3,9 +3,9 @@
 class CreateChallenges < ActiveRecord::Migration[7.0]
   def change
     create_table :challenges, id: :uuid do |t|
-      t.string :title
+      t.string :title, null: false
       t.text :description
-      t.integer :difficulty
+      t.integer :difficulty, null: false
       t.integer :duration
       t.integer :status, default: 0
       t.string :signature

@@ -26,4 +26,5 @@ en:
     show:
       title: 'Title : %{title}'
       answer-link: 'Author : %{author}'
-      solution-count: '%{counter} solutions available'
+      solution-count: '%{data} available'
+      restriction-phrase: '-> You can only consult solutions after you solve the problem'

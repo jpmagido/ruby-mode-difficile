@@ -7,5 +7,5 @@
 <% answers.each do |answer| %>
   <%= link_to answer.title, staff_answer_path(answer) %>
   <%= link_to t('shared.link_edit'), edit_staff_answer_path(answer) %>
-  <%= button_to t('shared.link_destroy'), staff_answer_path(answer), method: :delete %>
+  <%= button_to t('shared.link_destroy'), staff_answer_path(answer), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
 <% end %>

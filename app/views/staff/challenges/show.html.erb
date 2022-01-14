@@ -1,7 +1,11 @@
 <h3>Staff::Challenges#show</h3>
 <%= link_to t('shared.back'), :back %>
-<br><br>
+<br>
+<hr>
 
+<%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %>
+<%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+<hr>
 <h4> <%= t('challenges.show.title', title: challenge.title) %> </h4>
 
 <div>

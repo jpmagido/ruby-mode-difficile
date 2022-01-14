@@ -26,4 +26,5 @@ fr:
     show:
       title: 'Titre : %{title}'
       answer-link: 'Auteur: %{author}'
-      solution-count: '%{counter} réponse(s) disponibles'
+      solution-count: '%{data} à consulter'
+      restriction-phrase: "-> Vous ne pouvez consulter la solution qu'une fois le Challenge effectué"
