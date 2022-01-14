@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :answers, only: :index
     resources :users, only: %i[index show edit update destroy]
     resources :docs
+    resources :challenge_docs, only: %i[new create destroy]
   end
 
   resource :session, only: %i[new edit create destroy]

@@ -11,3 +11,15 @@
 <br>
 <hr>
 <%= render partial: 'login/docs/list', locals: { doc: doc } %>
+
+w
+<div>
+  <p> <%= t('staff.challenge_docs.phrase-challenges') %> </p>
+  <br>
+  <% doc.challenge_docs.each do |chall_doc| %>
+    <%= link_to chall_doc.challenge.title, staff_doc_path(chall_doc.challenge) %>
+  <% end %>
+
+  <br>
+  <p> <%= link_to t('staff.challenge_docs.new.link'), new_staff_challenge_doc_path %> </p>
+</div>

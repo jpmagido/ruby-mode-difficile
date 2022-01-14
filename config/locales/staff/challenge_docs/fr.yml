@@ -1,0 +1,13 @@
+fr:
+  staff:
+    challenge_docs:
+      phrase-documents: 'Vous pourrez trouver des informations complémentaires pour résoudre le Challenge ci-dessous'
+      phrase-challenges: 'Vous pourrez trouver des Challenges en rapport avec ce Doc: '
+      flashes:
+        create-success: 'Vous avez créer un lien entre Challenge & Doc avec succes'
+        destroy-success: 'Vous avez détruit un lien entre Challenge & Doc avec succès'
+        error: "Une erreur, s'est produite : %{error}"
+      new:
+        link: 'Créer un nouveau lien entre Challenge & Doc'
+        challenge: 'Selectionner un Challenge'
+        doc: 'Selectionner un Doc'

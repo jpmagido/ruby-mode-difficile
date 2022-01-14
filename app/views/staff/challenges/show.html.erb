@@ -38,3 +38,14 @@
     </p>
   <% end %>
 </div>
+
+<hr>
+<div>
+  <p> <%= t('staff.challenge_docs.phrase-documents') %></p>
+  <br>
+  <% challenge.challenge_docs.each do |chall_doc| %>
+    <%= link_to chall_doc.doc.title, staff_doc_path(chall_doc.doc) %>
+  <% end %>
+  <br>
+  <p> <%= link_to t('staff.challenge_docs.new.link'), new_staff_challenge_doc_path %> </p>
+</div>
