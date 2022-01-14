@@ -18,6 +18,7 @@ w
   <br>
   <% doc.challenge_docs.each do |chall_doc| %>
     <%= link_to chall_doc.challenge.title, staff_doc_path(chall_doc.challenge) %>
+    <%= button_to t('shared.link_destroy'), staff_challenge_doc_path(chall_doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
   <% end %>
 
   <br>
