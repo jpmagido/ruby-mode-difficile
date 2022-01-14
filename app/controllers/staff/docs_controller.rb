@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Staff
-  class DocsController < ApplicationController
+  class DocsController < Staff::BaseController
     helper_method :docs, :doc
 
     def new

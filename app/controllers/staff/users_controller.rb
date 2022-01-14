@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Staff
-  class UsersController < ApplicationController
+  class UsersController < Staff::BaseController
     helper_method :users, :user
 
     def update
