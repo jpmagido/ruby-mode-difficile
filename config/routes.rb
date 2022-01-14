@@ -10,13 +10,18 @@ Rails.application.routes.draw do
       resources :answers, only: %i[show new create]
     end
     resources :repositories, only: :update
+    resources :docs, only: %i[index show]
   end
 
   namespace :staff do
     resource :admin, only: :show
-    resources :challenges
-    resources :answers
+    resources :challenges do
+      resources :answers
+    end
+    resources :answers, only: :index
     resources :users, only: %i[index show edit update destroy]
+    resources :docs
+    resources :challenge_docs, only: %i[new create destroy]
   end
 
   resource :session, only: %i[new edit create destroy]

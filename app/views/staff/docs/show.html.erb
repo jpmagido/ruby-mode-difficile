@@ -1,0 +1,26 @@
+<h3>Staff::Docs#show</h3>
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<%= link_to t('staff.docs.index.link-new'), new_staff_doc_path %>
+<br>
+<hr>
+<%= link_to t('shared.link_edit'), edit_staff_doc_path(doc) %>
+<%= button_to t('shared.link_destroy'), staff_doc_path(doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+<br>
+<hr>
+<%= render partial: 'login/docs/list', locals: { doc: doc } %>
+
+w
+<div>
+  <p> <%= t('staff.challenge_docs.phrase-challenges') %> </p>
+  <br>
+  <% doc.challenge_docs.each do |chall_doc| %>
+    <%= link_to chall_doc.challenge.title, staff_doc_path(chall_doc.challenge) %>
+    <%= button_to t('shared.link_destroy'), staff_challenge_doc_path(chall_doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+  <% end %>
+
+  <br>
+  <p> <%= link_to t('staff.challenge_docs.new.link'), new_staff_challenge_doc_path %> </p>
+</div>

@@ -1,7 +1,11 @@
 <h3>Staff::Challenges#show</h3>
 <%= link_to t('shared.back'), :back %>
-<br><br>
+<br>
+<hr>
 
+<%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %>
+<%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+<hr>
 <h4> <%= t('challenges.show.title', title: challenge.title) %> </h4>
 
 <div>
@@ -20,17 +24,29 @@
 
 <hr>
 
-<%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge) %>
+<%= link_to t('answers.links.new-answer'), new_staff_challenge_answer_path(challenge) %>
 <br><br>
 
 <div>
-  <%= t('challenges.show.solution-count', counter: challenge.answers.count) %>
+  <%= t('challenges.show.solution-count', data: pluralize(challenge.answers.count, 'solution')) %>
 </div>
 
 <div>
   <% challenge.answers.each do |answer| %>
     <p>
-      <%= link_to t('challenges.show.answer-link', author: answer.user.login), staff_answer_path(answer) %>
+      <%= link_to t('challenges.show.answer-link', author: answer.user.login), staff_challenge_answer_path(challenge, answer) %>
     </p>
   <% end %>
+</div>
+
+<hr>
+<div>
+  <p> <%= t('staff.challenge_docs.phrase-documents') %></p>
+  <br>
+  <% challenge.challenge_docs.each do |chall_doc| %>
+    <%= link_to chall_doc.doc.title, staff_doc_path(chall_doc.doc) %>
+    <%= button_to t('shared.link_destroy'), staff_challenge_doc_path(chall_edoc), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+  <% end %>
+  <br>
+  <p> <%= link_to t('staff.challenge_docs.new.link'), new_staff_challenge_doc_path %> </p>
 </div>

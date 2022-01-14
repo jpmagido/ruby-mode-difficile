@@ -24,6 +24,7 @@ gem 'image_processing', '>= 1.2'
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 
 # SUPPORT
+gem 'rails-i18n', '~> 7.0', '>= 7.0.1'
 gem 'redcarpet', '~> 3.5', '>= 3.5.1'
 gem 'sassc-rails'
 

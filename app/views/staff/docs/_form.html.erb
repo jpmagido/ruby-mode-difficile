@@ -1,0 +1,24 @@
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<div>
+  <%= form_with model: array_model do |f| %>
+    <%= f.label :title, t('docs.attr.title') %>
+    <br>
+    <%= f.text_field :title %>
+    <br>
+    <br>
+
+    <%= f.label :tags, t('docs.attr.tags') %>
+    <br>
+    <%= f.text_field :tags %>
+    <br>
+    <br>
+    <%= f.label :content, t('docs.attr.content') %>
+    <br>
+    <%= f.rich_text_area :content %>
+
+    <%= f.submit t('shared.submit_form') %>
+  <% end %>
+</div>

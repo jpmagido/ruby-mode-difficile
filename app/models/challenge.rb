@@ -4,6 +4,7 @@ class Challenge < ApplicationRecord
   belongs_to :user
 
   has_many :answers, dependent: :destroy
+  has_many :challenge_docs, dependent: :destroy
   has_many_attached :files
   has_rich_text :description
 

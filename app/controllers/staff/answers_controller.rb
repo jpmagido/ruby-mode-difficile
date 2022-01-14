@@ -2,7 +2,7 @@
 
 module Staff
   class AnswersController < ApplicationController
-    helper_method :answer, :answers
+    helper_method :answer, :answers, :challenge
 
     def new
       @new_answer = Answer.new
@@ -17,7 +17,7 @@ module Staff
 
       if syncer.save_polymorphic
         flash[:success] = t('answers.flashes.create-success')
-        redirect_to staff_answer_path(@new_answer)
+        redirect_to staff_challenge_answer_path(@new_answer.challenge, @new_answer)
       else
         flash[:error] = t('answers.flashes.error', err: syncer.errors)
         render 'staff/answers/new'
@@ -29,7 +29,7 @@ module Staff
 
       if answer.update(answer_params)
         flash[:success] = t('staff.answers.flashes.update-success')
-        redirect_to staff_answer_path(answer)
+        redirect_to staff_challenge_answer_path(challenge, answer)
       else
         flash.now[:error] = t('answers.flashes.error', err: answer.errors.messages)
         render 'staff/answers/edit'
@@ -41,10 +41,14 @@ module Staff
 
       answer.destroy
       flash[:success] = t('staff.answers.flashes.destroy-success')
-      redirect_to staff_answers_path
+      redirect_to staff_challenge_answers_path(challenge)
     end
 
     private
+
+    def challenge
+      @challenge ||= Challenge.find_by(id: params[:challenge_id])
+    end
 
     def answers
       @answers ||= Answer.all

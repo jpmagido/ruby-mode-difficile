@@ -1,0 +1,19 @@
+<h1>Staff::Docs#index</h1>
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<%= link_to t('staff.docs.index.link-new'), new_staff_doc_path %>
+<br>
+<hr>
+<div>
+  <% docs.each do |doc| %>
+    <div>
+      <p> <%= link_to doc.title.titleize, staff_doc_path(doc) %> </p>
+      <ul>
+        <li> <%= link_to t('shared.link_edit'), edit_staff_doc_path(doc) %> </li>
+        <li> <%= button_to t('shared.link_destroy'), staff_doc_path(doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

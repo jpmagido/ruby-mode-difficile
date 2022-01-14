@@ -3,6 +3,8 @@
   <div> <%= link_to t('shared.link_admin_version'), staff_challenge_path(challenge) %> </div>
   <hr>
 <% end %>
+<%= link_to t('shared.back'), :back %>
+<hr>
 
 <div> <%= link_to t('answers.links.new-answer'), new_login_challenge_answer_path(challenge) %> </div>
 <hr>
@@ -36,13 +38,27 @@
 <hr>
 
 <div>
-  <%= t('challenges.show.solution-count', counter: challenge.answers.count) %>
+  <%= t('challenges.show.solution-count', data: pluralize(challenge.answers.count, 'solution')) %>
 </div>
 
+<div> <%= t('challenges.show.restriction-phrase') %> </div>
+<br>
 <div>
   <% challenge.answers.each do |answer| %>
-    <p>
-      <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer) %>
-    </p>
+    <% if policy(answer).show? %>
+      <p> <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer) %> </p>
+    <% else %>
+      <p> <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer), class: 'btn disabled' %> </p>
+    <% end %>
+  <% end %>
+</div>
+
+<hr>
+
+<div>
+  <p> <%= t('staff.challenge_docs.phrase-documents') %></p>
+  <br>
+  <% challenge.challenge_docs.each do |chall_doc| %>
+    <%= link_to chall_doc.doc.title, staff_doc_path(chall_doc.doc) %>
   <% end %>
 </div>

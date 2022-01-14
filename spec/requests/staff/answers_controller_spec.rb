@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Staff::AnswersController', type: :request do
-  let!(:answer) { create(:answer) }
+  let!(:answer) { create(:answer, challenge: challenge) }
   let!(:challenge) { create(:challenge) }
 
   before do
@@ -13,21 +13,21 @@ RSpec.describe 'Staff::AnswersController', type: :request do
 
   describe 'GET /index' do
     it 'returns http success' do
-      get staff_answers_path
+      get staff_challenge_answers_path(challenge)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /show' do
     it 'returns http success' do
-      get staff_answers_path(answer)
+      get staff_challenge_answers_path(challenge, answer)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET /new' do
     it 'returns http success' do
-      get new_staff_answer_path(challenge_id: challenge.id)
+      get new_staff_challenge_answer_path(challenge)
       expect(response).to have_http_status(:success)
     end
   end
@@ -48,13 +48,13 @@ RSpec.describe 'Staff::AnswersController', type: :request do
 
     context 'when success' do
       it 'creates an Answer' do
-        expect { post staff_answers_path, params: answer_params }.to change(Answer, :count).by 1
+        expect { post staff_challenge_answers_path(challenge), params: answer_params }.to change(Answer, :count).by 1
       end
     end
 
     context 'when error' do
       it 'renders new' do
-        post staff_answers_path, params: { answer: { signature: '' } }
+        post staff_challenge_answers_path(challenge), params: { answer: { signature: '' } }
         expect(response).to render_template :new
       end
     end
@@ -62,14 +62,14 @@ RSpec.describe 'Staff::AnswersController', type: :request do
 
   describe 'GET /edit' do
     it 'returns http success' do
-      get edit_staff_answer_path(answer)
+      get edit_staff_challenge_answer_path(challenge, answer)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'PATCH /update' do
     it 'updates answer' do
-      patch staff_answer_path(answer), params: { answer: { signature: 'new signature' } }
+      patch staff_challenge_answer_path(challenge, answer), params: { answer: { signature: 'new signature' } }
 
       expect(answer.reload.signature).to eq 'new signature'
     end
@@ -77,12 +77,12 @@ RSpec.describe 'Staff::AnswersController', type: :request do
 
   describe 'DELETE /destroy' do
     it 'delete answer' do
-      expect { delete staff_answer_path(answer) }.to change(Answer, :count).by(-1)
+      expect { delete staff_challenge_answer_path(challenge, answer) }.to change(Answer, :count).by(-1)
     end
 
     it 'redirects to answers index' do
-      delete staff_answer_path(answer)
-      expect(response).to redirect_to staff_answers_path
+      delete staff_challenge_answer_path(challenge, answer)
+      expect(response).to redirect_to staff_challenge_answers_path(challenge)
     end
   end
 end
