@@ -5,6 +5,7 @@ class Answer < ApplicationRecord
   belongs_to :user
 
   has_one :repository, as: :cloud_storage
+  has_many :doc_links, as: :linkable, dependent: :destroy
 
   validates_presence_of :signature
   validates_presence_of :comments

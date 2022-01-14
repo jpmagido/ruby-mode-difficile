@@ -11,9 +11,9 @@
 
 <hr>
 <div>
-  <p> <%= t('staff.challenge_docs.phrase-challenges') %></p>
+  <p> <%= t('staff.doc_links.phrase-challenges') %></p>
   <br>
-  <% doc.challenge_docs.each do |chall_doc| %>
-    <%= link_to chall_doc.doc.title, staff_doc_path(chall_doc.doc) %>
+  <% doc.doc_links.each do |doc_link| %>
+    <%= link_to doc_link.doc.title, staff_doc_path(doc_link.linkable) %>
   <% end %>
 </div>

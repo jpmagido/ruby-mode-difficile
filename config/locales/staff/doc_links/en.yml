@@ -1,6 +1,6 @@
 en:
   staff:
-    challenge_docs:
+    doc_links:
       phrase-documents: 'You can find additionnal informations in thoses Documents to solve your Challenge'
       phrase-challenges: 'You can find Challenges related to this Document here: '
       flashes:
@@ -10,4 +10,8 @@ en:
       new:
         link: 'Create a new link between Challenge & Doc'
         challenge: 'Select a Challenge'
+        answer: 'Select an Answer'
         doc: 'Select a Doc'
+        link-challenge: 'Link Challenge & Doc'
+        link-answer: 'Link Answer & Doc'
+        linkable-error: 'Sorry, we did not find the Object you want to link you Doc to'

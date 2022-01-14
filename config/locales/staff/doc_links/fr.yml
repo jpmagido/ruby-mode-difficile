@@ -1,6 +1,6 @@
 fr:
   staff:
-    challenge_docs:
+    doc_links:
       phrase-documents: 'Vous pourrez trouver des informations complémentaires pour résoudre le Challenge ci-dessous'
       phrase-challenges: 'Vous pourrez trouver des Challenges en rapport avec ce Doc: '
       flashes:
@@ -10,4 +10,8 @@ fr:
       new:
         link: 'Créer un nouveau lien entre Challenge & Doc'
         challenge: 'Selectionner un Challenge'
+        answer: 'Selectionner une Answer'
         doc: 'Selectionner un Doc'
+        link-challenge: 'Lier Challenge & Doc'
+        link-answer: 'Lier Answer & Doc'
+        linkable-error: "Désolé, nous n'avons pas trouvé l'Objet auquel vous souhaitez lié le Doc"
