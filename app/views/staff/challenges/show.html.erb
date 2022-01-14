@@ -24,17 +24,17 @@
 
 <hr>
 
-<%= link_to t('answers.links.new-answer'), new_staff_answer_path(challenge) %>
+<%= link_to t('answers.links.new-answer'), new_staff_challenge_answer_path(challenge) %>
 <br><br>
 
 <div>
-  <%= t('challenges.show.solution-count', counter: challenge.answers.count) %>
+  <%= t('challenges.show.solution-count', data: pluralize(challenge.answers.count, 'solution')) %>
 </div>
 
 <div>
   <% challenge.answers.each do |answer| %>
     <p>
-      <%= link_to t('challenges.show.answer-link', author: answer.user.login), staff_answer_path(answer) %>
+      <%= link_to t('challenges.show.answer-link', author: answer.user.login), staff_challenge_answer_path(challenge, answer) %>
     </p>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 <% if current_user.admin %>
   <hr>
-  <div> <%= link_to t('shared.link_admin_version'), staff_answer_path(answer) %> </div>
+  <div> <%= link_to t('shared.link_admin_version'), staff_challenge_answer_path(challenge, answer) %> </div>
   <hr>
 <% end %>
 

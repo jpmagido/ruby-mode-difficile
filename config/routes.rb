@@ -15,8 +15,10 @@ Rails.application.routes.draw do
 
   namespace :staff do
     resource :admin, only: :show
-    resources :challenges
-    resources :answers
+    resources :challenges do
+      resources :answers
+    end
+    resources :answers, only: :index
     resources :users, only: %i[index show edit update destroy]
     resources :docs
   end

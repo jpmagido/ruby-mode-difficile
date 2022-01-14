@@ -2,4 +2,4 @@
 <%= link_to t('shared.back'), :back %>
 <br>
 <hr>
-<%= render partial: 'login/answers/form', locals: { array_model: [:staff, @new_answer] } %>
+<%= render partial: 'login/answers/form', locals: { array_model: [:staff, challenge, @new_answer] } %>
