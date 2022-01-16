@@ -13,13 +13,18 @@
 <%= render partial: 'login/docs/list', locals: { doc: doc } %>
 
 <div>
-  <p> <%= t('staff.challenge_docs.phrase-challenges') %> </p>
+  <p> <%= t('staff.doc_links.phrase-challenges-answers') %> </p>
   <br>
-  <% doc.challenge_docs.each do |chall_doc| %>
-    <%= link_to chall_doc.challenge.title, staff_doc_path(chall_doc.challenge) %>
-    <%= button_to t('shared.link_destroy'), staff_challenge_doc_path(chall_doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+  <% doc.doc_links.each do |doc_link| %>
+    <% if doc_link.linkable.is_a? Challenge %>
+      <%= link_to "#{doc_link.linkable.class} : #{doc_link.linkable.title}", staff_challenge_path(doc_link.linkable) %>
+    <% else %>
+      <%= link_to "#{doc_link.linkable.class} : #{doc_link.linkable.title}", staff_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %>
+    <% end %>
+
+    <%= button_to t('staff.doc_links.show.link-delete'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
   <% end %>
 
   <br>
-  <p> <%= link_to t('staff.challenge_docs.new.link'), new_staff_challenge_doc_path %> </p>
+  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
 </div>

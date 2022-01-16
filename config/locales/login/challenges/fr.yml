@@ -25,6 +25,6 @@ fr:
     new-challenge: 'Créez un nouveau Challenge !'
     show:
       title: 'Titre : %{title}'
-      answer-link: 'Auteur: %{author}'
+      answer-link: 'Réponse de -> Auteur: %{author}'
       solution-count: '%{data} à consulter'
       restriction-phrase: "-> Vous ne pouvez consulter la solution qu'une fois le Challenge effectué"

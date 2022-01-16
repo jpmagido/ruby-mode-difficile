@@ -4,7 +4,7 @@ class Challenge < ApplicationRecord
   belongs_to :user
 
   has_many :answers, dependent: :destroy
-  has_many :challenge_docs, dependent: :destroy
+  has_many :doc_links, as: :linkable, dependent: :destroy
   has_many_attached :files
   has_rich_text :description
 
@@ -19,4 +19,13 @@ class Challenge < ApplicationRecord
   enum status: %i[pending ready]
 
   scope :all_valid, -> { where('status = 1') }
+  scope :by_owner, ->(user_id) { where('user_id = ?', user_id) }
+
+  def display_nature
+    "#{self.class.to_s} : #{title}"
+  end
+
+  def type_id
+    "#{self.class.to_s}/#{id}"
+  end
 end

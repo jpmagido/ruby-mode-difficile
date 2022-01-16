@@ -1,0 +1,18 @@
+fr:
+  staff:
+    doc_links:
+      phrase-answers: 'Vous pourrez trouver des informations supplémentaire pour compléter la logique de la Réponse ci-dessous: '
+      phrase-challenges-answers: 'Vous pourrez trouver des Challenges & Réponses en rapport avec ce Doc: '
+      phrase-documents: 'Vous pourrez trouver des informations complémentaires pour résoudre le Challenge ci-dessous'
+      flashes:
+        create-success: 'Vous avez créer un lien entre Challenge & Doc avec succes'
+        destroy-success: 'Vous avez détruit un lien entre Challenge & Doc avec succès'
+        error: "Une erreur, s'est produite : %{error}"
+      new:
+        challenge: 'Selectionner un Challenge'
+        answer: 'Selectionner une Answer'
+        doc: 'Selectionner un Doc'
+        link-challenge-answer: 'Lier un Challenge ou une Réponse à un Doc'
+        linkable-error: "Désolé, nous n'avons pas trouvé l'Objet auquel vous souhaitez lié le Doc"
+      show:
+        link-delete: 'Supprimer le lien entre le Doc et son objet associé'

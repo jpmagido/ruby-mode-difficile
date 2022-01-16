@@ -56,9 +56,14 @@
 <hr>
 
 <div>
-  <p> <%= t('staff.challenge_docs.phrase-documents') %></p>
+  <p> <%= t('staff.doc_links.phrase-documents') %></p>
   <br>
-  <% challenge.challenge_docs.each do |chall_doc| %>
-    <%= link_to chall_doc.doc.title, staff_doc_path(chall_doc.doc) %>
+  <% challenge.doc_links.each do |doc_link| %>
+    <%= link_to doc_link.doc.title, login_doc_path(doc_link.doc) %>
   <% end %>
 </div>
+
+<% if current_user.owns_challenge?(challenge.id) %>
+  <br>
+  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </p>
+<% end %>

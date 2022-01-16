@@ -11,9 +11,24 @@
 
 <hr>
 <div>
-  <p> <%= t('staff.challenge_docs.phrase-challenges') %></p>
+  <p> <%= t('staff.doc_links.phrase-challenges-answers') %></p>
   <br>
-  <% doc.challenge_docs.each do |chall_doc| %>
-    <%= link_to chall_doc.doc.title, staff_doc_path(chall_doc.doc) %>
-  <% end %>
+  <div>
+    <% doc.doc_links.each do |doc_link| %>
+      <ul>
+        <li>
+          <% if doc_link.linkable.is_a? Challenge %>
+            <%= link_to doc_link.linkable.display_nature, login_challenge_path(doc_link.linkable) %>
+          <% else %>
+            <%= link_to doc_link.linkable.display_nature, login_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 </div>
+
+
+<br>
+<hr>
+<p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </p>

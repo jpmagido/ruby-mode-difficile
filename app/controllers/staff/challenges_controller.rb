@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Staff
-  class ChallengesController < ApplicationController
+  class ChallengesController < Staff::BaseController
     helper_method :challenges, :challenge
 
     def new

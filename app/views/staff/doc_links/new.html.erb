@@ -1,0 +1,22 @@
+<h1>Staff::DocLinks#new</h1>
+<br>
+<%= link_to t('shared.back'), :back %>
+<br>
+<hr>
+
+<h3> <%= t('staff.doc_links.new.link-challenge-answer') %> </h3>
+<div>
+  <%= form_with model: [:staff, @new_doc_link] do |f| %>
+    <%= f.label :linkable, t('staff.doc_links.new.challenge') %>
+    <br>
+    <%= f.collection_select :linkable, @linkables, :type_id, :display_nature %>
+    <br>
+    <br>
+    <%= f.label :doc_id, t('staff.doc_links.new.doc') %>
+    <br>
+    <%= f.collection_select :doc_id, @docs, :id, :title %>
+    <br>
+    <br>
+    <%= f.submit t('shared.submit_form') %>
+  <% end %>
+</div>
