@@ -5,5 +5,7 @@ class Doc < ApplicationRecord
 
   validates_length_of :title, in: 2..200
 
+  enum status: %i[pending ready]
+
   has_rich_text :content
 end

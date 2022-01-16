@@ -10,4 +10,12 @@ class User < ApplicationRecord
   enum language: %i[fr en]
 
   scope :admins, -> { joins(:admin) }
+
+  def owns_answer?(answer_id)
+    answers.ids.include?(answer_id)
+  end
+
+  def owns_challenge?(challenge_id)
+    challenges.ids.include?(challenge_id)
+  end
 end

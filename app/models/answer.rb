@@ -17,4 +17,12 @@ class Answer < ApplicationRecord
   delegate :title, to: :challenge
 
   scope :by_owner, ->(user_id) { where('user_id = ?', user_id) }
+
+  def display_nature
+    "#{self.class} : #{title}"
+  end
+
+  def type_id
+    "#{self.class.to_s}/#{id}"
+  end
 end

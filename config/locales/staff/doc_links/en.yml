@@ -2,16 +2,17 @@ en:
   staff:
     doc_links:
       phrase-documents: 'You can find additionnal informations in thoses Documents to solve your Challenge'
-      phrase-challenges: 'You can find Challenges related to this Document here: '
+      phrase-answers: 'You can find additionnal informations in thoses Documents to match Answer logic'
+      phrase-challenges-answers: 'You can find Challenges & Answers related to this Document here: '
       flashes:
         create-success: 'You successfully created a link Challenge & Doc'
         destroy-success: 'You successfully destroyed a link Challenge & Doc'
         error: 'Error, something happened : %{error}'
       new:
-        link: 'Create a new link between Challenge & Doc'
         challenge: 'Select a Challenge'
         answer: 'Select an Answer'
         doc: 'Select a Doc'
-        link-challenge: 'Link Challenge & Doc'
-        link-answer: 'Link Answer & Doc'
+        link-challenge-answer: 'Link Challenge or Answer to Doc'
         linkable-error: 'Sorry, we did not find the Object you want to link you Doc to'
+      show:
+        link-delete: 'Delete link between Doc and its associatied Object'

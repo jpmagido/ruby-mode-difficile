@@ -6,8 +6,7 @@ module Staff
       @new_doc_link = DocLink.new
       authorize @new_doc_link, policy_class: AdminPolicy
 
-      @challenges = Challenge.all.order(:title)
-      @answers = Answer.all
+      @linkables = challenges + answers
       @docs = Doc.all.order(:title)
     end
 
@@ -43,15 +42,20 @@ module Staff
     end
 
     def linkable
-      return Challenge.find(doc_link_params[:challenge_id]) if doc_link_params[:challenge_id]
-      return Answer.find(doc_link_params[:answer_id]) if doc_link_params[:answer_id]
+      formatted_param = doc_link_params[:linkable].split('/')
+      formatted_param.first.constantize.find(formatted_param.last)
+    end
 
-      flash.now[:error] = t('staff.doc_links.new.linkable-error')
-      render 'staff/doc_links/new'
+    def challenges
+      @challenges ||= Challenge.all.order(created_at: :desc)
+    end
+
+    def answers
+      @answers ||= Answer.all.order(created_at: :desc)
     end
 
     def doc_link_params
-      params.require(:doc_link).permit(:challenge_id, :answer_id, :doc_id)
+      params.require(:doc_link).permit(:linkable, :doc_id)
     end
   end
 end

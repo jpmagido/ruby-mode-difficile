@@ -43,10 +43,10 @@
 <div>
   <p> <%= t('staff.doc_links.phrase-documents') %></p>
   <br>
-  <% challenge.doc_links.each do |doc_links| %>
-    <%= link_to doc_link.doc.title, staff_doc_path(doc_links.doc) %>
+  <% challenge.doc_links.each do |doc_link| %>
+    <%= link_to doc_link.doc.title, staff_doc_path(doc_link.doc) %>
     <%= button_to t('shared.link_destroy'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
   <% end %>
   <br>
-  <p> <%= link_to t('staff.doc_links.new.link'), new_staff_doc_link_path %> </p>
+  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
 </div>

@@ -19,3 +19,18 @@
     <div> <%= sanitize answer.repository.readme %> </div>
   </div>
 <% end %>
+
+<br>
+<hr>
+<br>
+
+<div>
+  <p> <%= t('staff.doc_links.phrase-answers') %></p>
+  <br>
+  <% answer.doc_links.each do |doc_link| %>
+    <%= link_to doc_link.doc.title, staff_doc_path(doc_link.doc) %>
+    <%= button_to t('shared.link_destroy'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
+  <% end %>
+  <br>
+  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
+</div>

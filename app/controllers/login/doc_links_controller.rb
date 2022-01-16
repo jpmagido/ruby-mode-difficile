@@ -5,8 +5,7 @@ module Login
 
     def new
       @new_doc_link = DocLink.new
-      @challenges = Challenge.by_owner(current_user.id).order(:created_at)
-      @answers = Answer.by_owner(current_user.id).order(:created_at)
+      @linkables = current_user_challenges + current_user_answers
       @docs = Doc.all.order(:title)
     end
 
@@ -26,12 +25,20 @@ module Login
     private
 
     def linkable
-      return Challenge.find(doc_link_params[:challenge_id]) if doc_link_params[:challenge_id]
-      return Answer.find(doc_link_params[:answer_id]) if doc_link_params[:answer_id]
+      formatted_param = doc_link_params[:linkable].split('/')
+      formatted_param.first.constantize.find(formatted_param.last)
+    end
+
+    def current_user_challenges
+      @current_user_challenges ||= Challenge.by_owner(current_user.id).order(created_at: :desc)
+    end
+
+    def current_user_answers
+      @current_user_answers ||= Answer.by_owner(current_user.id).order(created_at: :desc)
     end
 
     def doc_link_params
-      params.require(:doc_link).permit(:challenge_id, :answer_id, :doc_id)
+      params.require(:doc_link).permit(:linkable, :doc_id)
     end
   end
 end

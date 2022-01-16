@@ -24,7 +24,7 @@ RSpec.describe 'Staff::DocLinksController', type: :request do
     let(:create_params_challenge) do
       {
         doc_link: {
-          challenge_id: challenge.id,
+          linkable: "Challenge/#{challenge.id}",
           doc_id: doc.id
         }
       }
@@ -33,7 +33,7 @@ RSpec.describe 'Staff::DocLinksController', type: :request do
     let(:create_params_answer) do
       {
         doc_link: {
-          answer_id: answer.id,
+          linkable: "Answer/#{answer.id}",
           doc_id: doc.id
         }
       }

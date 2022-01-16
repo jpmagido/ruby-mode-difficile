@@ -22,7 +22,7 @@ RSpec.describe 'Login::DocLinksController', type: :request do
       let(:create_params_challenge) do
         {
           doc_link: {
-            challenge_id: challenge.id,
+            linkable: "Challenge/#{challenge.id}",
             doc_id: doc.id
           }
         }
@@ -31,7 +31,7 @@ RSpec.describe 'Login::DocLinksController', type: :request do
       let(:create_params_answer) do
         {
           doc_link: {
-            answer_id: answer.id,
+            linkable: "Answer/#{answer.id}",
             doc_id: doc.id
           }
         }
@@ -47,7 +47,7 @@ RSpec.describe 'Login::DocLinksController', type: :request do
       let(:params_challenge) do
         {
           doc_link: {
-            challenge_id: create(:challenge).id,
+            linkable: "Challenge/#{create(:challenge).id}",
             doc_id: doc.id
           }
         }
@@ -56,7 +56,7 @@ RSpec.describe 'Login::DocLinksController', type: :request do
       let(:params_answer) do
         {
           doc_link: {
-            answer_id: create(:answer).id,
+            linkable: "Answer/#{create(:answer).id}",
             doc_id: doc.id
           }
         }

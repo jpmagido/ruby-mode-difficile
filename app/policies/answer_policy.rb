@@ -6,7 +6,7 @@ class AnswerPolicy < AppPolicy
   end
 
   def show?
-    author? || user.answers.ready.map(&:challenge).include?(record.challenge)
+    author_or_admin? || user.answers.ready.map(&:challenge).include?(record.challenge)
   end
 
   def new?
@@ -18,12 +18,12 @@ class AnswerPolicy < AppPolicy
   end
 
   def update?
-    author?
+    author_or_admin?
   end
 
   private
 
-  def author?
+  def author_or_admin?
     record.user_id == user.id || user.admin
   end
 end
