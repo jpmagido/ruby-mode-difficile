@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :session, dependent: :destroy
   has_one :admin, dependent: :destroy
+  has_one :coach, dependent: :destroy
 
   enum language: %i[fr en]
 

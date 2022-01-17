@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_133036) do
+ActiveRecord::Schema.define(version: 2022_01_17_163403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(version: 2022_01_14_133036) do
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
+  create_table "coaches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coaches_on_user_id"
+  end
+
   create_table "doc_links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "doc_id", null: false
     t.string "linkable_type"
@@ -146,6 +153,7 @@ ActiveRecord::Schema.define(version: 2022_01_14_133036) do
   add_foreign_key "answers", "challenges"
   add_foreign_key "answers", "users"
   add_foreign_key "challenges", "users"
+  add_foreign_key "coaches", "users"
   add_foreign_key "doc_links", "docs"
   add_foreign_key "sessions", "users"
 end

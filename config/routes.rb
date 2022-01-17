@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :repositories, only: :update
     resources :docs, only: %i[index show]
     resources :doc_links, only: %i[new create]
+    resources :coaches, only: :new
   end
 
   namespace :staff do
