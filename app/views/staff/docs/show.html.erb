@@ -17,9 +17,9 @@
   <br>
   <% doc.doc_links.each do |doc_link| %>
     <% if doc_link.linkable.is_a? Challenge %>
-      <%= link_to "#{doc_link.linkable.class} : #{doc_link.linkable.title}", staff_challenge_path(doc_link.linkable) %>
+      <%= link_to doc_link.linkable.display_nature, staff_challenge_path(doc_link.linkable) %>
     <% else %>
-      <%= link_to "#{doc_link.linkable.class} : #{doc_link.linkable.title}", staff_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %>
+      <%= link_to doc_link.linkable.display_nature, staff_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %>
     <% end %>
 
     <%= button_to t('staff.doc_links.show.link-delete'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
