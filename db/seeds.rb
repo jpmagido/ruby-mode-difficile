@@ -1,24 +1,23 @@
-# require 'factory_bot_rails'
+# frozen_string_literal: true
 
-def create_users
-    FactoryBot.create_list(:user, 10)
-    puts '10 users are created'    
+def create_users(number = 10)
+  FactoryBot.create_list(:user, number)
+  puts "#{number} users are created"
 end
 
-def create_challenges
-    challenges = FactoryBot.create_list(:challenge, 10)
-    challenges.each do |challenge|
-        for i in 0..2 do
-            FactoryBot.create(:answer,challenge_id: challenge.id)
-        end
+def create_challenges(number = 10)
+  challenges = FactoryBot.create_list(:challenge, number)
+  challenges.each do |challenge|
+    3.times do
+      FactoryBot.create(:answer, challenge_id: challenge.id)
     end
-    puts '10 challenges created with each 3 answers'        
+  end
+  puts "#{number} challenges created with each 3 answers each"
 end
 
 def perform
-    create_users
-    create_challenges
+  create_users(20)
+  create_challenges(15)
 end
-
 
 perform
