@@ -1,0 +1,31 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="height: 643px">
+  <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <svg class="bi me-2" width="40" height="32">
+    </svg>
+    <span class="fs-4"> <%= t('conversations.full-list') %> </span>
+  </div>
+  <hr>
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li>
+      <% current_user.conversation_participants.map(&:conversation).each do |conversation| %>
+        <%= link_to conversation.participant_names, login_conversation_path(conversation), class: "nav-link #{active_conv?(params[:id], conversation.id)} text-white" %>
+      <% end %>
+    </li>
+  </ul>
+  <hr>
+  <div class="dropdown">
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <strong>Options</strong>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+      <li><a class="dropdown-item" href="#">New project...</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="#">Sign out</a></li>
+    </ul>
+  </div>
+</div>

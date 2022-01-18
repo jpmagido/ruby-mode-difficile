@@ -21,3 +21,6 @@ fr:
         error-text: 'Erreur #500 / ERREUR INTERNE'
       401:
         error-text: 'Erreur #401 / ACCES NON AUTHORISE'
+    models:
+      doc: 'Documentation'
+      conversation-messages: 'Messages'

@@ -1,0 +1,8 @@
+en:
+  conversations:
+    full-list: 'Your Conversations'
+    not-selected: 'No conversation selected'
+    form:
+      send: 'Send message'
+    flashes:
+      error: 'Error: something happened : %{error}'

@@ -21,3 +21,6 @@ en:
         error-text: 'Error #500 / INTERNAL ERROR'
       401:
         error-text: 'Error #401 / UNAUTHORIZED ACCESS'
+    models:
+      doc: 'Documentation'
+      conversation-messages: 'Messages'

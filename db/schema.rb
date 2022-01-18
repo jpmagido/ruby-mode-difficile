@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2022_01_17_165016) do
   end
 
   create_table "conversation_messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.text "content", null: false
+    t.text "content"
     t.uuid "conversation_id", null: false
     t.uuid "conversation_participant_id", null: false
     t.datetime "created_at", precision: 6, null: false
