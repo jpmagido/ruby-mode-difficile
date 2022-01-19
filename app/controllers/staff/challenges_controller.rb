@@ -53,7 +53,11 @@ module Staff
     private
 
     def challenges
-      @challenges ||= Challenge.all
+      if params[:difficulty]
+        @challenges = Challenge.where(['difficulty = ?', params[:difficulty]])
+      else
+        @challenges ||= Challenge.all
+      end  
     end
 
     def challenge

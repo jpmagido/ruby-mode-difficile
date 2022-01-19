@@ -8,6 +8,13 @@
 
 <br><br>
 <hr>
+<h6>Difficulty filter</h6>
+<%=form_tag(staff_challenges_path, :method => "get") do %>
+  <%=select_tag(:difficulty, options_for_select((1..10).map { |difficulty| [difficulty] } )) %>
+  <%=submit_tag 'Filter'%>
+<%end %>
+
+<br>
 <div>
   <% challenges.each do |challenge| %>
     <ul>
