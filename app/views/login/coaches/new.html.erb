@@ -1,2 +1,7 @@
-<h1>Login::Coaches#new</h1>
-<p>Find me in app/views/login/coaches/new.html.erb</p>
+<h3> <%= t('coaches.new-coach-phrase') %></h3>
+
+<div>
+  <%= form_with model: @new_coach do |f| %>
+    <%= f.rich_text_area :message %>
+  <% end %>
+</div>
