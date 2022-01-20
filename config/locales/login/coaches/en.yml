@@ -4,6 +4,9 @@ en:
     flashes:
       create-success: 'Your message has been sent, an Admin will contact you soon'
     messages:
-      admin-promotion: >
-        Hello, I'd like to access the Coach Dashboard /n
+      admin-promotion: |
+        Hello, I'd like to access the Coach Dashboard.
         You can check my profile at: %{user_path}
+      admin-message-sent: |
+        A message has been sent to our Admins, they will message soon.
+        You can see the message in:

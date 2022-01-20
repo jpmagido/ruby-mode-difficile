@@ -6,11 +6,11 @@ class ConversationManager
   def initialize(user_array)
     raise ArgumentError unless user_array.is_a? Array
 
-    @users = user_array
+    @users = user_array.uniq
   end
 
   def find_conversation
-    potential_conversations = users.sample.conversations.select { |c| c.conversation_participants.count == user_count }
+    potential_conversations = users.sample.conversations.uniq.select { |c| c.conversation_participants.count == user_count }
 
     return create_conversation if potential_conversations.empty?
 

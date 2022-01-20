@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     resources :doc_links, only: %i[new create destroy]
   end
 
+  namespace :mentor do
+    resources :users, only: :show
+  end
+
   resource :session, only: %i[new edit create destroy]
   resource :locale, only: :update
 

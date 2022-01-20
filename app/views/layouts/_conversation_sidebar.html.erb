@@ -8,7 +8,7 @@
 
   <ul class="nav nav-pills flex-column mb-auto">
     <li>
-      <% current_user.conversation_participants.map(&:conversation).each do |conversation| %>
+      <% current_user.conversations.uniq.each do |conversation| %>
         <%= link_to conversation.participant_names, login_conversation_path(conversation), class: "nav-link #{active_conv?(params[:id], conversation.id)} text-white" %>
       <% end %>
     </li>
