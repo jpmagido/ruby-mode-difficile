@@ -1,7 +1,10 @@
 <h3> <%= t('coaches.new-coach-phrase') %></h3>
 
 <div>
-  <%= form_with model: @new_coach do |f| %>
+  <!-- TODO: Condition pour voir le bouton -->
+  <%= form_with model: [:login, @new_coach] do |f| %>
     <%= f.rich_text_area :message %>
+    <br>
+    <%= f.submit t('shared.submit_form') %>
   <% end %>
 </div>

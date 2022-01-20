@@ -1,3 +1,9 @@
 fr:
   coaches:
     new-coach-phrase: 'Dites-nous si participer au projet en tant que Coach vous interesse'
+    flashes:
+      create-success: 'Your message has been sent, an Admin will contact you soon'
+    messages:
+      admin-promotion: >
+        Bonjour, je souhaite faire une demande pour accéder à l'espace Coach du site /n
+        Vous pourrez consulter mon profil sur: %{user_path}

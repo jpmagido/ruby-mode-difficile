@@ -8,12 +8,16 @@ module Login
 
     def show
       if conversation
+        authorize conversation
         @new_message = conversation.conversation_messages.new
       end
     end
 
+    # create message in current conversation
     def create
       current_conversation = Conversation.find(conversation_params[:conversation_id])
+      authorize current_conversation
+
       current_participant = current_conversation.conversation_participants.find_by(user_id: current_user.id)
 
       new_message = current_conversation.conversation_messages.new(

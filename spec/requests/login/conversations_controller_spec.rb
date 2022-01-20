@@ -16,6 +16,7 @@ RSpec.describe 'Login::ConversationsController', type: :request do
     end
 
     it 'returns http success' do
+      current_user_participant
       get login_conversation_path(conversation)
       expect(response).to have_http_status(:success)
     end
