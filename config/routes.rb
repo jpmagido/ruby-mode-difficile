@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   namespace :mentor do
-    resources :users, only: :show
+    resource :user, only: :show
   end
 
   resource :session, only: %i[new edit create destroy]

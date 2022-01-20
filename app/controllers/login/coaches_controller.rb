@@ -7,10 +7,13 @@ module Login
     end
 
     def create
-      @new_coach = Coach.create!(user_id: current_user.id)
+      @new_coach = Coach.new(user_id: current_user.id)
+      authorize @new_coach
+
+      @new_coach.save!
       conversation.ask_coach_promotion(current_user.id)
       flash[:success] = t('coaches.flashes.create-success')
-      redirect_to root_path
+      redirect_to login_conversation_path(conversation)
     end
 
     private
