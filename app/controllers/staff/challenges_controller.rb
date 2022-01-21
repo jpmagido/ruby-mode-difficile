@@ -55,9 +55,11 @@ module Staff
     def challenges
       if params[:difficulty]
         @challenges = Challenge.where(['difficulty = ?', params[:difficulty]])
+        return @challenges
       else
         @challenges ||= Challenge.all
-      end  
+        return @challenges
+      end
     end
 
     def challenge

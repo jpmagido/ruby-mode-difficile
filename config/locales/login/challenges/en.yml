@@ -16,6 +16,10 @@ en:
           pending: 'Waiting for approval'
           ready: 'Validated'
       files: 'Files :'
+      filter:
+        name: 'Filters'
+        button:
+          label: 'Apply'  
     flashes:
       new-challenge-success: 'You created a Challenge, an Admin will moderate it soon'
       challenge-error: 'Something went wrong: %{error}'

@@ -1,0 +1,9 @@
+<div class='row'>
+  <div class='col-2 h6 fw-bold'><%= t('challenges.attr.filter.name')%></div>
+  <div class ='col-10'>
+    <%=form_tag(staff_challenges_path, :method => 'get', class:'row') do %>
+      <div class='col-10'><span class='h6 me-2'><%=t('challenges.attr.difficulty.label') %></span><%=select_tag(:difficulty, options_for_select((1..10),params[:difficulty])) %></div>
+      <div class='col-2'><%=submit_tag t('challenges.attr.filter.button.label')%></div>
+    <%end %>
+  </div>
+</div>

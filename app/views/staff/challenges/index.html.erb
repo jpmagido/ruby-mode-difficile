@@ -4,17 +4,15 @@
 <br>
 <hr>
 
-<div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
-
-<br><br>
+<div class='row'>
+  <div class='col-3'> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
+  <div class='col-9 border border-dark p-3'>
+  <%=render 'staff/challenges/search'%>    
+  </div>
+</div>
 <hr>
-<h6>Difficulty filter</h6>
-<%=form_tag(staff_challenges_path, :method => "get") do %>
-  <%=select_tag(:difficulty, options_for_select((1..10).map { |difficulty| [difficulty] } )) %>
-  <%=submit_tag 'Filter'%>
-<%end %>
-
 <br>
+
 <div>
   <% challenges.each do |challenge| %>
     <ul>
