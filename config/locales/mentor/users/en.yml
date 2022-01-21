@@ -3,4 +3,5 @@ en:
     users:
       flashes:
         authenticate-mentor: "You must ask an Admin to access the Coach Dashboard."
-      all-students: 'All students'
+      all-students: 'All Students'
+      all-mentorships: 'All my Mentorships'

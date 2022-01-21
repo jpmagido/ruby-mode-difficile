@@ -8,7 +8,7 @@
 <div>
   <% mentorships.each do |mentorship| %>
     <div>
-      <p> <%= link_to t('mentor.mentorships.model-name'), mentor_mentorship_path(mentorship) %> </p>
+      <p> <%= t('mentor.mentorships.attr.student-name') %> <%= link_to mentorship.student.user.login, mentor_mentorship_path(mentorship) %> </p>
       <p> <%= link_to t('shared.link_edit'), edit_mentor_mentorship_path(mentorship) %> </p>
     </div>
   <% end %>
