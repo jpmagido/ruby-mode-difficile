@@ -1,0 +1,12 @@
+en:
+  staff:
+    coaches:
+      flashes:
+        update-success: 'You successfully changed the Coach status'
+        blocked-success: 'You have blocked the Coach'
+        error: 'Error, something happened : %{error}'
+      links:
+        block: 'Block Coach'
+      attr:
+        status: 'Status : '
+        user-name: 'User Name'

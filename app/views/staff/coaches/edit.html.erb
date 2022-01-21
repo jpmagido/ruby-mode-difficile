@@ -1,0 +1,12 @@
+<h3>Staff::Coaches#edit</h3>
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+
+<div>
+  <%= form_with model: [:staff, coach] do |f| %>
+    <%= f.label :status, t('staff.coaches.attr.status') %>
+    <%= f.select :status, collection: Coach.statuses.keys.to_a %>
+    <%= f.submit t('shared.submit_form') %>
+  <% end %>
+</div>

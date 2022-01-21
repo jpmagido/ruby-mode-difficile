@@ -3,5 +3,5 @@
 class Coach < ApplicationRecord
   belongs_to :user
 
-  enum status: %i[pending ready]
+  enum status: %i[pending ready blocked]
 end

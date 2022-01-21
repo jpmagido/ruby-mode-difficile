@@ -7,7 +7,7 @@ module Mentor
     private
 
     def authenticate_mentor!
-      unless current_user.coach
+      unless current_user.coach&.ready?
         flash[:error] = t('mentor.users.flashes.authenticate-mentor')
         redirect_to new_login_coach_path
       end

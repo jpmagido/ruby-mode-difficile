@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show edit update destroy]
     resources :docs
     resources :doc_links, only: %i[new create destroy]
+    resources :coaches, only: %i[index show edit update]
   end
 
   namespace :mentor do
