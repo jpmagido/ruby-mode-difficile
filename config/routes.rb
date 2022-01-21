@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   namespace :mentor do
     resource :user, only: :show
     resources :students, only: %i[show index]
+    resources :mentorships, only: %i[show index create edit update]
   end
 
   resource :session, only: %i[new edit create destroy]

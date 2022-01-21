@@ -1,0 +1,14 @@
+en:
+  mentor:
+    mentorships:
+      model-name: 'Mentorship'
+      flashes:
+        create-success: 'You created a pending MentorShip, the Student now need to accept'
+        update-success: 'You successfully updated a MentorShip'
+        error: 'Error, something happened : %{error}'
+      attr:
+        coach-approval: 'Coach Approval'
+        student-approval: 'Student Approval : '
+        check_box-approval: 'Check the box to approve : '
+        coach-name: 'Coach name : '
+        student-name: 'Student name : '

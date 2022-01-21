@@ -11,3 +11,7 @@
     <li> <%= t('mentor.students.challenges-done') %> <%= student.user.answers.count %> </li>
   </ul>
 </div>
+
+<div>
+  <%= button_to t('mentor.students.links.new-mentorship'), mentor_mentorships_path(student_id: student.id), class: 'btn btn-secondary' %>
+</div>

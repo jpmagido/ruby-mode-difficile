@@ -3,3 +3,4 @@ fr:
     users:
       flashes:
         authenticate-mentor: "Vous devez demander l'accès au Dashboard Coach à un admin."
+      all-students: 'Tous les étudiants'

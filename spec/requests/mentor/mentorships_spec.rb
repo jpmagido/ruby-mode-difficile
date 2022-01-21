@@ -1,0 +1,25 @@
+require 'rails_helper'
+
+RSpec.describe "Mentor::Mentorships", type: :request do
+  describe "GET /index" do
+    it "returns http success" do
+      get "/mentor/mentorships/index"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /show" do
+    it "returns http success" do
+      get "/mentor/mentorships/show"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /edit" do
+    it "returns http success" do
+      get "/mentor/mentorships/edit"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+end

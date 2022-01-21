@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_21_035521) do
+ActiveRecord::Schema.define(version: 2022_01_21_102332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -139,6 +139,17 @@ ActiveRecord::Schema.define(version: 2022_01_21_035521) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mentorships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "coach_approval", default: false
+    t.boolean "student_approval", default: false
+    t.uuid "student_id", null: false
+    t.uuid "coach_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_mentorships_on_coach_id"
+    t.index ["student_id"], name: "index_mentorships_on_student_id"
+  end
+
   create_table "repositories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "github_url"
     t.text "readme"
@@ -193,6 +204,8 @@ ActiveRecord::Schema.define(version: 2022_01_21_035521) do
   add_foreign_key "conversation_participants", "conversations"
   add_foreign_key "conversation_participants", "users"
   add_foreign_key "doc_links", "docs"
+  add_foreign_key "mentorships", "coaches"
+  add_foreign_key "mentorships", "students"
   add_foreign_key "sessions", "users"
   add_foreign_key "students", "users"
 end

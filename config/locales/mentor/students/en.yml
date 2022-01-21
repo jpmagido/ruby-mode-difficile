@@ -2,3 +2,5 @@ en:
   mentor:
     students:
       challenges-done: 'Challenges done : '
+      links:
+        new-mentorship: 'Send a mentorship proposal'

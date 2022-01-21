@@ -1,0 +1,16 @@
+<h3>Mentor::Mentorships#index</h3>
+
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+<br>
+
+<div>
+  <% mentorships.each do |mentorship| %>
+    <div>
+      <p> <%= link_to t('mentor.mentorships.model-name'), mentor_mentorship_path(mentorship) %> </p>
+      <p> <%= link_to t('shared.link_edit'), edit_mentor_mentorship_path(mentorship) %> </p>
+    </div>
+  <% end %>
+</div>
+
