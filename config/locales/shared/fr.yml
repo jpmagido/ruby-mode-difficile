@@ -15,7 +15,8 @@ fr:
     update-locale: 'Vous avez modifié vos préférences linguistique en Français'
     navbar:
       user-dashboard: 'Votre Page Utilisateur'
-      admin-dashboard: 'Admin Dashboard'
+      admin-dashboard: 'Espace Admin'
+      coach-dashboard: 'Espace Coach'
     errors:
       500:
         error-text: 'Erreur #500 / ERREUR INTERNE'

@@ -16,6 +16,7 @@ en:
     navbar:
       user-dashboard: 'Your User page'
       admin-dashboard: 'Admin Dashboard'
+      coach-dashboard: 'Coach Dashboard'
     errors:
       500:
         error-text: 'Error #500 / INTERNAL ERROR'
