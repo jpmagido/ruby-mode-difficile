@@ -1,0 +1,10 @@
+<h3>Mentor::Students#index</h3>
+
+<div>
+  <% students.each do |student| %>
+    <ul>
+      <li> <%= student.user.login %> </li>
+      <li> <%= link_to t('shared.link_show'), mentor_student_path(student) %> </li>
+    </ul>
+  <% end %>
+</div>

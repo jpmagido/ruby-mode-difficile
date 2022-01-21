@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   namespace :mentor do
     resource :user, only: :show
+    resources :students, only: %i[show index]
   end
 
   resource :session, only: %i[new edit create destroy]

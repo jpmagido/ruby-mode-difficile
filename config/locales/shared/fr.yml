@@ -25,3 +25,5 @@ fr:
     models:
       doc: 'Documentation'
       conversation-messages: 'Messages'
+    attr:
+      created-at: 'Crée le : '

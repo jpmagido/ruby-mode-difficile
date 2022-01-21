@@ -1,0 +1,13 @@
+<h3>Mentor::Students#show</h3>
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+<br>
+
+<div>
+  <ul>
+    <li> <%= t('users.attr.name') %> <%= student.user.login %> </li>
+    <li> <%= t('shared.attr.created-at') %> <%= student.created_at %> </li>
+    <li> <%= t('mentor.students.challenges-done') %> <%= student.user.answers.count %> </li>
+  </ul>
+</div>
