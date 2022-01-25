@@ -53,13 +53,11 @@ module Staff
     private
 
     def challenges
-      if params[:difficulty]
-        @challenges = Challenge.where(['difficulty = ?', params[:difficulty]])
-        return @challenges
-      else
-        @challenges ||= Challenge.all
-        return @challenges
-      end
+      challenges = Challenge.all
+      challenges = challenges.filter_by_difficulty(params[:difficulty]) if params[:difficulty].present?
+      challenges = challenges.filter_by_duration(params[:duration]) if params[:duration].present?
+      challenges = challenges.filter_by_status(params[:status]) if params[:status].present?
+      return challenges
     end
 
     def challenge
