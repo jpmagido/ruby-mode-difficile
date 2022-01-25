@@ -1,0 +1,7 @@
+fr:
+  login:
+    mentorships:
+      flashes:
+        create-success: "Vous avez crée une demande de Mentorat, le Coach doit maintenant l'accepter"
+      attr:
+        coach-name: 'Nom du Coach: '

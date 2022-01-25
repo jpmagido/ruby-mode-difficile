@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :doc_links, only: %i[new create]
     resources :coaches, only: %i[new create]
     resources :conversations, only: %i[show create]
+    resources :mentorships, only: %i[show index create edit update]
   end
 
   namespace :staff do
