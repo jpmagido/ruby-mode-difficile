@@ -54,9 +54,17 @@ module Staff
 
     def challenges
       challenges = Challenge.all
-      challenges = challenges.filter_by_difficulty(params[:difficulty]) if params[:difficulty].present?
-      challenges = challenges.filter_by_duration(params[:duration_min],params[:duration_max]) if params[:duration_min].present? && params[:duration_max].present?
+      challenges = challenges.filter_by_difficulty(params[:difficulty]) if params[:difficulty].present?      
       challenges = challenges.filter_by_status(params[:status]) if params[:status].present?
+      if !params[:duration_min].present? && !params[:duration_max].present?
+        challenges = challenges.filter_by_duration(1,500)
+      elsif !params[:duration_min].present?
+        challenges = challenges.filter_by_duration(1,params[:duration_max])
+      elsif !params[:duration_max].present?
+        challenges = challenges.filter_by_duration(params[:duration_min],500) 
+      else
+        challenges = challenges.filter_by_duration(params[:duration_min],params[:duration_max])    
+      end
       return challenges
     end
 
