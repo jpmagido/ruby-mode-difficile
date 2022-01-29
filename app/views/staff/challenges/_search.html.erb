@@ -2,11 +2,13 @@
   <div class='col-2 h6 fw-bold'><%= t('challenges.attr.filter.name') %></div>
   <div class='col-10'>
     <%= form_tag(staff_challenges_path, :method => 'get', class: 'row') do %>
-      <div class='col-10'><span class='h6 me-2'><%= t('challenges.attr.difficulty.label') %></span><%= select_tag(:difficulty, options_for_select((1..10), params[:difficulty]), :include_blank => true)%></div>
-      <div class='col-10'><span class='h6 me-2'><%= t('challenges.attr.duration.label') %></span><%= select_tag(:duration, options_for_select((1..500).each_slice(100).with_index.with_object({}){ |(a,i),h| h["[#{a.first} -#{a.last}]"]=i }, params[:duration]), :include_blank => true)%></div>
-      <div class='col-10'><span class='h6 me-2'><%= t('challenges.attr.status.label') %></span><%= select_tag(:status, options_for_select(Challenge.statuses, params[:status]), :include_blank => true)%></div>
+      <div class='col-10'><span class='h6 me-2'><%= t('challenges.attr.difficulty.label') %></span><%= select_tag(:difficulty, options_for_select((1..10), params[:difficulty]), include_blank: 'Choose a difficulty')%></div>
+      <div class='col-10'><span class='h6 me-2'><%= t('challenges.attr.duration.label') %></span>
+        <span class='me-2'><%= number_field_tag 'duration_min', value=params[:duration_min], within: 1..500 %></span>
+        <span><%= number_field_tag 'duration_max', value=params[:duration_max], within: 1..500 %></span>
+      </div>
+      <div class='col-10'><span class='h6 me-2'><%= t('challenges.attr.status.label') %></span><%= select_tag(:status, options_for_select(Challenge.statuses, params[:status]), include_blank: 'Choose a status')%></div>
       <div class='col-2'><%= submit_tag t('challenges.attr.filter.button.label') %></div>
     <% end %>
-    <%= params.inspect %>
   </div>
 </div>

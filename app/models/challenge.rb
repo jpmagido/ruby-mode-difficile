@@ -21,7 +21,7 @@ class Challenge < ApplicationRecord
   scope :all_valid, -> { where('status = 1') }
   scope :by_owner, ->(user_id) { where('user_id = ?', user_id) }
   scope :filter_by_difficulty, -> (difficulty) { where difficulty: difficulty }
-  scope :filter_by_duration, -> (duration) { where duration: duration }
+  scope :filter_by_duration, ->(duration_min,duration_max) { where('duration >= ? AND duration <= ?', duration_min, duration_max) }
   scope :filter_by_status, -> (status) { where status: status }
 
   def display_nature
