@@ -1,0 +1,7 @@
+<div>
+  <%= form_with url: login_conversations_path do |f| %>
+    <%= f.rich_text_area :content %>
+    <%= f.hidden_field :conversation_id, value: conversation.id %>
+    <%= f.submit t('conversations.form.send') %>
+  <% end %>
+</div>

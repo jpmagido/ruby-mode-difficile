@@ -1,0 +1,21 @@
+<% if current_user.coach %>
+  <div>
+    <% if current_user.coach.ready? %>
+      <%= link_to 'Coach Dashboard', mentor_user_path %>
+    <% else %>
+      <%= t('coaches.messages.admin-message-sent') %>
+      <%= link_to 'Messages', login_conversation_path(0) %>
+    <% end %>
+  </div>
+<% else %>
+  <div>
+    <h3> <%= t('coaches.new-coach-phrase') %></h3>
+    <div>
+      <%= form_with model: [:login, @new_coach] do |f| %>
+        <%= f.rich_text_area :message %>
+        <br>
+        <%= f.submit t('shared.submit_form') %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

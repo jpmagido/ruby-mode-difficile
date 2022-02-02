@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :repositories, only: :update
     resources :docs, only: %i[index show]
     resources :doc_links, only: %i[new create]
+    resources :coaches, only: %i[new create]
+    resources :conversations, only: %i[show create]
+    # resources :students, only: %i[show create] TODO
+    resources :mentorships, only: %i[show index create edit update]
   end
 
   namespace :staff do
@@ -23,6 +27,13 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show edit update destroy]
     resources :docs
     resources :doc_links, only: %i[new create destroy]
+    resources :coaches, only: %i[index show edit update]
+  end
+
+  namespace :mentor do
+    resource :user, only: :show # rename to coach ?
+    resources :students, only: %i[show index]
+    resources :mentorships, only: %i[show index create edit update]
   end
 
   resource :session, only: %i[new edit create destroy]

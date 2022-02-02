@@ -1,0 +1,15 @@
+<div class='custom-container'>
+  <% if conversation %>
+    <div style="height: 385px; overflow:auto;">
+    <% conversation.conversation_messages.each do |message| %>
+      <%= render partial: 'login/conversations/message', locals: { message: message } %>
+        <br>
+    <% end %>
+    </div>
+    <br>
+    <%= render partial: 'login/conversations/form', locals: { conversation: conversation } %>
+
+  <% else %>
+    <p> <%= t('conversations.not-selected') %> </p>
+  <% end %>
+</div>

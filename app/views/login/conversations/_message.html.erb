@@ -1,0 +1,6 @@
+<div>
+  <div class="<%= message_author?(message, current_user.id) %>-message">
+    <%= message.content %>
+    <%= message.created_at %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h3>Staff::Coaches#show</h3>
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+
+<div>
+  <ul>
+    <li> <%= t('staff.coaches.attr.status') %> <%= coach.status %> </li>
+    <li> <%= t('staff.coaches.attr.user-name') %> <%= coach.user.login %> </li>
+    <li> <%= link_to t('shared.link_edit'), edit_staff_coach_path(coach) %> </li>
+  </ul>
+</div>

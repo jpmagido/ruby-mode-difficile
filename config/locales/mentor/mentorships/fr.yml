@@ -1,0 +1,14 @@
+fr:
+  mentor:
+    mentorships:
+      model-name: 'Mentorat'
+      flashes:
+        create-success: "Vous avez crée une demande de Mentorat, l'Etudiant doit maintenant l'accepter"
+        update-success: 'Vous avez modifié le Mentorat avec succès'
+        error: 'Oups, une erreur est survenue: %{error}'
+      attr:
+        coach-approval: 'Approbation Coach : '
+        student-approval: 'Approbation Etudiant : '
+        check_box-approval: 'Cocher la case pour accepter : '
+        coach-name: 'Nom du coach : '
+        student-name: "Nom de l'étudiant : "

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_133036) do
+ActiveRecord::Schema.define(version: 2022_01_21_102332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -87,6 +87,39 @@ ActiveRecord::Schema.define(version: 2022_01_14_133036) do
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
+  create_table "coaches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "status", default: 0
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coaches_on_user_id"
+  end
+
+  create_table "conversation_messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "content"
+    t.boolean "read"
+    t.uuid "conversation_id", null: false
+    t.uuid "conversation_participant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_conversation_messages_on_conversation_id"
+    t.index ["conversation_participant_id"], name: "index_conversation_messages_on_conversation_participant_id"
+  end
+
+  create_table "conversation_participants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "conversation_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["conversation_id"], name: "index_conversation_participants_on_conversation_id"
+    t.index ["user_id"], name: "index_conversation_participants_on_user_id"
+  end
+
+  create_table "conversations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "doc_links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "doc_id", null: false
     t.string "linkable_type"
@@ -106,6 +139,17 @@ ActiveRecord::Schema.define(version: 2022_01_14_133036) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mentorships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "coach_approval", default: false
+    t.boolean "student_approval", default: false
+    t.uuid "student_id", null: false
+    t.uuid "coach_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_mentorships_on_coach_id"
+    t.index ["student_id"], name: "index_mentorships_on_student_id"
+  end
+
   create_table "repositories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "github_url"
     t.text "readme"
@@ -123,6 +167,14 @@ ActiveRecord::Schema.define(version: 2022_01_14_133036) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "status", default: 0
+    t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -146,6 +198,14 @@ ActiveRecord::Schema.define(version: 2022_01_14_133036) do
   add_foreign_key "answers", "challenges"
   add_foreign_key "answers", "users"
   add_foreign_key "challenges", "users"
+  add_foreign_key "coaches", "users"
+  add_foreign_key "conversation_messages", "conversation_participants"
+  add_foreign_key "conversation_messages", "conversations"
+  add_foreign_key "conversation_participants", "conversations"
+  add_foreign_key "conversation_participants", "users"
   add_foreign_key "doc_links", "docs"
+  add_foreign_key "mentorships", "coaches"
+  add_foreign_key "mentorships", "students"
   add_foreign_key "sessions", "users"
+  add_foreign_key "students", "users"
 end

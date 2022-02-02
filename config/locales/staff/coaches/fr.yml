@@ -1,0 +1,12 @@
+fr:
+  staff:
+    coaches:
+      flashes:
+        update-success: 'Vous avez modifié le Coach'
+        blocked-success: 'Vous avez bloqué le Coach'
+        error: "Oups, quelque chose s'est mal passé : %{error}"
+      links:
+        block: 'Block Coach'
+      attr:
+        status: 'Statut : '
+        user-name: "Nom de l'Utilisateur"

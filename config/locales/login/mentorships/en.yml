@@ -1,0 +1,7 @@
+en:
+  login:
+    mentorships:
+      flashes:
+        create-success: 'You created a pending MentorShip, the Coach now need to accept'
+      attr:
+        coach-name: 'Coach name: '

@@ -1,0 +1,12 @@
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+<br>
+
+<div>
+  <%= form_with model: mentorship_model do |f| %>
+    <%= f.label :coach_approval, t('mentor.mentorships.attr.check_box-approval') %>
+    <%= f.check_box :coach_approval %>
+    <%= f.submit t('shared.submit_form') %>
+  <% end %>
+</div>
