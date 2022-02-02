@@ -11,7 +11,8 @@ module Login
       authorize @new_coach
 
       @new_coach.save!
-      conversation.ask_coach_promotion(current_user.id)
+      messages_to_send.each { |msg| conversation.send_message(current_user.id, msg) }
+
       flash[:success] = t('coaches.flashes.create-success')
       redirect_to login_conversation_path(conversation)
     end
@@ -19,11 +20,18 @@ module Login
     private
 
     def conversation
-      ::ConversationManager.new(admins + [current_user]).find_conversation
+      @conversation ||= ::ConversationManager.new(admins + [current_user]).find_conversation
     end
 
     def admins
       User.joins(:admin)
+    end
+
+    def messages_to_send
+      [
+        t('coaches.messages.admin-promotion', user_path: helpers.link_to('page', current_user.admin_page)),
+        params[:coach][:message]
+      ]
     end
   end
 end

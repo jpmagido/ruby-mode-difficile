@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :challenges, dependent: :restrict_with_exception
   has_many :answers, dependent: :restrict_with_exception
   has_many :conversation_participants, dependent: :destroy
-  has_many :conversations, through: :conversation_participants
 
   has_one :session, dependent: :destroy
   has_one :admin, dependent: :destroy
@@ -27,5 +26,9 @@ class User < ApplicationRecord
 
   def admin_page
     staff_user_path(self)
+  end
+
+  def conversations
+    conversation_participants.map(&:conversation).uniq
   end
 end

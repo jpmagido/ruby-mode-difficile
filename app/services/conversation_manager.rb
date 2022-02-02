@@ -10,13 +10,14 @@ class ConversationManager
   end
 
   def find_conversation
-    potential_conversations = users.sample.conversations.uniq.select { |c| c.conversation_participants.count == user_count }
+    potential_conversations = users.sample
+                                   .conversations
+                                   .select { |c| c.conversation_participants.map(&:user_id).to_set == user_ids.to_set }
+                                   .uniq
 
-    return create_conversation if potential_conversations.empty?
+    raise DuplicatedConversation, potential_conversations if potential_conversations.count > 1
 
-    conversation = potential_conversations.detect { |c| c.conversation_participant_ids.to_set == user_ids.to_set }
-
-    conversation || create_conversation
+    potential_conversations.empty? ? create_conversation : potential_conversations.first
   end
 
   private
@@ -24,17 +25,15 @@ class ConversationManager
   def create_conversation
     ActiveRecord::Base.transaction do
       conversation = Conversation.create!
-      users.each { |user| conversation.conversation_participants.create!(user_id: user.id) }
+      user_ids.each { |user_id| conversation.conversation_participants.create!(user_id: user_id) }
 
       conversation
     end
   end
 
-  def user_count
-    users.count
-  end
-
   def user_ids
     users.map(&:id)
   end
+
+  class DuplicatedConversation < StandardError; end
 end

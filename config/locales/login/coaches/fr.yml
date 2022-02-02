@@ -6,7 +6,7 @@ fr:
     messages:
       admin-promotion: |
         Bonjour, je souhaite faire une demande pour accéder à l'espace Coach du site
-        Vous pourrez consulter mon profil sur: %{user_path}
+        Vous pourrez consulter mon profil ici: %{user_path}
       admin-message-sent: |
         Un message a été envoyé à nos Admins, ils vous répondront rapidement.
         Vous trouverez les détails ici:
