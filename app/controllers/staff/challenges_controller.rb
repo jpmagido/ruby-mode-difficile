@@ -53,23 +53,19 @@ module Staff
     private
 
     def challenges
-      challenges = Challenge.all
-      challenges = challenges.filter_by_difficulty(params[:difficulty]) if params[:difficulty].present?      
-      challenges = challenges.filter_by_status(params[:status]) if params[:status].present?
-      if !params[:duration_min].present? && !params[:duration_max].present?
-        challenges = challenges.filter_by_duration(1,500)
-      elsif !params[:duration_min].present?
-        challenges = challenges.filter_by_duration(1,params[:duration_max])
-      elsif !params[:duration_max].present?
-        challenges = challenges.filter_by_duration(params[:duration_min],500) 
-      else
-        challenges = challenges.filter_by_duration(params[:duration_min],params[:duration_max])    
-      end
-      return challenges
+      check_duration_params
+      challenges = Challenge.where(filter_params).where('duration >= ? AND duration <= ?', default_min, default_max)
     end
 
     def challenge
       @challenge ||= challenges.find(params[:id])
+    end
+
+    def check_duration_params
+      if default_max.to_i < default_min.to_i
+        flash[:alert] = t('staff.challenges.flashes.duration-error')
+        redirect_to staff_challenges_path && return 
+      end   
     end
 
     def challenge_params
@@ -83,6 +79,18 @@ module Staff
         files: [],
         repository: [:github_url]
       )
+    end
+
+    def filter_params
+      params.permit(:difficulty, :status).select{|k,v| v.present?}
+    end
+
+    def default_min
+      !params[:duration_min].present? ? 1 : params[:duration_min]
+    end
+
+    def default_max
+      !params[:duration_max].present? ? 500 : params[:duration_max]
     end
   end
 end

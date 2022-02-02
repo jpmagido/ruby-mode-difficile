@@ -1,0 +1,5 @@
+en:
+  staff:
+    challenges:
+      flashes:
+        duration-error: 'Max must be superior or equal than min'
