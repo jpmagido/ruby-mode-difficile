@@ -6,7 +6,7 @@ en:
     messages:
       admin-promotion: |
         Hello, I'd like to access the Coach Dashboard.
-        You can check my profile at: %{user_path}
+        You can check my profile here: %{user_path}
       admin-message-sent: |
         A message has been sent to our Admins, they will message soon.
         You can see the message in:
