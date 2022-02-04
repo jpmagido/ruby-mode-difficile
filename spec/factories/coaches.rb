@@ -2,7 +2,9 @@
 
 FactoryBot.define do
   factory :coach do
-    association :user
     status { :pending }
+    description { FFaker::Book.description }
+
+    association :user
   end
 end

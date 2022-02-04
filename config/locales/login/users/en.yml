@@ -13,3 +13,7 @@ en:
     welcome: 'Welcome to your dashboard'
     my-answers: 'Here is your Answers list'
     my-challenges: 'Here is your Challenges list'
+    roles:
+      admin: 'User is Admin ?'
+      coach: 'User is Coach ?'
+      student: 'User is Student ?'

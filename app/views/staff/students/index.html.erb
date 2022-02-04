@@ -1,0 +1,18 @@
+<div class='slim-container'>
+  <h3>Staff::Students#index</h3>
+
+  <%= link_to t('shared.back'), :back %>
+  <br>
+  <hr>
+
+  <div>
+    <% students.each do |student| %>
+      <ul>
+        <li> <%= t('users.attr.name') %> <%= student.login %> </li>
+        <li> <%= link_to t('shared.link_show'), staff_student_path(student) %> </li>
+        <li> <%= link_to t('shared.link_edit'), edit_staff_student_path(student) %> </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+

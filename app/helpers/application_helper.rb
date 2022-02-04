@@ -15,4 +15,8 @@ module ApplicationHelper
       'alert alert-info alert-dismissible fade show'
     end
   end
+
+  def boolean_to_human(boolean)
+    boolean ? t('shared.booleans.true') : t('shared.booleans.false')
+  end
 end

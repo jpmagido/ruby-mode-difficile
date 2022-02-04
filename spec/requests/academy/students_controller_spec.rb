@@ -40,5 +40,4 @@ RSpec.describe 'Academy::StudentsController', type: :request do
       expect(current_user.student.reload.pending?).to be_truthy
     end
   end
-
 end

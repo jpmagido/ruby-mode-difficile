@@ -30,4 +30,8 @@ fr:
       conversation-messages: 'Messages'
     attr:
       created-at: 'Crée le : '
+      updated-at: 'Modifié le : '
       name: 'Nom :'
+    booleans:
+      true: 'Oui'
+      false: 'Non'

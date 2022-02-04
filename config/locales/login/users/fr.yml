@@ -13,3 +13,7 @@ fr:
     welcome: 'Bienvenue sur votre dashboard'
     my-answers: 'Voici la liste complète de vos Réponses'
     my-challenges: 'Voici la liste complète des Challenges que vous avez crées'
+    roles:
+      admin: "L'Utilisateur est Admin ?"
+      coach: "L'Utilisateur est Coach ?"
+      student: "L'Utilisateur est Etudiant ?"

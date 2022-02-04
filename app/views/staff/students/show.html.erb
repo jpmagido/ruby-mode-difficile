@@ -1,0 +1,12 @@
+<div class='slim-container'>
+  <h3>Staff::Students#show</h3>
+
+  <%= link_to t('shared.back'), :back %>
+  <br>
+  <hr>
+
+  <%= render partial: 'staff/users/statuses', locals: { user: student.user } %>
+  <br>
+  <div> <%= render partial: 'login/users/list', locals: { user: student.user } %> </div>
+  <div> <%= link_to t('shared.link_edit'), edit_staff_student_path(student) %> </div>
+</div>
