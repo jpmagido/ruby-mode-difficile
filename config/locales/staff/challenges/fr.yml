@@ -2,4 +2,9 @@ fr:
   staff:
     challenges:
       flashes:
-        duration-error: 'Le maximun doit être supérieur ou égal au minimum'
+        duration-error: 'Le maximum doit être supérieur ou égal au minimum'
+      search:
+        difficulty-choice: 'Choisissez une difficulté'
+        status-choice: 'Choisissez un statut'
+        duration_max-choice: 'Max'
+        duration_min-choice: 'Min'

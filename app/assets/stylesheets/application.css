@@ -15,6 +15,31 @@
  */
 @import "./actiontext.css";
 
-.custom-container {
+/* CONTAINERS */
+
+.container {
     margin: 30px;
+}
+
+.slim-container {
+    margin: 5px;
+}
+
+.container-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* BORDERS */
+
+.border-thin {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
 }

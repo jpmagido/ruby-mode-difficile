@@ -12,14 +12,7 @@ fr:
         value: '%{value}/10'
       status:
         label: 'Statut :'
-        values:
-          pending: 'En attente de validation'
-          ready: 'Validé'
       files: 'Fichiers :'
-      filter:
-        name: 'Filtres'
-        button:
-          label: 'Appliquer'
     flashes:
       new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"
       challenge-error: "Quelque chose s'est mal passé: %{error}"
