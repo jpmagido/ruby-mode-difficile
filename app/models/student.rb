@@ -3,7 +3,7 @@
 class Student < ApplicationRecord
   belongs_to :user
 
-  has_many :mentorships
+  has_many :mentorships, dependent: :destroy
 
   has_rich_text :description
 

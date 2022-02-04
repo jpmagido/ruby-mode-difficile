@@ -2,7 +2,7 @@
 
 module Mentor
   class StudentsController < Mentor::BaseController
-    helper_method :students, :student
+    helper_method :students, :student, :conversation
 
     private
 
@@ -12,6 +12,10 @@ module Mentor
 
     def student
       @student ||= students.find(params[:id])
+    end
+
+    def conversation
+      @conversation ||= ConversationManager.new([current_user, student.user]).find_conversation
     end
   end
 end

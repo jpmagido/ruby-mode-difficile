@@ -9,5 +9,4 @@ en:
         block: 'Block Coach'
       attr:
         status: 'Status : '
-        description: 'Description : '
         user-name: 'User Name'

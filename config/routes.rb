@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :coaches, only: %i[new create]
     resources :conversations, only: %i[show create]
     resources :students, only: %i[new create]
-    resources :mentorships, only: %i[show index create edit update]
+    resources :mentorships, only: %i[show index create edit update] # move to academy namespace
   end
 
   namespace :staff do

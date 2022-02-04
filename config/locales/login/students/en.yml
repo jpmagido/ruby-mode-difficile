@@ -1,5 +1,6 @@
 en:
   students:
+    version: 'Student version'
     new-student-phrase: 'Let us know if you want to find a Coach'
     new-student-admin: "Hi, I'm currently looking for a Coach, you can check my profile on: %{user_path}"
     flashes:

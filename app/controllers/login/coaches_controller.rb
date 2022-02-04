@@ -7,7 +7,7 @@ module Login
     end
 
     def create
-      @new_coach = Coach.new(user_id: current_user.id)
+      @new_coach = Coach.new(user_id: current_user.id, description: params[:coach][:description])
       authorize @new_coach
 
       @new_coach.save!
@@ -26,7 +26,7 @@ module Login
     def messages_to_send
       [
         t('coaches.messages.admin-promotion', user_path: helpers.link_to('page', current_user.admin_page)),
-        params[:coach][:message]
+        params[:coach][:description]
       ]
     end
   end

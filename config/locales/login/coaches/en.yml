@@ -1,5 +1,6 @@
 en:
   coaches:
+    version: 'Coach Version'
     new-coach-phrase: 'Let us know you want to join us as Coach'
     flashes:
       create-success: 'Your message has been sent, an Admin will contact you soon'

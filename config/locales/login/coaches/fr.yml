@@ -1,5 +1,6 @@
 fr:
   coaches:
+    version: 'Version Coach'
     new-coach-phrase: 'Dites-nous si participer au projet en tant que Coach vous interesse'
     flashes:
       create-success: 'Your message has been sent, an Admin will contact you soon'

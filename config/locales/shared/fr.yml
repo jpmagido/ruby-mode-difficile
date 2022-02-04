@@ -32,6 +32,7 @@ fr:
       created-at: 'Crée le : '
       updated-at: 'Modifié le : '
       name: 'Nom :'
+      description: 'Votre description: '
     booleans:
       true: 'Oui'
       false: 'Non'

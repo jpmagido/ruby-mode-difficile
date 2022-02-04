@@ -12,7 +12,7 @@
 <h3> <%= t('challenges.show.title', title: challenge.title) %> </h3>
 <div>
   <ul>
-    <li> <%= t('challenges.attr.description') %> <%= challenge.description %> </li>
+    <li> <%= t('shared.attr.description') %> <%= challenge.description %> </li>
     <li> <%= t('repositories.attr.github_url') %> <%= link_to challenge.repository.github_url, challenge.repository.github_url %> </li>
     <li> <%= t('challenges.attr.signature') %> <%= challenge.signature %> </li>
     <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>

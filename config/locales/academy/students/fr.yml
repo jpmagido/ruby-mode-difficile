@@ -8,7 +8,6 @@ fr:
           ready: 'Actif'
           hidden: 'Caché'
           blocked: 'Bloqué'
-        description: 'Votre description :'
       show:
         visibility-phrase: 'Votre profil est :'
       flashes:

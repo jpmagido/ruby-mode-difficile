@@ -12,7 +12,8 @@
     <h3> <%= t('coaches.new-coach-phrase') %></h3>
     <div>
       <%= form_with model: [:login, @new_coach] do |f| %>
-        <%= f.rich_text_area :message %>
+        <%= f.label :description, t('shared.attr.description') %>
+        <%= f.rich_text_area :description %>
         <br>
         <%= f.submit t('shared.submit_form') %>
       <% end %>

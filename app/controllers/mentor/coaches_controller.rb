@@ -5,8 +5,8 @@ module Mentor
     helper_method :coach
 
     def update
-      if coach.update(coach_params)
-        flash[:success] = t('coaches.flashes.create-success')
+      if coach.update coach_params
+        flash[:success] = t('coaches.flashes.update-success')
         redirect_to mentor_coach_path
       else
         flash.now[:error] = t('shared.errors.update', error: coach.errors.messages)
