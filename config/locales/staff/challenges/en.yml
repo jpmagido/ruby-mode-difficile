@@ -1,0 +1,10 @@
+en:
+  staff:
+    challenges:
+      flashes:
+        duration-error: 'Duration Max must be superior or equal than duration Min'
+      search:
+        difficulty-choice: 'Choose a difficulty'
+        status-choice: 'Choose a status'
+        duration_max-choice: 'Max'
+        duration_min-choice: 'Min'

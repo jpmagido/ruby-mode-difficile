@@ -1,13 +1,15 @@
 <h3>Staff::Challenges#index</h3>
 
-<%= link_to t('shared.back'), :back %>
+<div class='container'>
+  <div class='container-space-between'>
+    <%= link_to t('shared.back'), :back %>
+    <div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
+  </div>
+  <br>
+  <div <%= render 'staff/challenges/search' %> </div>
+<hr>
 <br>
-<hr>
 
-<div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
-
-<br><br>
-<hr>
 <div>
   <% challenges.each do |challenge| %>
     <ul>
@@ -19,4 +21,5 @@
       <li> <%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </li>
     </ul>
   <% end %>
+</div>
 </div>

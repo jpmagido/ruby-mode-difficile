@@ -12,9 +12,6 @@ en:
         value: '%{value}/10'
       status:
         label: 'Status :'
-        values:
-          pending: 'Waiting for approval'
-          ready: 'Validated'
       files: 'Files :'
     flashes:
       new-challenge-success: 'You created a Challenge, an Admin will moderate it soon'
