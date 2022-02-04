@@ -23,10 +23,6 @@ module Login
       @conversation ||= ::ConversationManager.new(admins + [current_user]).find_conversation
     end
 
-    def admins
-      User.joins(:admin)
-    end
-
     def messages_to_send
       [
         t('coaches.messages.admin-promotion', user_path: helpers.link_to('page', current_user.admin_page)),

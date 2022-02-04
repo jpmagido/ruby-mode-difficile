@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= Session.find_by(id: session[:user_session_id])&.user
   end
 
+  def admins
+    @admins ||= User.joins(:admin)
+  end
+
   private
 
   def set_locale

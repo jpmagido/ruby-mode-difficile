@@ -5,5 +5,7 @@ class Student < ApplicationRecord
 
   has_many :mentorships
 
-  enum status: %i[ready blocked]
+  has_rich_text :description
+
+  enum status: %i[pending ready blocked]
 end

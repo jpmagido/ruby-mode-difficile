@@ -1,0 +1,35 @@
+<div class='container'>
+  <h3>Academy::Students#show</h3>
+
+  <br>
+  <%= link_to t('shared.back'), :back %>
+  <hr>
+  <br>
+
+  <div>
+    <%= t('academy.students.show.visibility-phrase') %> <%= t("academy.students.attr.status.#{student.status}") %>
+  </div>
+  <br>
+  <div class='slim-container'> <%= t('academy.students.attr.description') %> <%= student.description %> </div>
+  <br>
+
+  <div>
+    <ul>
+      <li> <%= t('shared.attr.created-at') %> <%= student.created_at %></li>
+      <li> <%= link_to t('shared.link_edit'), edit_academy_student_path %> </li>
+    </ul>
+  </div>
+
+  <br>
+  <hr>
+
+  <div>
+    <% student.mentorships.each do |mentorship| %>
+      <%= t('mentor.users.all-mentorships') %>
+      <ul>
+        <li> <%= "#{t('shared.attr.name')} #{mentorship.coach.login}" %> </li>
+        <li> <%= link_to t('shared.link_show'), login_mentorship_path(mentorship) %> </li>
+      </ul>
+    <% end %>
+  </div>
+</div>

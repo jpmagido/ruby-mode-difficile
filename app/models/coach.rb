@@ -5,5 +5,9 @@ class Coach < ApplicationRecord
 
   has_many :mentorships, dependent: :destroy
 
+  has_rich_text :description
+
   enum status: %i[pending ready blocked]
+
+  delegate :login, to: :user
 end
