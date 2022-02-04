@@ -1,0 +1,9 @@
+<div class='container'>
+  <h3>Staff::Mentorships#show</h3>
+
+  <%= link_to t('shared.back'), :back %>
+  <br>
+  <hr>
+
+  <%= render partial: 'mentor/mentorships/list', locals: { mentorship: mentorship } %>
+</div>

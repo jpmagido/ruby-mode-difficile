@@ -1,0 +1,5 @@
+fr:
+  staff:
+    students:
+      messages:
+        status: "L'équipe Admin a changé votre status à : %{status}"

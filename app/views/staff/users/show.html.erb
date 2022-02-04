@@ -4,8 +4,7 @@
 <br>
 <hr>
 
-<%= t('users.attr.active') %> <%= user.active %>
+<%= render partial: ('staff/users/statuses'), locals: { user: user } %>
 <hr>
-
 <%= render partial: 'login/users/list', locals: { user: user } %>
 <%= button_to t('shared.link_blacklist'), staff_user_path(user), method: :delete %>

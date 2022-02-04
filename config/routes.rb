@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :docs
     resources :doc_links, only: %i[new create destroy]
     resources :coaches, only: %i[index show edit update]
+    resources :students, only: %i[index show edit update]
+    resources :mentorships, only: %i[index show]
   end
 
   namespace :mentor do

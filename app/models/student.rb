@@ -8,4 +8,6 @@ class Student < ApplicationRecord
   has_rich_text :description
 
   enum status: %i[pending ready blocked]
+
+  delegate :login, to: :user
 end

@@ -3,6 +3,8 @@
 FactoryBot.define do
   factory :student do
     status { :ready }
+    description { FFaker::Book.description }
+
     association :user
   end
 end

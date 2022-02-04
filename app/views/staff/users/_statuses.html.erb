@@ -1,0 +1,6 @@
+<div class='container-row'>
+  <div class='slim-container'> <%= t('users.attr.active') %> <%= boolean_to_human(user.active) %> </div>
+  <div class='slim-container'> <%= t('users.roles.admin') %> <%= boolean_to_human(user.admin.present?) %> </div>
+  <div class='slim-container'> <%= t('users.roles.coach') %> <%= boolean_to_human(user.coach.present?) %> </div>
+  <div class='slim-container'> <%= t('users.roles.student') %> <%= boolean_to_human(user.student.present?) %> </div>
+</div>
