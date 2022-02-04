@@ -3,6 +3,7 @@ en:
     new-coach-phrase: 'Let us know you want to join us as Coach'
     flashes:
       create-success: 'Your message has been sent, an Admin will contact you soon'
+      update-success: 'You have updated your Coach profile'
     messages:
       admin-promotion: |
         Hello, I'd like to access the Coach Dashboard.

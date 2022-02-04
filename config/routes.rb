@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   namespace :mentor do
-    resource :user, only: :show # rename to coach ?
+    resource :coach, only: %i[show edit update]
     resources :students, only: %i[show index]
     resources :mentorships, only: %i[show index create edit update]
   end

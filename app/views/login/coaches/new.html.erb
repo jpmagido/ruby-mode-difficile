@@ -1,7 +1,7 @@
 <% if current_user.coach %>
   <div>
     <% if current_user.coach.ready? %>
-      <%= link_to 'Coach Dashboard', mentor_user_path %>
+      <%= link_to 'Coach Dashboard', mentor_coach_path %>
     <% else %>
       <%= t('coaches.messages.admin-message-sent') %>
       <%= link_to 'Messages', login_conversation_path(0) %>
