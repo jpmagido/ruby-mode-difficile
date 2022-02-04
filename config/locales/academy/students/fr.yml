@@ -1,0 +1,17 @@
+fr:
+  academy:
+    students:
+      attr:
+        status:
+          label: 'Statut :'
+          pending: 'En attente'
+          ready: 'Actif'
+          hidden: 'Caché'
+          blocked: 'Bloqué'
+        description: 'Votre description :'
+      show:
+        visibility-phrase: 'Votre profil est :'
+      flashes:
+        success:
+          update: 'Vous avez modifié vos informations Etudiant'
+        unauthorized: 'Vous devez avoir un compte Etudiant valide pour accèder à votre espace'

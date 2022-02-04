@@ -1,0 +1,6 @@
+fr:
+  students:
+    new-student-phrase: 'Dites-nous si vous cherchez un coach'
+    new-student-admin: "Bonjour, je suis en recherche de Coach, vous pouvez consulter mon profil ici: %{user_path}"
+    flashes:
+      create-success: 'Félicitations, vous avez activé votre compte Etudiant'

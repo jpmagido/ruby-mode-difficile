@@ -1,0 +1,17 @@
+en:
+  academy:
+    students:
+      attr:
+        status:
+          label: 'Status :'
+          pending: 'Waiting'
+          ready: 'Active'
+          hidden: 'Hidden'
+          blocked: 'Blocked'
+        description: 'Your description :'
+      show:
+        visibility-phrase: 'Your profile is :'
+      flashes:
+        success:
+          update: 'You updated your student data'
+        unauthorized: 'You need a valid Student account to access here'

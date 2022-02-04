@@ -17,13 +17,17 @@ fr:
       user-dashboard: 'Votre Page Utilisateur'
       admin-dashboard: 'Espace Admin'
       coach-dashboard: 'Espace Coach'
+      student-dashboard: 'Academy'
     errors:
       500:
         error-text: 'Erreur #500 / ERREUR INTERNE'
       401:
         error-text: 'Erreur #401 / ACCES NON AUTHORISE'
+      create: 'La creation a échoué : %{error}'
+      update: 'La modification a échoué : %{error}'
     models:
       doc: 'Documentation'
       conversation-messages: 'Messages'
     attr:
       created-at: 'Crée le : '
+      name: 'Nom :'
