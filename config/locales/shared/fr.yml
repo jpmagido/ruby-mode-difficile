@@ -1,6 +1,7 @@
 fr:
   shared:
     submit_form: 'Valider'
+    reset-filters: 'Réinitialiser les filtres'
     link_show: 'Page des Détails'
     link_edit: 'Modifier'
     link_admin_version: 'Version Admin'
