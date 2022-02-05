@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   scope :admins, -> { joins(:admin) }
 
+  def self.language_attributes_for_select
+    languages.keys.to_a.map { |key| [I18n.t("shared.languages.#{key}"), key] }
+  end
+
   def owns_answer?(answer_id)
     answers.ids.include?(answer_id)
   end

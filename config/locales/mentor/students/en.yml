@@ -4,3 +4,6 @@ en:
       challenges-done: 'Challenges done : '
       links:
         new-mentorship: 'Send a mentorship proposal'
+      forms:
+        answers_count: 'Total Challenges done'
+        has-coach: 'Currently working with a Coach'

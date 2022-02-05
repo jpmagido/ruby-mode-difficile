@@ -36,3 +36,7 @@ fr:
     booleans:
       true: 'Oui'
       false: 'Non'
+    languages:
+      fr: 'Français'
+      en: 'Anglais'
+      any: 'Toutes les langues'
