@@ -25,8 +25,8 @@ module Mentor
     def search_params
       params.permit(
         :name,
-        :challenge_count_min,
-        :challenge_count_max,
+        :answer_count_min,
+        :answer_count_max,
         :has_coach,
         :language
       )

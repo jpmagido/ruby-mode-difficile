@@ -4,8 +4,8 @@
     <%= search_field_tag :name, params[:name] %>
     <br>
     <%= label_tag :challenge_count_min, t('mentor.students.forms.answers_count') %>
-    <%= number_field_tag :challenge_count_min, params[:challenge_count_min], within: 1..500, placeholder: 'Min' %>
-    <%= number_field_tag :challenge_count_max, params[:challenge_count_max], within: 1..500, placeholder: 'Max' %>
+    <%= number_field_tag :answer_count_min, params[:answer_count_min], within: 1..500, placeholder: 'Min' %>
+    <%= number_field_tag :answer_count_max, params[:answer_count_max], within: 1..500, placeholder: 'Max' %>
     <br>
     <%= label_tag :has_coach, t('mentor.students.forms.has-coach') %>
     <%= check_box_tag :has_coach, true %>

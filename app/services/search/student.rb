@@ -22,16 +22,20 @@ module Search
       klass_scope.joins(:user).where('users.login ~* ?', value)
     end
 
-    def challenge_count_min(value)
-      ::Student.where(id: klass_scope.joins(user: :answers)
-                                   .select { |student| student.user.answers.count >= value.to_i }
-                                   .map(&:id))
+    def answer_count_min(value)
+      ::Student.where(
+        id: klass_scope.joins(user: :answers)
+                       .select { |student| student.user.answers.count >= value.to_i }
+                       .map(&:id)
+      )
     end
 
-    def challenge_count_max(value)
-      ::Student.where(id: klass_scope.joins(user: :answers)
-                                   .select { |student| student.user.answers.count <= value.to_i }
-                                   .map(&:id))
+    def answer_count_max(value)
+      ::Student.where(
+        id: klass_scope.joins(user: :answers)
+                       .select { |student| student.user.answers.count <= value.to_i }
+                       .map(&:id)
+      )
     end
 
     def has_coach(_)
