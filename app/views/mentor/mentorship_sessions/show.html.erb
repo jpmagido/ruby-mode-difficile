@@ -1,0 +1,16 @@
+<div class='container'>
+
+  <h3>Mentor::MentorshipSessions#show</h3>
+  <div>
+    <div>
+      <%= t('mentor.mentorship_sessions.show.approved-time-slots', count: mentorship_session.approved_time_slots.count) %>
+      <%= render partial: 'mentor/time_slots/list', locals: { time_slots: mentorship_session.approved_time_slots } %>
+
+      <%= t('mentor.mentorship_sessions.show.coach-approved-time-slots', count: mentorship_session.coach_approved_time_slots.count) %>
+      <%= render partial: 'mentor/time_slots/list', locals: { time_slots: mentorship_session.coach_approved_time_slots } %>
+
+      <%= t('mentor.mentorship_sessions.show.student-approved-time-slots', count: mentorship_session.student_approved_time_slots.count) %>
+      <%= render partial: 'mentor/time_slots/list', locals: { time_slots: mentorship_session.student_approved_time_slots } %>
+    </div>
+  </div>
+</div>

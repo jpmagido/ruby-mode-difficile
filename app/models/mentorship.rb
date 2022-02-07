@@ -7,6 +7,8 @@ class Mentorship < ApplicationRecord
   belongs_to :student
   belongs_to :coach
 
+  has_many :mentorship_sessions, dependent: :destroy
+
   def show_page_student
     link_to(I18n.t('students.version'), login_mentorship_path(self))
   end

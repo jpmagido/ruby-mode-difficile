@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_21_102332) do
+ActiveRecord::Schema.define(version: 2022_02_06_214233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -140,6 +140,15 @@ ActiveRecord::Schema.define(version: 2022_01_21_102332) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mentorship_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.uuid "mentorship_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mentorship_id"], name: "index_mentorship_sessions_on_mentorship_id"
+  end
+
   create_table "mentorships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.boolean "coach_approval", default: false
     t.boolean "student_approval", default: false
@@ -179,6 +188,17 @@ ActiveRecord::Schema.define(version: 2022_01_21_102332) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
+  create_table "time_slots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "start_date", precision: 6, null: false
+    t.datetime "end_date", precision: 6, null: false
+    t.boolean "coach_approval", default: false
+    t.boolean "student_approval", default: false
+    t.uuid "mentorship_session_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mentorship_session_id"], name: "index_time_slots_on_mentorship_session_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "github_id", null: false
     t.string "login"
@@ -206,8 +226,10 @@ ActiveRecord::Schema.define(version: 2022_01_21_102332) do
   add_foreign_key "conversation_participants", "conversations"
   add_foreign_key "conversation_participants", "users"
   add_foreign_key "doc_links", "docs"
+  add_foreign_key "mentorship_sessions", "mentorships"
   add_foreign_key "mentorships", "coaches"
   add_foreign_key "mentorships", "students"
   add_foreign_key "sessions", "users"
   add_foreign_key "students", "users"
+  add_foreign_key "time_slots", "mentorship_sessions"
 end
