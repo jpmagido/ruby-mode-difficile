@@ -37,13 +37,15 @@ Rails.application.routes.draw do
     resources :students, only: %i[show index]
     resources :mentorships, only: %i[show index create edit update]
     resources :mentorship_sessions do
-      resources :time_slots, only: %i[index]
+      resources :time_slots, only: %i[update]
     end
   end
 
   namespace :academy do
     resource :student, only: %i[show edit update]
-    resources :mentorship_sessions
+    resources :mentorship_sessions do
+      resources :time_slots, only: %i[index]
+    end
   end
 
   resource :session, only: %i[new edit create destroy]

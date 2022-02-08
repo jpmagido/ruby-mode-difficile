@@ -1,0 +1,5 @@
+en:
+  mentor:
+    time_slots:
+      flashes:
+        success-update: 'You updated your Coach availability'

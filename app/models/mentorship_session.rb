@@ -24,6 +24,10 @@ class MentorshipSession < ApplicationRecord
     time_slots.where(coach_approval: true, student_approval: false)
   end
 
+  def duration
+    (start_date..end_date).to_a.length
+  end
+
   private
 
   def create_time_slots

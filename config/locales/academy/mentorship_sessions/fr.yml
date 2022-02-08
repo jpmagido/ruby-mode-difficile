@@ -1,0 +1,7 @@
+fr:
+  academy:
+    mentorship_sessions:
+      show:
+        approved-time-slots: "%{count} Créneaux horaires validés par le Coach et vous-même"
+        student-approved-time-slots: "%{count} Créneaux horaires validés par VOUS-MÊME"
+        coach-approved-time-slots: "%{count} Créneaux horaires validés par le Coach"

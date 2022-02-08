@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
   create_table "mentorships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.boolean "coach_approval", default: false
     t.boolean "student_approval", default: false
+    t.boolean "active", default: true
     t.uuid "student_id", null: false
     t.uuid "coach_id", null: false
     t.datetime "created_at", precision: 6, null: false

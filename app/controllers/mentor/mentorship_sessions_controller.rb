@@ -2,7 +2,7 @@
 
 module Mentor
   class MentorshipSessionsController < Mentor::BaseController
-    helper_method :mentorship_sessions, :mentorship_session
+    helper_method :mentorship_sessions, :mentorship_session, :calendar_hash
 
     def new
       @new_mentorship_session = MentorshipSession.new
@@ -52,6 +52,15 @@ module Mentor
 
     def mentorship_session_params
       params.require(:mentorship_session).permit(:start_date, :end_date, :mentorship_id)
+    end
+
+    def calendar_hash
+      {
+        attribute: :start_date,
+        events: mentorship_session.time_slots,
+        start_date: mentorship_session.start_date,
+        number_of_days: mentorship_session.duration
+      }
     end
   end
 end

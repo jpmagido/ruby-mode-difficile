@@ -1,0 +1,7 @@
+en:
+  academy:
+    mentorship_sessions:
+      show:
+        approved-time-slots: '%{count} Approved Time Slots by both Student & Coach'
+        student-approved-time-slots: "%{count} Approved Time Slots only by YOURSELF"
+        coach-approved-time-slots: "%{count} Approved Time Slots only by COACH"

@@ -1,0 +1,19 @@
+<div class='slim-container'>
+  <%= calendar(calendar_hash) do |date, time_slots| %>
+    <%= date %>
+    <hr>
+    <% time_slots.each do |time_slot| %>
+      <div> <%= time_slot.start_date %> </div>
+      <% case
+         when time_slot.approved %>
+        <div class='border-thin time-slot-approved'> <%= button_to t('academy.times_slots.refuse-slot'), mentor_mentorship_session_time_slot_path(time_slot.mentorship_session, time_slot, coach_approval: false), method: :patch %></div>
+      <% when time_slot.coach_approval %>
+        <div class='border-thin time-slot-coach'> <%= button_to t('academy.times_slots.refuse-slot'), mentor_mentorship_session_time_slot_path(time_slot.mentorship_session, time_slot, coach_approval: false), method: :patch %></div>
+      <% when time_slot.student_approval %>
+        <div class='border-thin time-slot-student'> <%= button_to t('academy.times_slots.refuse-slot'), root_path, disable: true %></div>
+      <% else %>
+        <div class='border-thin time-slot-not-approved'> <%= button_to t('academy.times_slots.accept-slot'), mentor_mentorship_session_time_slot_path(time_slot.mentorship_session, time_slot, coach_approval: true), method: :patch %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

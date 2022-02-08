@@ -2,7 +2,16 @@
 
 module Mentor
   class TimeSlotsController < Mentor::BaseController
-    helper_method :time_slots
+    helper_method :time_slots, :mentorship_session
+
+    def update
+      if time_slot.update(coach_approval: params[:coach_approval])
+        flash[:success] = t('mentor.time_slots.flashes.success-update')
+      else
+        flash[:error] = t('shared.errors.update', error: time_slot.errors.messages)
+      end
+      redirect_to mentor_mentorship_session_path mentorship_session
+    end
 
     private
 
@@ -12,6 +21,10 @@ module Mentor
 
     def time_slots
       @time_slots ||= mentorship_session.time_slots
+    end
+
+    def time_slot
+      @time_slot ||= time_slots.find(params[:id])
     end
   end
 end

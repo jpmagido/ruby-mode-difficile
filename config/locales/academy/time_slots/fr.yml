@@ -1,0 +1,7 @@
+fr:
+  academy:
+    times_slots:
+      accept-slot: 'Accepter'
+      refuse-slot: 'Refuser'
+    flashes:
+      success-update: "Vous avez modifié vos disponibilité d'Etudiant"
