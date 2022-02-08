@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
     rescue_from StandardError, with: :standard_errors
   end
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   protected
 
   def current_user
@@ -23,6 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def user_not_authorized
+    flash[:alert] = 'You are not authorized to perform this action'
+    redirect_to(request.referrer || root_path)
+  end
 
   def set_locale
     I18n.locale = current_user&.language || session[:locale]

@@ -10,11 +10,11 @@ class ChallengePolicy < AppPolicy
   end
 
   def new?
-    user
+    user&.admin || user&.coach
   end
 
   def create?
-    user # limit to Users with a certain level
+    user&.admin || user&.coach
   end
 
   def update?
