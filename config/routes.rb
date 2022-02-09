@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :coaches, only: %i[new create]
     resources :conversations, only: %i[show create]
     resources :students, only: %i[new create]
-    resources :mentorships, only: %i[show index create edit update] # move to academy namespace
   end
 
   namespace :staff do
@@ -43,8 +42,9 @@ Rails.application.routes.draw do
 
   namespace :academy do
     resource :student, only: %i[show edit update]
+    resources :mentorships, only: %i[show index create edit update]
     resources :mentorship_sessions do
-      resources :time_slots, only: %i[index]
+      resources :time_slots, only: %i[update]
     end
   end
 

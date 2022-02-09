@@ -10,4 +10,8 @@ class Student < ApplicationRecord
   enum status: %i[pending ready blocked]
 
   delegate :login, to: :user
+
+  def mentorship_sessions
+    MentorshipSession.where(id: mentorships.map(&:mentorship_session_ids).flatten)
+  end
 end

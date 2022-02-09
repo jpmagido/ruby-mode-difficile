@@ -1,7 +1,7 @@
 en:
   academy:
-    times_slots:
+    time_slots:
       accept-slot: 'Accept'
       refuse-slot: 'Refuse'
-    flashes:
-      success-update: 'You updated your Student availability'
+      flashes:
+        success-update: 'You updated your Student availability'

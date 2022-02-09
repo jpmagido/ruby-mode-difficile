@@ -13,7 +13,7 @@ module Mentor
 
       if @new_mentorship_session.save
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-create')
-        redirect_to mentor_mentorship_session_time_slots_path(@new_mentorship_session)
+        redirect_to mentor_mentorship_session_path(@new_mentorship_session)
       else
         flash.now[:error] = t('shared.errors.create', error: @new_mentorship_session.errors.messages)
         render 'mentor/mentorship_sessions/new'

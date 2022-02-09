@@ -2,7 +2,7 @@
 
 module Academy
   class MentorshipSessionsController < Academy::BaseController
-    helper_method :mentorship_sessions, :mentorship_session
+    helper_method :mentorship_sessions, :mentorship_session, :calendar_hash
 
     def new
       @new_mentorship_session = MentorshipSession.new
@@ -13,7 +13,7 @@ module Academy
 
       if @new_mentorship_session.save
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-create')
-        redirect_to academy_mentorship_session_time_slots_path(@new_mentorship_session)
+        redirect_to academy_mentorship_session_path(@new_mentorship_session)
       else
         flash.now[:error] = t('shared.errors.create', error: @new_mentorship_session.errors.messages)
         render 'academy/mentorship_sessions/new'
@@ -33,7 +33,7 @@ module Academy
     def destroy
       if mentorship_session.destroy
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-destroy')
-        redirect_to academy_coach_path(current_user.coach)
+        redirect_to academy_student_path(current_user.student)
       else
         flash[:error] = t('shared.errors.destroy', error: mentorship_session.errors.messages)
         redirect_to academy_mentorship_session_path(mentorship_session)
@@ -52,6 +52,15 @@ module Academy
 
     def mentorship_session_params
       params.require(:mentorship_session).permit(:start_date, :end_date, :mentorship_id)
+    end
+
+    def calendar_hash
+      {
+        attribute: :start_date,
+        events: mentorship_session.time_slots,
+        start_date: mentorship_session.start_date,
+        number_of_days: mentorship_session.duration
+      }
     end
   end
 end

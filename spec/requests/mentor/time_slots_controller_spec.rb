@@ -12,10 +12,11 @@ RSpec.describe 'Mentor::TimeSlotsController', type: :request do
     create(:coach, user: current_user, status: :ready)
   end
 
-  describe 'GET /index' do
-    it 'returns http success' do
-      get mentor_mentorship_session_time_slots_path(time_slot.mentorship_session)
-      expect(response).to have_http_status(:success)
+  describe 'PATCH /update' do
+    it 'updates mentor approval' do
+      expect(time_slot.coach_approval).to be_falsey
+      patch mentor_mentorship_session_time_slot_path(time_slot.mentorship_session, time_slot), params: { coach_approval: true }
+      expect(time_slot.reload.coach_approval).to be_truthy
     end
   end
 end

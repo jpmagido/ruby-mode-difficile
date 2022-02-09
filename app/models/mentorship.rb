@@ -10,10 +10,10 @@ class Mentorship < ApplicationRecord
   has_many :mentorship_sessions, dependent: :destroy
 
   def show_page_student
-    link_to(I18n.t('students.version'), login_mentorship_path(self))
+    link_to(I18n.t('students.version'), academy_mentorship_path(self))
   end
 
   def show_page_coach
-    link_to(I18n.t('coaches.version'), staff_mentorship_path(self))
+    link_to(I18n.t('coaches.version'), mentor_mentorship_path(self))
   end
 end

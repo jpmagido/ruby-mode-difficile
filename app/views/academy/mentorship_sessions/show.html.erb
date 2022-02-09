@@ -2,7 +2,7 @@
 
   <h3>Academy::MentorshipSessions#show</h3>
 
-  <%= render partial: 'mentor/time_slots/index', locals: { time_slots: mentorship_session.time_slots } %>
+  <%= render partial: 'academy/time_slots/index', locals: { time_slots: mentorship_session.time_slots } %>
 
   <div>
     <div class='slim-container'> <%= t('academy.mentorship_sessions.show.approved-time-slots', count: mentorship_session.approved_time_slots.count) %> </div>

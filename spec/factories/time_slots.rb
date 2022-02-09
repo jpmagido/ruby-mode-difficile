@@ -5,6 +5,9 @@ FactoryBot.define do
     start_date { FFaker::Time.datetime }
     end_date { FFaker::Time.datetime }
 
+    coach_approval { false }
+    student_approval { false }
+
     association :mentorship_session
   end
 end

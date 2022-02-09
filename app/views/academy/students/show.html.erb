@@ -28,7 +28,7 @@
       <%= t('mentor.users.all-mentorships') %>
       <ul>
         <li> <%= "#{t('shared.attr.name')} #{mentorship.coach.login}" %> </li>
-        <li> <%= link_to t('shared.link_show'), login_mentorship_path(mentorship) %> </li>
+        <li> <%= link_to t('shared.link_show'), academy_mentorship_path(mentorship) %> </li>
       </ul>
     <% end %>
   </div>
