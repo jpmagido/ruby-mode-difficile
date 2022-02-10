@@ -27,12 +27,13 @@ RSpec.describe 'Login::ChallengesController', type: :request do
     end
   end
 
-  context 'User is logged' do
-    before { VCR.use_cassette('login') { post session_path } }
-    
-    context 'User is logged as admin or coach' do
-      before { create(:admin, user_id:current_user.id) }
-      
+  context 'When User is logged' do
+    before do
+      VCR.use_cassette('login') { post session_path }
+      create(:coach, user: current_user)
+    end
+
+    context 'When User is logged as admin or coach' do
       describe 'GET /index' do
         it 'returns http success' do
           get login_challenges_path
@@ -55,12 +56,8 @@ RSpec.describe 'Login::ChallengesController', type: :request do
       end
 
       describe 'POST /create' do
-
         context 'when success' do
-          it 'creates a Challenge' do
-            expect { post login_challenges_path, params: challenge_params }
-              .to change(Challenge, :count).by 1
-          end
+          it { expect { post login_challenges_path, params: challenge_params }.to change(Challenge, :count).by 1 }
 
           it 'redirects to show' do
             post login_challenges_path, params: challenge_params
@@ -82,21 +79,12 @@ RSpec.describe 'Login::ChallengesController', type: :request do
             expect(response).to render_template :new
           end
         end
-
-        context 'Admin and coach can create challenges' do
-          it 'user as admin create challenges' do
-            expect { post login_challenges_path, params: challenge_params }
-              .to change(Challenge, :count).by 1
-          end
-        end
       end
     end
 
-    context 'user is logged and he is neither admin nor coach' do
-      it 'user can not create challenges' do
-        expect { post login_challenges_path, params: challenge_params }
-          .to_not change(Challenge, :count)
-      end
-    end 
+    context 'user is logged but not admin nor coach' do
+      before { current_user.coach.destroy }
+      it { expect { post login_challenges_path, params: challenge_params }.to raise_error Pundit::NotAuthorizedError }
+    end
   end
 end

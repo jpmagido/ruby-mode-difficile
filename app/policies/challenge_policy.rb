@@ -18,7 +18,7 @@ class ChallengePolicy < AppPolicy
   end
 
   def update?
-    record.user_id == user.id
+    record.user_id == user.id && is_admin_or_coach?
   end
 
   private
