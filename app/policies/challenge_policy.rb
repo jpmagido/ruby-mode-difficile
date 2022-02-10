@@ -10,14 +10,20 @@ class ChallengePolicy < AppPolicy
   end
 
   def new?
-    user
+    is_admin_or_coach?
   end
 
   def create?
-    user # limit to Users with a certain level
+    is_admin_or_coach?
   end
 
   def update?
-    record.user_id == user.id
+    record.user_id == user.id && is_admin_or_coach?
+  end
+
+  private
+
+  def is_admin_or_coach?
+    user&.admin || user&.coach
   end
 end
