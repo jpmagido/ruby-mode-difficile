@@ -6,10 +6,12 @@ module Academy
 
     def new
       @new_mentorship_session = MentorshipSession.new
+      authorize @new_mentorship_session
     end
 
     def create
       @new_mentorship_session = MentorshipSession.new(mentorship_session_params)
+      authorize @new_mentorship_session
 
       if @new_mentorship_session.save
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-create')
@@ -21,6 +23,8 @@ module Academy
     end
 
     def update
+      authorize mentorship_session
+
       if mentorship_session.update(mentorship_session_params)
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-update')
         redirect_to academy_mentorship_session_path(mentorship_session)
@@ -31,6 +35,8 @@ module Academy
     end
 
     def destroy
+      authorize mentorship_session
+
       if mentorship_session.destroy
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-destroy')
         redirect_to academy_student_path(current_user.student)

@@ -18,5 +18,4 @@ RSpec.describe 'Academy::TimeSlotsController', type: :request do
       expect(time_slot.reload.student_approval).to be_truthy
     end
   end
-
 end
