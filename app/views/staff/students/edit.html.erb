@@ -7,7 +7,7 @@
   <hr>
 
   <%= form_with model: [:staff, student] do |f| %>
-    <%= f.label :description, t('academy.students.attr.description') %>
+    <%= f.label :description, t('shared.attr.description') %>
     <%= f.rich_text_area :description, size: '70x5' %>
     <br>
     <%= f.label :status, t('academy.students.attr.status.label') %>

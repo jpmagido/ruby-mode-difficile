@@ -2,7 +2,6 @@ en:
   challenges:
     attr:
       title: 'Title :'
-      description: 'Description :'
       signature: 'Signature :'
       duration:
         label: 'Duration :'

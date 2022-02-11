@@ -1,6 +1,7 @@
 en:
   shared:
     submit_form: 'Validate'
+    reset-filters: 'Reset filters'
     link_show: 'Details Page'
     link_edit: 'Update'
     link_admin_version: 'Admin version'
@@ -25,6 +26,7 @@ en:
         error-text: 'Error #401 / UNAUTHORIZED ACCESS'
       create: 'Creation failed : %{error}'
       update: 'Update failed : %{error}'
+      destroy: 'Destroying failed : %{error}'
     models:
       doc: 'Documentation'
       conversation-messages: 'Messages'
@@ -32,6 +34,11 @@ en:
       created-at: 'Created at : '
       updated-at: 'Updated at : '
       name: 'Name: '
+      description: 'Your description: '
     booleans:
       true: 'Yes'
       false: 'No'
+    languages:
+      fr: 'French'
+      en: 'English'
+      any: 'Any language'

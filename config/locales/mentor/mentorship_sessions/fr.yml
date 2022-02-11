@@ -1,0 +1,20 @@
+fr:
+  mentor:
+    mentorship_sessions:
+      flashes:
+        success-create: 'Vous avez créer une EBAUCHE pour la Session de Coaching, vous devez maintenant confirmer les créneaux'
+        success-update: "Vous avez modifié votre Session de Coaching, n'oubliez pas de faire pareil avec les Créneaux horaires associés"
+        success-destroy: 'Vous avez détruit votre Session de Coaching et tous les créneaux horaires associés'
+      attr:
+        start_date: 'Disponible du: (JOUR)'
+        end_date: 'Au: (JOUR)'
+      show:
+        approved-time-slots: "%{count} Créneaux horaires validés par le Coach et l'Etudiant"
+        student-approved-time-slots: "%{count} Créneaux horaires validés par l'Etudiant uniquement"
+        coach-approved-time-slots: "%{count} Créneaux horaires validés par vous-même uniquement"
+      messages:
+        coach-create: 'Coach a créer une nouvelle session de Mentorat le %{date}, merci de compléter rapidement vos disponibilités'
+        coach-update: 'Coach a modifié la session de Mentorat du %{date}, merci de compléter les nouvelles disponibilités'
+        coach-destroy: 'Coach a supprimé une session de Mentorgin plannifiée le %{date}'
+      links:
+        create-mentorship-session: 'Créer une session de Mentorat avec cet Etudiant'

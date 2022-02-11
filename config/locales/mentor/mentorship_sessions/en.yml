@@ -1,0 +1,20 @@
+en:
+  mentor:
+    mentorship_sessions:
+      flashes:
+        success-create: 'You have created a DRAFT for Coaching Session, you now need to confirm time slots'
+        success-update: "You modified your Coach Session, don't forget to update associated Time Slots"
+        success-destroy: 'You destroyed youre Coach Session and all Time Slots associated'
+      attr:
+        start_date: 'Available from: (DAY)'
+        end_date: 'To: (DAY)'
+      show:
+        approved-time-slots: '%{count} Approved Time Slots by both Student & Coach'
+        student-approved-time-slots: "%{count} Approved Time Slots only by Student"
+        coach-approved-time-slots: "%{count} Approved Time Slots only by YOURSELF"
+      messages:
+        coach-create: 'Coach has created a Mentorship Session with you on the %{date}, please go update your preferences: %{url}'
+        coach-update: 'Coach modified the Mentoring Session of %{date}, please update your availability: %{url}'
+        coach-destroy: 'Coach destroyed a planned Mentoring Session of the %{date}'
+      links:
+        create-mentorship-session: 'Create a Mentorship Session with this Student'

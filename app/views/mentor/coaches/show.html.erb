@@ -1,0 +1,27 @@
+<h3>Mentor::Coaches#show</h3>
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+<br>
+
+<div class='slim-container'>
+  <div class='slim-container'>
+    <%= t('users.attr.name') %>
+    <%= coach.login %>
+  </div>
+
+  <div class='slim-container'>
+    <%= t('shared.attr.description') %>
+    <%= coach.description %>
+  </div>
+  <div class='slim-container'><%= link_to t('shared.link_edit'), edit_mentor_coach_path %> </div>
+</div>
+<br>
+<hr>
+
+<div class='slim-container'>
+  <p> <%= link_to t('mentor.users.all-students'), mentor_students_path %> </p>
+  <p> <%= link_to t('mentor.users.all-mentorships'), mentor_mentorships_path %> </p>
+  <p> <%= link_to t('mentor.users.all-mentorship-sessions'), mentor_mentorship_sessions_path %> </p>
+  <p> Mes corrections à effectuer </p>
+</div>

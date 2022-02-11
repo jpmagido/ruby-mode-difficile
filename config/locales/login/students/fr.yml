@@ -1,5 +1,6 @@
 fr:
   students:
+    version: 'Version Etudiant'
     new-student-phrase: 'Dites-nous si vous cherchez un coach'
     new-student-admin: "Bonjour, je suis en recherche de Coach, vous pouvez consulter mon profil ici: %{user_path}"
     flashes:

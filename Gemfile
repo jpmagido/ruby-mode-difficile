@@ -27,6 +27,8 @@ gem 'pundit', '~> 2.1', '>= 2.1.1'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.1'
 gem 'redcarpet', '~> 3.5', '>= 3.5.1'
 gem 'sassc-rails'
+gem 'simple_calendar', '~> 2.4', '>= 2.4.3'
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

@@ -1,0 +1,14 @@
+<h3>Mentor::Coaches#edit</h3>
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+<br>
+
+<div>
+  <%= form_with model: [:mentor, coach] do |f| %>
+    <%= f.label :description, t('shared.attr.description') %>
+    <%= f.rich_text_area :description, size: '70x5' %>
+    <br>
+    <%= f.submit t('shared.submit_form') %>
+  <% end %>
+</div>

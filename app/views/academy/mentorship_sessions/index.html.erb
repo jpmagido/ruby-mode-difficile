@@ -1,0 +1,8 @@
+<h1>Academy::MentorshipSessions#index</h1>
+<p>Find me in app/views/academy/mentorship_sessions/index.html.erb</p>
+
+<div>
+  <% mentorship_sessions.each do |mentorship_session| %>
+    <%= link_to t('shared.link_show'), academy_mentorship_session_path(mentorship_session) %>
+  <% end %>
+</div>

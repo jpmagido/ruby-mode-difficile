@@ -1,0 +1,9 @@
+en:
+  academy:
+    time_slots:
+      approved-slot: 'Coach / Student'
+      coach-accepted: 'Coach'
+      nobody-accepted: 'Nobody'
+      student-accepted: 'Student'
+      flashes:
+        success-update: 'You updated your Student availability'

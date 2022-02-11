@@ -4,3 +4,6 @@ fr:
       challenges-done: 'Challenges effectués : '
       links:
         new-mentorship: 'Envoyer une proposition de Mentorat'
+      forms:
+        answers_count: 'Nombre de Challenges réalisés'
+        has-coach: 'Travaille actuellement avec un Coach'

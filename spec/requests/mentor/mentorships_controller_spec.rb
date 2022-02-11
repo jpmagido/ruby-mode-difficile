@@ -35,8 +35,15 @@ RSpec.describe 'Mentor::MentorshipsController', type: :request do
 
   describe 'POST /create' do
     it 'creates a new Mentorship' do
-      expect { post mentor_mentorships_path(student_id: student.id) }
-        .to change(Mentorship, :count).by 1
+      expect { post mentor_mentorships_path(student_id: student.id) }.to change(Mentorship, :count).by 1
+    end
+
+    it 'creates a new Conversation' do
+      expect { post mentor_mentorships_path(student_id: student.id) }.to change(Conversation, :count).by 1
+    end
+
+    it 'creates a new Message' do
+      expect { post mentor_mentorships_path(student_id: student.id) }.to change(ConversationMessage, :count).by 1
     end
   end
 
@@ -52,6 +59,11 @@ RSpec.describe 'Mentor::MentorshipsController', type: :request do
     it 'updates Mentorship' do
       patch mentor_mentorship_path(mentorship), params: update_params
       expect(mentorship.reload.coach_approval).to be_truthy
+    end
+
+    it 'creates Message' do
+      expect { patch mentor_mentorship_path(mentorship), params: update_params }
+        .to change(ConversationMessage, :count).by 1
     end
   end
 end

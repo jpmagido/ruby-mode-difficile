@@ -1,0 +1,20 @@
+<div class='border-thin container'>
+  <%= form_tag mentor_students_path, method: 'get' do %>
+    <%= label_tag :name, t('users.attr.name') %>
+    <%= search_field_tag :name, params[:name] %>
+    <br>
+    <%= label_tag :challenge_count_min, t('mentor.students.forms.answers_count') %>
+    <%= number_field_tag :answer_count_min, params[:answer_count_min], within: 1..500, placeholder: 'Min' %>
+    <%= number_field_tag :answer_count_max, params[:answer_count_max], within: 1..500, placeholder: 'Max' %>
+    <br>
+    <%= label_tag :has_coach, t('mentor.students.forms.has-coach') %>
+    <%= check_box_tag :has_coach, true %>
+    <br>
+    <%= label_tag :language, t('mentor.users.forms.languages') %>
+    <%= select_tag :language, options_for_select(User.language_attributes_for_select), include_blank: t('shared.languages.any') %>
+    <br>
+    <br>
+    <%= submit_tag t('shared.submit_form') %>
+    <%= link_to t('shared.reset-filters'), mentor_students_path, class: 'border-thin' %>
+  <% end %>
+</div>

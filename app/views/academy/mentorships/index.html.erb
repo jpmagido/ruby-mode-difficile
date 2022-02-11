@@ -1,0 +1,15 @@
+<h3> Academy::Mentorships#index</h3>
+
+<br>
+<%= link_to t('shared.back'), :back %>
+<hr>
+<br>
+
+<div>
+  <% mentorships.each do |mentorship| %>
+    <div>
+      <p> <%= t('login.mentorships.attr.coach-name') %> <%= link_to mentorship.coach.user.login, academy_mentorship_path(mentorship) %> </p>
+      <p> <%= link_to t('shared.link_edit'), edit_academy_mentorship_path(mentorship) %> </p>
+    </div>
+  <% end %>
+</div>

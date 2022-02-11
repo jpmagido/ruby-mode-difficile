@@ -1,0 +1,6 @@
+en:
+  academy:
+    mentorships:
+      messages:
+        student-create: 'New Coaching request: %{url}'
+        student-update: "Mentorship updated by Student: %{url}"

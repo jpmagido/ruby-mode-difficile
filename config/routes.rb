@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :coaches, only: %i[new create]
     resources :conversations, only: %i[show create]
     resources :students, only: %i[new create]
-    resources :mentorships, only: %i[show index create edit update]
   end
 
   namespace :staff do
@@ -33,13 +32,20 @@ Rails.application.routes.draw do
   end
 
   namespace :mentor do
-    resource :user, only: :show # rename to coach ?
+    resource :coach, only: %i[show edit update]
     resources :students, only: %i[show index]
     resources :mentorships, only: %i[show index create edit update]
+    resources :mentorship_sessions do
+      resources :time_slots, only: %i[update]
+    end
   end
 
   namespace :academy do
     resource :student, only: %i[show edit update]
+    resources :mentorships, only: %i[show index create edit update]
+    resources :mentorship_sessions do
+      resources :time_slots, only: %i[update]
+    end
   end
 
   resource :session, only: %i[new edit create destroy]

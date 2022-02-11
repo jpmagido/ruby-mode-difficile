@@ -1,0 +1,12 @@
+<div class='container'>
+
+  <h3>Academy::MentorshipSessions#show</h3>
+
+  <%= render partial: 'academy/time_slots/index', locals: { time_slots: mentorship_session.time_slots } %>
+
+  <div>
+    <div class='slim-container'> <%= t('academy.mentorship_sessions.show.approved-time-slots', count: mentorship_session.approved_time_slots.count) %> </div>
+    <div class='slim-container'> <%= t('academy.mentorship_sessions.show.coach-approved-time-slots', count: mentorship_session.coach_approved_time_slots.count) %> </div>
+    <div class='slim-container'> <%= t('academy.mentorship_sessions.show.student-approved-time-slots', count: mentorship_session.student_approved_time_slots.count) %> </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ en:
   conversations:
     full-list: 'Your Conversations'
     not-selected: 'No conversation selected'
+    send-message: 'Send a message'
     form:
       send: 'Send message'
     flashes:

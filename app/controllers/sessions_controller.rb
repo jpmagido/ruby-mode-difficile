@@ -2,7 +2,7 @@
 
 # TODO: rspec
 class SessionsController < ApplicationController
-  #rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :standard_errors
+  # rescue_from UnsafeRedirectError, Github::Api::RequestError, HttpService::RequestError, with: :standard_errors
 
   def new
     if Rails.env.production?
