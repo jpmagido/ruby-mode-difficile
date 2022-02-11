@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Academy::TimeSlotsController', type: :request do
-  let(:time_slot) { create(:time_slot) }
+  let(:mentorship) { create(:mentorship, student: current_user.student) }
+  let(:time_slot) { create(:time_slot, mentorship_session: create(:mentorship_session, mentorship: mentorship)) }
   let(:current_user) { User.find_by_login('jpmagido') }
 
   before do

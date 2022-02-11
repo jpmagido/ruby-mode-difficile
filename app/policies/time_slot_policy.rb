@@ -8,7 +8,7 @@ class TimeSlotPolicy < AppPolicy
   private
 
   def mentorship
-    record.mentorship_session
+    record.mentorship_session.mentorship
   end
 
   def owner?

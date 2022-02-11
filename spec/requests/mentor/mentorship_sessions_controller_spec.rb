@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Mentor::MentorshipSessionsController', type: :request do
   let(:mentorship_session) { create(:mentorship_session, mentorship: create(:mentorship, coach: current_user.coach)) }
-  let(:mentorship) { create(:mentorship) }
+  let(:mentorship) { create(:mentorship, coach: current_user.coach) }
   let(:today) { Date.today }
   let(:current_user) { User.find_by_login('jpmagido') }
 
