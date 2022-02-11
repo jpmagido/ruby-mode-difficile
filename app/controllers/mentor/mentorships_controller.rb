@@ -6,6 +6,8 @@ module Mentor
 
     def create
       @new_mentorship = current_user.coach.mentorships.new(student_id: params[:student_id], coach_approval: true)
+      authorize @new_mentorship
+
       if @new_mentorship.save
         conversation.send_message(current_user, create_mentorship_message(@new_mentorship))
 
@@ -18,6 +20,8 @@ module Mentor
     end
 
     def update
+      authorize mentorship
+
       if mentorship.update(mentorships_params)
         conversation.send_message(current_user, update_mentorship_message(mentorship))
 

@@ -5,6 +5,8 @@ module Academy
     helper_method :time_slots, :mentorship_session
 
     def update
+      authorize time_slot
+
       if time_slot.update(student_approval: params[:student_approval])
         flash[:success] = t('academy.time_slots.flashes.success-update')
       else

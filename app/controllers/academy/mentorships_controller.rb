@@ -6,6 +6,8 @@ module Academy
 
     def create
       @new_mentorship = current_user.student.mentorships.new(coach_id: params[:coach_id], student_approval: true)
+      authorize @new_mentorship
+
       if @new_mentorship.save
         flash[:success] = t('login.mentorships.flashes.create-success')
         redirect_to academy_mentorship_path(@new_mentorship)
@@ -16,6 +18,8 @@ module Academy
     end
 
     def update
+      authorize mentorship
+
       if mentorship.update(mentorships_params)
         flash[:success] = t('mentor.mentorships.flashes.update-success')
         redirect_to academy_mentorship_path(mentorship)
