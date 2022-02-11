@@ -16,3 +16,5 @@ en:
         coach-create: 'Coach has created a Mentorship Session with you on the %{date}, please go update your preferences: %{url}'
         coach-update: 'Coach modified the Mentoring Session of %{date}, please update your availability: %{url}'
         coach-destroy: 'Coach destroyed a planned Mentoring Session of the %{date}'
+      links:
+        create-mentorship-session: 'Create a Mentorship Session with this Student'

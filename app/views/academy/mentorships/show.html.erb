@@ -15,3 +15,7 @@
     <li> <%= link_to t('shared.link_edit'), edit_academy_mentorship_path(mentorship) %> </li>
   </ul>
 </div>
+
+<div>
+  <%= link_to t('academy.mentorship_sessions.links.create-mentorship-session'), new_mentor_mentorship_session_path(mentorship_id: mentorship.id) %>
+</div>

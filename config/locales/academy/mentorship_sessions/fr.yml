@@ -9,3 +9,5 @@ fr:
         student-create: 'Ton Coach a créer une nouvelle session de Mentorat le %{date}, merci de compléter rapidement vos disponibilités: %{url}'
         student-update: 'Ton Coach a modifié la session de Mentorat du %{date}, merci de compléter les nouvelles disponibilités: %{url}'
         student-destroy: 'Ton Coach a supprimé une session de Mentorgin plannifiée le %{date}'
+      links:
+        create-mentorship-session: 'Créer une session de Mentorat avec ce Coach'

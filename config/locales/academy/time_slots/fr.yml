@@ -1,7 +1,9 @@
 fr:
   academy:
     time_slots:
-      accept-slot: 'Accepter'
-      refuse-slot: 'Refuser'
+      approved-slot: 'Coach / Etudiant'
+      coach-accepted: 'Coach'
+      nobody-accepted: 'Vide'
+      student-accepted: 'Etudiant'
       flashes:
         success-update: "Vous avez modifié vos disponibilité d'Etudiant"

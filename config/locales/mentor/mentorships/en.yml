@@ -15,5 +15,3 @@ en:
         check_box-approval: 'Check the box to approve : '
         coach-name: 'Coach name : '
         student-name: 'Student name : '
-      links:
-        create-mentorship-session: 'Create a Mentorship Session with this Student'
