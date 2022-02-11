@@ -2,8 +2,9 @@ fr:
   mentor:
     mentorships:
       model-name: 'Mentorat'
-      send-student-message: "Bonjour, je suis coach et disponible, si ça t'interesse je t'ai envoyé une invitation pour travailler ensemble ici: %{mentorship_path}"
-      update-mentorship-message: 'Un de vos Mentorats a été modifié: %{mentorship_path}'
+      messages:
+        coach-create: "Bonjour, je suis coach et disponible, si ça t'interesse je t'ai envoyé une invitation pour travailler ensemble ici: %{url}"
+        coach-update: 'Un de vos Mentorats a été modifié: %{url}'
       flashes:
         create-success: "Vous avez crée une demande de Mentorat, l'Etudiant doit maintenant l'accepter"
         update-success: 'Vous avez modifié le Mentorat avec succès'

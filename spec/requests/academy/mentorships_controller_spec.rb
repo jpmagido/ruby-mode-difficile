@@ -37,6 +37,12 @@ RSpec.describe 'Academy::MentorshipsController', type: :request do
       expect { post academy_mentorships_path, params: { coach_id: mentorship.coach_id } }
         .to change(current_user.student.mentorships, :count).by 1
     end
+
+    it 'creates a new ConversationMessage' do
+      mentorship
+      expect { post academy_mentorships_path, params: { coach_id: mentorship.coach_id } }
+        .to change(ConversationMessage, :count).by 1
+    end
   end
 
   describe 'PATCH /update' do
@@ -46,6 +52,12 @@ RSpec.describe 'Academy::MentorshipsController', type: :request do
       expect(mentorship.student_approval).to be_falsey
       patch academy_mentorship_path(mentorship), params: update_params
       expect(mentorship.reload.student_approval).to be_truthy
+    end
+
+    it 'creates ConversationMessage' do
+      expect(ConversationMessage.count).to eq 0
+      patch academy_mentorship_path(mentorship), params: update_params
+      expect(ConversationMessage.count).to eq 1
     end
   end
 end

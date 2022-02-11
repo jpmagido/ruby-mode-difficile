@@ -9,6 +9,8 @@ module Academy
       authorize @new_mentorship
 
       if @new_mentorship.save
+        conversation(@new_mentorship).send_message(current_user, t('academy.mentorships.messages.student-create'))
+
         flash[:success] = t('login.mentorships.flashes.create-success')
         redirect_to academy_mentorship_path(@new_mentorship)
       else
@@ -21,6 +23,8 @@ module Academy
       authorize mentorship
 
       if mentorship.update(mentorships_params)
+        conversation(mentorship).send_message(current_user, t('academy.mentorships.messages.student-update'))
+
         flash[:success] = t('mentor.mentorships.flashes.update-success')
         redirect_to academy_mentorship_path(mentorship)
       else
@@ -37,6 +41,10 @@ module Academy
 
     def mentorship
       @mentorship ||= mentorships.find(params[:id])
+    end
+
+    def conversation(mentorship)
+      @conversation ||= ConversationManager.new([current_user, mentorship.coach.user]).find_conversation
     end
 
     def mentorships_params

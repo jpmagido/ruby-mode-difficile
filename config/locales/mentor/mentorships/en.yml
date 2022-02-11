@@ -2,8 +2,9 @@ en:
   mentor:
     mentorships:
       model-name: 'Mentorship'
-      send-student-message: "Hello, I'm a Coach and available, if you are interested, I sent you an invitation to work together: %{mentorship_path}"
-      update-mentorship-message: 'A Mentorship of yours has been updated: %{mentorship_path}'
+      messages:
+        coach-create: "Hello, I'm a Coach and available, if you are interested, I sent you an invitation to work together: %{url}"
+        coach-update: 'Mentorship was updated by Coach: %{url}'
       flashes:
         create-success: 'You created a pending MentorShip, the Student now need to accept'
         update-success: 'You successfully updated a MentorShip'

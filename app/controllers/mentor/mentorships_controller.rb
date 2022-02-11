@@ -9,7 +9,7 @@ module Mentor
       authorize @new_mentorship
 
       if @new_mentorship.save
-        conversation.send_message(current_user, create_mentorship_message(@new_mentorship))
+        conversation.send_message(current_user, t('mentor.mentorships.messages.coach-create', url: @new_mentorship.show_page))
 
         flash[:success] = t('mentor.mentorships.flashes.create-success')
         redirect_to mentor_mentorship_path(@new_mentorship)
@@ -23,7 +23,7 @@ module Mentor
       authorize mentorship
 
       if mentorship.update(mentorships_params)
-        conversation.send_message(current_user, update_mentorship_message(mentorship))
+        conversation.send_message(current_user, t('mentor.mentorships.messages.coach-update', url: mentorship.show_page))
 
         flash[:success] = t('mentor.mentorships.flashes.update-success')
         redirect_to mentor_mentorship_path(mentorship)
@@ -49,18 +49,6 @@ module Mentor
 
     def student
       @student ||= Student.find_by(id: params[:student_id]) || mentorship.student
-    end
-
-    def create_mentorship_message(mentorship)
-      t('mentor.mentorships.send-student-message',
-        mentorship_path: "#{mentorship.show_page_student} // #{mentorship.show_page_coach}"
-      )
-    end
-
-    def update_mentorship_message(mentorship)
-      t('mentor.mentorships.update-mentorship-message',
-        mentorship_path: "#{mentorship.show_page_student} // #{mentorship.show_page_coach}"
-      )
     end
 
     def mentorships_params

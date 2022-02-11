@@ -1,0 +1,6 @@
+fr:
+  academy:
+    mentorships:
+      messages:
+        student-create: 'Demande de Coaching: %{url}'
+        student-update: "Modification par l'Etudiant de la collaboration: %{url}"
