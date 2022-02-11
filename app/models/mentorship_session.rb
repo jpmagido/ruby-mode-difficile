@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class MentorshipSession < ApplicationRecord
+  include Rails.application.routes.url_helpers
+  include ActionView::Helpers::UrlHelper
+
   after_create :create_time_slots
 
   belongs_to :mentorship
@@ -26,6 +29,13 @@ class MentorshipSession < ApplicationRecord
 
   def duration
     (start_date..end_date).to_a.length
+  end
+
+  def show_page
+    [
+      link_to(I18n.t('students.version'), academy_mentorship_session_path(self)),
+      link_to(I18n.t('coaches.version'), mentor_mentorship_session_path(self))
+    ]
   end
 
   private

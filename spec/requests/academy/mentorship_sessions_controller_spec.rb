@@ -50,6 +50,12 @@ RSpec.describe 'Academy::MentorshipSessionsController', type: :request do
       post academy_mentorship_sessions_path, params: create_params
       expect(MentorshipSession.count).to eq 1
     end
+
+    it 'creates ConversationMessage' do
+      expect(MentorshipSession.count).to eq 0
+      post academy_mentorship_sessions_path, params: create_params
+      expect(ConversationMessage.count).to eq 1
+    end
   end
 
   describe 'GET /edit' do
@@ -74,12 +80,25 @@ RSpec.describe 'Academy::MentorshipSessionsController', type: :request do
       patch academy_mentorship_session_path(mentorship_session), params: update_params
       expect(mentorship_session.reload.start_date).to eq today + 3
     end
+
+    it 'creates ConversationMessage' do
+      expect(ConversationMessage.count).to eq 0
+      patch academy_mentorship_session_path(mentorship_session), params: update_params
+      expect(ConversationMessage.count).to eq 1
+    end
   end
 
   describe 'DELETE /destroy' do
     it 'destroys mentorship_session' do
       mentorship_session
       expect { delete academy_mentorship_session_path(mentorship_session) }.to change(MentorshipSession, :count).by(-1)
+    end
+
+    it 'creates a ConversationMessage' do
+      mentorship_session
+      expect(ConversationMessage.count).to eq 0
+      delete academy_mentorship_session_path(mentorship_session)
+      expect(ConversationMessage.count).to eq 1
     end
   end
 end

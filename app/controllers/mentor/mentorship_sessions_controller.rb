@@ -14,6 +14,11 @@ module Mentor
       authorize @new_mentorship_session
 
       if @new_mentorship_session.save
+        conversation(@new_mentorship_session).send_message(
+          current_user,
+          t('mentor.mentorship_sessions.messages.coach-create', date: @new_mentorship_session.start_date, url: @new_mentorship_session.show_page)
+        )
+
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-create')
         redirect_to mentor_mentorship_session_path(@new_mentorship_session)
       else
@@ -26,6 +31,11 @@ module Mentor
       authorize mentorship_session
 
       if mentorship_session.update(mentorship_session_params)
+        conversation(mentorship_session).send_message(
+          current_user,
+          t('mentor.mentorship_sessions.messages.coach-update', date: mentorship_session.start_date, url: mentorship_session.show_page)
+        )
+
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-update')
         redirect_to mentor_mentorship_session_path(mentorship_session)
       else
@@ -38,6 +48,11 @@ module Mentor
       authorize mentorship_session
 
       if mentorship_session.destroy
+        conversation(mentorship_session).send_message(
+          current_user,
+          t('mentor.mentorship_sessions.messages.coach-update', date: mentorship_session.start_date)
+        )
+
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-destroy')
         redirect_to mentor_coach_path(current_user.coach)
       else
@@ -58,6 +73,10 @@ module Mentor
 
     def mentorship_session_params
       params.require(:mentorship_session).permit(:start_date, :end_date, :mentorship_id)
+    end
+
+    def conversation(mentorship_session)
+      @conversation ||= ConversationManager.new([current_user, mentorship_session.mentorship.student.user]).find_conversation
     end
 
     def calendar_hash
