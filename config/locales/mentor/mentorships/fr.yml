@@ -15,3 +15,5 @@ fr:
         check_box-approval: 'Cocher la case pour accepter : '
         coach-name: 'Nom du coach : '
         student-name: "Nom de l'étudiant : "
+      links:
+        create-mentorship-session: 'Créer une session de Mentorat avec cet Etudiant'

@@ -9,3 +9,7 @@
   <%= render partial: 'mentor/mentorships/list', locals: { mentorship: mentorship } %>
   <%= link_to t('shared.link_edit'), edit_mentor_mentorship_path(mentorship) %>
 </div>
+<br>
+<div>
+  <%= link_to t('mentor.mentorships.links.create-mentorship-session'), new_mentor_mentorship_session_path(mentorship_id: mentorship.id) %>
+</div>

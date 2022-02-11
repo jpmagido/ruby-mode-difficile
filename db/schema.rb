@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_06_214233) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_02_06_214233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -21,8 +20,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.text "body"
     t.string "record_type", null: false
     t.uuid "record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -31,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.string "record_type", null: false
     t.uuid "record_id", null: false
     t.uuid "blob_id", null: false
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -44,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum"
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -56,8 +55,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
 
   create_table "admins", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
@@ -68,8 +67,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.text "comments"
     t.uuid "challenge_id", null: false
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["challenge_id"], name: "index_answers_on_challenge_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -82,8 +81,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.integer "status", default: 0
     t.string "signature"
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
@@ -91,8 +90,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.integer "status", default: 0
     t.text "description"
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_coaches_on_user_id"
   end
 
@@ -101,8 +100,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.boolean "read"
     t.uuid "conversation_id", null: false
     t.uuid "conversation_participant_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_conversation_messages_on_conversation_id"
     t.index ["conversation_participant_id"], name: "index_conversation_messages_on_conversation_participant_id"
   end
@@ -110,23 +109,23 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
   create_table "conversation_participants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "conversation_id", null: false
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_conversation_participants_on_conversation_id"
     t.index ["user_id"], name: "index_conversation_participants_on_user_id"
   end
 
   create_table "conversations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "doc_links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "doc_id", null: false
     t.string "linkable_type"
     t.uuid "linkable_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["doc_id"], name: "index_doc_links_on_doc_id"
     t.index ["linkable_type", "linkable_id"], name: "index_doc_links_on_linkable"
   end
@@ -136,16 +135,16 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.string "tags"
     t.text "content"
     t.integer "status", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "mentorship_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.date "start_date", null: false
-    t.date "end_date", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
     t.uuid "mentorship_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["mentorship_id"], name: "index_mentorship_sessions_on_mentorship_id"
   end
 
@@ -155,8 +154,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.boolean "active", default: true
     t.uuid "student_id", null: false
     t.uuid "coach_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["coach_id"], name: "index_mentorships_on_coach_id"
     t.index ["student_id"], name: "index_mentorships_on_student_id"
   end
@@ -166,8 +165,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.text "readme"
     t.string "cloud_storage_type"
     t.uuid "cloud_storage_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["cloud_storage_type", "cloud_storage_id"], name: "index_repositories_on_cloud_storage"
   end
 
@@ -175,8 +174,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.string "ip_address", null: false
     t.string "token", null: false
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -184,19 +183,19 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.integer "status", default: 0
     t.text "description"
     t.uuid "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "time_slots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "start_date", precision: 6, null: false
-    t.datetime "end_date", precision: 6, null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
     t.boolean "coach_approval", default: false
     t.boolean "student_approval", default: false
     t.uuid "mentorship_session_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["mentorship_session_id"], name: "index_time_slots_on_mentorship_session_id"
   end
 
@@ -211,8 +210,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_214233) do
     t.integer "followers"
     t.integer "language", default: 0
     t.boolean "active", default: true
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

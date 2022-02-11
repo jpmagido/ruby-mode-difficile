@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe MentorshipSession, type: :model do
-  let(:today) { Date.today }
+  let(:today) { DateTime.now }
   let(:first_session) { DateTime.new(today.year, today.month, today.day, 7) }
   let(:last_session) { DateTime.new(today.year, today.month, today.day + 1, 21) }
 

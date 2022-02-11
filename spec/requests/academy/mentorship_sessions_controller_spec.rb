@@ -6,7 +6,7 @@ RSpec.describe 'Academy::MentorshipSessionsController', type: :request do
   let(:current_user) { User.find_by_login('jpmagido') }
   let(:mentorship_session) { create(:mentorship_session, mentorship: create(:mentorship, student: current_user.student)) }
   let(:mentorship) { create(:mentorship, student: current_user.student) }
-  let(:today) { Date.today }
+  let(:today) { DateTime.now }
 
   before do
     VCR.use_cassette('login') { post session_path }
@@ -76,9 +76,9 @@ RSpec.describe 'Academy::MentorshipSessionsController', type: :request do
     end
 
     it 'updates mentorship_session' do
-      expect(mentorship_session.start_date).to eq today
+      expect(mentorship_session.start_date.to_date).to eq today.to_date
       patch academy_mentorship_session_path(mentorship_session), params: update_params
-      expect(mentorship_session.reload.start_date).to eq today + 3
+      expect(mentorship_session.reload.start_date.to_date).to eq (today + 3).to_date
     end
 
     it 'creates ConversationMessage' do

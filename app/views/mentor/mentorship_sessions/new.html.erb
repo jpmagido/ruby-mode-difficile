@@ -6,7 +6,7 @@
       <%= f.date_select :start_date %>
       <br>
       <%= f.label :end_date, t('mentor.mentorship_sessions.attr.end_date') %>
-      <%= f.date_select :end_date %>
+      <%= f.datetime_select :end_date %>
       <br>
       <%= f.hidden_field :mentorship_id, value: params[:mentorship_id] %>
       <br>

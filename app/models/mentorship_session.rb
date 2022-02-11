@@ -4,7 +4,8 @@ class MentorshipSession < ApplicationRecord
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::UrlHelper
 
-  after_create :create_time_slots
+  after_create :create_or_update_time_slots
+  after_update :create_or_update_time_slots
 
   belongs_to :mentorship
 
@@ -28,7 +29,7 @@ class MentorshipSession < ApplicationRecord
   end
 
   def duration
-    (start_date..end_date).to_a.length
+    (start_date.to_date..end_date.to_date).to_a.length
   end
 
   def show_page
@@ -40,20 +41,24 @@ class MentorshipSession < ApplicationRecord
 
   private
 
-  def create_time_slots
-    (start_date..end_date).each do |day|
+  def create_or_update_time_slots
+    (start_date.to_date..end_date.to_date).each do |day|
       formatted_day = day.to_s.split('-').map(&:to_i)
-
       (DAY_BEGINS_AT...DAY_ENDS_AT).each do |hour|
         begin_hour = DateTime.new(*formatted_day + [hour])
         half_hour = DateTime.new(*formatted_day + [hour, 30])
         end_hour = DateTime.new(*formatted_day + [hour + 1])
 
         ActiveRecord::Base.transaction do
-          time_slots.create!(start_date: begin_hour, end_date: half_hour)
-          time_slots.create!(start_date: half_hour, end_date: end_hour)
+          outdated_time_slots.each(&:destroy!)
+          time_slots.find_or_create_by!(start_date: begin_hour, end_date: half_hour)
+          time_slots.find_or_create_by!(start_date: half_hour, end_date: end_hour)
         end
       end
     end
+  end
+
+  def outdated_time_slots
+    @outdated_time_slots ||= time_slots.where('start_date < ? OR end_date > ?', start_date, end_date.end_of_day)
   end
 end

@@ -13,6 +13,6 @@ fr:
         student-approved-time-slots: "%{count} Créneaux horaires validés par l'Etudiant uniquement"
         coach-approved-time-slots: "%{count} Créneaux horaires validés par vous-même uniquement"
       messages:
-        coach-create: 'Ton Etudiant a créer une nouvelle session de Mentorat le %{date}, merci de compléter rapidement vos disponibilités'
-        coach-update: 'Ton Etudiant a modifié la session de Mentorat du %{date}, merci de compléter les nouvelles disponibilités'
-        coach-destroy: 'Ton Etudiant a supprimé une session de Mentorgin plannifiée le %{date}'
+        coach-create: 'Coach a créer une nouvelle session de Mentorat le %{date}, merci de compléter rapidement vos disponibilités'
+        coach-update: 'Coach a modifié la session de Mentorat du %{date}, merci de compléter les nouvelles disponibilités'
+        coach-destroy: 'Coach a supprimé une session de Mentorgin plannifiée le %{date}'

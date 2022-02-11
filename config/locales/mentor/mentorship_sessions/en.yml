@@ -13,6 +13,6 @@ en:
         student-approved-time-slots: "%{count} Approved Time Slots only by Student"
         coach-approved-time-slots: "%{count} Approved Time Slots only by YOURSELF"
       messages:
-        coach-create: 'Your Student has created a Mentorship Session with you on the %{date}, please go update your preferences: %{url}'
-        coach-update: 'Your Student modified the Mentoring Session of %{date}, please update your availability: %{url}'
-        coach-destroy: 'Your Student destroyed a planned Mentoring Session of the %{date}'
+        coach-create: 'Coach has created a Mentorship Session with you on the %{date}, please go update your preferences: %{url}'
+        coach-update: 'Coach modified the Mentoring Session of %{date}, please update your availability: %{url}'
+        coach-destroy: 'Coach destroyed a planned Mentoring Session of the %{date}'

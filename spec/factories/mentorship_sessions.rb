@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :mentorship_session do
-    start_date { Date.today }
-    end_date { Date.today + 1 }
+    start_date { DateTime.now }
+    end_date { DateTime.now + 1 }
 
     association :mentorship
   end

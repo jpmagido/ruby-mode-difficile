@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Mentor::MentorshipSessionsController', type: :request do
   let(:mentorship_session) { create(:mentorship_session, mentorship: create(:mentorship, coach: current_user.coach)) }
   let(:mentorship) { create(:mentorship, coach: current_user.coach) }
-  let(:today) { Date.today }
+  let(:today) { DateTime.now }
   let(:current_user) { User.find_by_login('jpmagido') }
 
   before do
@@ -72,9 +72,9 @@ RSpec.describe 'Mentor::MentorshipSessionsController', type: :request do
     end
 
     it 'updates MentorshipSession' do
-      expect(mentorship_session.start_date).to eq today
+      expect(mentorship_session.start_date.to_date).to eq today.to_date
       patch mentor_mentorship_session_path(mentorship_session), params: update_params
-      expect(mentorship_session.reload.start_date).to eq today + 9
+      expect(mentorship_session.reload.start_date.to_date).to eq (today + 9).to_date
     end
 
     it 'creates a ConversationMessage' do
