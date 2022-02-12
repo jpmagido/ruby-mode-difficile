@@ -37,7 +37,7 @@ module Mentor
         )
 
         flash[:success] = t('mentor.mentorship_sessions.flashes.success-update')
-        redirect_to mentor_mentorship_session_path(mentorship_session)
+        redirect_to mentor_mentorship_sessions_path
       else
         flash.now[:error] = t('shared.errors.update', error: mentorship_session.errors.messages)
         render 'mentor/mentorship_sessions/edit'

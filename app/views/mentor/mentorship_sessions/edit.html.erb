@@ -1,15 +1,16 @@
-<div class='container'>
-  <h3>Mentor::MentorshipSessions#edit</h3>
-
-  <div>
-    <%= form_with model: [:mentor, mentorship_session] do |f| %>
-      <%= f.label :start_date, t('mentor.mentorship_sessions.attr.start_date') %>
-      <%= f.date_select :start_date %>
-      <br>
-      <%= f.label :end_date, t('mentor.mentorship_sessions.attr.end_date') %>
-      <%= f.date_select :end_date %>
-      <br>
-      <%= f.submit t('shared.submit_form') %>
-    <% end %>
+<%= turbo_frame_tag "mentorship_session_#{mentorship_session.id}" do %>
+  <div class='container'>
+    <div>
+      <%= form_with model: [:mentor, mentorship_session] do |f| %>
+        <%= f.label :start_date, t('mentor.mentorship_sessions.attr.start_date') %>
+        <%= f.date_select :start_date %>
+        <br>
+        <%= f.label :end_date, t('mentor.mentorship_sessions.attr.end_date') %>
+        <%= f.date_select :end_date %>
+        <br>
+        <%= f.submit t('shared.submit_form') %>
+      <% end %>
+    </div>
   </div>
-</div>
+  <div> <%= link_to 'Cancel', mentor_mentorship_sessions_path %> </div>
+<% end %>

@@ -1,8 +1,12 @@
 <h1>Mentor::MentorshipSessions#index</h1>
-<p>Find me in app/views/mentor/mentorship_sessions/index.html.erb</p>
 
-<div>
+<div id='mentorship_sessions'>
   <% mentorship_sessions.each do |mentorship_session| %>
-    <%= link_to t('shared.link_show'), mentor_mentorship_session_path(mentorship_session) %>
+    <div>
+      <%= link_to t('shared.link_show'), mentor_mentorship_session_path(mentorship_session) %>
+      <%= turbo_frame_tag "mentorship_session_#{mentorship_session.id}" do %>
+        <%= link_to t('shared.link_edit'), edit_mentor_mentorship_session_path(mentorship_session) %>
+      <% end %>
+    </div>
   <% end %>
 </div>
