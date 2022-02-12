@@ -1,25 +1,16 @@
-<div class='container'>
-  <h3>Academy::Students#edit</h3>
-
-  <br>
-  <%= link_to t('shared.back'), :back %>
-  <hr>
-  <br>
-
-  <div>
-    <%= form_with model: [:academy, student] do |f| %>
-      <div class='slim-container'>
-        <%= f.label :description %>
-        <%= f.rich_text_area :description, size: '70x5' %>
-      </div>
+<%= turbo_frame_tag student do %>
+  <div class='container'>
+    <div>
+      <%= form_with model: [:academy, student] do |f| %>
+        <div class='slim-container'>
+          <%= f.label :description %>
+          <%= f.rich_text_area :description, size: '70x5' %>
+        </div>
+        <br>
+        <%= f.submit t('shared.submit_form') %>
+      <% end %>
       <br>
-      <div class='slim-container'>
-        <%= f.label :status, t('academy.students.attr.status.label') %>
-        <%= f.select :status, collection: Student.statuses.keys %>
-      </div>
-      <br>
-
-      <%= f.submit t('shared.submit_form') %>
-    <% end %>
+      <%= link_to t('shared.back'), academy_student_path %>
+    </div>
   </div>
-</div>
+<% end %>

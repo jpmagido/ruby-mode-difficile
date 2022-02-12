@@ -59,6 +59,6 @@ class MentorshipSession < ApplicationRecord
   end
 
   def outdated_time_slots
-    @outdated_time_slots ||= time_slots.where('start_date < ? OR end_date > ?', start_date, end_date.end_of_day)
+    time_slots.where('start_date < ? OR end_date > ?', start_date.beginning_of_day, end_date.end_of_day)
   end
 end

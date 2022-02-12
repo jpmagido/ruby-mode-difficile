@@ -34,6 +34,7 @@ en:
       created-at: 'Created at : '
       updated-at: 'Updated at : '
       name: 'Name: '
+      coach-name: 'Coach Name: '
       description: 'Your description: '
     booleans:
       true: 'Yes'
