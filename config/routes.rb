@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :docs, only: %i[index show]
     resources :doc_links, only: %i[new create]
     resources :coaches, only: %i[new create]
-    resources :conversations, only: %i[show create]
+    resources :conversations, only: %i[show create] do
+      resources :conversation_messages, only: %i[new create]
+    end
     resources :students, only: %i[new create]
   end
 

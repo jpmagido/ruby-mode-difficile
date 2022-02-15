@@ -1,0 +1,8 @@
+<%= turbo_frame_tag 'new_conversation_message' do %>
+  <div class='slim-container'>
+    <%= form_with model: [:login, conversation, @conversation_message] do |f| %>
+      <%= f.rich_text_area :content %>
+      <%= f.submit t('conversations.form.send') %>
+    <% end %>
+  </div>
+<% end %>

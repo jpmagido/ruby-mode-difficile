@@ -20,13 +20,9 @@ RSpec.describe 'Login::ConversationsController', type: :request do
       get login_conversation_path(conversation)
       expect(response).to have_http_status(:success)
     end
-  end
 
-  describe 'POST /create' do
-    it 'creates a message' do
-      current_user_participant
-      expect { post login_conversations_path, params: { content: 'rspec message', conversation_id: conversation.id } }
-        .to change(ConversationMessage, :count).by 1
+    it 'raises unauthorized pundit' do
+      expect { get login_conversation_path(create(:conversation)) }.to raise_error Pundit::NotAuthorizedError
     end
   end
 end
