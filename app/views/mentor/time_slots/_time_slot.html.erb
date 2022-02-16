@@ -1,0 +1,6 @@
+<%= turbo_frame_tag time_slot do %>
+  <div>
+    <div> <%= time_slot.start_date.strftime('%H:%M') %> </div>
+    <%= render partial: 'mentor/time_slots/form', locals: { time_slot: time_slot } %>
+  </div>
+<% end %>

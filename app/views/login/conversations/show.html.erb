@@ -5,7 +5,7 @@
       <%= render conversation_messages %>
     </div>
     <br>
-    <%= turbo_frame_tag 'new_conversation_message', src: new_login_conversation_conversation_message_path(conversation), target: '_top'%>
+    <%= turbo_frame_tag 'new_conversation_message', src: new_login_conversation_conversation_message_path(conversation), target: '_top' %>
   <% else %>
     <p> <%= t('conversations.not-selected') %> </p>
   <% end %>
