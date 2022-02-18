@@ -1,10 +1,38 @@
 <h1>Staff::Users#show</h1>
 
-<%= link_to t('shared.back'), :back %>
+<div> <%= link_to t('shared.back'), :back %> </div>
 <br>
 <hr>
 
 <%= render partial: ('staff/users/statuses'), locals: { user: user } %>
 <hr>
-<%= render partial: 'login/users/list', locals: { user: user } %>
-<%= button_to t('shared.link_blacklist'), staff_user_path(user), method: :delete %>
+
+<h5> <%= t('shared.profiles.user') %> </h5>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('users.attr.name') %> </th>
+    <th scope='col'> <%= t('users.attr.language.label') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+    <th scope='col'> <%= t('shared.link_blacklist') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render user %> </tbody>
+</table>
+
+<br>
+<hr>
+<br>
+<div>
+  <ul>
+    <li> <%= t('users.attr.email') %> <%= user.email %> </li>
+    <li> <%= t('users.attr.html_url') %> <%= link_to t('shared.link'), user.html_url %> </li>
+    <li> <%= t('users.attr.avatar_url') %> <%= link_to t('shared.link'), user.avatar_url %> </li>
+    <li> <%= t('users.attr.blog') %> <%= user.blog %> </li>
+    <li> <%= t('users.attr.followers') %> <%= user.followers %> </li>
+  </ul>
+  <div> <%= t('users.attr.bio') %> </div>
+  <div> <%= user.bio %> </div>
+</div>

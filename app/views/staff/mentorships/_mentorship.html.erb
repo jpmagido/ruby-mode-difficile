@@ -1,6 +1,9 @@
-<div class='border-thin'>
-  <ul>
-    <li> <%= link_to t('shared.link_show'), staff_mentorship_path(mentorship) %> </li>
-    <li> <%= t('shared.attr.created-at') %> <%= mentorship.created_at %> </li>
-  </ul>
-</div>
+<tr>
+  <td> <%= link_to t('shared.link_show'), staff_mentorship_path(mentorship) %> </td>
+  <td> <%= link_to mentorship.student.login, staff_student_path(mentorship.student) %> </td>
+  <td> <%= mentorship.student_approval %> </td>
+  <td> <%= link_to mentorship.coach.login, staff_coach_path(mentorship.coach) %> </td>
+  <td> <%= mentorship.coach_approval %> </td>
+  <td> <%= mentorship.created_at %> </td>
+  <td> <%= mentorship.updated_at %> </td>
+</tr>
