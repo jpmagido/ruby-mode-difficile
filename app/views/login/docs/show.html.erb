@@ -4,31 +4,40 @@
   <hr>
 <% end %>
 
-<%= link_to t('shared.back'), :back %>
+<div> <%= link_to t('shared.back'), :back %> </div>
+<div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </div>
 <hr>
 
-<%= render partial: 'login/docs/list', locals: { doc: doc } %>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('docs.attr.title') %> </th>
+    <th scope='col'> <%= t('docs.attr.tags') %> </th>
+    <th scope='col'> <%= t('docs.attr.content') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+    <th scope='col'> <%= t('shared.link_destroy') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render doc %> </tbody>
+</table>
 
+<div>
+  <div> <%= t('docs.attr.content') %> </div>
+  <br>
+  <div> <%= doc.content %> </div>
+</div>
 <hr>
+
 <div>
   <p> <%= t('staff.doc_links.phrase-challenges-answers') %></p>
   <br>
-  <div>
-    <% doc.doc_links.each do |doc_link| %>
-      <ul>
-        <li>
-          <% if doc_link.linkable.is_a? Challenge %>
-            <%= link_to doc_link.linkable.display_nature, login_challenge_path(doc_link.linkable) %>
-          <% else %>
-            <%= link_to doc_link.linkable.display_nature, login_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('staff.doc_links.attr.type.label') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render doc.doc_links %> </tbody>
+  </table>
 </div>
-
-
-<br>
-<hr>
-<p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </p>

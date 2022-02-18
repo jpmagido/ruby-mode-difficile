@@ -1,0 +1,10 @@
+<tr>
+  <% if doc_link.linkable.is_a? Challenge %>
+    <td> <%= link_to doc_link.linkable.title, staff_challenge_path(doc_link.linkable) %> </td>
+  <% else %>
+    <td> <%= link_to doc_link.linkable.display_nature, staff_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %> </td>
+  <% end %>
+  <td> <%= t("staff.doc_links.type.#{doc_link.linkable_type}") %> </td>
+
+  <td> <%= button_to t('staff.doc_links.show.link-delete'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>  </td>
+</tr>

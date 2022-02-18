@@ -1,30 +1,38 @@
 <h3>Staff::Docs#show</h3>
-<%= link_to t('shared.back'), :back %>
-<br>
-<hr>
+<div> <%= link_to t('shared.back'), :back %> </div>
+<div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </div>
 
-<%= link_to t('staff.docs.index.link-new'), new_staff_doc_path %>
-<br>
 <hr>
-<%= link_to t('shared.link_edit'), edit_staff_doc_path(doc) %>
-<%= button_to t('shared.link_destroy'), staff_doc_path(doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-<br>
-<hr>
-<%= render partial: 'login/docs/list', locals: { doc: doc } %>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('docs.attr.title') %> </th>
+    <th scope='col'> <%= t('docs.attr.tags') %> </th>
+    <th scope='col'> <%= t('docs.attr.content') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+    <th scope='col'> <%= t('shared.link_destroy') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render doc %> </tbody>
+</table>
 
+<div>
+  <div> <%= t('docs.attr.content') %> </div>
+  <br>
+  <div> <%= doc.content %> </div>
+</div>
+<br>
 <div>
   <p> <%= t('staff.doc_links.phrase-challenges-answers') %> </p>
   <br>
-  <% doc.doc_links.each do |doc_link| %>
-    <% if doc_link.linkable.is_a? Challenge %>
-      <%= link_to doc_link.linkable.display_nature, staff_challenge_path(doc_link.linkable) %>
-    <% else %>
-      <%= link_to doc_link.linkable.display_nature, staff_challenge_answer_path(doc_link.linkable.challenge, doc_link.linkable) %>
-    <% end %>
-
-    <%= button_to t('staff.doc_links.show.link-delete'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-  <% end %>
-
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('staff.doc_links.attr.type.label') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render doc.doc_links %> </tbody>
+  </table>
   <br>
-  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
 </div>
