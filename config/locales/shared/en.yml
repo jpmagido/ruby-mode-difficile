@@ -39,9 +39,13 @@ en:
     attr:
       created-at: 'Created at : '
       updated-at: 'Updated at : '
-      name: 'Name: '
-      coach-name: 'Coach Name: '
-      description: 'Your description: '
+      name: 'Name : '
+      coach-name: 'Coach Name : '
+      description: 'Description : '
+      status:
+        label: 'Status : '
+        pending: 'Waiting for approval'
+        ready: 'Validated'
     booleans:
       true: 'Yes'
       false: 'No'

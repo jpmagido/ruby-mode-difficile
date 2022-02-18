@@ -1,5 +1,6 @@
 <tr>
+  <td> <%= student.login %> </td>
   <td> <%= link_to t('shared.link_show'), staff_student_path(student) %> </td>
-  <td> <%= link_to t('shared.link_edit'), edit_staff_student_path(student) %> </td>
+  <td> <%= t("shared.attr.status.#{student.status}") %> </td>
   <td> <%= t('shared.attr.created-at') %><%= student.created_at %> </td>
 </tr>

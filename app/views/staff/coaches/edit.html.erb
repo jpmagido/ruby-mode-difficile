@@ -1,12 +1,11 @@
-<h3>Staff::Coaches#edit</h3>
-<br>
-<%= link_to t('shared.back'), :back %>
-<hr>
-
-<div>
-  <%= form_with model: [:staff, coach] do |f| %>
-    <%= f.label :status, t('staff.coaches.attr.status') %>
-    <%= f.select :status, collection: Coach.statuses.keys %>
-    <%= f.submit t('shared.submit_form') %>
-  <% end %>
-</div>
+<%= turbo_frame_tag coach do %>
+  <div>
+    <%= form_with model: [:staff, coach] do |f| %>
+      <%= f.label :status, t('staff.coaches.attr.status') %>
+      <%= f.select :status, collection: Coach.statuses.keys %>
+      <%= f.submit t('shared.submit_form') %>
+    <% end %>
+    <br>
+    <%= link_to t('shared.back'), staff_coach_path(coach) %>
+  </div>
+<% end %>

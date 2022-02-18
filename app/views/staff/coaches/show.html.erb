@@ -3,10 +3,28 @@
 <%= link_to t('shared.back'), :back %>
 <hr>
 
+<%= turbo_frame_tag coach do %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('staff.coaches.attr.status') %> </th>
+      <th scope='col'> <%= t('users.attr.name') %> </th>
+      <th scope='col'> <%= t('shared.attr.description') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('shared.link_edit') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render coach %> </tbody>
+  </table>
+<% end %>
+
+<br>
+<hr>
+<br>
+
 <div>
-  <ul>
-    <li> <%= t('staff.coaches.attr.status') %> <%= coach.status %> </li>
-    <li> <%= t('staff.coaches.attr.user-name') %> <%= coach.user.login %> </li>
-    <li> <%= link_to t('shared.link_edit'), edit_staff_coach_path(coach) %> </li>
-  </ul>
+  <div> <%= t('shared.attr.description') %> </div>
+  <br>
+  <div> <%= coach.description %> </div>
 </div>

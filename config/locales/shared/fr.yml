@@ -40,8 +40,12 @@ fr:
       created-at: 'Crée le : '
       updated-at: 'Modifié le : '
       name: 'Nom :'
-      coach-name: 'Nom du Coach: '
-      description: 'Votre description: '
+      coach-name: 'Nom du Coach : '
+      description: 'Description : '
+      status:
+        label: 'Statut : '
+        pending: 'En attente de validation'
+        ready: 'Validé'
     booleans:
       true: 'Oui'
       false: 'Non'
