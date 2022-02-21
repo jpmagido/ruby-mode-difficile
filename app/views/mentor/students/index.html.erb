@@ -6,11 +6,13 @@
 
 <%= render 'mentor/students/search' %>
 
-<div>
-  <% students.each do |student| %>
-    <ul>
-      <li> <%= student.user.login %> </li>
-      <li> <%= link_to t('shared.link_show'), mentor_student_path(student) %> </li>
-    </ul>
-  <% end %>
-</div>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('mentor.students.challenges-done') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render students %> </tbody>
+</table>

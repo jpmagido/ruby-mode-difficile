@@ -1,4 +1,19 @@
 <div class='container'>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('mentor.mentorship_sessions.attr.start_date') %> </th>
+      <th scope='col'> <%= t('mentor.mentorship_sessions.attr.end_date') %> </th>
+      <th scope='col'> <%= t('shared.coach') %> </th>
+      <th scope='col'> <%= t('shared.student') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.link_edit') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render mentorship_session %> </tbody>
+  </table>
+
   <div>
     <div class='slim-container'> <%= t('mentor.mentorship_sessions.show.approved-time-slots', count: mentorship_session.approved_time_slots.count) %> </div>
     <div class='slim-container'> <%= t('mentor.mentorship_sessions.show.coach-approved-time-slots', count: mentorship_session.coach_approved_time_slots.count) %> </div>
