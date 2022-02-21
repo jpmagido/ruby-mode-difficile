@@ -11,5 +11,6 @@ FactoryBot.define do
     blog { FFaker::Internet.http_url }
     followers { rand(1..100) }
     language { :fr }
+    active { true }
   end
 end
