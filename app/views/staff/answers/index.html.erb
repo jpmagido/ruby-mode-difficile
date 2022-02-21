@@ -4,8 +4,17 @@
 <hr>
 <br>
 
-<% answers.each do |answer| %>
-    <%= link_to answer.title, staff_challenge_answer_path(answer.challenge, answer) %>
-    <%= link_to t('shared.link_edit'), edit_staff_challenge_answer_path(answer.challenge, answer) %>
-    <%= button_to t('shared.link_destroy'), staff_challenge_answer_path(answer.challenge, answer), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-<% end %>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.attr.title') %> </th>
+    <th scope='col'> <%= t('shared.attr.author') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+    <th scope='col'> <%= t('answers.attr.youtube-url') %> </th>
+    <th scope='col'> <%= t('answers.attr.signature') %> </th>
+    <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render answers %> </tbody>
+</table>

@@ -1,0 +1,9 @@
+<tr>
+  <td> <%= link_to answer.title, staff_challenge_answer_path(answer.challenge, answer) %> </td>
+  <td> <%= link_to answer.user.login, staff_user_path(answer.user) %> </td>
+  <td> <%= answer.created_at %> </td>
+  <td> <%= link_to answer.repository.github_url, answer.repository.github_url, target: '_blank' %> </td>
+  <td> <%= link_to answer.youtube_url, answer.youtube_url, target: '_blank' %> </td>
+  <td> <%= answer.signature %> </td>
+  <td> <%= t("shared.attr.status.#{answer.status}") %> </td>
+</tr>

@@ -3,12 +3,35 @@
 <%= link_to t('shared.back'), :back %>
 <hr>
 
+<%= render partial: 'staff/users/statuses', locals: { user: coach.user } %>
+<br>
+
+<h5> <%= t('shared.profiles.user') %> </h5>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('users.attr.name') %> </th>
+    <th scope='col'> <%= t('users.attr.language.label') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+    <th scope='col'> <%= t('shared.link_blacklist') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render coach.user %> </tbody>
+</table>
+
+<br>
+<hr>
+<br>
+
 <%= turbo_frame_tag coach do %>
+  <h5> <%= t('shared.profiles.coach') %> <%= link_to t('shared.link_edit'), edit_staff_coach_path(coach) %> </h5>
   <table class='table'>
     <thead>
     <tr>
-      <th scope='col'> <%= t('staff.coaches.attr.status') %> </th>
       <th scope='col'> <%= t('users.attr.name') %> </th>
+      <th scope='col'> <%= t('staff.coaches.attr.status') %> </th>
       <th scope='col'> <%= t('shared.attr.description') %> </th>
       <th scope='col'> <%= t('shared.attr.created-at') %> </th>
       <th scope='col'> <%= t('shared.link_show') %> </th>

@@ -1,6 +1,4 @@
-<h3>Staff::Challenges#edit</h3>
-<%= link_to t('shared.back'), :back %>
-<br>
-<hr>
-
-<%= render partial: 'login/challenges/form', locals: { array_model: [:staff, challenge] } %>
+<%= turbo_frame_tag challenge do %>
+  <%= render partial: 'login/challenges/form', locals: { array_model: [:staff, challenge] } %>
+  <%= link_to t('shared.back'), staff_challenge_path(challenge) %>
+<% end %>

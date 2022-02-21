@@ -9,8 +9,6 @@ fr:
       difficulty:
         label: 'Difficulté :'
         value: '%{value}/10'
-      status:
-        label: 'Statut :'
       files: 'Fichiers :'
     flashes:
       new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"

@@ -63,7 +63,8 @@ module Staff
         :youtube_url,
         :signature,
         :comments,
-        repository: [:github_url],
+        :status,
+        repository: [:github_url]
       )
     end
 

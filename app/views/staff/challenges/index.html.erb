@@ -2,24 +2,26 @@
 
 <div class='container'>
   <div class='container-space-between'>
-    <%= link_to t('shared.back'), :back %>
+    <div> <%= link_to t('shared.back'), :back %> </div>
     <div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
   </div>
   <br>
-  <div <%= render 'staff/challenges/search' %> </div>
-<hr>
-<br>
+  <%= render 'staff/challenges/search' %>
+  <hr>
+  <br>
 
-<div>
-  <% challenges.each do |challenge| %>
-    <ul>
-      <li> <%= t('challenges.attr.title') %> <%= challenge.title %> </li>
-      <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
-      <li> <%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
-      <li> <%= link_to t('shared.link_show'), staff_challenge_path(challenge) %> </li>
-      <li> <%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %> </li>
-      <li> <%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </li>
-    </ul>
-  <% end %>
-</div>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('challenges.attr.title') %> </th>
+      <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
+      <th scope='col'> <%= t('staff.coaches.attr.status') %> </th>
+      <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.attr.description') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render challenges %> </tbody>
+  </table>
 </div>

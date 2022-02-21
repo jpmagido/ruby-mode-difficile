@@ -3,6 +3,7 @@ fr:
     profiles:
       user: 'PROFIL UTILISATEUR: '
       student: 'PROFIL ETUDIANT : '
+      coach: 'PROFIL MENTOR : '
     submit_form: 'Valider'
     reset-filters: 'Réinitialiser les filtres'
     link_show: 'Page des Détails'
@@ -10,6 +11,7 @@ fr:
     link_admin_version: 'Version Admin'
     link_destroy: 'Supprimer'
     link: 'Lien'
+    link-associated: 'Object associé'
     destroy-warning: 'Attention, vous allez supprimer toutes les informations associées'
     link_blacklist: 'Blacklister'
     oauth: 'Vous venez de vous authentifier, félicitations :)'
@@ -46,6 +48,8 @@ fr:
         label: 'Statut : '
         pending: 'En attente de validation'
         ready: 'Validé'
+      title: 'Titre'
+      author: 'Auteur'
     booleans:
       true: 'Oui'
       false: 'Non'

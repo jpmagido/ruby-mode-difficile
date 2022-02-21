@@ -3,6 +3,7 @@ en:
     profiles:
       user: 'USER PROFILE: '
       student: 'STUDENT PROFILE: '
+      coach: 'COACH PROFILE: '
     submit_form: 'Validate'
     reset-filters: 'Reset filters'
     link_show: 'Details Page'
@@ -10,6 +11,7 @@ en:
     link_admin_version: 'Admin version'
     link_destroy: 'Delete record'
     link: 'Link'
+    link-associated: 'Associated Object'
     destroy-warning: 'Warning, you are going to destroy all associated records'
     link_blacklist: 'Blacklist'
     oauth: 'You just signed-in, congratulations :)'
@@ -46,6 +48,8 @@ en:
         label: 'Status : '
         pending: 'Waiting for approval'
         ready: 'Validated'
+      title: 'Title'
+      author: 'Author'
     booleans:
       true: 'Yes'
       false: 'No'

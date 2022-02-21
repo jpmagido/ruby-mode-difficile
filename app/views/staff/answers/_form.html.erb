@@ -1,0 +1,32 @@
+<%= turbo_frame_tag answer do %>
+  <div>
+    <%= form_with model: [:staff, answer.challenge, answer] do |f| %>
+      <%= f.fields_for :repository do |repository| %>
+        <%= repository.label :github_url, t('repositories.attr.github_url') %>
+        <br>
+        <%= repository.text_area :github_url, size: '40x1' %>
+      <% end %>
+      <br><br>
+      <%= f.label :youtube_url, t('answers.attr.youtube-url') %>
+      <br>
+      <%= f.text_area :youtube_url, size: '40x1' %>
+      <br><br>
+      <%= f.label :status, t('staff.coaches.attr.status') %>
+      <%= f.select :status, collection: Coach.statuses.keys %>
+      <br><br>
+      <%= f.label :signature, 'Signature: ' %>
+      <br>
+      <%= f.text_field :signature %>
+      <br><br>
+      <%= f.label :comments, t('answers.attr.comments') %>
+      <br>
+      <%= f.text_area :comments, size: '40x7' %>
+      <br><br>
+      <%= f.label :file, t('answers.attr.file') %>
+      <br>
+      <%= f.file_field :file, accept: 'application/zip' %>
+      <br><br>
+      <%= f.submit t('shared.submit_form') %>
+    <% end %>
+  </div>
+<% end %>

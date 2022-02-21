@@ -1,3 +1,2 @@
-<h3>Staff::Answers#edit</h3>
-
-<%= render partial: 'login/answers/form', locals: { array_model: [:staff, challenge, answer] } %>
+<%= render partial: 'staff/answers/form', locals: { answer: answer } %>
+<%= link_to t('shared.back'), staff_challenge_answer_path(answer.challenge, answer) %>

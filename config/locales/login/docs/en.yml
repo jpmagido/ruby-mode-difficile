@@ -13,3 +13,5 @@ en:
       title-phrase-1: 'You are on the Document Index, feel free to browse.'
       title-phrase-2: "You will find Documentation attached to Challenges to help you solve them"
       docs-count: "You can consult %{data} :"
+    links:
+      show: 'Doc Link'
