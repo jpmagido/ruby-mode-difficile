@@ -1,12 +1,31 @@
 <div class='container'>
-
-  <h3>Academy::MentorshipSessions#show</h3>
-
-  <%= render partial: 'academy/time_slots/index', locals: { time_slots: mentorship_session.time_slots } %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('mentor.mentorship_sessions.attr.start_date') %> </th>
+      <th scope='col'> <%= t('mentor.mentorship_sessions.attr.end_date') %> </th>
+      <th scope='col'> <%= t('shared.coach') %> </th>
+      <th scope='col'> <%= t('shared.student') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.link_edit') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render mentorship_session %> </tbody>
+  </table>
 
   <div>
-    <div class='slim-container'> <%= t('academy.mentorship_sessions.show.approved-time-slots', count: mentorship_session.approved_time_slots.count) %> </div>
-    <div class='slim-container'> <%= t('academy.mentorship_sessions.show.coach-approved-time-slots', count: mentorship_session.coach_approved_time_slots.count) %> </div>
-    <div class='slim-container'> <%= t('academy.mentorship_sessions.show.student-approved-time-slots', count: mentorship_session.student_approved_time_slots.count) %> </div>
+    <div class='slim-container'> <%= t('mentor.mentorship_sessions.show.approved-time-slots', count: mentorship_session.approved_time_slots.count) %> </div>
+    <div class='slim-container'> <%= t('mentor.mentorship_sessions.show.coach-approved-time-slots', count: mentorship_session.coach_approved_time_slots.count) %> </div>
+    <div class='slim-container'> <%= t('mentor.mentorship_sessions.show.student-approved-time-slots', count: mentorship_session.student_approved_time_slots.count) %> </div>
+  </div>
+
+  <div class='slim-container'>
+    <%= calendar(calendar_hash) do |date, time_slots| %>
+      <%= date %>
+      <hr>
+      <%= turbo_stream_from "student_mentorship_session_#{mentorship_session.id}" %>
+      <div id='time_slots'> <%= render time_slots %> </div>
+    <% end %>
   </div>
 </div>

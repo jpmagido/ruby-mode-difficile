@@ -1,21 +1,42 @@
 <h3>Academy::Mentorships#show</h3>
 
 <br>
-<%= link_to t('shared.back'), :back %>
+<div> <%= link_to t('shared.back'), :back %> </div>
+<div>
+  <%= link_to t('academy.mentorship_sessions.links.create-mentorship-session'), new_academy_mentorship_session_path(mentorship_id: mentorship.id) %>
+</div>
 <hr>
 <br>
 
-<div>
-  <ul>
-    <li> <%= t('mentor.mentorships.attr.coach-name') %> <%= mentorship.coach.user.login %> </li>
-    <li> <%= t('mentor.mentorships.attr.student-name') %> <%= link_to mentorship.student.user.login, academy_student_path(mentorship.student) %> </li>
-    <li> <%= t('mentor.mentorships.attr.coach-approval') %> <%= mentorship.coach_approval %> </li>
-    <li> <%= t('mentor.mentorships.attr.student-approval') %> <%= mentorship.student_approval %> </li>
-    <li> <%= t('shared.attr.created-at') %> <%= mentorship.created_at %> </li>
-    <li> <%= link_to t('shared.link_edit'), edit_academy_mentorship_path(mentorship) %> </li>
-  </ul>
-</div>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('mentor.mentorships.attr.coach-name') %> </th>
+    <th scope='col'> <%= t('mentor.mentorships.attr.student-name') %> </th>
+    <th scope='col'> <%= t('mentor.mentorships.attr.coach-approval') %> </th>
+    <th scope='col'> <%= t('mentor.mentorships.attr.student-approval') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('shared.attr.updated-at') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render mentorship %> </tbody>
+</table>
 
-<div>
-  <%= link_to t('academy.mentorship_sessions.links.create-mentorship-session'), new_mentor_mentorship_session_path(mentorship_id: mentorship.id) %>
-</div>
+<br>
+
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('mentor.mentorship_sessions.attr.start_date') %> </th>
+    <th scope='col'> <%= t('mentor.mentorship_sessions.attr.end_date') %> </th>
+    <th scope='col'> <%= t('shared.coach') %> </th>
+    <th scope='col'> <%= t('shared.student') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render mentorship.mentorship_sessions %> </tbody>
+</table>

@@ -1,4 +1,4 @@
-<div class='container' id='student_show'>
+<div class='container'>
   <h3>Academy::Students#show</h3>
   <br>
   <%= turbo_frame_tag student do %>
@@ -11,13 +11,19 @@
   <br>
   <br>
 
-  <div>
-    <% student.mentorships.each do |mentorship| %>
-      <%= t('mentor.users.all-mentorships') %>
-      <ul>
-        <li> <%= "#{t('shared.attr.coach-name')} #{mentorship.coach.login}" %> </li>
-        <li> <%= link_to t('shared.link_show'), academy_mentorship_path(mentorship) %> </li>
-      </ul>
-    <% end %>
-  </div>
+  <%= t('mentor.users.all-mentorships') %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('mentor.mentorships.attr.coach-name') %> </th>
+      <th scope='col'> <%= t('mentor.mentorships.attr.student-name') %> </th>
+      <th scope='col'> <%= t('mentor.mentorships.attr.coach-approval') %> </th>
+      <th scope='col'> <%= t('mentor.mentorships.attr.student-approval') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.attr.updated-at') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render student.mentorships %> </tbody>
+  </table>
 </div>

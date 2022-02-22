@@ -1,0 +1,26 @@
+<div>
+  <%= form_with model: [:academy, time_slot.mentorship_session, time_slot] do |f| %>
+    <% case
+       when time_slot.approved %>
+      <div class='border-thin time-slot-approved'>
+        <%= f.submit t('academy.time_slots.approved-slot') %>
+        <%= f.hidden_field :student_approval, value: false %>
+      </div>
+    <% when time_slot.student_approval %>
+      <div class='border-thin time-slot-student'>
+        <%= f.submit t('academy.time_slots.student-accepted') %>
+        <%= f.hidden_field :student_approval, value: false %>
+      </div>
+    <% when time_slot.coach_approval %>
+      <div class='border-thin time-slot-coach'>
+        <%= f.submit t('academy.time_slots.coach-accepted') %>
+        <%= f.hidden_field :student_approval, value: true %>
+      </div>
+    <% else %>
+      <div class='border-thin time-slot-not-approved'>
+        <%= f.submit t('academy.time_slots.nobody-accepted') %>
+        <%= f.hidden_field :student_approval, value: true %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

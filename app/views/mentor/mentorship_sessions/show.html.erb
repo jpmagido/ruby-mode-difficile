@@ -24,7 +24,7 @@
     <%= calendar(calendar_hash) do |date, time_slots| %>
       <%= date %>
       <hr>
-      <%= turbo_stream_from mentorship_session %>
+      <%= turbo_stream_from "mentor_mentorship_session_#{mentorship_session.id}" %>
       <div id='time_slots'> <%= render time_slots %> </div>
     <% end %>
   </div>
