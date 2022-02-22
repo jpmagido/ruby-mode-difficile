@@ -3,50 +3,89 @@
 <br>
 <hr>
 
-<%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %>
-<%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-<hr>
-<h4> <%= t('challenges.show.title', title: challenge.title) %> </h4>
+<div> <%= link_to t('answers.links.new-answer'), new_staff_challenge_answer_path(challenge) %> </div>
+<div> <%= button_to t('shared.link_destroy'), staff_challenge_path(challenge), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </div>
+<div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </div>
 
-<div>
-  <ul>
-    <li> <%= t('shared.attr.description') %> <%= challenge.description %> </li>
-    <li> <%= t('challenges.attr.status.label') %> <%= t("challenges.attr.status.values.#{challenge.status}") %> </li>
-    <li> <%= t('repositories.attr.github_url') %> <%= link_to challenge.repository.github_url, challenge.repository.github_url %> </li>
-    <li> <%= t('challenges.attr.signature') %> <%= challenge.signature %> </li>
-    <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
-    <li> <%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
+<hr>
+<%= turbo_frame_tag challenge do %>
+  <h4> <%= t('challenges.show.title', title: challenge.title) %>
+    / <%= link_to t('shared.link_edit'), edit_staff_challenge_path(challenge) %> </h4>
+
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('challenges.attr.title') %> </th>
+      <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
+      <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+      <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.attr.description') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render challenge %> </tbody>
+  </table>
+
+  <div>
+    <div> <%= t('shared.attr.description') %> </div>
+    <br>
+    <div> <%= challenge.description %> </div>
+  </div>
+  <br>
+  <div>
+    <div> <%= t('repositories.attr.github_url') %> </div>
+    <div> <%= link_to challenge.repository.github_url, challenge.repository.github_url %> </div>
+  </div>
+  <br>
+  <div>
+    <div> <%= t('challenges.attr.signature') %> </div>
+    <div> <%= challenge.signature %> </div>
+  </div>
+
+  <div>
     <% if challenge.files.attached? %>
-      <li><%= t('challenges.attr.files') %> <%= challenge.files %> </li>
+      <div><%= t('challenges.attr.files') %> <%= challenge.files %> </div>
     <% end %>
-  </ul>
-</div>
-
+  </div>
+<% end %>
 <hr>
 
-<%= link_to t('answers.links.new-answer'), new_staff_challenge_answer_path(challenge) %>
 <br><br>
 
 <div>
   <%= t('challenges.show.solution-count', data: pluralize(challenge.answers.count, 'solution')) %>
 </div>
 
-<div>
-  <% challenge.answers.each do |answer| %>
-    <p>
-      <%= link_to t('challenges.show.answer-link', author: answer.user.login), staff_challenge_answer_path(challenge, answer) %>
-    </p>
-  <% end %>
-</div>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.attr.title') %> </th>
+    <th scope='col'> <%= t('shared.attr.author') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+    <th scope='col'> <%= t('answers.attr.youtube-url') %> </th>
+    <th scope='col'> <%= t('answers.attr.signature') %> </th>
+    <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render challenge.answers %> </tbody>
+</table>
 
 <hr>
 <div>
   <p> <%= t('staff.doc_links.phrase-documents') %></p>
   <br>
-  <% challenge.doc_links.each do |doc_link| %>
-    <%= link_to doc_link.doc.title, staff_doc_path(doc_link.doc) %>
-    <%= button_to t('shared.link_destroy'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-  <% end %>
-  <br>
-  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
+
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link-associated') %> </th>
+      <th scope='col'> <%= t('docs.links.show') %> </th>
+      <th scope='col'> <%= t('staff.doc_links.attr.type.label') %> </th>
+      <th scope='col'> <%= t('shared.link_destroy') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render challenge.doc_links %> </tbody>
+  </table>
 </div>

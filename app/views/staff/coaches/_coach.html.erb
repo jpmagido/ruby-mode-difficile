@@ -1,0 +1,8 @@
+<tr>
+  <td> <%= coach.login %> </td>
+  <td> <%= coach.status %> </td>
+  <td> <%= coach.description.to_plain_text.truncate(50) %> </td>
+  <td> <%= coach.created_at %> </td>
+  <td> <%= link_to t('shared.link_show'), staff_coach_path(coach) %> </td>
+  <td> <%= link_to t('shared.link_edit'), edit_staff_coach_path(coach) %> </td>
+</tr>

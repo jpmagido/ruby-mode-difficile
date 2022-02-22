@@ -4,23 +4,27 @@
   <hr>
 <% end %>
 
-<%= link_to t('shared.back'), :back %>
-<hr>
-
-<h1>Challenges#index</h1>
-
+<div> <%= link_to t('shared.back'), :back %> </div>
 <div> <%= link_to t('challenges.new-challenge'), new_login_challenge_path %> </div>
+<hr>
+
+<h3>Challenges#index</h3>
 
 <br>
 <hr>
 <br>
-<div>
-  <% challenges.each do |challenge| %>
-    <ul>
-      <li><%= t('challenges.attr.title') %> <%= challenge.title %> </li>
-      <li><%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
-      <li><%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
-      <li><%= link_to t('shared.link_show'), login_challenge_path(challenge) %> </li>
-    </ul>
-  <% end %>
-</div>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.attr.title') %> </th>
+    <th scope='col'> <%= t('shared.attr.description') %> </th>
+    <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+    <th scope='col'> <%= t('challenges.attr.signature') %> </th>
+    <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
+    <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('challenges.attr.files') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render challenges %> </tbody>
+</table>

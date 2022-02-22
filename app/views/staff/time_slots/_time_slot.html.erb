@@ -1,0 +1,13 @@
+<div>
+  <div> <%= time_slot.start_date.strftime('%H:%M') %> </div>
+  <% case
+     when time_slot.approved %>
+    <div class='border-thin time-slot-approved'> <%= t('academy.time_slots.approved-slot') %></div>
+  <% when time_slot.student_approval %>
+    <div class='border-thin time-slot-student'> <%= t('academy.time_slots.student-accepted') %></div>
+  <% when time_slot.coach_approval %>
+    <div class='border-thin time-slot-coach'> <%= t('academy.time_slots.coach-accepted') %></div>
+  <% else %>
+    <div class='border-thin time-slot-not-approved'> <%= t('academy.time_slots.nobody-accepted') %></div>
+  <% end %>
+</div>

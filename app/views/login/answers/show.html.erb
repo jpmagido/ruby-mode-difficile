@@ -4,12 +4,35 @@
   <hr>
 <% end %>
 
+<% if current_user.owns_answer?(answer.id) %>
+  <div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </div>
+<% end %>
 <div> <%= link_to t('answers.links.new-answer'), new_login_challenge_answer_path(challenge) %> </div>
 <hr>
 
 <h3> <%= t('answers.show.title', name: answer.challenge.title) %> </h3>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+    <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+    <th scope='col'> <%= t('answers.attr.youtube-url') %> </th>
+    <th scope='col'> <%= t('challenges.attr.signature') %> </th>
+    <th scope='col'> <%= t('answers.attr.comments') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render answer %> </tbody>
+</table>
 
-<%= render partial: 'login/answers/list', locals: { answer: answer } %>
+<div>
+  <div> <%= link_to t('answers.show.link-challenge'), login_challenge_path(answer.challenge) %> </div>
+  <div> <%= link_to t('answers.show.link-user-personal'), answer.user.blog, target: '_blank' %> </div>
+  <div> <%= link_to t('answers.show.link-user-github'), answer.user.html_url, target: '_blank' %> </div>
+  <hr>
+  <div> <%= t('answers.attr.comments') %> </div>
+  <div> <%= answer.comments %> </div>
+</div>
 
 <hr>
 <% if answer.repository %>
@@ -24,18 +47,16 @@
 <br>
 
 <hr>
-
-<hr>
-
 <div>
   <p> <%= t('answers.show.link-docs') %></p>
-  <br>
-  <% answer.doc_links.each do |doc_link| %>
-    <%= link_to doc_link.doc.title, login_doc_path(doc_link.doc) %>
-  <% end %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('staff.doc_links.attr.type.label') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render answer.doc_links %> </tbody>
+  </table>
 </div>
 
-<% if current_user.owns_answer?(answer.id) %>
-  <br>
-  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
-<% end %>

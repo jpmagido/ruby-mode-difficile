@@ -1,19 +1,22 @@
 <div class='slim-container'>
-
   <h3>Staff::Mentorships#index</h3>
 
   <%= link_to t('shared.back'), :back %>
   <br>
   <hr>
 
-  <div>
-    <% mentorships.each do |mentorship| %>
-      <div class='border-thin'>
-        <ul>
-          <li> <%= link_to t('shared.link_show'), staff_mentorship_path(mentorship) %> </li>
-          <li> <%= t('shared.attr.created-at') %> <%= mentorship.created_at %> </li>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('shared.student') %> </th>
+      <th scope='col'> <%= t('mentor.mentorships.attr.student-approval') %> </th>
+      <th scope='col'> <%= t('shared.coach') %> </th>
+      <th scope='col'> <%= t('mentor.mentorships.attr.coach-approval') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('shared.attr.updated-at') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render mentorships %> </tbody>
+  </table>
 </div>

@@ -1,0 +1,15 @@
+<h3>Staff::MentorshipSessions#index</h3>
+
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('mentor.mentorship_sessions.attr.start_date') %> </th>
+    <th scope='col'> <%= t('mentor.mentorship_sessions.attr.end_date') %> </th>
+    <th scope='col'> <%= t('shared.coach') %> </th>
+    <th scope='col'> <%= t('shared.student') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render mentorship_sessions %> </tbody>
+</table>

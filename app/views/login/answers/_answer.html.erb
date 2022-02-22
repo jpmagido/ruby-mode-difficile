@@ -1,0 +1,14 @@
+<tr>
+  <td> <%= t("shared.attr.status.#{answer.status}") %> </td>
+  <td> <%= answer.signature %> </td>
+  <td> <%= answer.comments.truncate(40) %> </td>
+  <% if policy(answer).show? %>
+    <td> <%= link_to answer.repository.github_url, answer.repository.github_url, target: '_blank' %> </td>
+    <td> <%= link_to answer.youtube_url, answer.youtube_url, target: '_blank' %> </td>
+    <td> <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(answer.challenge, answer) %> </td>
+  <% else %>
+    <td> <%= link_to answer.repository.github_url, answer.repository.github_url, target: '_blank', class: 'btn disabled' %> </td>
+    <td> <%= link_to answer.youtube_url, answer.youtube_url, target: '_blank', class: 'btn disabled' %> </td>
+    <td> <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(answer.challenge, answer), class: 'btn disabled' %> </td>
+  <% end %>
+</tr>

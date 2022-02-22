@@ -7,12 +7,20 @@ module Academy
     def update
       authorize time_slot
 
-      if time_slot.update(student_approval: params[:student_approval])
-        flash[:success] = t('academy.time_slots.flashes.success-update')
-      else
-        flash[:error] = t('shared.errors.update', error: time_slot.errors.messages)
+      respond_to do |format|
+        if time_slot.update(time_slot_params)
+          format.html do
+            format.turbo_stream
+            flash[:success] = t('academy.time_slots.flashes.success-update')
+            redirect_to academy_mentorship_session_path mentorship_session
+          end
+        else
+          format.html do
+            flash[:error] = t('shared.errors.update', error: time_slot.errors.messages)
+            redirect_to academy_mentorship_session_path mentorship_session
+          end
+        end
       end
-      redirect_to academy_mentorship_session_path mentorship_session
     end
 
     private
@@ -27,6 +35,10 @@ module Academy
 
     def time_slot
       @time_slot ||= time_slots.find(params[:id])
+    end
+
+    def time_slot_params
+      params.require(:time_slot).permit(:student_approval)
     end
   end
 end

@@ -1,14 +1,11 @@
 <div class='container'>
   <% if conversation %>
-    <div style="height: 385px; overflow:auto;">
-    <% conversation.conversation_messages.each do |message| %>
-      <%= render partial: 'login/conversations/message', locals: { message: message } %>
-        <br>
-    <% end %>
+    <%= turbo_stream_from conversation %>
+    <div id='conversation_messages' style="height: 385px; overflow:auto;">
+      <%= render conversation_messages %>
     </div>
     <br>
-    <%= render partial: 'login/conversations/form', locals: { conversation: conversation } %>
-
+    <%= turbo_frame_tag 'new_conversation_message', src: new_login_conversation_conversation_message_path(conversation), target: '_top' %>
   <% else %>
     <p> <%= t('conversations.not-selected') %> </p>
   <% end %>

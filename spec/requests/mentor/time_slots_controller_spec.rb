@@ -13,9 +13,11 @@ RSpec.describe 'Mentor::TimeSlotsController', type: :request do
   end
 
   describe 'PATCH /update' do
+    let(:update_params) { { time_slot: { coach_approval: true } } }
+
     it 'updates mentor approval' do
       expect(time_slot.coach_approval).to be_falsey
-      patch mentor_mentorship_session_time_slot_path(mentorship_session, time_slot), params: { coach_approval: true }
+      patch mentor_mentorship_session_time_slot_path(mentorship_session, time_slot), params: update_params
       expect(time_slot.reload.coach_approval).to be_truthy
     end
   end

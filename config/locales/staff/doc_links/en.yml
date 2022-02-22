@@ -1,6 +1,11 @@
 en:
   staff:
     doc_links:
+      attr:
+        type:
+          label: 'Type'
+          challenge: 'Challenge'
+          answer: 'Answer'
       phrase-documents: 'You can find additionnal informations in thoses Documents to solve your Challenge'
       phrase-answers: 'You can find additionnal informations in thoses Documents to match Answer logic'
       phrase-challenges-answers: 'You can find Challenges & Answers related to this Document here: '

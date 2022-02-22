@@ -1,0 +1,5 @@
+<tr>
+  <td> <%= link_to student.user.login, mentor_student_path(student) %> </td>
+  <td> <%= student.user.answers.count %> </td>
+  <td> <%= student.created_at %> </td>
+</tr>

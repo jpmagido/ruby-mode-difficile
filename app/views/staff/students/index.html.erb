@@ -5,14 +5,15 @@
   <br>
   <hr>
 
-  <div>
-    <% students.each do |student| %>
-      <ul>
-        <li> <%= t('users.attr.name') %> <%= student.login %> </li>
-        <li> <%= link_to t('shared.link_show'), staff_student_path(student) %> </li>
-        <li> <%= link_to t('shared.link_edit'), edit_staff_student_path(student) %> </li>
-      </ul>
-    <% end %>
-  </div>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('users.attr.name') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render students %> </tbody>
+  </table>
 </div>
-

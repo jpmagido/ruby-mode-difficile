@@ -1,6 +1,11 @@
 fr:
   staff:
     doc_links:
+      attr:
+        type:
+          label: 'Type'
+          challenge: 'Challenge'
+          answer: 'Réponse'
       phrase-answers: 'Vous pourrez trouver des informations supplémentaire pour compléter la logique de la Réponse ci-dessous: '
       phrase-challenges-answers: 'Vous pourrez trouver des Challenges & Réponses en rapport avec ce Doc: '
       phrase-documents: 'Vous pourrez trouver des informations complémentaires pour résoudre le Challenge ci-dessous'

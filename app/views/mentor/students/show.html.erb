@@ -4,17 +4,36 @@
 <hr>
 <br>
 
-<div>
-  <ul>
-    <li> <%= t('users.attr.name') %> <%= student.user.login %> </li>
-    <li> <%= t('shared.attr.created-at') %> <%= student.created_at %> </li>
-    <li> <%= t('mentor.students.challenges-done') %> <%= student.user.answers.count %> </li>
-  </ul>
-</div>
+<h5> <%= t('shared.profiles.user') %> </h5>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('users.attr.name') %> </th>
+    <th scope='col'> <%= t('users.attr.language.label') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render student.user %> </tbody>
+</table>
 
-<div>
-  <%= link_to t('conversations.send-message'), login_conversation_path(conversation), class: 'border-thin' %>
-</div>
+<br>
+<hr>
+<br>
+
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('mentor.students.challenges-done') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render student %> </tbody>
+</table>
+
+<br>
+
+<div> <%= link_to t('conversations.send-message'), login_conversation_path(conversation), class: 'border-thin' %> </div>
 
 <div>
   <%= button_to t('mentor.students.links.new-mentorship'), mentor_mentorships_path(student_id: student.id), class: 'border-thin' %>

@@ -2,6 +2,8 @@
 
 module Staff
   class DocLinksController < Staff::BaseController
+    helper_method :doc_links
+
     def new
       @new_doc_link = DocLink.new
       authorize @new_doc_link, policy_class: AdminPolicy
@@ -36,6 +38,10 @@ module Staff
     end
 
     private
+
+    def doc_links
+      @doc_links ||= DocLink.all.order(created_at: :asc)
+    end
 
     def doc_link
       @doc_link ||= DocLink.find(params[:id])

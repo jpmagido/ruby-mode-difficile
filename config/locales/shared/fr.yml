@@ -1,11 +1,17 @@
 fr:
   shared:
+    profiles:
+      user: 'PROFIL UTILISATEUR: '
+      student: 'PROFIL ETUDIANT : '
+      coach: 'PROFIL MENTOR : '
     submit_form: 'Valider'
     reset-filters: 'Réinitialiser les filtres'
     link_show: 'Page des Détails'
     link_edit: 'Modifier'
     link_admin_version: 'Version Admin'
     link_destroy: 'Supprimer'
+    link: 'Lien'
+    link-associated: 'Object associé'
     destroy-warning: 'Attention, vous allez supprimer toutes les informations associées'
     link_blacklist: 'Blacklister'
     oauth: 'Vous venez de vous authentifier, félicitations :)'
@@ -14,6 +20,8 @@ fr:
     session-disconnect: 'Se déconnecter'
     session-connect: 'Se connecter'
     update-locale: 'Vous avez modifié vos préférences linguistique en Français'
+    student: 'Etudiant'
+    coach: 'Coach'
     navbar:
       user-dashboard: 'Votre Page Utilisateur'
       admin-dashboard: 'Espace Admin'
@@ -34,7 +42,14 @@ fr:
       created-at: 'Crée le : '
       updated-at: 'Modifié le : '
       name: 'Nom :'
-      description: 'Votre description: '
+      coach-name: 'Nom du Coach : '
+      description: 'Description : '
+      status:
+        label: 'Statut : '
+        pending: 'En attente de validation'
+        ready: 'Validé'
+      title: 'Titre'
+      author: 'Auteur'
     booleans:
       true: 'Oui'
       false: 'Non'

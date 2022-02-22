@@ -4,18 +4,19 @@
 <hr>
 <br>
 
-<div class='slim-container'>
+<%= turbo_frame_tag coach do %>
   <div class='slim-container'>
-    <%= t('users.attr.name') %>
-    <%= coach.login %>
+    <div class='slim-container'> <%= t('users.attr.name') %> <%= coach.login %> </div>
+
+    <div class='slim-container'>
+      <%= t('shared.attr.description') %>
+      <%= coach.description %>
+    </div>
   </div>
 
-  <div class='slim-container'>
-    <%= t('shared.attr.description') %>
-    <%= coach.description %>
-  </div>
-  <div class='slim-container'><%= link_to t('shared.link_edit'), edit_mentor_coach_path %> </div>
-</div>
+  <div class='slim-container'> <%= link_to t('shared.link_edit'), edit_mentor_coach_path %> </div>
+<% end %>
+
 <br>
 <hr>
 

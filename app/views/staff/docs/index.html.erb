@@ -3,20 +3,22 @@
 <br>
 <hr>
 
-<%= link_to t('staff.docs.index.link-new'), new_staff_doc_path %>
+<p> <%= link_to t('staff.docs.index.link-new'), new_staff_doc_path %> </p>
+<p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
 <br>
 <hr>
-<div>
-  <% docs.each do |doc| %>
-    <div>
-      <p> <%= link_to doc.title.titleize, staff_doc_path(doc) %> </p>
-      <ul>
-        <li> <%= link_to t('shared.link_edit'), edit_staff_doc_path(doc) %> </li>
-        <li> <%= button_to t('shared.link_destroy'), staff_doc_path(doc), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </li>
-      </ul>
-    </div>
-  <% end %>
-</div>
-
 <br>
-<p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
+
+
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('docs.attr.title') %> </th>
+    <th scope='col'> <%= t('docs.attr.tags') %> </th>
+    <th scope='col'> <%= t('docs.attr.content') %> </th>
+    <th scope='col'> <%= t('shared.link_edit') %> </th>
+    <th scope='col'> <%= t('shared.link_destroy') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render docs %> </tbody>
+</table>

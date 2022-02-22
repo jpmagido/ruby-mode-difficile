@@ -1,11 +1,17 @@
 en:
   shared:
+    profiles:
+      user: 'USER PROFILE: '
+      student: 'STUDENT PROFILE: '
+      coach: 'COACH PROFILE: '
     submit_form: 'Validate'
     reset-filters: 'Reset filters'
     link_show: 'Details Page'
     link_edit: 'Update'
     link_admin_version: 'Admin version'
     link_destroy: 'Delete record'
+    link: 'Link'
+    link-associated: 'Associated Object'
     destroy-warning: 'Warning, you are going to destroy all associated records'
     link_blacklist: 'Blacklist'
     oauth: 'You just signed-in, congratulations :)'
@@ -14,6 +20,8 @@ en:
     session-disconnect: 'Disconnect'
     session-connect: 'Connect'
     update-locale: 'You updated your language preferences to English'
+    student: 'Student'
+    coach: 'Coach'
     navbar:
       user-dashboard: 'Your User page'
       admin-dashboard: 'Admin Dashboard'
@@ -33,8 +41,15 @@ en:
     attr:
       created-at: 'Created at : '
       updated-at: 'Updated at : '
-      name: 'Name: '
-      description: 'Your description: '
+      name: 'Name : '
+      coach-name: 'Coach Name : '
+      description: 'Description : '
+      status:
+        label: 'Status : '
+        pending: 'Waiting for approval'
+        ready: 'Validated'
+      title: 'Title'
+      author: 'Author'
     booleans:
       true: 'Yes'
       false: 'No'

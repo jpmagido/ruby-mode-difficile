@@ -2,22 +2,47 @@
 <%= link_to t('shared.back'), :back %>
 <br>
 <hr>
-<%= link_to t('shared.link_edit'), edit_staff_challenge_answer_path(challenge, answer) %>
-<%= button_to t('shared.link_destroy'), staff_challenge_answer_path(challenge, answer), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-<hr>
-
+<div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </div>
 <div> <%= link_to t('answers.links.new-answer'), new_staff_challenge_answer_path(challenge) %> </div>
+
 <hr>
 
-<%= render partial: 'login/answers/list', locals: { answer: answer } %>
-
-
-<% if answer.repository %>
-  <p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(answer.repository), method: :patch %> </p>
+<%= turbo_frame_tag answer do %>
+  <h5> <%= link_to t('shared.link_edit'), edit_staff_challenge_answer_path(challenge, answer) %> </h5>
+  <h5> <%= button_to t('shared.link_destroy'), staff_challenge_answer_path(challenge, answer), method: :delete, data: { confirm: t('shared.destroy-warning') } %> </h5>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.attr.title') %> </th>
+      <th scope='col'> <%= t('shared.attr.author') %> </th>
+      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+      <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+      <th scope='col'> <%= t('answers.attr.youtube-url') %> </th>
+      <th scope='col'> <%= t('answers.attr.signature') %> </th>
+      <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render answer %> </tbody>
+  </table>
+  <br>
   <div>
-    <h6> README: </h6>
-    <div> <%= sanitize answer.repository.readme %> </div>
+    <div> <%= t('answers.attr.comments') %> <%= answer.comments %> </div>
+    <br>
+    <ul>
+      <li> <%= link_to t('answers.show.link-challenge'), staff_challenge_path(answer.challenge) %> </li>
+      <li> <%= link_to t('answers.show.link-user-personal'), answer.user.blog, target: '_blank' %> </li>
+      <li> <%= link_to t('answers.show.link-user-github'), answer.user.html_url, target: '_blank' %> </li>
+    </ul>
   </div>
+
+
+  <% if answer.repository %>
+    <p> <%= button_to t('repositories.btn.fetch-readme'), login_repository_path(answer.repository), method: :patch %> </p>
+    <div>
+      <h6> README: </h6>
+      <div> <%= sanitize answer.repository.readme %> </div>
+    </div>
+  <% end %>
 <% end %>
 
 <br>
@@ -27,10 +52,17 @@
 <div>
   <p> <%= t('staff.doc_links.phrase-answers') %></p>
   <br>
-  <% answer.doc_links.each do |doc_link| %>
-    <%= link_to doc_link.doc.title, staff_doc_path(doc_link.doc) %>
-    <%= button_to t('shared.link_destroy'), staff_doc_link_path(doc_link), method: :delete, data: { confirm: t('shared.destroy-warning') } %>
-  <% end %>
+
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link-associated') %> </th>
+      <th scope='col'> <%= t('docs.links.show') %> </th>
+      <th scope='col'> <%= t('staff.doc_links.attr.type.label') %> </th>
+      <th scope='col'> <%= t('shared.link_destroy') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render answer.doc_links %> </tbody>
+  </table>
   <br>
-  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_staff_doc_link_path %> </p>
 </div>

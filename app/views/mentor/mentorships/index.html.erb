@@ -5,12 +5,17 @@
 <hr>
 <br>
 
-<div>
-  <% mentorships.each do |mentorship| %>
-    <div>
-      <p> <%= t('mentor.mentorships.attr.student-name') %> <%= link_to mentorship.student.user.login, mentor_mentorship_path(mentorship) %> </p>
-      <p> <%= link_to t('shared.link_edit'), edit_mentor_mentorship_path(mentorship) %> </p>
-    </div>
-  <% end %>
-</div>
-
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('mentor.mentorships.attr.coach-name') %> </th>
+    <th scope='col'> <%= t('mentor.mentorships.attr.student-name') %> </th>
+    <th scope='col'> <%= t('mentor.mentorships.attr.coach-approval') %> </th>
+    <th scope='col'> <%= t('mentor.mentorships.attr.student-approval') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('shared.attr.updated-at') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render mentorships %> </tbody>
+</table>

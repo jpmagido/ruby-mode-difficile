@@ -16,5 +16,6 @@ fr:
         coach-create: 'Coach a créer une nouvelle session de Mentorat le %{date}, merci de compléter rapidement vos disponibilités'
         coach-update: 'Coach a modifié la session de Mentorat du %{date}, merci de compléter les nouvelles disponibilités'
         coach-destroy: 'Coach a supprimé une session de Mentorgin plannifiée le %{date}'
+        sessions: 'Vos Sessions de mentorat'
       links:
         create-mentorship-session: 'Créer une session de Mentorat avec cet Etudiant'

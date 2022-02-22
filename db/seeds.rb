@@ -10,7 +10,7 @@ def create_users(number = 10)
 end
 
 def create_challenges(number = 10)
-  FactoryBot.create_list(:challenge, number).each do |challenge|
+  FactoryBot.create_list(:challenge, number, status: :ready).each do |challenge|
     3.times { FactoryBot.create(:answer, challenge: challenge) }
   end
   puts "#{number} challenges created with each 3 answers each"

@@ -3,7 +3,6 @@ en:
     flashes:
       create-success: 'You posted an answer, thank you, an Admin will moderate it soon'
       error: 'Your answer is not complete, please add all information before posting it: %{err}'
-
     show:
       title: 'Challenge solution : %{name}'
       link-challenge: 'Challenge link'
@@ -16,8 +15,6 @@ en:
       comments: 'Comments : '
       youtube-url: 'Youtube Link : '
       file: 'Attached document : '
-      status:
-        pending: 'Waiting for approval'
-        ready: 'Validated'
+      signature: 'Signature : '
     links:
       new-answer: 'Add my solution'

@@ -13,3 +13,6 @@ fr:
       title-phrase-1: "Vous êtes sur l'Index de la bibliothèque qui répertorie la documentation"
       title-phrase-2: "Vous trouverez certaines ressources dans les Challenges, elles vous aideront à les résoudre"
       docs-count: "Vous pouvez consulter %{data} :"
+    links:
+      show: 'Lien du Document'
+

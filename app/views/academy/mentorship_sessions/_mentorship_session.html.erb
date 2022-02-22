@@ -1,0 +1,8 @@
+<tr>
+  <td> <%= link_to t('shared.link_show'), academy_mentorship_session_path(mentorship_session) %> </td>
+  <td> <%= mentorship_session.start_date %> </td>
+  <td> <%= mentorship_session.end_date %> </td>
+  <td> <%= mentorship_session.mentorship.coach.login %> </td>
+  <td> <%= link_to mentorship_session.mentorship.student.login %> </td>
+  <td> <%= mentorship_session.created_at %> </td>
+</tr>

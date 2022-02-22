@@ -4,7 +4,8 @@
   <hr>
 <% end %>
 
-<%= link_to t('shared.back'), :back %>
+<div> <%= link_to t('shared.back'), :back %> </div>
+<div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </div>
 <hr>
 
 <h3> <%= t('docs.index.title-phrase-1') %> </h3>
@@ -17,16 +18,13 @@
   <%= t('docs.index.docs-count', data: @count_phrase) %>
 </div>
 <br>
-
-<div>
-  <% docs.each do |doc| %>
-    <ul>
-      <li> <%= link_to doc.title.titleize, login_doc_path(doc) %> </li>
-    </ul>
-  <% end %>
-</div>
-
-<br>
-<hr>
-
-<p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </p>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('docs.attr.title') %> </th>
+    <th scope='col'> <%= t('docs.attr.tags') %> </th>
+    <th scope='col'> <%= t('docs.attr.content') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render docs %> </tbody>
+</table>

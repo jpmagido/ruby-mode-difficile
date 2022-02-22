@@ -16,8 +16,6 @@ fr:
       comments: 'Commentaires : '
       youtube-url: 'Lien Youtube : '
       file: 'Pièce jointe : '
-      status:
-        pending: 'En attente de validation'
-        ready: 'Validé'
+      signature: 'Signature : '
     links:
       new-answer: 'Proposer une solution'

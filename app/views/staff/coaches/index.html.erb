@@ -3,13 +3,13 @@
 <%= link_to t('shared.back'), :back %>
 <hr>
 
-<div>
-  <% coaches.each do |coach| %>
-    <ul>
-      <li> <%= t('staff.coaches.attr.status') %> <%= coach.status %> </li>
-      <li> <%= t('staff.coaches.attr.user-name') %> <%= coach.user.login %> </li>
-      <li> <%= link_to t('shared.link_show'), staff_coach_path(coach) %> </li>
-      <li> <%= link_to t('shared.link_edit'), edit_staff_coach_path(coach) %> </li>
-    </ul>
-  <% end %>
-</div>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('users.attr.name') %> </th>
+    <th scope='col'> <%= t('staff.coaches.attr.status') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render coaches %> </tbody>
+</table>
