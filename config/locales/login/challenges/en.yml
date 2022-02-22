@@ -19,6 +19,6 @@ en:
     new-challenge: 'Create a new Challenge !'
     show:
       title: 'Title : %{title}'
-      answer-link: 'Answer by -> Author : %{author}'
+      answer-link: 'Answer by -> %{author}'
       solution-count: '%{data} available'
       restriction-phrase: '-> You can only consult solutions after you solve the problem'

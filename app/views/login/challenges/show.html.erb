@@ -3,25 +3,35 @@
   <div> <%= link_to t('shared.link_admin_version'), staff_challenge_path(challenge) %> </div>
   <hr>
 <% end %>
-<%= link_to t('shared.back'), :back %>
-<hr>
-
+<div> <%= link_to t('shared.back'), :back %> </div>
 <div> <%= link_to t('answers.links.new-answer'), new_login_challenge_answer_path(challenge) %> </div>
+<% if current_user.owns_challenge?(challenge.id) %>
+  <div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </div>
+<% end %>
 <hr>
 
 <h3> <%= t('challenges.show.title', title: challenge.title) %> </h3>
-<div>
-  <ul>
-    <li> <%= t('shared.attr.description') %> <%= challenge.description %> </li>
-    <li> <%= t('repositories.attr.github_url') %> <%= link_to challenge.repository.github_url, challenge.repository.github_url %> </li>
-    <li> <%= t('challenges.attr.signature') %> <%= challenge.signature %> </li>
-    <li> <%= t('challenges.attr.difficulty.label') %> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </li>
-    <li> <%= t('challenges.attr.duration.label') %> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </li>
-    <% if challenge.files.attached? %>
-      <li><%= t('challenges.attr.files') %> <%= challenge.files %> </li>
-    <% end %>
-  </ul>
-</div>
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('shared.attr.title') %> </th>
+    <th scope='col'> <%= t('shared.attr.description') %> </th>
+    <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+    <th scope='col'> <%= t('challenges.attr.signature') %> </th>
+    <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
+    <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+    <th scope='col'> <%= t('challenges.attr.files') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render challenge %> </tbody>
+</table>
+
+<div> <%= t('shared.attr.description') %> </div>
+<div> <%= challenge.description %> </div>
+<% if challenge.files.attached? %>
+  <div> <%= challenge.files %> </div>
+<% end %>
 
 <hr>
 <% if challenge.repository %>
@@ -37,33 +47,40 @@
 
 <hr>
 
-<div>
-  <%= t('challenges.show.solution-count', data: pluralize(challenge.answers.count, 'solution')) %>
-</div>
 
-<div> <%= t('challenges.show.restriction-phrase') %> </div>
-<br>
 <div>
-  <% challenge.answers.each do |answer| %>
-    <% if policy(answer).show? %>
-      <p> <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer) %> </p>
-    <% else %>
-      <p> <%= link_to t('challenges.show.answer-link', author: answer.user.login), login_challenge_answer_path(challenge, answer), class: 'btn disabled' %> </p>
-    <% end %>
-  <% end %>
+  <div>
+    <%= t('challenges.show.solution-count', data: pluralize(challenge.answers.count, 'solution')) %>
+  </div>
+
+  <p> <%= t('staff.doc_links.phrase-documents') %></p>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('staff.doc_links.attr.type.label') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render challenge.doc_links %> </tbody>
+  </table>
 </div>
 
 <hr>
 
+<div> <%= t('challenges.show.restriction-phrase') %> </div>
+<br>
 <div>
-  <p> <%= t('staff.doc_links.phrase-documents') %></p>
-  <br>
-  <% challenge.doc_links.each do |doc_link| %>
-    <%= link_to doc_link.doc.title, login_doc_path(doc_link.doc) %>
-  <% end %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+      <th scope='col'> <%= t('challenges.attr.signature') %> </th>
+      <th scope='col'> <%= t('answers.attr.comments') %> </th>
+      <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+      <th scope='col'> <%= t('answers.attr.youtube-url') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render challenge.answers %> </tbody>
+  </table>
 </div>
-
-<% if current_user.owns_challenge?(challenge.id) %>
-  <br>
-  <p> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </p>
-<% end %>

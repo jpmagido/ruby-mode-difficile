@@ -1,19 +1,50 @@
 <h3> <%= t('users.welcome') %> </h3>
 <br>
+
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('users.attr.name') %> </th>
+    <th scope='col'> <%= t('users.attr.email') %> </th>
+    <th scope='col'> <%= t('users.attr.html_url') %> </th>
+    <th scope='col'> <%= t('users.attr.language.label') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render current_user %> </tbody>
+</table>
+<br>
+
 <div>
-  <%= render partial: 'login/users/list', locals: { user: current_user } %>
+  <div> <%= t('users.attr.bio') %> </div>
+  <div> <%= current_user.bio %></div>
+  <br>
+  <ul>
+    <li> <%= t('users.attr.avatar_url') %> <%= current_user.avatar_url %> </li>
+    <li> <%= t('users.attr.blog') %> <%= current_user.blog %> </li>
+    <li> <%= t('users.attr.followers') %> <%= current_user.followers %> </li>
+  </ul>
 </div>
-
+<br>
 <hr>
-
 <div>
   <%= t('users.my-challenges') %>
 
-  <% current_user.challenges.each do |challenge| %>
-    <ul>
-      <li> <%= link_to challenge.title, login_challenge_path(challenge) %> </li>
-    </ul>
-  <% end %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.attr.title') %> </th>
+      <th scope='col'> <%= t('shared.attr.description') %> </th>
+      <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+      <th scope='col'> <%= t('challenges.attr.signature') %> </th>
+      <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
+      <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
+      <th scope='col'> <%= t('shared.link_show') %> </th>
+      <th scope='col'> <%= t('challenges.attr.files') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render current_user.challenges %> </tbody>
+  </table>
 </div>
 
 <hr>
@@ -21,9 +52,17 @@
 <div>
   <%= t('users.my-answers') %>
 
-  <% current_user.answers.each do |answer| %>
-    <ul>
-      <li> <%= link_to answer.challenge.title, login_challenge_answer_path(answer.challenge, answer) %> </li>
-    </ul>
-  <% end %>
+  <table class='table'>
+    <thead>
+    <tr>
+      <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+      <th scope='col'> <%= t('challenges.attr.signature') %> </th>
+      <th scope='col'> <%= t('answers.attr.comments') %> </th>
+      <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
+      <th scope='col'> <%= t('answers.attr.youtube-url') %> </th>
+      <th scope='col'> <%= t('challenges.show.answer-link', author: '?') %> </th>
+    </tr>
+    </thead>
+    <tbody> <%= render current_user.answers %> </tbody>
+  </table>
 </div>
