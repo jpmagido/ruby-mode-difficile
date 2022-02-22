@@ -1,0 +1,9 @@
+<tr>
+  <td> <%= mentorship.coach.user.login %> </td>
+  <td> <%= link_to mentorship.student.login, mentor_student_path(mentorship.student) %> </td>
+  <td> <%= link_to "#{mentorship.coach_approval}", edit_mentor_mentorship_path(mentorship) %> </td>
+  <td> <%= mentorship.student_approval %> </td>
+  <td> <%= mentorship.created_at %> </td>
+  <td> <%= mentorship.updated_at %> </td>
+  <td> <%= link_to t('shared.link_edit'), edit_mentor_mentorship_path(mentorship) %> </td>
+</tr>
