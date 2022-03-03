@@ -11,8 +11,8 @@ module Search
     end
 
     def search
-      # Define new Search::Object with private methods for Controller Params hash keys
-      # Use 'value' as an argument for Controller Params hash values
+      # Define new Search::Klass with private methods matching Controller Params hash keys
+      # Use 'value' as an argument matching Controller Params hash values
       sanitized_params.each { |key, value| self.klass_scope = send key, value }
 
       klass_scope
