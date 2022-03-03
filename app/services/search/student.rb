@@ -1,21 +1,7 @@
 # frozen_string_literal: true
 
 module Search
-  class Student
-    attr_accessor :klass_scope
-    attr_reader :params
-
-    def initialize(klass_scope, params)
-      @klass_scope = klass_scope
-      @params = params
-    end
-
-    def search
-      sanitized_params.each { |key, value| self.klass_scope = send key, value }
-
-      klass_scope
-    end
-
+  class Student < Search::Base
     private
 
     def name(value)
@@ -44,10 +30,6 @@ module Search
 
     def language(value)
       klass_scope.joins(:user).where(users: { language: value })
-    end
-
-    def sanitized_params
-      params.to_h.select { |_, value| value.present? }
     end
   end
 end

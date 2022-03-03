@@ -1,0 +1,15 @@
+<div class='border-thin container'>
+  <%= form_tag academy_mentorship_sessions_path, method: 'get' do %>
+    <%= label_tag :start_date, t('mentor.mentorship_sessions.attr.start_date') %>
+    <%= datetime_field_tag :start_date, params[:start_date] %>
+    <br>
+    <%= label_tag :end_date, t('mentor.mentorship_sessions.attr.end_date') %>
+    <%= datetime_field_tag :end_date, params[:end_date] %>
+    <br>
+    <%= label_tag :incoming, t('mentor.mentorship_sessions.filters.incoming') %>
+    <%= check_box_tag :incoming, true, params[:incoming] %>
+    <br>
+    <%= submit_tag t('shared.submit_form') %>
+    <%= link_to t('shared.reset-filters'), academy_mentorship_sessions_path, class: 'border-thin' %>
+  <% end %>
+</div>

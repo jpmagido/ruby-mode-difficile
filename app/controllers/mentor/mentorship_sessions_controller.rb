@@ -64,7 +64,7 @@ module Mentor
     private
 
     def mentorship_sessions
-      @mentorship_sessions ||= current_user.coach.mentorship_sessions
+      @mentorship_sessions ||= Search::MentorshipSession.new(current_user.coach.mentorship_sessions, search_params).search
     end
 
     def mentorship_session
@@ -86,6 +86,14 @@ module Mentor
         start_date: mentorship_session.start_date,
         number_of_days: mentorship_session.duration
       }
+    end
+
+    def search_params
+      params.permit(
+        :start_date,
+        :end_date,
+        :incoming
+      )
     end
   end
 end
