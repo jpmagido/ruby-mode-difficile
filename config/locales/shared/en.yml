@@ -14,7 +14,6 @@ en:
     link-associated: 'Associated Object'
     destroy-warning: 'Warning, you are going to destroy all associated records'
     link_blacklist: 'Blacklist'
-    oauth: 'You just signed-in, congratulations :)'
     back: 'Back to previous page'
     delete-confirmation: 'Are you sure ?'
     session-disconnect: 'Disconnect'

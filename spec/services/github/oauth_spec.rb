@@ -11,8 +11,8 @@ RSpec.describe Github::Oauth, type: :service do
     it { expect { github_oauth }.not_to raise_error }
   end
 
-  describe '#oauth_production' do
-    xit { expect(github_oauth.oauth_production).to eq 'lol' }
+  describe '#step_2' do
+    xit { expect(github_oauth.step_2).to eq 'lol' }
   end
 
   context 'when errors' do

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :conversation_participants, dependent: :destroy
 
   has_one :session, dependent: :destroy
+  has_one :linkedin_session, dependent: :destroy
   has_one :admin, dependent: :destroy
   has_one :coach, dependent: :destroy
   has_one :student, dependent: :destroy

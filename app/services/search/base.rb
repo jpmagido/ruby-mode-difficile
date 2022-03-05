@@ -18,7 +18,7 @@ module Search
       klass_scope
     end
 
-    protected
+    private
 
     def sanitized_params
       params.to_h.select { |_, value| value.present? }

@@ -1,0 +1,5 @@
+fr:
+  linkedin_sessions:
+    flashes:
+      success: 'Bravo, Vous avez synchronisé votre compte LinkedIn'
+      error: 'Oups, la synchronisation LinkedIn a échoué'
