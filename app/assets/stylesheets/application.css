@@ -26,12 +26,12 @@
     margin: 5px;
 }
 
-.container-space-between {
+.space-between {
     display: flex;
     justify-content: space-between;
 }
 
-.container-space-around {
+.space-around {
     display: flex;
     justify-content: space-around;
 }
@@ -41,7 +41,7 @@
     flex-direction: row;
 }
 
-.container-flex-wrap {
+.flex-wrap {
     display: flex;
     flex-wrap: wrap;
 }
