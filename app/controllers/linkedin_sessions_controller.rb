@@ -20,7 +20,7 @@ class LinkedinSessionsController < ApplicationController
   private
 
   def linkedin_token
-    Linkedin::Oauth.new(code: params[:code]).step_2
+    JSON.parse(Linkedin::Oauth.new(code: params[:code]).step_2.body)['access_token']
   end
 
   def secure_random

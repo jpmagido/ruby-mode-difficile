@@ -9,7 +9,6 @@ module Linkedin
 
     def initialize(params = {})
       @params = params
-      @authorize_params = authorize_params
 
       raise ArgumentError, 'params must be a Hash' unless params.is_a? Hash
     end

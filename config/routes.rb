@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
 
   namespace :login do
-    resource :user, only: :show
-    resources :challenges, only: %i[index show new create] do
+    resource :user, only: :show #
+    resources :challenges, only: %i[index show new create] do #()
       resources :answers, only: %i[show new create]
     end
     resources :repositories, only: :update
@@ -51,8 +51,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :session, only: %i[new edit create destroy]
-  resource :linkedin_session, only: %i[new edit]
+  resource :session, only: %i[new edit create destroy] #
+  resource :linkedin_session, only: %i[new edit] #
   resource :locale, only: :update
 
   %w[500 401].each do |status|

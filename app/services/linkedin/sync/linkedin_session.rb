@@ -18,6 +18,9 @@ module Linkedin
         end
 
         true
+      rescue StandardError => e
+        # TODO: create production logs
+        false
       end
     end
   end

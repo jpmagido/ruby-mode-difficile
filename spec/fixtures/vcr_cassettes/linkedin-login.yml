@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.linkedin.com/oauth/v2/accessToken
+    body:
+      encoding: US-ASCII
+      string: code=AQR54Etz3i7Jj3JqjWXxY84IrvOi6CStb4-tmRk_taHaxKKSaUmBvBB9uKdGs1U4BrHYnVn6nT-sn0zVnN-c0kC59lAo2EhlWejzVGxHOcfHW38GxIjOtjymnXW1203FpYX6RoeSLm6wMmGNrlo_BfMLodwsCOu0sa1VLyJSPLCTFRiAVE7yHuR1NpX331G23WsGJPI9o9B8dySfXKY&grant_type=authorization_code&client_id=86idj10edvtipz&client_secret=zBvsMu71cB3Aaqhi&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flinkedin_session%2Fedit
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.linkedin.com
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '171'
+      Content-Type:
+      - application/json
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - bcookie="v=2&fa8947a1-d0e0-4155-8c9e-b189171b6cc2"; Domain=.linkedin.com;
+        Expires=Tue, 05-Mar-2024 08:09:51 GMT; Path=/; Secure; SameSite=None
+      - bscookie="v=1&20220305203219a4d2bc93-da17-4b27-8f71-cccaa44742f2AQHvxscvqiYke1bNUTbcnjE6iMIoztSp";
+        Domain=.www.linkedin.com; Expires=Tue, 05-Mar-2024 08:09:51 GMT; Path=/; HttpOnly;
+        Secure; SameSite=None
+      - lang=v=2&lang=en-us; Domain=linkedin.com; Path=/; Secure; SameSite=None
+      - li_gc=MTswOzE2NDY1MTIzMzk7MjswMjHc/+Wt8OoBiwiV6eN+qX1UwI41kQDYTv6cKEieuiSIPA==;
+        Domain=.linkedin.com; Expires=Sun, 03 Mar 2024 00:42:05 GMT; Path=/; Secure;
+        SameSite=None
+      - lidc="b=OB15:s=O:r=O:a=O:p=O:g=3358:u=1391:x=1:i=1646512339:t=1646598464:v=2:sig=AQGuPF9hBaMGoCTgu-Pec3jSFgadNkzw";
+        Domain=.linkedin.com; Expires=Sun, 06 Mar 2022 20:27:44 GMT; Path=/; Secure;
+        SameSite=None
+      Expect-Ct:
+      - max-age=86400, report-uri="https://www.linkedin.com/platform-telemetry/ct"
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - 'default-src *; connect-src ''self'' https://media-src.linkedin.com/media/
+        www.linkedin.com s.c.lnkd.licdn.com m.c.lnkd.licdn.com wss://*.linkedin.com
+        dms.licdn.com https://dpm.demdex.net/id lnkd.demdex.net blob: https://accounts.google.com/gsi/status
+        https://linkedin.sc.omtrdc.net/b/ss/ www.google-analytics.com static.licdn.com
+        static-exp1.licdn.com static-exp2.licdn.com static-exp3.licdn.com media.licdn.com
+        media-exp1.licdn.com media-exp2.licdn.com media-exp3.licdn.com; img-src data:
+        blob: *; font-src data: *; style-src ''unsafe-inline'' ''self'' static-src.linkedin.com
+        *.licdn.com; script-src ''report-sample'' ''unsafe-inline'' ''unsafe-eval''
+        ''self'' spdy.linkedin.com static-src.linkedin.com *.ads.linkedin.com *.licdn.com
+        static.chartbeat.com www.google-analytics.com ssl.google-analytics.com bcvipva02.rightnowtech.com
+        www.bizographics.com sjs.bizographics.com js.bizographics.com d.la4-c1-was.salesforceliveagent.com
+        https://snap.licdn.com/li.lms-analytics/ platform.linkedin.com platform-akam.linkedin.com
+        platform-ecst.linkedin.com platform-azur.linkedin.com; object-src ''none'';
+        media-src blob: *; child-src blob: lnkd-communities: voyager: *; frame-ancestors
+        ''self'''
+      X-Frame-Options:
+      - sameorigin
+      X-Li-Fabric:
+      - prod-lor1
+      X-Fs-Uuid:
+      - 0005d97e871fa85e7a9fc4af72eedbe5
+      X-Li-Pop:
+      - afd-prod-lor1-x
+      X-Li-Proto:
+      - http/1.1
+      X-Li-Uuid:
+      - AAXZfocfqF56n8Svcu7b5Q==
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: B9C85064BFB241648174E6FA1952D055 Ref B: VIEEDGE2612 Ref C: 2022-03-05T20:32:19Z'
+      Date:
+      - Sat, 05 Mar 2022 20:32:18 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":"invalid_request","error_description":"Unable to retrieve
+        access token: appid/redirect uri/code verifier does not match authorization
+        code. Or authorization code expired. Or external member binding exists"}'
+  recorded_at: Sat, 05 Mar 2022 20:32:19 GMT
+recorded_with: VCR 6.0.0
