@@ -31,9 +31,25 @@
     justify-content: space-between;
 }
 
+.container-space-around {
+    display: flex;
+    justify-content: space-around;
+}
+
 .container-row {
     display: flex;
     flex-direction: row;
+}
+
+.container-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* MARGINS */
+
+.margin-right-md {
+    margin-right: 30px;
 }
 
 /* BORDERS */
@@ -43,4 +59,28 @@
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
+}
+
+/* FONTS SIZE */
+
+.font-lg {
+    font-size: x-large;
+}
+
+/* BUTTONS */
+
+.button {
+    background-color: #5B62F0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    color: lightgrey;
 }
