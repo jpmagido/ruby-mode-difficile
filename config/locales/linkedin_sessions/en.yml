@@ -1,0 +1,5 @@
+en:
+  linkedin_sessions:
+    flashes:
+      success: 'Congratulations, you synched your LinkedIn Account'
+      error: 'Error, LinkedIn synch failed'

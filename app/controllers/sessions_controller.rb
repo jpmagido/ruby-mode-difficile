@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def new
     if Rails.env.production?
-      @github_oauth_url = HttpService.new(Github::Oauth::AUTHORIZE_URL, authorize_params).build_url
+      @github_oauth_url = Github::Oauth.new(state: secure_random).step_1
     end
   end
 
@@ -22,9 +22,7 @@ class SessionsController < ApplicationController
   def edit
     raise UnsafeRedirectError, t('session.errors.safe-state') unless params[:state] == secure_random
 
-    code = { code: params[:code] }
-    response = Github::Oauth.new(access_token_params.merge(code)).oauth_production
-
+    response = Github::Oauth.new(code: params[:code]).step_2
     response_data = Rack::Utils.parse_nested_query(response.body)
     sync_user_session(response_data['access_token'])
 
@@ -45,22 +43,10 @@ class SessionsController < ApplicationController
     session[:user_session_id] = Github::Sync::UserSession.new(access_token, request).save_session!
   end
 
-  def access_token_params
-    {
-      client_id: ENV['GITHUB_OAUTH_CLIENT_ID'],
-      client_secret: ENV['GITHUB_OAUTH_SECRET'],
-      redirect_uri: nil
-    }
-  end
-
   def authorize_params
     {
-      client_id: ENV['GITHUB_OAUTH_CLIENT_ID'],
-      redirect_uri: nil,
-      login: 'login',
-      scope: nil,
+
       state: secure_random,
-      allow_signup: 'true'
     }
   end
 

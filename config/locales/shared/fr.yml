@@ -14,7 +14,6 @@ fr:
     link-associated: 'Object associé'
     destroy-warning: 'Attention, vous allez supprimer toutes les informations associées'
     link_blacklist: 'Blacklister'
-    oauth: 'Vous venez de vous authentifier, félicitations :)'
     back: 'Retour à la page précédente'
     delete-confirmation: 'Êtes-vous certain ?'
     session-disconnect: 'Se déconnecter'

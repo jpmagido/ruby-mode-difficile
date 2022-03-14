@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_06_214233) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_05_151121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -139,6 +139,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_06_214233) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "linkedin_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "token", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_linkedin_sessions_on_user_id"
+  end
+
   create_table "mentorship_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
@@ -226,6 +234,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_06_214233) do
   add_foreign_key "conversation_participants", "conversations"
   add_foreign_key "conversation_participants", "users"
   add_foreign_key "doc_links", "docs"
+  add_foreign_key "linkedin_sessions", "users"
   add_foreign_key "mentorship_sessions", "mentorships"
   add_foreign_key "mentorships", "coaches"
   add_foreign_key "mentorships", "students"
