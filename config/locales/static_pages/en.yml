@@ -1,10 +1,11 @@
 en:
   static_pages:
-    welcome: 'Welcome to our Ruby hard mode App'
-    catch-phrase-1: 'You will be able to properly train here with our Rubyist commnunity'
-    catch-phrase-2: "You'll also find many contacts to develop your network"
-    challenge-link: 'Feel free to find a Challenge here: '
-    contact-link: 'Feel free to find Contacts here: '
+    welcome: 'Welcome to our app : Ruby Mode Difficile'
+    catch-phrase-1: 'You can train your Ruby & Rails skills'
+    catch-phrase-2: "You'll find many contacts to develop your network"
+    catch-phrase-3: "You'll be able to guide young developers and improve your management skills "
+    challenge-link: 'Train !'
+    contact-link: 'Carrier'
     click: 'click'
     link-coach: 'Become coach !'
     link-student: 'Find a coach !'

@@ -1,17 +1,30 @@
-<h1> Home </h1>
-<div> <%= link_to t('static_pages.link-coach'), new_login_coach_path %> </div>
-<div> <%= link_to t('static_pages.link-student'), new_login_student_path %> </div>
+<h2> <%= t('static_pages.welcome') %> </h2>
 <br>
-<hr>
-
-<h4> <%= t('static_pages.welcome') %> </h4>
-
-<div>
-  <p> <%= t('static_pages.catch-phrase-1') %> </p>
-  <p> <%= t('static_pages.catch-phrase-2') %> </p>
+<br>
+<div class='container'>
+  <div class='container-row'>
+    <%= image_tag 'school.png', size: '40x40', class: 'margin-right-md' %>
+    <p class='font-lg'> <%= t('static_pages.catch-phrase-1') %> </p>
+  </div>
+  <br>
+  <div class='container-row'>
+    <%= image_tag 'dollar-glass.png', size: '40x40', class: 'margin-right-md' %>
+    <p class='font-lg'> <%= t('static_pages.catch-phrase-2') %> </p>
+  </div>
+  <br>
+  <div class='container-row'>
+    <%= image_tag 'team.png', size: '40x40', class: 'margin-right-md' %>
+    <p class='font-lg'> <%= t('static_pages.catch-phrase-3') %> </p>
+  </div>
 </div>
 
-<div>
-  <p> <%= t('static_pages.challenge-link') %> <%= link_to t('static_pages.click'), login_challenges_path %></p>
-  <p> <%= t('static_pages.contact-link') %> <%= link_to t('static_pages.click'), login_challenges_path %></p>
+<br>
+<br>
+<br>
+
+<div class='space-around'>
+  <div> <%= link_to t('static_pages.link-student'), new_login_student_path, class: 'button font-lg' %> </div>
+  <div> <%= link_to t('static_pages.link-coach'), new_login_coach_path, class: 'button font-lg' %> </div>
+  <div> <%= link_to t('static_pages.challenge-link'), login_challenges_path, class: 'button font-lg' %></div>
+  <div> <%= link_to t('static_pages.contact-link'), login_challenges_path, class: 'button font-lg' %> </div>
 </div>

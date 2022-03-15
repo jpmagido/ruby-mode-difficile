@@ -16,31 +16,78 @@
  */
 @import "./actiontext.css";
 
+/* COLORS */
+$bg-default: #F5F5F5;
+$btn-default: #5B62F0;
+
+body {
+  background-color: $bg-default;
+}
+
 /* CONTAINERS */
 
 .container {
-    margin: 30px;
+  margin: 30px;
 }
 
 .slim-container {
-    margin: 5px;
+  margin: 5px;
 }
 
-.container-space-between {
-    display: flex;
-    justify-content: space-between;
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.space-around {
+  display: flex;
+  justify-content: space-around;
 }
 
 .container-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* MARGINS */
+
+.margin-right-md {
+  margin-right: 30px;
 }
 
 /* BORDERS */
 
 .border-thin {
-    border: 1px solid;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
+
+/* FONTS SIZE */
+
+.font-lg {
+  font-size: x-large;
+}
+
+/* BUTTONS */
+
+.button {
+  background-color: $btn-default;
+  border: none;
+  color: $bg-default;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.button:hover {
+  color: lightgrey;
 }
