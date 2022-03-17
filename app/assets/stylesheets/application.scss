@@ -30,6 +30,16 @@ body {
   margin: 30px;
 }
 
+.container-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-centered {
+  display: flex;
+  justify-content: center;
+}
+
 .slim-container {
   margin: 5px;
 }
@@ -54,10 +64,29 @@ body {
   flex-wrap: wrap;
 }
 
+.text-centered {
+  text-align: center;
+}
+
 /* MARGINS */
+
+.margin-auto {
+  margin: auto;
+}
 
 .margin-right-md {
   margin-right: 30px;
+}
+
+.margin-left-md {
+  margin-left: 30px;
+}
+
+/* HR */
+
+hr.bold {
+  border: 5px solid;
+  border-radius: 10px;
 }
 
 /* BORDERS */
@@ -76,6 +105,10 @@ body {
 }
 
 /* BUTTONS */
+
+button {
+  all: unset;
+}
 
 .button {
   background-color: $btn-default;
