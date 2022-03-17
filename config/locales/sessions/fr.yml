@@ -1,7 +1,12 @@
 fr:
   session:
     new:
-      connect: 'Connect your Github Account'
+      connect: 'Connectez-vous avec GITHUB : '
+      when-connected: 'Vous pourrez accéder à nos fonctionnalitées: '
+      answer: 'Soumettez votre code à des Développeurs reconnus'
+      challenge: 'Resolution de Challenges en OO'
+      coach: 'Développez vos compétences Managériales'
+      recruitment: 'Développez votre Réseau Pro'
     destroy:
       disconnect: 'Vous venez de vous déconnecter'
       session-not-found: "Impossible de trouver votre session, vous n'êtes pas connecté"
