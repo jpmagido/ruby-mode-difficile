@@ -19,6 +19,7 @@
 /* COLORS */
 $bg-default: #F5F5F5;
 $btn-default: #5B62F0;
+$btn-notice: #1B8CD6;
 
 body {
   background-color: $bg-default;
@@ -119,6 +120,10 @@ button {
   text-decoration: none;
   display: inline-block;
   border-radius: 10px;
+}
+
+.button.notice {
+  color: $btn-notice;
 }
 
 .button:hover {

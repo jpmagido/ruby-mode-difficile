@@ -1,5 +1,6 @@
 en:
   challenges:
+    index: 'Challenges Index (total: %{total})'
     attr:
       title: 'Title :'
       signature: 'Signature :'
