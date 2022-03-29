@@ -1,16 +1,19 @@
 en:
   challenges:
+    search:
+      author: 'Select an Author'
+      documentation: 'Select a Resource'
     index: 'Challenges Index (total: %{total})'
     attr:
-      title: 'Title :'
-      signature: 'Signature :'
+      title: 'Title'
+      signature: 'Signature'
       duration:
-        label: 'Duration :'
+        label: 'Duration'
         value: '%{value} minutes'
       difficulty:
-        label: 'Difficulty : '
+        label: 'Difficulty'
         value: '%{value}/10'
-      files: 'Files :'
+      files: 'Files'
     flashes:
       new-challenge-success: 'You created a Challenge, an Admin will moderate it soon'
       challenge-error: 'Something went wrong: %{error}'

@@ -13,13 +13,13 @@ RSpec.describe Search::MentorshipSession, type: :service do
     let(:outdated_mentorship_session_1) { create(:mentorship_session, start_date: DateTime.now, end_date: DateTime.now + 3) }
     let(:outdated_mentorship_session_2) { create(:mentorship_session, start_date: DateTime.now - 3, end_date: DateTime.now + 1) }
 
-    let(:search) { described_class.new(MentorshipSession.all, params) }
+    let(:mentorship_search) { described_class.new(MentorshipSession.all, params) }
     let(:params) { { start_date: DateTime.now - 2, end_date: DateTime.now + 2 } }
 
     it 'includes proper Mentorship Sessions' do
-      expect(search.search).to include(mentorship_session)
-      expect(search.search).not_to include(outdated_mentorship_session_1)
-      expect(search.search).not_to include(outdated_mentorship_session_2)
+      expect(mentorship_search.search).to include(mentorship_session)
+      expect(mentorship_search.search).not_to include(outdated_mentorship_session_1)
+      expect(mentorship_search.search).not_to include(outdated_mentorship_session_2)
     end
   end
 end

@@ -15,12 +15,12 @@ RSpec.describe Search::Student, type: :service do
     let(:student) { create(:student, user: user) }
     let(:wrong_student) { create(:student) }
 
-    let(:search) { described_class.new(Student.all, params) }
+    let(:student_search) { described_class.new(Student.all, params) }
     let(:params) { { name: 'Leopold', answer_count_min: 1, answer_count_max: 1, has_coach: true, language: 'fr' } }
 
     it 'includes proper Students' do
-      expect(search.search).to include(student)
-      expect(search.search).not_to include(wrong_student)
+      expect(student_search.search).to include(student)
+      expect(student_search.search).not_to include(wrong_student)
     end
   end
 end

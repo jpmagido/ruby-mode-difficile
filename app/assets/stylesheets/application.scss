@@ -122,8 +122,8 @@ button {
   border-radius: 10px;
 }
 
-.button.notice {
-  color: $btn-notice;
+.button.button-notice {
+  background-color: $btn-notice;
 }
 
 .button:hover {

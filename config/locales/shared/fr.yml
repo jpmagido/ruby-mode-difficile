@@ -39,11 +39,11 @@ fr:
       doc: 'Documentation'
       conversation-messages: 'Messages'
     attr:
-      created-at: 'Crée le : '
-      updated-at: 'Modifié le : '
+      created-at: 'Crée le'
+      updated-at: 'Modifié le'
       name: 'Nom :'
-      coach-name: 'Nom du Coach : '
-      description: 'Description : '
+      coach-name: 'Nom du Coach'
+      description: 'Description'
       status:
         label: 'Statut : '
         pending: 'En attente de validation'

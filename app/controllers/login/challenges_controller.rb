@@ -30,7 +30,7 @@ module Login
     private
 
     def challenges
-      @challenges ||= Challenge.all_valid
+      @challenges ||= Search::Challenge.new(Challenge.all_valid, search_params).search
     end
 
     def challenge
@@ -46,6 +46,17 @@ module Login
         :difficulty,
         files: [],
         repository: [:github_url]
+      )
+    end
+
+    def search_params
+      params.permit(
+        :title,
+        :user_id,
+        :doc_id,
+        :difficulty,
+        :duration_min,
+        :duration_max
       )
     end
   end

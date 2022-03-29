@@ -7,3 +7,6 @@
 
 * Other files are linked with views inside dedicated controller
 * They are **not** meant to host **reusable** enough stuff
+
+
+* / ! \ Please consider writing CSS before thinking about Bootstrap

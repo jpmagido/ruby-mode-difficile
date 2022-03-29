@@ -4,7 +4,7 @@ en:
       flashes:
         duration-error: 'Duration Max must be superior or equal than duration Min'
       search:
-        difficulty-choice: '1-10'
+        difficulty-choice: '/10'
         status-choice: 'Choose a status'
         duration_max-choice: 'Max'
         duration_min-choice: 'Min'
