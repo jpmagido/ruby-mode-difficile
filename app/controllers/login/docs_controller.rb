@@ -15,7 +15,7 @@ module Login
     end
 
     def search_params
-      params.permit(:title, :tag, :user_id, :challenge_id, :answer_id)
+      params.permit(:title, :tag, :challenge_id, :answer_id)
     end
   end
 end
