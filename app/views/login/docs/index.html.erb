@@ -2,9 +2,7 @@
   <h3> <%= t('docs.index.title', total: docs.count) %> </h3>
   <div class='container-row'>
     <% if current_user.admin %>
-      <hr>
       <div> <%= link_to t('shared.link_admin_version'), staff_docs_path, class: 'button' %> </div>
-      <hr>
     <% end %>
 
     <div> <%= link_to t('shared.back'), :back, class: 'button button-notice margin-left-md' %> </div>
@@ -12,7 +10,6 @@
 </div>
 <br>
 <div class='flex-end'> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path, class: 'button' %> </div>
-<hr>
 
 <p class='font-lg'> <%= t('docs.index.title-phrase-1') %> </p>
 <p class='font-lg'> <%= t('docs.index.title-phrase-2') %> </p>
