@@ -1,9 +1,8 @@
 <tr>
-  <td> <%= t('challenges.attr.title') %> <%= challenge.title %> </td>
+  <td> <%= link_to challenge.title, staff_challenge_path(challenge) %> </td>
   <td> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </td>
   <td> <%= t("shared.attr.status.#{challenge.status}") %> </td>
   <td> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </td>
   <td> <%= challenge.created_at %> </td>
   <td> <%= challenge.description.to_plain_text.truncate(30) %> </td>
-  <td> <%= link_to t('shared.link_show'), staff_challenge_path(challenge) %> </td>
 </tr>

@@ -4,22 +4,18 @@ module Login
   class DocsController < Login::BaseController
     helper_method :docs, :doc
 
-    def index
-      @count_phrase = "#{docs_count} #{'document'.pluralize(docs_count)}"
-    end
-
     private
 
     def docs
-      @docs ||= Doc.all
+      @docs ||= Search::Doc.new(Doc.all_valid, search_params).search
     end
 
     def doc
-      @doc ||= docs.find(params[:id])
+      @doc ||= Doc.find(params[:id])
     end
 
-    def docs_count
-      @docs_count ||= Doc.count
+    def search_params
+      params.permit(:title, :tag, :challenge_id, :answer_id)
     end
   end
 end

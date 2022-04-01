@@ -1,0 +1,34 @@
+<div class='slim-container border-thin'>
+  <%= form_tag(login_docs_path, method: 'get') do %>
+    <div class='space-between'>
+      <div class='container-column'>
+        <div class='slim-container'>
+          <span> <%= t('shared.attr.title') %> : </span>
+          <span> <%= search_field_tag(:title, params[:title]) %> </span>
+        </div>
+        <div class='slim-container'>
+          <span> <%= t('docs.attr.tags') %> : </span>
+          <span> <%= search_field_tag(:tag, params[:tag]) %> </span>
+        </div>
+      </div>
+
+      <div class='container-column'>
+        <div class='slim-container'>
+          <span> <%= t('shared.models.challenge') %> : </span>
+          <span> <%= select_tag :challenge_id, options_from_collection_for_select(Challenge.joins(:doc_links).uniq, :id, :title), prompt: t('docs.search.challenge') %> </span>
+        </div>
+
+        <div class='slim-container'>
+          <span> <%= t('shared.models.answer') %> : </span>
+          <span> <%= select_tag :answer_id, options_from_collection_for_select(Answer.joins(:doc_links).uniq, :id, :title), prompt: t('docs.search.answer') %> </span>
+        </div>
+      </div>
+
+      <div class='container-column'>
+        <%= submit_tag t('shared.search_form'), class: 'button' %>
+        <br>
+        <%= link_to t('shared.reset-filters'), login_docs_path, class: 'button button-notice' %>
+      </div>
+    </div>
+  <% end %>
+</div>

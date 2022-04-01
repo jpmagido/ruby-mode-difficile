@@ -6,13 +6,15 @@ fr:
       destroy-success: 'Vous avez supprimé un Doc'
       error: "Une erreur s'est produite : %{error}"
     attr:
-      title: 'Titre: '
-      tags: 'Tags: '
-      content: 'Contenu: '
+      title: 'Titre'
+      tags: 'Tags'
+      content: 'Contenu'
     index:
+      title: 'Index des Ressources (total: %{total})'
       title-phrase-1: "Vous êtes sur l'Index de la bibliothèque qui répertorie la documentation"
-      title-phrase-2: "Vous trouverez certaines ressources dans les Challenges, elles vous aideront à les résoudre"
-      docs-count: "Vous pouvez consulter %{data} :"
+      title-phrase-2: "Certaines ressources sont liées à des Challenges, elles vous aideront à les résoudre"
     links:
       show: 'Lien du Document'
-
+    search:
+      challenge: 'Sélectionner un Challenge'
+      answer: 'Sélectionner une Réponse'

@@ -1,23 +1,23 @@
-<% if current_user.admin %>
-  <hr>
-  <div> <%= link_to t('shared.link_admin_version'), staff_docs_path %> </div>
-  <hr>
-<% end %>
+<div class='space-between'>
+  <h3> <%= t('docs.index.title', total: docs.count) %> </h3>
+  <div class='container-row'>
+    <% if current_user.admin %>
+      <div> <%= link_to t('shared.link_admin_version'), staff_docs_path, class: 'button' %> </div>
+    <% end %>
 
-<div> <%= link_to t('shared.back'), :back %> </div>
-<div> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path %> </div>
-<hr>
-
-<h3> <%= t('docs.index.title-phrase-1') %> </h3>
-<br>
-<h4> <%= t('docs.index.title-phrase-2') %> </h4>
-<br>
-<hr>
-
-<div>
-  <%= t('docs.index.docs-count', data: @count_phrase) %>
+    <div> <%= link_to t('shared.back'), :back, class: 'button button-notice margin-left-md' %> </div>
+  </div>
 </div>
 <br>
+<div class='flex-end'> <%= link_to t('staff.doc_links.new.link-challenge-answer'), new_login_doc_link_path, class: 'button' %> </div>
+
+<p class='font-lg'> <%= t('docs.index.title-phrase-1') %> </p>
+<p class='font-lg'> <%= t('docs.index.title-phrase-2') %> </p>
+<br>
+
+<%= render 'login/docs/search' %>
+<br>
+
 <table class='table'>
   <thead>
   <tr>

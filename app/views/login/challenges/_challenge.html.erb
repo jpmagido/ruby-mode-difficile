@@ -1,9 +1,8 @@
 <tr>
-  <td> <%= challenge.title %> </td>
+  <td> <%= link_to challenge.title, login_challenge_path(challenge) %> </td>
   <td> <%= challenge.description.to_plain_text.truncate(50) %> </td>
   <td> <%= link_to challenge.repository.github_url, challenge.repository.github_url %> </td>
   <td> <%= challenge.signature %> </td>
   <td> <%= t('challenges.attr.difficulty.value', value: challenge.difficulty) %> </td>
   <td> <%= t('challenges.attr.duration.value', value: challenge.duration) %> </td>
-  <td> <%= link_to t('shared.link'), login_challenge_path(challenge) %> </td>
 </tr>
