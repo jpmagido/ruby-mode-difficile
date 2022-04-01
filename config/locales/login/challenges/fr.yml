@@ -1,15 +1,19 @@
 fr:
   challenges:
+    search:
+      author: 'Sélectionner un Auteur'
+      documentation: 'Sélectionner une Ressource'
+    index: 'Index des Challenges (total: %{total})'
     attr:
       title: 'Titre'
-      signature: 'Signature :'
+      signature: 'Signature'
       duration:
-        label: 'Durée :'
+        label: 'Durée'
         value: '%{value} minutes'
       difficulty:
-        label: 'Difficulté :'
+        label: 'Difficulté'
         value: '%{value}/10'
-      files: 'Fichiers :'
+      files: 'Fichiers'
     flashes:
       new-challenge-success: "Vous avez crée un Challenge, l'administrateur va le mettre en ligne rapidement"
       challenge-error: "Quelque chose s'est mal passé: %{error}"

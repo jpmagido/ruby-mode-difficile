@@ -1,27 +1,28 @@
-<h3>Staff::Challenges#index</h3>
-
-<div class='container'>
-  <div class='space-between'>
-    <div> <%= link_to t('shared.back'), :back %> </div>
-    <div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path %> </div>
+<div class='space-between'>
+  <h3> <%= t('challenges.index', total: challenges.count) %></h3>
+  <div class='container-row'>
+    <div> <%= link_to t('shared.link_user_version'), login_challenges_path, class: 'button' %> </div>
+    <div> <%= link_to t('challenges.new-challenge'), new_staff_challenge_path, class: 'button margin-left-md' %> </div>
+    <div> <%= link_to t('shared.back'), :back, class: 'button button-notice margin-left-md' %> </div>
   </div>
-  <br>
-  <%= render 'staff/challenges/search' %>
-  <hr>
-  <br>
-
-  <table class='table'>
-    <thead>
-    <tr>
-      <th scope='col'> <%= t('challenges.attr.title') %> </th>
-      <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
-      <th scope='col'> <%= t('staff.coaches.attr.status') %> </th>
-      <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
-      <th scope='col'> <%= t('shared.attr.created-at') %> </th>
-      <th scope='col'> <%= t('shared.attr.description') %> </th>
-      <th scope='col'> <%= t('shared.link_show') %> </th>
-    </tr>
-    </thead>
-    <tbody> <%= render challenges %> </tbody>
-  </table>
 </div>
+
+<br>
+
+<%= render 'staff/challenges/search' %>
+
+<table class='table'>
+  <thead>
+  <tr>
+    <th scope='col'> <%= t('challenges.attr.title') %> </th>
+    <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
+    <th scope='col'> <%= t('shared.attr.status.label') %> </th>
+    <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
+    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
+    <th scope='col'> <%= t('shared.attr.description') %> </th>
+    <th scope='col'> <%= t('shared.link_show') %> </th>
+  </tr>
+  </thead>
+  <tbody> <%= render challenges %> </tbody>
+</table>
+

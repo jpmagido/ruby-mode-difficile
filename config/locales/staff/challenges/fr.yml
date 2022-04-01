@@ -1,10 +1,8 @@
 fr:
   staff:
     challenges:
-      flashes:
-        duration-error: 'Le maximum doit être supérieur ou égal au minimum'
       search:
-        difficulty-choice: 'Choisissez une difficulté'
+        difficulty-choice: '/10'
         status-choice: 'Choisissez un statut'
         duration_max-choice: 'Max'
         duration_min-choice: 'Min'

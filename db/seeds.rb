@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def destroy_all
-  [Answer, Challenge, Coach, Admin, Mentorship, MentorshipSession].each(&:destroy_all)
+  [Answer, Challenge, Coach, Admin, Mentorship, MentorshipSession, DocLink, Doc].each(&:destroy_all)
 end
 
 def create_users(number = 10)
@@ -36,6 +36,13 @@ def build
   p 'User jpmagido is now Admin & Coach'
 end
 
+def seed_doc
+  FactoryBot.create_list(:doc_link, 10)
+
+  p '10 Docs and their links have been created'
+end
+
 destroy_all
 build if jpmagido_user
+seed_doc
 perform

@@ -1,7 +1,7 @@
 en:
   repositories:
     attr:
-      github_url: 'Url Github :'
+      github_url: 'Url Github'
     flashes:
       update-success: 'You updated a repository'
       update-error: 'Something went wrong : %{error}'

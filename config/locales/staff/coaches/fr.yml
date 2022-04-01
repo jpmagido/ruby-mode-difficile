@@ -8,5 +8,4 @@ fr:
       links:
         block: 'Block Coach'
       attr:
-        status: 'Statut : '
         user-name: "Nom de l'Utilisateur"
