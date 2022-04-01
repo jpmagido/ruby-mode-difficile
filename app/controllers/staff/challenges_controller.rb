@@ -53,17 +53,11 @@ module Staff
     private
 
     def challenges
-      check_duration_params
-      Challenge.where(filter_params).where('duration >= ? AND duration <= ?', default_min, default_max)
+      @challenges ||= Search::Challenge.new(Challenge.all, search_params).search
     end
 
     def challenge
-      @challenge ||= challenges.find(params[:id])
-    end
-
-    def check_duration_params
-      negative_duration = default_max.to_i < default_min.to_i
-      redirect_to staff_challenges_path, alert: t('staff.challenges.flashes.duration-error') if negative_duration
+      @challenge ||= Challenge.find(params[:id])
     end
 
     def challenge_params
@@ -79,16 +73,16 @@ module Staff
       )
     end
 
-    def filter_params
-      params.permit(:difficulty, :status).to_h.select { |_, v| v.present? }
-    end
-
-    def default_min
-      params[:duration_min].present? ? params[:duration_min] : 1
-    end
-
-    def default_max
-      params[:duration_max].present? ? params[:duration_max] : 1000
+    def search_params
+      params.permit(
+        :title,
+        :status,
+        :user_id,
+        :doc_id,
+        :difficulty,
+        :duration_min,
+        :duration_max
+      )
     end
   end
 end

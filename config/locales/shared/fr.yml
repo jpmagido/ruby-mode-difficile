@@ -9,6 +9,7 @@ fr:
     reset-filters: 'Réinitialiser les filtres'
     link_show: 'Page des Détails'
     link_edit: 'Modifier'
+    link_user_version: 'Version Utilisateur'
     link_admin_version: 'Version Admin'
     link_destroy: 'Supprimer'
     link: 'Lien'
@@ -45,9 +46,10 @@ fr:
       coach-name: 'Nom du Coach'
       description: 'Description'
       status:
-        label: 'Statut : '
+        label: 'Statut'
         pending: 'En attente de validation'
         ready: 'Validé'
+        any: 'Tout'
       title: 'Titre'
       author: 'Auteur'
     booleans:

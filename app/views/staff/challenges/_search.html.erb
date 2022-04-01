@@ -1,23 +1,41 @@
 <div class='slim-container border-thin'>
   <%= form_tag(staff_challenges_path, method: 'get') do %>
     <div class='space-between'>
-      <div class='container-row'>
+      <div class='container-column'>
         <div class='slim-container'>
-          <span> <%= t('challenges.attr.difficulty.label') %> </span>
-          <%= select_tag(:difficulty, options_for_select(1..10, params[:difficulty]), include_blank: t('staff.challenges.search.difficulty-choice')) %>
+          <span> <%= t('shared.attr.title') %> : </span>
+          <span> <%= search_field_tag(:title, params[:title]) %> </span>
         </div>
         <div class='slim-container'>
-          <span> <%= t('shared.attr.status.label') %> </span>
-          <%= select_tag(:status, options_for_select(Challenge.statuses, params[:status]), include_blank: t('staff.challenges.search.status-choice')) %>
+          <span> <%= t('shared.attr.author') %> : </span>
+          <span> <%= select_tag :user_id, options_from_collection_for_select(User.joins(:coach), :id, :login), prompt: t('challenges.search.author') %> </span>
         </div>
         <div class='slim-container'>
-          <span> <%= t('challenges.attr.duration.label') %> </span>
+          <span> <%= t('shared.models.doc') %> : </span>
+          <span> <%= select_tag :doc_id, options_from_collection_for_select(Doc.joins(:doc_links), :id, :title), prompt: t('challenges.search.documentation') %> </span>
+        </div>
+      </div>
+
+      <div class='container-column'>
+        <div class='slim-container'>
+          <span> <%= t('challenges.attr.difficulty.label') %> : </span>
+          <span> <%= number_field_tag(:difficulty, params[:difficulty], within: 1..10, placeholder: t('staff.challenges.search.difficulty-choice')) %> </span>
+        </div>
+        <div class='slim-container'>
+          <span> <%= t('challenges.attr.duration.label') %> : </span>
           <span> <%= number_field_tag :duration_min, params[:duration_min], within: 1..500, placeholder: t('staff.challenges.search.duration_min-choice') %> </span>
           <span> <%= number_field_tag :duration_max, params[:duration_max], within: 1..500, placeholder: t('staff.challenges.search.duration_max-choice') %> </span>
         </div>
+        <div class='slim-container'>
+          <span> <%= t('shared.attr.status.label') %> : </span>
+          <span> <%= select_tag :status, options_for_select(Challenge.statuses.keys), prompt: t('shared.attr.status.any') %> </span>
+        </div>
       </div>
-      <div> <%= submit_tag t('shared.submit_form') %> </div>
-      <%= link_to t('shared.reset-filters'), staff_challenges_path, class: 'border-thin' %>
+      <div class='container-column'>
+        <%= submit_tag t('shared.search_form'), class: 'button' %>
+        <br>
+        <%= link_to t('shared.reset-filters'), staff_challenges_path, class: 'button button-notice' %>
+      </div>
     </div>
   <% end %>
 </div>

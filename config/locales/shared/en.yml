@@ -10,6 +10,7 @@ en:
     link_show: 'Details Page'
     link_edit: 'Update'
     link_admin_version: 'Admin version'
+    link_user_version: 'Version Utilisateur'
     link_destroy: 'Delete record'
     link: 'Link'
     link-associated: 'Associated Object'
@@ -48,6 +49,7 @@ en:
         label: 'Status'
         pending: 'Waiting for approval'
         ready: 'Validated'
+        any: 'Any'
       title: 'Title'
       author: 'Author'
     booleans:

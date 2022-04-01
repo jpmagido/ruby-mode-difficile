@@ -11,7 +11,7 @@
       <br>
       <%= f.text_area :youtube_url, size: '40x1' %>
       <br><br>
-      <%= f.label :status, t('staff.coaches.attr.status') %>
+      <%= f.label :status, t('shared.attr.status.label') %>
       <%= f.select :status, collection: Coach.statuses.keys %>
       <br><br>
       <%= f.label :signature, 'Signature: ' %>

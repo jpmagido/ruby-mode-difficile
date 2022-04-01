@@ -1,8 +1,6 @@
 fr:
   staff:
     challenges:
-      flashes:
-        duration-error: 'Le maximum doit être supérieur ou égal au minimum'
       search:
         difficulty-choice: '/10'
         status-choice: 'Choisissez un statut'

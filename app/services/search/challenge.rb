@@ -27,5 +27,9 @@ module Search
     def duration_max(value)
       klass_scope.where('duration < ?', value)
     end
+
+    def status(value)
+      klass_scope.where(status: value)
+    end
   end
 end

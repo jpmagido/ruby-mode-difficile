@@ -1,7 +1,7 @@
 <%= turbo_frame_tag coach do %>
   <div>
     <%= form_with model: [:staff, coach] do |f| %>
-      <%= f.label :status, t('staff.coaches.attr.status') %>
+      <%= f.label :status, t('shared.attr.status.label') %>
       <%= f.select :status, collection: Coach.statuses.keys %>
       <%= f.submit t('shared.submit_form') %>
     <% end %>
