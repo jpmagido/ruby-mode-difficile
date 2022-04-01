@@ -38,6 +38,8 @@ fr:
       destroy: 'La Suppression a échoué : %{error}'
     models:
       doc: 'Documentation'
+      challenge: 'Challenge'
+      answer: 'Réponse'
       conversation-messages: 'Messages'
     attr:
       created-at: 'Crée le'

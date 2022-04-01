@@ -38,6 +38,8 @@ en:
       destroy: 'Destroying failed : %{error}'
     models:
       doc: 'Documentation'
+      challenge: 'Challenge'
+      answer: 'Answer'
       conversation-messages: 'Messages'
     attr:
       created-at: 'Created at'
