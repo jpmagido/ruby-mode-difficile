@@ -6,7 +6,7 @@ module Github
       attr_reader :github_user
 
       def initialize(github_user)
-        @github_user = github_user.symbolize_keys
+        @github_user = github_user.compact.symbolize_keys
 
         raise ArgumentError, 'You must provide an ID' if github_id.nil?
       end

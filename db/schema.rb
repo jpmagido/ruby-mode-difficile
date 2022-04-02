@@ -209,12 +209,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_05_151121) do
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "github_id", null: false
-    t.string "login"
-    t.string "email"
-    t.text "bio"
-    t.text "html_url"
-    t.text "avatar_url"
-    t.text "blog"
+    t.string "login", null: false
+    t.string "email", default: "NC"
+    t.text "bio", default: "NC"
+    t.text "html_url", default: "NC"
+    t.text "avatar_url", default: "NC"
+    t.text "blog", default: "NC"
     t.integer "followers"
     t.integer "language", default: 0
     t.boolean "active", default: true

@@ -1,7 +1,33 @@
-<tr>
-  <td> <%= user.login %> </td>
-  <td> <%= user.email %> </td>
-  <td> <%= user.html_url %> </td>
-  <td> <%= t("users.attr.language.#{user.language}") %> </td>
-  <td> <%= user.created_at %> </td>
-</tr>
+<div class='container-column border-thin padding-md' style='width: 70%;'>
+  <div class='container-row'>
+    <div class='container-column margin-right-lg'>
+      <p> <%= t('users.attr.name') %> : </p>
+      <p> <%= t('users.attr.email') %> : </p>
+      <p> <%= t('users.attr.html_url') %> : </p>
+      <p> <%= t('users.attr.language.label') %> : </p>
+      <p> <%= t('users.attr.avatar_url') %> : </p>
+      <p> <%= t('users.attr.blog') %> : </p>
+      <p> <%= t('users.attr.followers') %> : </p>
+      <p> <%= t('shared.attr.created-at') %> : </p>
+    </div>
+    <div class='container-column'>
+      <p> <%= user.login %> </p>
+      <p> <%= user.email %> </p>
+      <p> <%= user.html_url %> </p>
+      <p> <%= t("users.attr.language.#{user.language}") %> </p>
+      <p> <%= current_user.avatar_url %> </p>
+      <p> <%= current_user.blog %> </p>
+      <p> <%= current_user.followers %> </p>
+      <p> <%= user.created_at %> </p>
+    </div>
+  </div>
+
+  <br>
+  <hr class='bold margin-auto' style='width: 60%;'>
+  <br>
+
+  <div>
+    <p> <%= t('users.attr.bio') %> : </p>
+    <p> <%= current_user.bio %></p>
+  </div>
+</div>

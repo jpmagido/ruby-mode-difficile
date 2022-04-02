@@ -1,21 +1,25 @@
 fr:
   users:
     attr:
-      name: 'Nom: '
-      email: 'Email: '
-      bio: 'Biographie: '
-      html_url: 'Page Github: '
-      avatar_url: 'Avatar Github: '
-      blog: 'Site personel: '
-      followers: 'Abonnés Github: '
+      name: 'Nom'
+      email: 'Email'
+      bio: 'Biographie'
+      html_url: 'Page Github'
+      avatar_url: 'Avatar Github'
+      blog: 'Site personel'
+      followers: 'Abonnés Github'
       language:
-        label: 'Langue par défault: '
+        label: 'Langue par défault'
         fr: 'Français'
         en: 'Anglais'
       active: 'Utilisateur Actif ? '
-    welcome: 'Bienvenue sur votre dashboard'
+    student-dashboard: 'Espace Etudiant'
+    answers: 'Vous avez résolu %{count} Challenges'
+    challenges-created: 'Vous avez crée '
+    students-count: 'Vous avez aidé'
+    students: 'Etudiant(s)'
+    welcome: 'Bienvenue sur votre Profil Utilisateur'
     my-answers: 'Voici la liste complète de vos Réponses'
-    my-challenges: 'Voici la liste complète des Challenges que vous avez crées'
     roles:
       admin: "L'Utilisateur est Admin ?"
       coach: "L'Utilisateur est Coach ?"

@@ -1,54 +1,60 @@
-<h3> <%= t('users.welcome') %> </h3>
-<br>
+<div class='space-between'>
+  <h3> <%= t('users.welcome') %> </h3>
 
-<table class='table'>
-  <thead>
-  <tr>
-    <th scope='col'> <%= t('users.attr.name') %> </th>
-    <th scope='col'> <%= t('users.attr.email') %> </th>
-    <th scope='col'> <%= t('users.attr.html_url') %> </th>
-    <th scope='col'> <%= t('users.attr.language.label') %> </th>
-    <th scope='col'> <%= t('shared.attr.created-at') %> </th>
-  </tr>
-  </thead>
-  <tbody> <%= render current_user %> </tbody>
-</table>
-<br>
-
-<div>
-  <div> <%= t('users.attr.bio') %> </div>
-  <div> <%= current_user.bio %></div>
-  <br>
-  <ul>
-    <li> <%= t('users.attr.avatar_url') %> <%= current_user.avatar_url %> </li>
-    <li> <%= t('users.attr.blog') %> <%= current_user.blog %> </li>
-    <li> <%= t('users.attr.followers') %> <%= current_user.followers %> </li>
-  </ul>
-</div>
-<br>
-<hr>
-<div>
-  <%= t('users.my-challenges') %>
-
-  <table class='table'>
-    <thead>
-    <tr>
-      <th scope='col'> <%= t('shared.attr.title') %> </th>
-      <th scope='col'> <%= t('shared.attr.description') %> </th>
-      <th scope='col'> <%= t('repositories.attr.github_url') %> </th>
-      <th scope='col'> <%= t('challenges.attr.signature') %> </th>
-      <th scope='col'> <%= t('challenges.attr.difficulty.label') %> </th>
-      <th scope='col'> <%= t('challenges.attr.duration.label') %> </th>
-      <th scope='col'> <%= t('shared.link_show') %> </th>
-      <th scope='col'> <%= t('challenges.attr.files') %> </th>
-    </tr>
-    </thead>
-    <tbody> <%= render current_user.challenges %> </tbody>
-  </table>
+  <div class='container-row'>
+    <!-- TODO EDIT LINK + hotwire -->
+    <div> <%= link_to t('shared.link_edit'), edit_staff_user_path(current_user), class: 'button margin-right-md' %> </div>
+    <!-- TODO EDIT LINK + hotwire -->
+    <div> <%= link_to t('shared.back'), :back, class: 'button button-notice' %> </div>
+  </div>
 </div>
 
+<br>
+
+<div class='space-between'>
+  <%= render current_user %>
+  <div>
+    <div class='border-thin padding-md'>
+      <!-- TODO create answer index -->
+      <p> <%= t('users.answers', count: current_user.answers.count) %> </p>
+      <!-- TODO create answer index -->
+      <p>
+        <%= t('users.challenges-created') %>
+        <%= link_to current_user.challenges.count, login_challenges_path(user_id: current_user.id) %>
+        Challenges
+      </p>
+      <% if current_user.coach %>
+        <p>
+          <%= t('users.students-count') %>
+          <%= link_to current_user.coach.mentorships.count, mentor_mentorships_path %>
+          <%= t('users.students') %>
+        </p>
+      <% end %>
+    </div>
+
+    <br>
+    <div class='margin-left-md'>
+      <p> <%= link_to t('static_pages.link-student'), new_login_student_path, class: 'button' %> </p>
+      <% if current_user.student %>
+        <p> <%= link_to t('users.student-dashboard'), academy_student_path, class: 'button' %> </p>
+      <% end %>
+
+      <% if current_user.coach %>
+        <p> <%= link_to t('shared.navbar.coach-dashboard'), mentor_coach_path %> </p>
+      <% else %>
+        <p> <%= link_to t('static_pages.link-coach'), new_login_coach_path, class: 'button' %> </p>
+      <% end %>
+      <p> <%= link_to t('static_pages.challenge-link'), login_challenges_path, class: 'button' %></p>
+      <p> <%= link_to t('static_pages.contact-link'), login_challenges_path, class: 'button' %> </p>
+    </div>
+  </div>
+</div>
+
+<br>
 <hr>
 
+
+<!-- TODO EDIT DELETE after create answer index -->
 <div>
   <%= t('users.my-answers') %>
 
@@ -66,3 +72,4 @@
     <tbody> <%= render current_user.answers %> </tbody>
   </table>
 </div>
+<!-- TODO EDIT DELETE after create answer index -->
