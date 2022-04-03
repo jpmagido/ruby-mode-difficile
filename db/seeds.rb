@@ -38,6 +38,39 @@ def seed_doc
   p '10 Docs and their links have been created'
 end
 
+def doc_all_seed
+  raise StandardError, 'unsafe production ENV' if Rails.env.production? && Doc.count >= 1
+
+  Doc.destroy_all
+  p 'all Doc destroyed'
+
+  docs_info.each do |doc|
+    Doc.create(title: doc[:title], tags: doc[:tags], content_fr: File.new(doc[:path], 'r').read)
+  end
+
+  "#{docs_info.count} Docs created"
+end
+
+def docs_info
+  [
+    {
+      title: 'Testing',
+      tags: 'test',
+      path: Rails.root.join('db', 'docs_html', 'testing.html')
+    },
+    {
+      title: 'Rspec',
+      tags: 'test',
+      path: Rails.root.join('db', 'docs_html', 'rspec.html')
+    },
+    {
+      title: 'CSV',
+      tags: 'format data',
+      path: Rails.root.join('db', 'docs_html', 'csv.html')
+    }
+  ]
+end
+
 def perform
   destroy_all
   create_users(20)
