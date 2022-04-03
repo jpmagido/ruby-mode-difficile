@@ -15,9 +15,16 @@
     <%= f.text_field :tags %>
     <br>
     <br>
-    <%= f.label :content, t('docs.attr.content') %>
+    <%= f.label :content_fr, t('docs.attr.content-fr') %>
     <br>
-    <%= f.rich_text_area :content %>
+    <%= f.rich_text_area :content_fr %>
+    <br>
+    <br>
+    <%= f.label :content_en, t('docs.attr.content-en') %>
+    <br>
+    <%= f.rich_text_area :content_en %>
+    <br>
+    <br>
 
     <%= f.submit t('shared.submit_form') %>
   <% end %>

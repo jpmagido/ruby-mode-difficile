@@ -1,5 +1,9 @@
 <tr>
   <td> <%= link_to doc.title.titleize, login_doc_path(doc) %> </td>
   <td> <%= doc.tags %> </td>
-  <td> <%= doc.content.to_plain_text.truncate(80) %> </td>
+  <% if I18n.locale == :fr %>
+    <td> <%= doc.content_fr.to_plain_text.truncate(80) %> </td>
+  <% else %>
+    <td> <%= doc.content_en.to_plain_text.truncate(80) %> </td>
+  <% end %>
 </tr>

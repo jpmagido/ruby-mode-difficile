@@ -16,6 +16,7 @@ fr:
     student-dashboard: 'Espace Etudiant'
     answers: 'Vous avez résolu %{count} Challenges'
     challenges-created: 'Vous avez crée '
+    linkedin-sync: 'Synchronisation LinkedIn'
     students-count: 'Vous avez aidé'
     students: 'Etudiant(s)'
     welcome: 'Bienvenue sur votre Profil Utilisateur'

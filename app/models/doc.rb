@@ -7,7 +7,8 @@ class Doc < ApplicationRecord
 
   enum status: %i[pending ready]
 
-  has_rich_text :content
+  has_rich_text :content_fr
+  has_rich_text :content_en
 
   scope :all_valid, -> { where('status = 1') }
 end

@@ -9,6 +9,8 @@ en:
       title: 'Title'
       tags: 'Tags'
       content: 'Content'
+      content-fr: 'Content FR'
+      content-en: 'Content EN'
     index:
       title: 'Index Resources (total: %{total})'
       title-phrase-1: 'You are on the Document Index, feel free to browse.'

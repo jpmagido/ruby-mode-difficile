@@ -30,6 +30,10 @@
           <%= t('users.students') %>
         </p>
       <% end %>
+      <p>
+        <%= t('users.linkedin-sync') %>
+        <%= current_user.linkedin_session ? t('shared.booleans.true') : t('shared.booleans.false') %>
+      </p>
     </div>
 
     <br>
@@ -45,14 +49,13 @@
         <p> <%= link_to t('static_pages.link-coach'), new_login_coach_path, class: 'button' %> </p>
       <% end %>
       <p> <%= link_to t('static_pages.challenge-link'), login_challenges_path, class: 'button' %></p>
-      <p> <%= link_to t('static_pages.contact-link'), login_challenges_path, class: 'button' %> </p>
+      <p> <%= link_to t('static_pages.contact-link'), new_linkedin_session_path, class: 'button' %> </p>
     </div>
   </div>
 </div>
 
 <br>
 <hr>
-
 
 <!-- TODO EDIT DELETE after create answer index -->
 <div>

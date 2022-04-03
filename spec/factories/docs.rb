@@ -5,6 +5,7 @@ FactoryBot.define do
     title { FFaker::Book.title }
     tags { 'foo bar foobar' }
     status { :pending }
-    content { FFaker::Book.description }
+    content_fr { FFaker::Book.description }
+    content_en { FFaker::Book.description }
   end
 end

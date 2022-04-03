@@ -9,6 +9,8 @@ fr:
       title: 'Titre'
       tags: 'Tags'
       content: 'Contenu'
+      content-fr: 'Contenu FR'
+      content-en: 'Contenu EN'
     index:
       title: 'Index des Ressources (total: %{total})'
       title-phrase-1: "Vous êtes sur l'Index de la bibliothèque qui répertorie la documentation"

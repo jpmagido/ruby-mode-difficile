@@ -39,13 +39,13 @@ RSpec.describe 'Staff::DocsController', type: :request do
   end
 
   describe 'POST /create' do
-    let(:create_params) { { doc: { title: 'foobar-title', tags: '#foo', content: '<p> foobar </p>' } } }
+    let(:create_params) { { doc: { title: 'foobar-title', tags: '#foo', content_fr: '<p> foobar </p>', content_en: '<p> foobar </p>' } } }
 
     it { expect { post staff_docs_path, params: create_params }.to change(Doc, :count).by 1 }
   end
 
   describe 'PATCH /update' do
-    let(:update_params) { { doc: { title: 'foobar-title', tags: '#foo', content: '<p> foobar </p>' } } }
+    let(:update_params) { { doc: { title: 'foobar-title', tags: '#foo', content_fr: '<p> foobar </p>', content_en: '<p> foobar </p>' } } }
 
     it { expect { patch staff_doc_path(doc), params: update_params }.to change { doc.reload.title }.to('foobar-title') }
   end

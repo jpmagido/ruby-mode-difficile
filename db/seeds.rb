@@ -16,11 +16,6 @@ def create_challenges(number = 10)
   puts "#{number} challenges created with each 3 answers each"
 end
 
-def perform
-  create_users(20)
-  create_challenges(15)
-end
-
 def jpmagido_user
   User.where.not(login: 'jpmagido').destroy_all
   User.find_by_login('jpmagido')
@@ -37,12 +32,18 @@ def build
 end
 
 def seed_doc
-  FactoryBot.create_list(:doc_link, 10)
+  FactoryBot.create_list(:doc, 10, status: :ready)
+            .each { |doc| FactoryBot.create(:doc_link, doc: doc) }
 
   p '10 Docs and their links have been created'
 end
 
-destroy_all
-build if jpmagido_user
-seed_doc
+def perform
+  destroy_all
+  create_users(20)
+  create_challenges(15)
+  build if jpmagido_user
+  seed_doc
+end
+
 perform

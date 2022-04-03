@@ -133,7 +133,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_05_151121) do
   create_table "docs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
     t.string "tags"
-    t.text "content"
+    t.text "content_fr"
+    t.text "content_en"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

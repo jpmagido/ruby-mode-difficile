@@ -57,7 +57,7 @@ module Staff
     end
 
     def doc_params
-      params.require(:doc).permit(:title, :content, :tags)
+      params.require(:doc).permit(:title, :content_fr, :content_en, :tags)
     end
   end
 end

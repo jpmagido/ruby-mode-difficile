@@ -19,7 +19,11 @@
 <div>
   <div> <%= t('docs.attr.content') %> </div>
   <br>
-  <div> <%= doc.content %> </div>
+  <% if I18n.locale == :fr %>
+    <div> <%= doc.content_fr %> </div>
+  <% else %>
+    <div> <%= doc.content_en %> </div>
+  <% end %>
 </div>
 <br>
 <div>
